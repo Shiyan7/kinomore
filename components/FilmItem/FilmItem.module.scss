@@ -2,13 +2,13 @@
     max-width: 100%;
 }
 
-.poster {
+.top {
     position: relative;
     display: block;
     height: 350px;
     margin-bottom: 20px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 576px) {
         height: 250px;
     }
 }
@@ -81,17 +81,17 @@
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 10px;
-    color: #fff;
+    color: var(--color-light-dark);
     transition: color 0.3s;
 
     &:hover {
-        color: rgba(#fff, 0.8);
+        color: var(--color-primary);
     }
 }
 
 .info {
     display: block;
-    color: rgba(#fff, 0.8);
+    color: rgba(var(--color-light-dark), 0.8);
 }
 
 .favorite {

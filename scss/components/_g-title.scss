@@ -3,10 +3,10 @@
     font-size: 30px;
     line-height: 30px;
     font-weight: 500;
-    color: #fff;
+    color: var(--color-light-dark);
 
     @media (max-width: 576px) {
-        font-size: 18px;
-        line-height: 18px;
+        font-size: 20px;
+        line-height: 20px;
     }
 }

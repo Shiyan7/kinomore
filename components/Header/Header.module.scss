@@ -1,4 +1,9 @@
 .header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
     background-color: var(--color-dark);
 }
 
@@ -14,9 +19,8 @@
     }
 }
 
-.top {
+.menu {
     position: relative;
-    z-index: 100;
     display: flex;
     align-items: center;
     padding-top: 22px;
