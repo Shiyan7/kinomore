@@ -30,6 +30,7 @@
         .dropdown {
             opacity: 1;
             visibility: visible;
+            height: 330px;
         }
     }
 }
@@ -85,7 +86,9 @@
     border-radius: 0 0 10px 10px;
     background-color: var(--color-light-dark);
     box-shadow: 0 3.4rem 2.5rem rgb(0 0 0 / 12%), 0 1.2rem 3.2rem rgb(0 0 0 / 16%), 0 5rem 5.6rem rgb(0 0 0 / 24%);
-    transition: opacity 0.3s, visibility 0.3s;
+    transition: opacity 0.3s, visibility 0.3s, height 0.3s;
+    overflow: hidden;
+    height: 0;
 
     @media (max-width: 1024px) {
         width: 220px;
@@ -98,6 +101,7 @@
         padding-left: var(--container-offset);
         padding-right: var(--container-offset);
         border-radius: 0;
+        background-color: #333;
     }
 }
 
