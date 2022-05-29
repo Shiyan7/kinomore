@@ -24,9 +24,7 @@ export const Header = () => {
                     <div className={styles.burger}>
                         <FiMenu />
                     </div>
-                    <Link href="/">
-                        <a className={styles.logo}>Kinomore</a>
-                    </Link>
+                    <span className={styles.logo}>Kinomore</span>
                     <div className={styles.dropdown}>
                         <ul className={classNames('list-reset', styles.dropdownList)}>
                             {items.map(el => (

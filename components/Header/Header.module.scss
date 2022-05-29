@@ -83,7 +83,7 @@
     width: 280px;
     padding: 85px 30px 30px;
     border-radius: 0 0 10px 10px;
-    background-color: #333;
+    background-color: var(--color-light-dark);
     box-shadow: 0 3.4rem 2.5rem rgb(0 0 0 / 12%), 0 1.2rem 3.2rem rgb(0 0 0 / 16%), 0 5rem 5.6rem rgb(0 0 0 / 24%);
     transition: opacity 0.3s, visibility 0.3s;
 
@@ -248,7 +248,7 @@
     color: #fff;
 
     @media (max-width: 768px) {
-        right: 5px;
+        right: 10px;
         fill: #000;
     }
 
