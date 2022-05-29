@@ -13,7 +13,11 @@ export const Header = () => {
     const ref = useRef(null)
     const router = useRouter()
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(!open)
+    const handleOpen = () => {
+        setOpen(!open)
+    }
+
+    useOnClickOutside(ref, () => setOpen(false))
 
     const items = [
         {icon: <FiHome />, href: '/', text: 'Главная'},
@@ -22,8 +26,6 @@ export const Header = () => {
         {icon: <FiHeart />, href: '/favorites', text: 'Избранное'},
         {icon: <FiUser />, href: '/auth', text: 'Войти'}
     ]
-
-    useOnClickOutside(ref, handleOpen)
 
     return (
         <header className={styles.header}>
