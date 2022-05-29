@@ -21,12 +21,12 @@
     gap: 30px;
 
     @media (max-width: 1024px) {
-        column-gap: 25px;
+        column-gap: 20px;
         grid-template-columns: repeat(3, 1fr);
     }
 
     @media (max-width: 768px) {
-        column-gap: 20px;
+        column-gap: 15px;
         grid-template-columns: repeat(2, 1fr);
     }
 }

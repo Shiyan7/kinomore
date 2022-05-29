@@ -4,10 +4,16 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Search } from '../Search/Search'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import OutsideClickHandler from 'react-outside-click-handler';
+import { useOnClickOutside } from 'usehooks-ts'
 
 export const Header = () => {
+
+    const ref = useRef(null)
+    const router = useRouter()
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(!open)
 
     const items = [
         {icon: <FiHome />, href: '/', text: 'Главная'},
@@ -17,40 +23,34 @@ export const Header = () => {
         {icon: <FiUser />, href: '/auth', text: 'Войти'}
     ]
 
-    const router = useRouter()
-    const [open, setOpen] = useState(false);
-
-    const handleOpen = () => setOpen(!open)
+    useOnClickOutside(ref, handleOpen)
 
     return (
         <header className={styles.header}>
             <div className={classNames('container', styles.container)}>
-                
-                <OutsideClickHandler onOutsideClick={handleOpen}>
-                    <div className={styles.top}>
-                        <button
-                            className={classNames('btn-reset', styles.burger)}
-                            onClick={handleOpen}
-                        >
-                            <FiMenu />
-                        </button>
-                        <span className={styles.logo}>Kinomore</span>
-                        <div className={classNames(styles.dropdown, open && styles.dropdownOpen)}>
-                            <ul className={classNames('list-reset', styles.dropdownList)}>
-                                {items.map(el => (
-                                    <li key={el.text} className={styles.dropdownItem}>
-                                        <Link href={el.href}>
-                                            <a className={classNames(styles.dropdownLink, router.pathname === el.href && styles.dropdownLinkActive)}>
-                                                {el.icon}
-                                                {el.text}
-                                            </a>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                <div ref={ref} className={styles.top}>
+                    <button
+                        className={classNames('btn-reset', styles.burger)}
+                        onClick={handleOpen}
+                    >
+                        <FiMenu />
+                    </button>
+                    <span className={styles.logo}>Kinomore</span>
+                    <div className={classNames(styles.dropdown, open && styles.dropdownOpen)}>
+                        <ul className={classNames('list-reset', styles.dropdownList)}>
+                            {items.map(el => (
+                                <li key={el.text} className={styles.dropdownItem}>
+                                    <Link href={el.href}>
+                                        <a className={classNames(styles.dropdownLink, router.pathname === el.href && styles.dropdownLinkActive)}>
+                                            {el.icon}
+                                            {el.text}
+                                        </a>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                </OutsideClickHandler>
+                </div>
                 <Search />
                 <Link href="/auth">
                     <a className={styles.link}>Войти</a>
