@@ -12,6 +12,7 @@ export const Search = () => {
 
     const submitForm = (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
         e.preventDefault()
+        setSearch('')
     }
 
     return (

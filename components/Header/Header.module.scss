@@ -30,7 +30,6 @@
         .dropdown {
             opacity: 1;
             visibility: visible;
-            height: 330px;
         }
     }
 }
@@ -78,21 +77,15 @@
 .dropdown {
     position: absolute;
     top: 0;
-    left: -30px;
+    left: -25px;
     opacity: 0;
     visibility: hidden;
-    width: 280px;
-    padding: 85px 30px 30px;
+    width: 240px;
+    padding: 85px 25px 30px;
     border-radius: 0 0 10px 10px;
     background-color: var(--color-light-dark);
     box-shadow: 0 3.4rem 2.5rem rgb(0 0 0 / 12%), 0 1.2rem 3.2rem rgb(0 0 0 / 16%), 0 5rem 5.6rem rgb(0 0 0 / 24%);
-    transition: opacity 0.3s, visibility 0.3s, height 0.3s;
-    overflow: hidden;
-    height: 0;
-
-    @media (max-width: 1024px) {
-        width: 220px;
-    }
+    transition: opacity 0.3s, visibility 0.3s;
 
     @media (max-width: 768px) {
         box-shadow: none;
@@ -214,7 +207,7 @@
     line-height: 14px;
     border-radius: 5px;
     font-weight: 400;
-    width: 444px;
+    width: 400px;
     height: 100%;
     background-color: #fff;
 
