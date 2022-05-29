@@ -3,7 +3,7 @@ import {FiFilm, FiMenu, FiHome, FiUser, FiTv, FiHeart, FiSearch} from 'react-ico
 import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Search } from './Search'
+import { Search } from '../Search/Search'
 
 export const Header = () => {
 

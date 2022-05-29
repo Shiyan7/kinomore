@@ -1,0 +1,14 @@
+.g-btn {
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--color-white);
+    font-weight: 500;
+    padding: 11px 15px;
+    border-radius: 5px;
+    background-color: var(--color-primary);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: var(--color-dark-primary);
+    }
+}

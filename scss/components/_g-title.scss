@@ -1,0 +1,12 @@
+.g-title {
+    margin: 0;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 500;
+    color: #fff;
+
+    @media (max-width: 576px) {
+        font-size: 22px;
+        line-height: 22px;
+    }
+}

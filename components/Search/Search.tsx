@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import {FiSearch} from 'react-icons/fi'
-import styles from './Header.module.scss'
+import styles from './Search.module.scss'
 import classNames from 'classnames'
 
 export const Search = () => {
