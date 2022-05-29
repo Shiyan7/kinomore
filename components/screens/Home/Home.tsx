@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { FC } from "react";
 import { IFilms } from "../../../types/IData";
-import { FilmItem } from "../../FilmItem/FilmItem";
+import { Hero } from "./components/Hero/Hero";
 import { PopularFilms } from "./components/PopularFilms/PopularFilms";
 
 interface HomeProps {
@@ -11,8 +10,6 @@ interface HomeProps {
 export const Home: FC<HomeProps> = ({data}) => {
 
     return (
-        <div className="container">
-            <PopularFilms films={data?.docs} />
-        </div>
+        <PopularFilms films={data?.docs} />
     )
 }

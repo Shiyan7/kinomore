@@ -16,7 +16,9 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
                 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
             </Head>
             <Header />
-            {children}
+            <main className='main'>
+                {children}
+            </main>
             <Script src="https://kinobd.ru/js/player_.js" strategy="lazyOnload" />
         </>
     )

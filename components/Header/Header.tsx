@@ -1,5 +1,5 @@
 import styles from './Header.module.scss'
-import {FiFilm, FiMenu, FiHome, FiUser, FiTv, FiHeart} from 'react-icons/fi'
+import {FiFilm, FiMenu, FiHome, FiUser, FiTv, FiHeart, FiX} from 'react-icons/fi'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -27,14 +27,14 @@ export const Header = () => {
     ]
 
     return (
-        <header ref={ref} className={styles.header}>
+        <header className={styles.header}>
             <div className={classNames('container', styles.container)}>
                 <div ref={ref} className={styles.menu}>
                     <button
                         className={classNames('btn-reset', styles.burger)}
                         onClick={handleOpen}
                     >
-                        <FiMenu />
+                        {open ? <FiX /> : <FiMenu /> }
                     </button>
                     <span className={styles.logo}>Kinomore</span>
                     <div className={classNames(styles.dropdown, open && styles.dropdownOpen)}>

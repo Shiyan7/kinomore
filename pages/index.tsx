@@ -16,8 +16,6 @@ const Index: NextPage<IndexProps> = ({data}) => {
 }
 
 export const getStaticProps = wrapper.getStaticProps(store => async () => {
-  const state = await store.getState()
-
   const { data } = await store.dispatch(getFilms.initiate(''))
 
   return {

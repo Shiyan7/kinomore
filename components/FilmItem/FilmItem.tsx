@@ -32,7 +32,7 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
                 <button className={classNames('btn-reset', styles.favorite)}><FiBookmark /></button>
             </div>
             <Link href='#'>
-                <a className={styles.title}>{item.names[0].name}</a>
+                <a className={styles.title}>{item.names[0]?.name}</a>
             </Link>
             <span className={styles.info}>{item.year}, {item.type === 'movie' ? 'фильм' : 'сериал'}</span>
         </li>

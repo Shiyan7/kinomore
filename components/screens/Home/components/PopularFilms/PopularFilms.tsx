@@ -11,7 +11,7 @@ interface PopularFilmsProps {
 export const PopularFilms: FC<PopularFilmsProps> = ({films}) => {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <div className={classNames('container', styles.container)}>
         <div className={styles.top}>
           <h2 className={classNames('g-title', styles.title)}>Популярные фильмы</h2>
           <a href="#" className='g-btn'>Смотреть все</a>
