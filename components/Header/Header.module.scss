@@ -83,7 +83,7 @@
     opacity: 0;
     visibility: hidden;
     width: 240px;
-    padding: 80px 25px 30px;
+    padding: 85px 25px 30px;
     border-radius: 0 0 10px 10px;
     background-color: var(--color-light-dark);
     box-shadow: 0 3.4rem 2.5rem rgb(0 0 0 / 12%), 0 1.2rem 3.2rem rgb(0 0 0 / 16%), 0 5rem 5.6rem rgb(0 0 0 / 24%);
@@ -93,6 +93,7 @@
         box-shadow: none;
         width: 100%;
         left: 0;
+        padding-top: 80px;
         padding-left: var(--container-offset);
         padding-right: var(--container-offset);
         border-radius: 0;

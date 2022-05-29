@@ -3,12 +3,6 @@
     padding-bottom: 50px;
 }
 
-.title {
-    @media (max-width: 576px) {
-        margin-bottom: 20px;
-    }
-}
-
 .top {
     display: flex;
     align-items: center;
@@ -17,8 +11,7 @@
     margin-bottom: 35px;
 
     @media (max-width: 576px) {
-        align-items: flex-start;
-        flex-direction: column;
+        margin-bottom: 25px;
     }
 }
 

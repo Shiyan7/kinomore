@@ -64,6 +64,10 @@
     background-color: var(--color-primary);
     border-radius: 5px;
 
+    @media (max-width: 1024px) {
+        left: 10px;
+    }
+
     svg {
         width: 14px;
         height: 14px;
@@ -72,7 +76,7 @@
 }
 
 .title {
-    display: block;
+    display: inline-block;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
@@ -86,6 +90,7 @@
 }
 
 .info {
+    display: block;
     color: rgba(#fff, 0.8);
 }
 

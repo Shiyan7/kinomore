@@ -1,4 +1,6 @@
 .g-btn {
+    display: inline-block;
+    white-space: nowrap;
     font-size: 16px;
     line-height: 16px;
     color: var(--color-white);
@@ -7,6 +9,12 @@
     border-radius: 5px;
     background-color: var(--color-primary);
     transition: background-color 0.3s ease;
+
+    @media (max-width: 576px) {
+        padding: 7px 9px;
+        font-size: 13px;
+        line-height: 13px;
+    }
 
     &:hover {
         background-color: var(--color-dark-primary);
