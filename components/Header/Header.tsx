@@ -22,7 +22,8 @@ export const Header = () => {
         {icon: <FiHome />, href: '/', text: 'Главная'},
         {icon: <FiFilm />, href: '/films', text: 'Фильмы'},
         {icon: <FiTv />, href: '/series', text: 'Сериалы'},
-        {icon: <FiHeart />, href: '/favorites', text: 'Избранное'}
+        {icon: <FiHeart />, href: '/favorites', text: 'Избранное'},
+        {icon: <FiUser />, href: '/auth', text: 'Войти'}
     ]
 
     return (

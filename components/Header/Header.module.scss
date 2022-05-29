@@ -102,6 +102,7 @@
         width: 100%;
         left: 0;
         padding-top: 80px;
+        padding-bottom: 25px;
         padding-left: var(--container-offset);
         padding-right: var(--container-offset);
         border-radius: 0;
@@ -125,6 +126,7 @@
     font-weight: 400;
     color: #fff;
     opacity: 0.8;
+    transition: opacity 0.3s;
 
     &:before {
         content: "";
