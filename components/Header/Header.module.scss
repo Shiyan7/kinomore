@@ -27,13 +27,6 @@
         background-color: #333;
         padding: 20px var(--container-offset);
     }
-
-    &:hover {
-        .dropdown {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
 }
 
 .burger {
@@ -46,6 +39,12 @@
     width: 24px;
     height: 24px;
     opacity: 0.6;
+    color: #fff;
+    transition: opacity 0.3s;
+
+    &:hover {
+        opacity: 1;
+    }
 
     @media (max-width: 768px) {
         width: 20px;
@@ -88,6 +87,11 @@
     background-color: var(--color-light-dark);
     box-shadow: 0 3.4rem 2.5rem rgb(0 0 0 / 12%), 0 1.2rem 3.2rem rgb(0 0 0 / 16%), 0 5rem 5.6rem rgb(0 0 0 / 24%);
     transition: opacity 0.3s, visibility 0.3s;
+
+    &Open {
+        opacity: 1;
+        visibility: visible;
+    }
 
     @media (max-width: 768px) {
         box-shadow: none;
