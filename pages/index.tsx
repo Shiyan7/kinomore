@@ -11,8 +11,13 @@ const Index: NextPage = () => {
 }
 
 export const getStaticProps = wrapper.getStaticProps(store => async () => {
+
   await store.dispatch(getNewFilms.initiate(''))
   await store.dispatch(getPopularFilm.initiate(''))
+
+  return {
+    props: {}
+  }
 })
 
 export default Index

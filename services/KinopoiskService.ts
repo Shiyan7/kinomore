@@ -9,7 +9,7 @@ export const kinopoiskAPI = createApi({
   endpoints: (build) => ({
     getNewFilms: build.query<IData, ''>({
       query: () =>
-        `/movie?field=year&lang=ru&search=2022&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`,
+        `/movie?field=year&search=2022&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`,
     }),
     getPopularFilm: build.query<IFilm, ''>({
       query: () =>
