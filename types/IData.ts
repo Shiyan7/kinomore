@@ -1,6 +1,6 @@
 import { IFilm } from "./IFilm";
 
-export interface IFilms {
+export interface IData {
     docs: IFilm[];
     total: number;
     limit: number;

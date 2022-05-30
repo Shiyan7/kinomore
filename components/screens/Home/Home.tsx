@@ -1,15 +1,12 @@
-import { FC } from "react";
-import { IFilms } from "../../../types/IFilms";
 import { Hero } from "./components/Hero/Hero";
 import { NewMovies } from "./components/NewMovies/NewMovies";
 
-interface HomeProps {
-    data: IFilms | undefined
-}
-
-export const Home: FC<HomeProps> = ({data}) => {
+export const Home = () => {
 
     return (
-        <NewMovies films={data?.docs} />
+        <>
+            <Hero />
+            <NewMovies />
+        </>
     )
 }

@@ -4,7 +4,7 @@ const withPlugins = require('next-compose-plugins');
 
 const nextConfig = {
     images: {
-        domains: ['st.kp.yandex.net'],
+        domains: ['st.kp.yandex.net', 'avatars.mds.yandex.net', 'www.themoviedb.org'],
     }
 };
 

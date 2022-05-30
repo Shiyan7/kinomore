@@ -1,5 +1,6 @@
 .g-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     white-space: nowrap;
     font-size: 16px;
     line-height: 16px;
@@ -8,7 +9,13 @@
     padding: 11px 15px;
     border-radius: 5px;
     background-color: var(--color-primary);
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+    }
 
     @media (max-width: 576px) {
         padding: 7px 9px;
@@ -18,5 +25,15 @@
 
     &:hover {
         background-color: var(--color-dark-primary);
+    }
+
+    &--white {
+        color: var(--color-primary);
+        background-color: var(--color-white);
+
+        &:hover {
+            color: var(--color-white);
+            background-color: var(--color-primary);
+        }
     }
 }

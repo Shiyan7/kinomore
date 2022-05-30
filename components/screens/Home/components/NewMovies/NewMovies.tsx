@@ -1,14 +1,13 @@
 import { FC } from 'react'
-import { IFilm } from '../../../../../types/IFilm'
 import { FilmItem } from '../../../../FilmItem/FilmItem'
 import styles from './NewMovies.module.scss'
 import classNames from 'classnames'
+import { useGetNewFilmsQuery } from '../../../../../services/KinopoiskService'
 
-interface NewMoviesProps {
-    films: IFilm[] | undefined
-}
+export const NewMovies: FC = () => {
 
-export const NewMovies: FC<NewMoviesProps> = ({films}) => {
+  const {data} = useGetNewFilmsQuery('')
+
   return (
     <section className={styles.section}>
       <div className={classNames('container', styles.container)}>
@@ -17,7 +16,7 @@ export const NewMovies: FC<NewMoviesProps> = ({films}) => {
           <a href="#" className='g-btn'>Смотреть все</a>
         </div>
         <ul className={classNames('list-reset', styles.grid)}>
-          {films?.map(el => (
+          {data?.docs?.map(el => (
               <FilmItem key={el.id} item={el} />
           ))}
         </ul>
