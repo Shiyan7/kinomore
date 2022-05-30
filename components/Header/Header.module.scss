@@ -72,6 +72,10 @@
     text-transform: uppercase;
     color: var(--color-white);
     font-family: "Oswald", sans-serif;
+
+    span {
+        color: var(--color-primary);
+    }
     
     @media (max-width: 768px) {
         font-size: 20px;
