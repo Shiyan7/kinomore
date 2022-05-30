@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IFilms } from "../../../types/IData";
+import { IFilms } from "../../../types/IFilms";
 import { Hero } from "./components/Hero/Hero";
 import { NewMovies } from "./components/NewMovies/NewMovies";
 
