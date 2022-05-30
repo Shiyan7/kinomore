@@ -6,7 +6,7 @@
     line-height: 16px;
     color: var(--color-white);
     font-weight: 500;
-    padding: 11px 15px;
+    padding: 13px 15px;
     border-radius: 5px;
     background-color: var(--color-primary);
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -14,21 +14,26 @@
     svg {
         width: 16px;
         height: 16px;
-        margin-right: 10px;
+        margin-left: 10px;
+        transition: transform 0.3s;
 
         @media (max-width: 576px) {
-            margin-right: 5px;
+            margin-left: 6px;
         }
     }
 
     @media (max-width: 576px) {
-        padding: 7px 9px;
+        padding: 8px 9px;
         font-size: 13px;
         line-height: 13px;
     }
 
     &:hover {
         background-color: var(--color-dark-primary);
+
+        svg {
+            transform: translateX(2px);
+        }
     }
 
     &--white {

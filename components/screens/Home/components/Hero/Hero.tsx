@@ -1,8 +1,6 @@
 import classNames from 'classnames'
-import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
-import { FiPlay, FiBookmark } from 'react-icons/fi'
+import { FiArrowRight } from 'react-icons/fi'
 import { useGetPopularFilmQuery } from '../../../../../services/KinopoiskService'
 import styles from './Hero.module.scss'
 import LinesEllipsis from 'react-lines-ellipsis'
@@ -23,20 +21,12 @@ export const Hero = () => {
         className={styles.desc}
         maxLine={5}   
       />
-      <div className={styles.btns}>
-        <Link href=''>
-          <a className={classNames('g-btn', styles.btn)}>
-            <FiPlay />
-            Смотреть
-          </a>
-        </Link>
-        <Link href=''>
-          <a className={classNames('g-btn g-btn--white', styles.btn)}>
-            <FiBookmark />
-            Добавить в избранное
-          </a>
-        </Link>
-      </div>
+      <Link href='#'>
+        <a className={classNames('g-btn', styles.link)}>
+          Подробнее
+          <FiArrowRight />
+        </a>
+      </Link>
     </>
   )
 
