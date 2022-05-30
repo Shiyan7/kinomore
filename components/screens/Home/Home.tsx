@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { IFilms } from "../../../types/IData";
 import { Hero } from "./components/Hero/Hero";
-import { PopularFilms } from "./components/PopularFilms/PopularFilms";
+import { NewMovies } from "./components/NewMovies/NewMovies";
 
 interface HomeProps {
     data: IFilms | undefined
@@ -10,6 +10,6 @@ interface HomeProps {
 export const Home: FC<HomeProps> = ({data}) => {
 
     return (
-        <PopularFilms films={data?.docs} />
+        <NewMovies films={data?.docs} />
     )
 }
