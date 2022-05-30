@@ -41,15 +41,7 @@ export const Hero = () => {
   )
 
   return (
-    <section className={styles.section}>
-      {!isLoading && !isError &&
-        <Image
-          className={styles.image}
-          src={backdrop?.url}
-          layout='fill'
-          alt={shortDescription}
-        />
-      }
+    <section style={{backgroundImage: `url(${backdrop?.url})`}} className={styles.section}>
       <div className={classNames('container', styles.container)}>
         <div className={styles.content}>
           {!isLoading && !isError && <HeroContent />}
