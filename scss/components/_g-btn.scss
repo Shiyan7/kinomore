@@ -15,6 +15,10 @@
         width: 16px;
         height: 16px;
         margin-right: 10px;
+
+        @media (max-width: 576px) {
+            margin-right: 5px;
+        }
     }
 
     @media (max-width: 576px) {
