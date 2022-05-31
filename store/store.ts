@@ -1,17 +1,40 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, PreloadedState } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
 import { kinopoiskAPI } from "../services/KinopoiskService";
+import { useMemo } from 'react'
 
-export const makeStore = () =>
-    configureStore({
-        reducer: {
-            [kinopoiskAPI.reducerPath]: kinopoiskAPI.reducer
-        },
-        middleware: getDefaultMiddleware => getDefaultMiddleware().concat(kinopoiskAPI.middleware) 
-    });
+let store: AppStore
 
-export type AppStore = ReturnType<typeof makeStore>
+export function initStore(preloadedState = {}) {
+  return configureStore({
+    reducer: {
+      [kinopoiskAPI.reducerPath]: kinopoiskAPI.reducer,
+    },
+    preloadedState,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(kinopoiskAPI.middleware),
+  });
+}
+
+export const initializeStore = (preloadedState: PreloadedState<RootState>) => {
+  let _store = store ?? initStore(preloadedState)
+
+  if (preloadedState && store) {
+    _store = initStore({...store.getState(), ...preloadedState})
+  }
+
+  if (typeof window === 'undefined') return _store
+  if (!store) store = _store
+
+  return _store
+}
+
+export function useStore(initialState: RootState) {
+  const store = useMemo(() => initializeStore(initialState), [initialState])
+  return store
+}
+
+export type AppStore = ReturnType<typeof initStore>
 export type AppDispatch = AppStore['dispatch']
 export type RootState = ReturnType<AppStore['getState']>
 
-export const wrapper = createWrapper<AppStore>(makeStore, {debug: false})
+export const wrapper = createWrapper<AppStore>(initStore, {debug: false})

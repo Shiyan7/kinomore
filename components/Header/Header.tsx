@@ -36,7 +36,9 @@ export const Header = () => {
                     >
                         {open ? <FiX /> : <FiMenu /> }
                     </button>
-                    <span className={styles.logo}>Kino<span>more</span></span>
+                    <Link href='/'>
+                        <a className={styles.logo}>Kino<span>more</span></a>
+                    </Link>
                     <div className={classNames(styles.dropdown, open && styles.dropdownOpen)}>
                         <ul className={classNames('list-reset', styles.dropdownList)}>
                             {items.map(el => (

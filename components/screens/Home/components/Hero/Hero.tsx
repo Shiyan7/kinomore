@@ -4,14 +4,21 @@ import { FiArrowRight } from 'react-icons/fi'
 import { useGetPopularFilmQuery } from '../../../../../services/KinopoiskService'
 import styles from './Hero.module.scss'
 import LinesEllipsis from 'react-lines-ellipsis'
+import { useRef } from 'react'
+import { useEffect } from 'react'
+const trailerUrl = require('../../../../../public/trailer.mp4')
 
 export const Hero = () => {
 
   const {data, isLoading, isError} = useGetPopularFilmQuery('')
 
-  const {backdrop, shortDescription, name, description} = {...data}
+  const {shortDescription, name, description, id} = {...data}
 
-  console.log(data);
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    videoRef.current?.play()
+  }, [])
 
   const HeroContent = () => (
     <>
@@ -21,7 +28,7 @@ export const Hero = () => {
         className={styles.desc}
         maxLine={5}   
       />
-      <Link href='#'>
+      <Link href={`/films/${id}`}>
         <a className={classNames('g-btn', styles.link)}>
           Подробнее
           <FiArrowRight />
@@ -31,7 +38,17 @@ export const Hero = () => {
   )
 
   return (
-    <section style={{backgroundImage: `url(${backdrop?.url})`}} className={styles.section}>
+    <section className={styles.section}>
+      <video
+        ref={videoRef}
+        className={styles.video}
+        src={trailerUrl}
+        playsInline
+        muted
+        autoPlay
+        loop
+      >
+      </video>
       <div className={classNames('container', styles.container)}>
         <div className={styles.content}>
           {!isLoading && !isError && <HeroContent />}

@@ -15,7 +15,7 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
     return (
         <li className={styles.item}>
             <div className={styles.top}>
-                <Link href='#'>
+                <Link href={`/films/${item.id}`}>
                     <a className={styles.imageContainer}>
                         <Image
                             className={styles.image}
@@ -31,7 +31,7 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
                 </span>
                 <button className={classNames('btn-reset', styles.favorite)}><FiBookmark /></button>
             </div>
-            <Link href='#'>
+            <Link href={`/films/${item.id}`}>
                 <a className={styles.title}>{item.names[0]?.name}</a>
             </Link>
             <span className={styles.info}>{item.year}, {item.type === 'movie' ? 'фильм' : 'сериал'}</span>

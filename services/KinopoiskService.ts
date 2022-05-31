@@ -13,7 +13,10 @@ export const kinopoiskAPI = createApi({
     }),
     getPopularFilm: build.query<IFilm, ''>({
       query: () =>
-        `/movie?field=id&search=409424&token=${API_TOKEN}`,
+        `/movie?field=id&search=1219909&token=${API_TOKEN}`,
+    }),
+    getFilmById: build.query<IFilm, any>({
+      query: (id) => `/movie?search=${id}&field=id&token=${API_TOKEN}`
     }),
     getNewSeries: build.query<IData, ''>({
       query: () =>
@@ -22,5 +25,16 @@ export const kinopoiskAPI = createApi({
   }),
 });
 
-export const {useGetNewFilmsQuery, useGetPopularFilmQuery} = kinopoiskAPI
-export const {getNewFilms, getPopularFilm, getNewSeries} = kinopoiskAPI.endpoints
+export const {
+  useGetNewFilmsQuery,
+  useGetPopularFilmQuery,
+  useGetNewSeriesQuery,
+  useGetFilmByIdQuery,
+} = kinopoiskAPI;
+
+export const {
+  getNewFilms,
+  getPopularFilm,
+  getNewSeries,
+  getFilmById
+} = kinopoiskAPI.endpoints;
