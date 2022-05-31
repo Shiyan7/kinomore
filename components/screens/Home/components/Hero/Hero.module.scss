@@ -5,6 +5,11 @@
     background-position: center;
     background-color: var(--color-light-dark);
     overflow: hidden;
+    margin-bottom: 80px;
+
+    @media (max-width: 576px) {
+        margin-bottom: 40px;
+    }
 
     &::before {
         content: "";
