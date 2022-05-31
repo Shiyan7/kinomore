@@ -28,7 +28,7 @@ export const Hero = () => {
         className={styles.desc}
         maxLine={5}   
       />
-      <Link href={`/films/${id}`}>
+      <Link href={`/film/${id}`}>
         <a className={classNames('g-btn', styles.link)}>
           Подробнее
           <FiArrowRight />

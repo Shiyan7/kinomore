@@ -16,7 +16,7 @@ export const Film = () => {
             <div className={classNames('container', styles.container)}>
                 <div className={styles.image}>
                     <Image
-                        src={poster?.url}
+                        src={`${poster?.url}`}
                         layout='fill'
                         alt={shortDescription}
                     />
