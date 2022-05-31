@@ -7,7 +7,6 @@ const nextConfig = {
     images: {
         domains: ['st.kp.yandex.net', 'avatars.mds.yandex.net', 'www.themoviedb.org'],
     },
-    maximumFileSizeToCacheInBytes: 5000000,
 };
 
 module.exports = withPlugins([
