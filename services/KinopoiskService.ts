@@ -7,16 +7,16 @@ export const kinopoiskAPI = createApi({
   reducerPath: 'kinopoiskAPI',
   baseQuery: fetchBaseQuery({baseUrl: API_URL}),
   endpoints: (build) => ({
-    getNewFilms: build.query<IData, ''>({
-      query: () =>
-        `/movie?field=year&search=2022&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`,
-    }),
     getFilmById: build.query<IFilm, any>({
       query: (id) => `/movie?search=${id}&field=id&token=${API_TOKEN}`
     }),
+    getNewFilms: build.query<IData, ''>({
+      query: () =>
+        `/movie?field=rating.kp&search=5-10&field=year&search=2022&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`
+    }),
     getNewSeries: build.query<IData, ''>({
       query: () =>
-        `/movie?field=year&search=2022&field=typeNumber&search=2&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`,
+        `/movie?field=rating.kp&search=5-10&field=year&search=2022&field=typeNumber&search=2&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`,
     }),
   }),
 });

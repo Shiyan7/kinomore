@@ -10,17 +10,17 @@ export const Footer = () => {
         <Logo />
         <ul className={classNames('list-reset', styles.list)}>
           <li className={styles.item}>
-            <Link href='/'>
+            <Link href='/films'>
               <a className={styles.link}>Фильмы</a>
             </Link>
           </li>
           <li className={styles.item}>
-            <Link href='/'>
+            <Link href='/series'>
               <a className={styles.link}>Сериалы</a>
             </Link>
           </li>
           <li className={styles.item}>
-            <Link href='/'>
+            <Link href='/cartoons'>
               <a className={styles.link}>Мультики</a>
             </Link>
           </li>
