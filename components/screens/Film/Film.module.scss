@@ -1,14 +1,120 @@
-.section {
-    padding: 60px 0;
-}
-
 .container {
     padding: 40px 30px;
-    background-color: #fff;    
+    background-color: #fff;
+    
+    @media (max-width: 768px) {
+        padding: 40px 15px;
+    }
+}
+
+.back {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--color-light-dark);
+    margin-bottom: 30px;
+    
+    svg {
+        margin-right: 10px;
+    }
+}
+
+.content {
+    display: flex;
+    margin-bottom: 50px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.left {
+    flex-shrink: 0;
+    margin-right: 50px;
+
+    @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
 }
 
 .image {
     position: relative;
     width: 300px;
-    height: 440px;
+    height: auto;
+    border-radius: 5px;
+    overflow: hidden;
+    object-fit: cover;
+
+    @media (max-width: 576px) {
+        width: 250px;
+    }
+}
+
+.title {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 48px;
+    max-width: 500px;
+    margin-bottom: 20px;
+
+    @media (max-width: 576px) {
+        font-size: 30px;
+        line-height: 38px;
+        margin-bottom: 20px;
+    }
+}
+
+.desc {
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+.infoCaption {
+    display: block;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(#000, 0.5);
+    flex: 0 0 170px;
+
+    @media (max-width: 576px) {
+        flex: 0 0 150px;
+    }
+}
+
+.infoValue {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.video {
+    height: 500px;
+    background-color: var(--color-dark);
+
+    @media (max-width: 576px) {
+        height: 300px;
+    }
 }

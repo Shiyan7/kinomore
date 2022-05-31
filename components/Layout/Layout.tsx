@@ -21,7 +21,6 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
                 {children}
             </main>
             <Footer />
-            <Script src="https://kinobd.ru/js/player_.js" strategy="lazyOnload" />
         </>
     )
 }
