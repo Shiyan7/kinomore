@@ -16,6 +16,7 @@ export const Hero = () => {
 
   return (
     <section className={styles.section}>
+      <h1 className='visually-hidden'>Kinomore — бесплатные фильмы и сериалы</h1>
       <video
         ref={videoRef}
         className={styles.video}

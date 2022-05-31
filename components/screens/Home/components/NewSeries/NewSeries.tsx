@@ -1,18 +1,18 @@
 import { FC } from 'react'
 import { FilmItem } from '../../../../FilmItem/FilmItem'
-import { useGetNewFilmsQuery } from '../../../../../services/KinopoiskService'
+import { useGetNewSeriesQuery } from '../../../../../services/KinopoiskService'
 import Link from 'next/link'
 
-export const NewMovies: FC = () => {
+export const NewSeries: FC = () => {
 
-  const {data} = useGetNewFilmsQuery('')
+  const {data} = useGetNewSeriesQuery('')
 
   return (
     <section>
       <div className='container g-section__container'>
         <div className='g-section__top'>
-          <h2 className='g-title g-section__title'>Фильмы этого года</h2>
-          <Link href='/films'>
+          <h2 className='g-title g-section__title'>Сериалы этого года</h2>
+          <Link href='/series'>
             <a href="#" className='g-btn'>Смотреть все</a>
           </Link>
         </div>
