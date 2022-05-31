@@ -65,21 +65,12 @@
 .logo {
     position: relative;
     z-index: 2;
-    font-size: 28px;
-    line-height: 28px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--color-white);
-    font-family: "Oswald", sans-serif;
-
-    span {
-        color: var(--color-primary);
-    }
+    width: 119px;
+    height: 24px;
     
     @media (max-width: 768px) {
-        font-size: 21px;
-        line-height: 21px;
+        width: 89px;
+        height: 18px;
     }
 }
 

@@ -6,6 +6,8 @@ import { useRouter } from 'next/router'
 import { Search } from '../Search/Search'
 import { useRef, useState } from 'react'
 import { useOnClickOutside } from 'usehooks-ts'
+import logoUrl from '../../public/logo.svg'
+import Image from 'next/image'
 
 export const Header = () => {
 
@@ -37,7 +39,13 @@ export const Header = () => {
                         {open ? <FiX /> : <FiMenu /> }
                     </button>
                     <Link href='/'>
-                        <a className={styles.logo}>Kino<span>more</span></a>
+                        <a className={styles.logo}>
+                            <Image
+                                layout="fill"
+                                src={logoUrl}
+                                alt="Kinomore"
+                            />
+                        </a>
                     </Link>
                     <div className={classNames(styles.dropdown, open && styles.dropdownOpen)}>
                         <ul className={classNames('list-reset', styles.dropdownList)}>
