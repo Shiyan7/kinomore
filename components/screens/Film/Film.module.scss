@@ -111,10 +111,22 @@
 }
 
 .video {
-    height: 500px;
+    max-width: 100%;
+    max-height: 500px;
     background-color: var(--color-dark);
 
+    & > iframe {
+        max-height: 100%;
+    }
+
+    @media (max-width: 768px) {
+        margin-left: calc((var(--container-offset) / -100) * 100) !important;
+        margin-right: calc((var(--container-offset) / -100) * 100) !important;
+        min-width: calc(100% + calc(var(--container-offset) * 2)) !important;
+        max-height: 400px;
+    }
+
     @media (max-width: 576px) {
-        height: 300px;
+        max-height: 300px;
     }
 }
