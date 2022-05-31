@@ -1,0 +1,12 @@
+.g-logo {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    width: 119px;
+    height: 24px;
+    
+    @media (max-width: 768px) {
+        width: 89px;
+        height: 18px;
+    }
+}

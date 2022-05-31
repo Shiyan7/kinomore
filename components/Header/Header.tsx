@@ -1,13 +1,13 @@
 import styles from './Header.module.scss'
 import {FiFilm, FiMenu, FiHome, FiUser, FiTv, FiHeart, FiX} from 'react-icons/fi'
+import {BiMovie} from 'react-icons/bi'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Search } from '../Search/Search'
 import { useRef, useState } from 'react'
 import { useOnClickOutside } from 'usehooks-ts'
-import logoUrl from '../../public/logo.svg'
-import Image from 'next/image'
+import { Logo } from '../Logo/Logo'
 
 export const Header = () => {
 
@@ -24,6 +24,7 @@ export const Header = () => {
         {icon: <FiHome />, href: '/', text: 'Главная'},
         {icon: <FiFilm />, href: '/films', text: 'Фильмы'},
         {icon: <FiTv />, href: '/series', text: 'Сериалы'},
+        {icon: <BiMovie />, href: '/series', text: 'Мультики'},
         {icon: <FiHeart />, href: '/favorites', text: 'Избранное'},
         {icon: <FiUser />, href: '/auth', text: 'Войти'}
     ]
@@ -38,15 +39,7 @@ export const Header = () => {
                     >
                         {open ? <FiX /> : <FiMenu /> }
                     </button>
-                    <Link href='/'>
-                        <a className={styles.logo}>
-                            <Image
-                                layout="fill"
-                                src={logoUrl}
-                                alt="Kinomore"
-                            />
-                        </a>
-                    </Link>
+                    <Logo />
                     <div className={classNames(styles.dropdown, open && styles.dropdownOpen)}>
                         <ul className={classNames('list-reset', styles.dropdownList)}>
                             {items.map(el => (

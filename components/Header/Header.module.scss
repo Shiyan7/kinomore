@@ -62,18 +62,6 @@
     }
 }
 
-.logo {
-    position: relative;
-    z-index: 2;
-    width: 119px;
-    height: 24px;
-    
-    @media (max-width: 768px) {
-        width: 89px;
-        height: 18px;
-    }
-}
-
 .dropdown {
     position: absolute;
     top: 0;
