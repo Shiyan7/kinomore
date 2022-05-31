@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import { Film } from "../../components/screens/Film/Film";
 import { getFilmById } from "../../services/KinopoiskService";
 import { initStore } from "../../store/store";
 
-function FilmPage () {
+const FilmPage: NextPage = () => {
     return (
         <Film />
     )
@@ -16,4 +17,4 @@ export async function getServerSideProps({params}:any) {
     return { props: { initialReduxState: store.getState()}
 }}
 
-export default FilmPage
+export default FilmPage;

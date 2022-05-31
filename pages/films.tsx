@@ -1,6 +1,11 @@
-export default function Films () {
+import { NextPage } from "next";
 
+const FilmsPage: NextPage = () => {
   return (
-    <div>Фильмы</div>
+    <div>
+      Фильмы
+    </div>
   );
-}
+};
+
+export default FilmsPage;

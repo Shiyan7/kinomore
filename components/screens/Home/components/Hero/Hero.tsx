@@ -1,41 +1,18 @@
 import classNames from 'classnames'
 import Link from 'next/link'
 import { FiArrowRight } from 'react-icons/fi'
-import { useGetPopularFilmQuery } from '../../../../../services/KinopoiskService'
 import styles from './Hero.module.scss'
-import LinesEllipsis from 'react-lines-ellipsis'
 import { useRef } from 'react'
 import { useEffect } from 'react'
-const trailerUrl = require('../../../../../public/trailer.mp4')
 
 export const Hero = () => {
 
-  const {data, isLoading, isError} = useGetPopularFilmQuery('')
-
-  const {shortDescription, name, description, id} = {...data}
-
   const videoRef = useRef<HTMLVideoElement>(null)
+  const trailerUrl = require('../../../../../public/trailer.mp4')
 
   useEffect(() => {
     videoRef.current?.play()
   }, [])
-
-  const HeroContent = () => (
-    <>
-      <h2 className={classNames('g-title', styles.title)}>{name}</h2>
-      <LinesEllipsis
-        text={shortDescription ? shortDescription : description}
-        className={styles.desc}
-        maxLine={5}   
-      />
-      <Link href={`/film/${id}`}>
-        <a className={classNames('g-btn', styles.link)}>
-          Подробнее
-          <FiArrowRight />
-        </a>
-      </Link>
-    </>
-  )
 
   return (
     <section className={styles.section}>
@@ -51,7 +28,14 @@ export const Hero = () => {
       </video>
       <div className={classNames('container', styles.container)}>
         <div className={styles.content}>
-          {!isLoading && !isError && <HeroContent />}
+        <h2 className={classNames('g-title', styles.title)}>Доктор Стрэндж: В&nbsp;мультивселенной безумия</h2>
+        <p className={styles.desc}>Продолжение магических приключений Доктора Стрэнджа в новых мистических мирах и в противостоянии с новыми врагами.</p>
+        <Link href='/film/1219909'>
+          <a className={classNames('g-btn', styles.link)}>
+            Подробнее
+            <FiArrowRight />
+          </a>
+        </Link>
         </div>
       </div>
     </section>

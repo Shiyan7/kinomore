@@ -1,9 +1,11 @@
-const favorites = () => {
+import { NextPage } from "next";
+
+const FavoritesPage: NextPage = () => {
     return (
         <div>
-            
+            Избранное
         </div>
     );
 };
 
-export default favorites;
+export default FavoritesPage;

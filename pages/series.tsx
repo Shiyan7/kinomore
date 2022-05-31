@@ -1,10 +1,11 @@
+import { NextPage } from "next";
 
-const series = () => {
+const SeriesPage: NextPage = () => {
     return (
         <div>
-            
+            Сериалы
         </div>
     );
 };
 
-export default series;
+export default SeriesPage;

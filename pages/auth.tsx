@@ -1,9 +1,11 @@
-const auth = () => {
+import { NextPage } from "next";
+
+const AuthPage: NextPage = () => {
     return (
         <div>
-            
+            Авторизация
         </div>
     );
 };
 
-export default auth;
+export default AuthPage;
