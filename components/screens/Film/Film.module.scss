@@ -7,20 +7,6 @@
     }
 }
 
-.back {
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    line-height: 18px;
-    font-weight: 400;
-    color: var(--color-light-dark);
-    margin-bottom: 30px;
-    
-    svg {
-        margin-right: 10px;
-    }
-}
-
 .content {
     display: flex;
     margin-bottom: 50px;
@@ -117,6 +103,7 @@
 
     & > iframe {
         max-height: 100%;
+        width: 100% !important;
     }
 
     @media (max-width: 768px) {

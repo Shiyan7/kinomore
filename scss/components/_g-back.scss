@@ -1,0 +1,13 @@
+.g-back {
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--color-light-dark);
+    margin-bottom: 30px;
+    
+    svg {
+        margin-right: 10px;
+    }
+}

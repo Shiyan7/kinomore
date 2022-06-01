@@ -2,17 +2,26 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 import {FiSearch} from 'react-icons/fi'
 import styles from './Search.module.scss'
 import classNames from 'classnames'
+import { useDispatch } from 'react-redux'
+import { useTypedSelector } from '../../hooks/redux'
+import { setSearch, setValue } from '../../store/reducers/searchSlice'
+import { useRouter } from 'next/router'
 
 export const Search = () => {
-
     
-    const [search, setSearch] = useState('')
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)
+    const dispatch = useDispatch()
+    const router = useRouter();
+    const {value, search} = useTypedSelector(state => state.searchReducer)
+    
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(setValue(e.target.value))
+    }
 
     const submitForm = (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
         e.preventDefault()
-        setSearch('')
+        dispatch(setSearch(value))
+        dispatch(setValue(''))
+        router.push(`/search/${value}`)
     }
 
     return (
@@ -20,7 +29,7 @@ export const Search = () => {
             <input
                 className={classNames('input-reset', styles.search)}
                 type="search"
-                value={search}
+                value={value}
                 onChange={handleChange}
                 placeholder='Поиск...'
             />

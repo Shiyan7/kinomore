@@ -18,6 +18,9 @@ export const kinopoiskAPI = createApi({
       query: () =>
         `/movie?field=rating.kp&search=5-10&field=year&search=2022&field=typeNumber&search=2&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`,
     }),
+    getFilmByName: build.query<IData, any>({
+      query: (name) => `/movie?search=${name}&field=name&limit=15isStrict=false&token=${API_TOKEN}`
+    })
   }),
 });
 
@@ -25,10 +28,12 @@ export const {
   useGetNewFilmsQuery,
   useGetNewSeriesQuery,
   useGetFilmByIdQuery,
+  useGetFilmByNameQuery,
 } = kinopoiskAPI;
 
 export const {
   getNewFilms,
   getNewSeries,
-  getFilmById
+  getFilmById,
+  getFilmByName
 } = kinopoiskAPI.endpoints;
