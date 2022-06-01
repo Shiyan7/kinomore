@@ -19,16 +19,22 @@
 }
 .g-section__grid {
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(222px, 1fr) );
+    grid-template-columns: repeat(5, 1fr);
     gap: 30px;
     row-gap: 50px;
 
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
     @media (max-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
         column-gap: 20px;
     }
 
     @media (max-width: 768px) {
         column-gap: 15px;
         grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
     }
 }

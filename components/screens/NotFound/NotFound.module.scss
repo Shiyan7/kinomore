@@ -1,0 +1,49 @@
+.container {
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 140px;
+
+    @media (max-width: 768px) {
+        padding-top: 60px;
+        padding-bottom: 80px;
+    }
+
+    @media (max-width: 576px) {
+    }
+}
+
+.title {
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 70px;
+    max-width: 450px;
+    margin: 0 auto 30px;
+
+    @media (max-width: 576px) {
+        font-size: 45px;
+        line-height: 50px;
+        margin-bottom: 20px;
+        max-width: 350px;
+    }
+}
+
+.desc {
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 300;
+    max-width: 400px;
+    margin: 0 auto 40px;
+
+    @media (max-width: 576px) {
+        margin-bottom: 25px;
+    }
+}
+
+.link {
+    @media (max-width: 576px) {
+        padding: 13px 15px;
+        font-size: 16px;
+        line-height: 16px;
+    }
+}

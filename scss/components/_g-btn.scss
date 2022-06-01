@@ -2,11 +2,11 @@
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
-    font-size: 16px;
-    line-height: 16px;
     color: var(--color-white);
     font-weight: 500;
     padding: 13px 15px;
+    font-size: 16px;
+    line-height: 16px;
     border-radius: 5px;
     background-color: var(--color-primary);
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -36,13 +36,12 @@
         }
     }
 
-    &--white {
-        color: var(--color-primary);
-        background-color: var(--color-white);
+    &--dark {
+        color: var(--color-white);
+        background-color: var(--color-dark);
 
         &:hover {
-            color: var(--color-white);
-            background-color: var(--color-primary);
+            background-color: #333;
         }
     }
 }

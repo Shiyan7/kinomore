@@ -95,3 +95,10 @@ a {
 .page--ios .dis-scroll {
     position: relative;
 }
+
+#__next {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}

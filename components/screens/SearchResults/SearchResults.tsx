@@ -7,7 +7,7 @@ import styles from './SearchResults.module.scss'
 export const SearchResults = () => {
 
     const {query: {id}} = useRouter()
-    const {data} = useGetFilmByNameQuery(id)
+    const {data, isLoading} = useGetFilmByNameQuery(id)
 
     return (
         <section className={styles.section}>
@@ -20,7 +20,7 @@ export const SearchResults = () => {
                 {data?.docs?.map(el => (
                     <FilmItem key={el.id} item={el} />
                 ))}
-                {!data?.docs.length && 'Ничего не найдено!' }
+                {!data?.docs.length && !isLoading && 'Ничего не найдено!' }
                 </ul>
             </div>
         </section>

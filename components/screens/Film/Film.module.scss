@@ -22,17 +22,18 @@
 
     @media (max-width: 768px) {
         margin-right: 0;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 }
 
 .image {
     position: relative;
     width: 300px;
-    height: auto;
+    min-height: auto;
     border-radius: 5px;
     overflow: hidden;
     object-fit: cover;
+    background-color: var(--color-dark);
 
     @media (max-width: 576px) {
         width: 250px;
@@ -47,8 +48,8 @@
     margin-bottom: 20px;
 
     @media (max-width: 576px) {
-        font-size: 30px;
-        line-height: 38px;
+        font-size: 26px;
+        line-height: 33px;
         margin-bottom: 20px;
     }
 }
@@ -58,6 +59,10 @@
     font-size: 16px;
     line-height: 22px;
     margin-bottom: 30px;
+
+    @media (max-width: 576px) {
+        margin-bottom: 20px;
+    }
 }
 
 .subtitle {
