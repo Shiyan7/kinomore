@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import { useGetFilmByIdQuery } from "../../../services/KinopoiskService"
 import { Fragment, useEffect, useRef, useState } from "react"
 import { BackBtn } from "../../BackBtn/BackBtn"
-import {kbp} from '../../../helpers/player'
+import {kbp, kb_resize} from '../../../helpers/player'
 import styles from './Film.module.scss'
 
 export const Film = () => {
@@ -18,6 +18,8 @@ export const Film = () => {
 
     useEffect(() => {
         kbp(videoRef.current)
+
+        window.addEventListener("resize", kb_resize)
     }, [])
 
     return (

@@ -311,14 +311,10 @@ export function kbp(self) {
                         '';
                     var option = document.createElement('div');
                     //console.log('Creating MULTIPLE BUTTONS');
-                    option.setAttribute('onclick', 'kb_player("' + encodeURIComponent(players[key].iframe) +
-                                                                    '", "' +
-                                                                    players[key].quality +
-                                                                    '", "' +
-                                                                    players[key].translate +
-                                                                    '", this, "' +
-                                                                    options.button_size +
-                                                                    '", null, "' + key + '")');
+
+                    option.addEventListener("click", () => {
+                        kb_player(encodeURIComponent(players[key].iframe))
+                    })
                     option.dataset.event = '' + (j + 1);
                     option.dataset.page = Math.ceil((j + 1) / options.button_limit) + '';
                     option.dataset.iframe = players[key].iframe;
@@ -483,7 +479,7 @@ function kb_player(iframe, quality, translate, element, buttons, size, provider)
         kinobdIframe.setAttribute('src', decodeURIComponent(iframe));
     }
     kinobdIframe.setAttribute('class', '');
-    if (typeof element.setAttribute === 'function') {
+    if (typeof element?.setAttribute === 'function') {
         var kinobdActive = document.querySelectorAll('.kinobd-active');
         if (kinobdActive) {
             for (var i = 0; i < kinobdActive.length; i++) {
@@ -624,7 +620,7 @@ function kb_fullscreen() {
     }
 }
 
-function kb_resize() {
+export function kb_resize() {
     var yi = document.querySelector('#kinobd-iframe');
     if (!yi || !yi.parentNode || !yi.parentNode.parentNode || !yi.parentNode.parentNode.offsetWidth) return;
     var w = parseInt(yi.parentNode.parentNode.offsetWidth);
