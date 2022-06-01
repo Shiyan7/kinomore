@@ -16,9 +16,10 @@ export const Film = () => {
 
     const {ageRating, name, description, shortDescription, year, genres, slogan, movieLength} = {...data}
 
+    console.log(data);
+
     useEffect(() => {
         kbp(videoRef.current)
-
         window.addEventListener("resize", kb_resize)
     }, [])
 

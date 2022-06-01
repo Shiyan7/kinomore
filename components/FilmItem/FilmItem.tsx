@@ -5,6 +5,7 @@ import { IFilm } from '../../types/IFilm'
 import styles from './FilmItem.module.scss'
 import {FiStar, FiBookmark} from 'react-icons/fi'
 import classNames from 'classnames'
+import { convertType } from '../../helpers/convertType'
 
 interface FilmItemProps {
     item: IFilm
@@ -34,7 +35,7 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
             <Link href={`/film/${item.id}`}>
                 <a className={styles.title}>{item.names[0]?.name}</a>
             </Link>
-            <span className={styles.info}>{item.year}, {item.type}</span>
+            <span className={styles.info}>{item.year}, {convertType(item.type)}</span>
         </li>
     )
 }

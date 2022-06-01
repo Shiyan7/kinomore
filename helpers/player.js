@@ -315,6 +315,16 @@ export function kbp(self) {
                     option.addEventListener("click", () => {
                         kb_player(encodeURIComponent(players[key].iframe))
                     })
+
+                    option.setAttribute('onclick', 'kb_player("' + encodeURIComponent(players[key].iframe) +
+                                                                    '", "' +
+                                                                    players[key].quality +
+                                                                    '", "' +
+                                                                    players[key].translate +
+                                                                    '", this, "' +
+                                                                    options.button_size +
+                                                                    '", null, "' + key + '")');
+                                                                    
                     option.dataset.event = '' + (j + 1);
                     option.dataset.page = Math.ceil((j + 1) / options.button_limit) + '';
                     option.dataset.iframe = players[key].iframe;

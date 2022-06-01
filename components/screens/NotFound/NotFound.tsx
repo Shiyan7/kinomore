@@ -9,7 +9,7 @@ export const NotFound = () => {
             <h1 className={classNames('g-title', styles.title)}>404. Страница не найдена</h1>
             <p className={styles.desc}>Возможно, она была перемещена, или вы просто неверно указали адрес страницы.</p>
             <Link href='/'>
-                <a className={classNames('g-btn g-btn--dark', styles.link)}>Вернуться на главную</a>
+                <a className={classNames('g-btn', styles.link)}>Вернуться на главную</a>
             </Link>
         </div>
     </section>
