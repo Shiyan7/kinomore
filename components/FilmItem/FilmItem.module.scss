@@ -26,6 +26,7 @@
 
     @media (max-width: 400px) {
         height: 250px;
+        margin-bottom: 15px;
     }
 }
 
@@ -99,6 +100,11 @@
     margin-bottom: 10px;
     color: var(--color-light-dark);
     transition: color 0.3s;
+
+    @media (max-width: 576px) {
+        font-size: 15px;
+        line-height: 20px;
+    }
 
     &:hover {
         color: var(--color-primary);
