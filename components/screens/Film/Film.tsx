@@ -1,20 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 import classNames from "classnames"
-import Image from "next/image"
-import Link from "next/link"
 import { useRouter } from "next/router"
 import { useGetFilmByIdQuery } from "../../../services/KinopoiskService"
-import { FiArrowLeft } from 'react-icons/fi'
-import styles from './Film.module.scss'
-import { Fragment, useEffect, useState } from "react"
+import { Fragment, useEffect, useRef, useState } from "react"
 import { BackBtn } from "../../BackBtn/BackBtn"
+import {kbp} from '../../../helpers/player'
+import styles from './Film.module.scss'
 
 export const Film = () => {
     const {query: {id}} = useRouter()
     
     const {data} = useGetFilmByIdQuery(id)
 
+    const videoRef = useRef<HTMLDivElement>(null)
+
     const {ageRating, name, description, shortDescription, year, genres, slogan, movieLength} = {...data}
+
+    useEffect(() => {
+        kbp(videoRef.current)
+    }, [])
 
     return (
         <section className={styles.section}>
@@ -64,7 +68,7 @@ export const Film = () => {
                         </ul>
                     </div>
                 </div>
-                <div className={styles.video} data-kinopoisk={id} id="kinobd"></div>
+                <div ref={videoRef} className={styles.video} data-kinopoisk={id} id="kinobd"></div>
             </div>
         </section>
     )
