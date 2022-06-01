@@ -32,7 +32,7 @@ export const Search = () => {
                 onChange={handleChange}
                 placeholder='Поиск...'
             />
-            <button onClick={submitForm} className={classNames('btn-reset', styles.searchBtn)}>
+            <button disabled={!value.length} onClick={submitForm} className={classNames('btn-reset', styles.searchBtn)}>
                 <FiSearch />
             </button>
         </form>

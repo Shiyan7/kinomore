@@ -4,6 +4,8 @@ export function convertType (type: string) {
             return 'сериал'
         case "carton":
             return 'мультик'
+        case "anime":
+            return 'аниме'
         default:
             return 'фильм'
     }
