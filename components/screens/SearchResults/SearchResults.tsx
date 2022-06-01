@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 import { useGetFilmByNameQuery } from "../../../services/KinopoiskService"
-import { Back } from "../../Back/Back"
+import { BackBtn } from "../../BackBtn/BackBtn"
 import { FilmItem } from "../../FilmItem/FilmItem"
 import styles from './SearchResults.module.scss'
 
@@ -12,7 +12,7 @@ export const SearchResults = () => {
     return (
         <section className={styles.section}>
             <div className='container g-section__container'>
-                <Back />
+                <BackBtn />
                 <div className='g-section__top'>
                     <h2 className='g-title g-section__title'>Результаты поиска по запросу: {id}</h2>
                 </div>

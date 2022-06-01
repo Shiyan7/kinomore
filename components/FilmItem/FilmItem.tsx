@@ -34,7 +34,7 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
             <Link href={`/film/${item.id}`}>
                 <a className={styles.title}>{item.names[0]?.name}</a>
             </Link>
-            <span className={styles.info}>{item.year}, {item.type === 'movie' ? 'фильм' : 'сериал'}</span>
+            <span className={styles.info}>{item.year}, {item.type}</span>
         </li>
     )
 }

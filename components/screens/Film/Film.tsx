@@ -7,7 +7,7 @@ import { useGetFilmByIdQuery } from "../../../services/KinopoiskService"
 import { FiArrowLeft } from 'react-icons/fi'
 import styles from './Film.module.scss'
 import { Fragment, useEffect, useState } from "react"
-import { Back } from "../../Back/Back"
+import { BackBtn } from "../../BackBtn/BackBtn"
 
 export const Film = () => {
     const {query: {id}} = useRouter()
@@ -19,7 +19,7 @@ export const Film = () => {
     return (
         <section className={styles.section}>
             <div className={classNames('container', styles.container)}>
-                <Back />
+                <BackBtn />
                 <div className={styles.content}>
                     <div className={styles.left}>
                         <img
