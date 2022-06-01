@@ -11,9 +11,11 @@ const Index: NextPage = () => {
 
 export async function getServerSideProps() {
   const store = initStore()
+  const state = store.getState()
+  const {filmsLimit, seriesLimit} = state.loadReducer
   
-  await store.dispatch(getNewFilms.initiate(''))
-  await store.dispatch(getNewSeries.initiate(''))
+  await store.dispatch(getNewFilms.initiate(filmsLimit))
+  await store.dispatch(getNewSeries.initiate(seriesLimit))
 
   return { props: { initialReduxState: store.getState()}
 }}

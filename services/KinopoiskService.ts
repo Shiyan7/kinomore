@@ -8,18 +8,18 @@ export const kinopoiskAPI = createApi({
   baseQuery: fetchBaseQuery({baseUrl: API_URL}),
   endpoints: (build) => ({
     getFilmById: build.query<IFilm, any>({
-      query: (id) => `/movie?search=${id}&field=id&token=${API_TOKEN}`
+      query: id => `/movie?search=${id}&field=id&token=${API_TOKEN}`
     }),
-    getNewFilms: build.query<IData, ''>({
-      query: () =>
-        `/movie?field=rating.kp&search=5-10&field=year&search=2022&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`
+    getNewFilms: build.query<IData, number>({
+      query: limit =>
+        `/movie?field=rating.kp&search=5-10&field=year&search=2022&field=typeNumber&search=1&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`
     }),
-    getNewSeries: build.query<IData, ''>({
-      query: () =>
-        `/movie?field=rating.kp&search=5-10&field=year&search=2022&field=typeNumber&search=2&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`,
+    getNewSeries: build.query<IData, number>({
+      query: limit =>
+        `/movie?field=rating.kp&search=5-10&field=year&search=2022&field=typeNumber&search=2&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`,
     }),
     getFilmByName: build.query<IData, any>({
-      query: (name) => `/movie?search=${name}&field=name&limit=15isStrict=false&token=${API_TOKEN}`
+      query: name => `/movie?search=${name}&field=name&limit=15isStrict=false&token=${API_TOKEN}`
     })
   }),
 });

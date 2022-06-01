@@ -1,11 +1,19 @@
 import { FC } from 'react'
 import { FilmItem } from '../../../../FilmItem/FilmItem'
 import { useGetNewFilmsQuery } from '../../../../../services/KinopoiskService'
+import { useDispatch } from 'react-redux'
+import { loadMoreFilms } from '../../../../../store/reducers/loadMoreSlice'
+import { useTypedSelector } from '../../../../../hooks/redux'
 import Link from 'next/link'
 
 export const NewMovies: FC = () => {
 
-  const {data} = useGetNewFilmsQuery('')
+  const {filmsLimit} = useTypedSelector(state => state.loadReducer)
+  const {data, isFetching} = useGetNewFilmsQuery(filmsLimit)
+
+  const dispatch = useDispatch()
+
+  const handleShowMore = () => dispatch(loadMoreFilms(5))
 
   return (
     <section>
@@ -21,6 +29,9 @@ export const NewMovies: FC = () => {
               <FilmItem key={el.id} item={el} />
           ))}
         </ul>
+        <button onClick={handleShowMore} className='btn-reset g-btn g-section__btn'>
+          {isFetching ? 'Загрузка...' : 'Показать ещё'}
+        </button>
       </div>
     </section>
   )

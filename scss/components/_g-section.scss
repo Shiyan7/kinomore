@@ -1,5 +1,8 @@
 .g-section__container {
     padding-bottom: 120px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 
     @media (max-width: 576px) {
         padding-bottom: 60px;
@@ -22,6 +25,8 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 30px;
     row-gap: 50px;
+    margin-bottom: 50px;
+    width: 100%;
 
     @media (max-width: 1200px) {
         grid-template-columns: repeat(4, 1fr);
@@ -37,4 +42,9 @@
         grid-template-columns: repeat(2, 1fr);
         row-gap: 30px;
     }
+}
+
+.g-section__btn {
+    margin: 0 auto;
+    min-width: 200px;
 }
