@@ -2,8 +2,7 @@ import 'normalize.css'
 import '../scss/main.scss'
 import type { AppProps } from 'next/app'
 import { Layout } from '../components/Layout/Layout'
-import { useStore, wrapper } from '../store/store'
-import NextNProgress from "nextjs-progressbar";
+import { useStore } from '../store/store'
 import { Provider } from 'react-redux'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -13,10 +12,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <Layout>
-        <NextNProgress
-          color='#175a77'
-          options={{ showSpinner: false }}
-        />
         <Component {...pageProps} />
       </Layout>
     </Provider>

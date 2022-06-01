@@ -432,7 +432,7 @@ export function kbp(self) {
             }
             if (j < 1) {
                 var kinobdLoading = document.querySelector('#kinobd-loading');
-                kinobdLoading.style.display = 'none';
+                if(kinobdLoading) kinobdLoading.style.display = 'none';
             } else if (j > 1) {
                 kinobd.appendChild(buttons);
                 if (keys.length > options.button_limit) {
@@ -449,7 +449,7 @@ function kb_player(iframe, quality, translate, element, buttons, size, provider)
         "translate": translate
     }, "*");
     var kinobdLoading = document.querySelector('#kinobd-loading');
-    kinobdLoading.style.display = 'block';
+    if(kinobdLoading) kinobdLoading.style.display = 'block';
     setTimeout(function() {
         kinobdLoading.style.display = 'none';
     }, 1000);

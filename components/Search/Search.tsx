@@ -20,6 +20,7 @@ export const Search = () => {
     const submitForm = (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
         e.preventDefault()
         dispatch(setSearch(value))
+        dispatch(setValue(''))
         router.push(`/search/${value}`)
     }
 
