@@ -243,23 +243,18 @@ export function kbp(self) {
                       document.documentElement.clientHeight,
                       document.documentElement.scrollHeight,
                       document.documentElement.offsetHeight );
-        console.log('1');
     } else if (parseInt(kinobd.offsetHeight) && parseInt(kinobd.offsetHeight) < 370) {
         if (kinobd.parentNode && parseInt(kinobd.parentNode.offsetHeight) && parseInt(kinobd.parentNode.offsetHeight) >= 370) {
             h = parseInt(kinobd.parentNode.offsetHeight);
         } else {
             h = 370;
         }
-        console.log('2');
     } else if (parseInt(kinobd.offsetHeight) && w / 3 < parseInt(kinobd.offsetHeight)) {
         h = parseInt(kinobd.offsetHeight);
-        console.log('3');
     } else if (kinobd.parentNode && parseInt(kinobd.parentNode.offsetHeight) && w / 3 < parseInt(kinobd.parentNode.offsetHeight)) {
         h = parseInt(kinobd.parentNode.offsetHeight);
-        console.log('4');
     } else {
         h = w / 2;
-        console.log('5');
     }
 
     var style = 'width:100%;height:' + h + 'px;border:0;margin:0;padding:0;overflow:hidden;position:relative;';
@@ -465,8 +460,6 @@ function kb_player(iframe, quality, translate, element, buttons, size, provider)
     kinobdIframe.onload = function(){ 
         var load_end = Date.now();
         var loadtime = load_end - load_start;
-        console.log(loadtime);
-        console.log("window.onload"); 
         kb_ping(provider, loadtime);
     }
     
