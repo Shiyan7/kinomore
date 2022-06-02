@@ -308,7 +308,7 @@ export function kbp(self) {
                     //console.log('Creating MULTIPLE BUTTONS');
 
                     option.addEventListener("click", () => {
-                        kb_player(encodeURIComponent(players[key].iframe))
+                        kb_player(encodeURIComponent(players[key].iframe),  players[key].quality, players[key].translate, options.button_size)
                     })
                     
                     option.dataset.event = '' + (j + 1);
@@ -388,24 +388,14 @@ export function kbp(self) {
                     //console.log(option);
                     if (j && !(j % options.button_limit) && players[keys[i + 1].toLowerCase().trim()] && players[keys[i - 1].toLowerCase().trim()]){
                         var next = document.createElement('div');
-                        //console.log( players[keys[i].toLowerCase().trim()] );
-                        //console.log( players );
-                        //console.log( keys );
-                        //console.log(j, (j % options.button_limit), players[keys[i + 1].toLowerCase().trim()]);
-                            next.setAttribute('onclick', 'kb_page(' + Math.ceil((j + 1) / options.button_limit) +
-                                                              ', "' +
-                                                              options.button_size +
-                                                              '");' +
-                                                              'kb_player("' +
-                                                              encodeURIComponent(players[keys[i + 1].toLowerCase().trim()].iframe) +
-                                                              '", "' +
-                                                              players[keys[i + 1].toLowerCase().trim()].quality +
-                                                              '", "' +
-                                                              players[keys[i + 1].toLowerCase().trim()].translate +
-                                                              '", document.querySelector(\'[data-event="' + (j + 1) + '"]\'), "' +
-                                                              options.button_size + '", "' +
-                                                              keys[i + 1] + '")');
-
+                        next.addEventListener("click", () => {
+                            kb_page(Math.ceil((j + 1) / options.button_limit), options.button_size)
+                            kb_player(
+                                encodeURIComponent(players[keys[i + 1].toLowerCase().trim()].iframe),
+                                players[keys[i + 1].toLowerCase().trim()].quality,
+                                players[keys[i + 1].toLowerCase().trim()].translate,
+                            )
+                        })
 
                         next.dataset.event = 'next';
                         next.dataset.page = Math.ceil(j / options.button_limit) + '';
@@ -413,16 +403,13 @@ export function kbp(self) {
                         buttons.appendChild(next);
 
                         var prev = document.createElement('div');
-                        //console.log(players[keys[i - 1].toLowerCase().trim()]);
-                        prev.setAttribute('onclick', 'kb_page(' + Math.ceil(j / options.button_limit) + ', "' + options.button_size + '");' +
-                                                      'kb_player("' + encodeURIComponent(players[keys[i - 1].toLowerCase().trim()].iframe) +
-                                                      '", "' +
-                                                      players[keys[i - 1].toLowerCase().trim()].quality +
-                                                      '", "' +
-                                                      players[keys[i - 1].toLowerCase().trim()].translate +
-                                                      '", document.querySelector(\'[data-event="' + (j) + '"]\'), "' +
-                                                      options.button_size + '", "' +
-                                                      keys[i + 1] + '")');
+                        prev.addEventListener("click", () => {
+                            kb_page(Math.ceil(j / options.button_limit))
+                            kb_page(options.button_size)
+                            kb_player(encodeURIComponent(players[keys[i - 1].toLowerCase().trim()].iframe))
+                            kb_player(players[keys[i - 1].toLowerCase().trim()].quality)
+                            kb_player(players[keys[i - 1].toLowerCase().trim()].translate)
+                        })
                         prev.dataset.event = 'prev';
                         prev.dataset.page = Math.ceil((j + 1) / options.button_limit) + '';
                         prev.innerText = '◄- ' + language.prev;
@@ -465,7 +452,7 @@ function kb_player(iframe, quality, translate, element, buttons, size, provider)
     
 
     kinobdIframe.style.display = 'block';
-    if (iframe.indexOf('nf') + 1) {
+    if (iframe?.indexOf('nf') + 1) {
         kb_get(decodeURIComponent(iframe), '', function(json, html) {
             kinobdIframe.setAttribute('src', 'data:text/html;charset=utf-8,' + encodeURIComponent(html));
         });
