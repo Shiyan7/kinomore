@@ -15,6 +15,8 @@ export const NewMovies: FC = () => {
 
   const handleShowMore = () => dispatch(loadMoreFilms(5))
 
+  const condition = data?.docs.length === data?.total;
+
   return (
     <section>
       <div className='container g-section__container'>
@@ -29,9 +31,9 @@ export const NewMovies: FC = () => {
               <FilmItem key={el.id} item={el} />
           ))}
         </ul>
-        <button onClick={handleShowMore} className='btn-reset g-btn g-section__btn'>
+        {!condition && <button onClick={handleShowMore} className='btn-reset g-btn g-section__btn'>
           {isFetching ? 'Загрузка...' : 'Показать ещё'}
-        </button>
+        </button>}
       </div>
     </section>
   )

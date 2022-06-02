@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     filmsLimit: 10,
-    seriesLimit: 10
+    seriesLimit: 10,
+    resultsLimit: 15,
 }
 
 export const loadSlice = createSlice({
@@ -15,12 +16,16 @@ export const loadSlice = createSlice({
         loadMoreSeries: (state, action) => {
             state.seriesLimit += action.payload
         },
+        loadMoreResults: (state, action) => {
+            state.resultsLimit += action.payload
+        },
     }
 })
 
 export const {
     loadMoreFilms,
-    loadMoreSeries
+    loadMoreSeries,
+    loadMoreResults
 } = loadSlice.actions;
 
 export const loadReducer = loadSlice.reducer;
