@@ -52,10 +52,14 @@ export interface Videos {
 
 export interface Budget {
     _id: string;
+    value: number;
+    currency: string;
 }
 
 export interface Fees {
     _id: string;
+    usa: any;
+    world: any;
 }
 
 export interface Premiere {

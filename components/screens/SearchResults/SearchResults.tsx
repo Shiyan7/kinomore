@@ -31,7 +31,7 @@ export const SearchResults = () => {
                 {data?.docs?.map(el => (
                     <FilmItem key={el.id} item={el} />
                 ))}
-                {!data?.docs.length && !isLoading && 'Ничего не найдено!' }
+                <p className={styles.desc}>{!data?.docs.length && !isLoading ? 'Ничего не найдено!' : isLoading && 'Загрузка' }</p>
                 </ul>
                 {!condition && <button onClick={handleShowMore} className='btn-reset g-btn g-section__btn'>
                     {isFetching ? 'Загрузка...' : 'Показать ещё'}

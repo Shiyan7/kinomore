@@ -1,30 +1,35 @@
 /* eslint-disable @next/next/no-img-element */
-import classNames from "classnames"
 import { useRouter } from "next/router"
 import { useGetFilmByIdQuery } from "../../../services/KinopoiskService"
-import { Fragment, useEffect, useRef, useState } from "react"
+import { Fragment, useEffect } from "react"
 import { BackBtn } from "../../BackBtn/BackBtn"
-import { yo, yo_resize } from '../../../helpers/player'
+import { normalPrice } from "../../../helpers/normalPrice"
 import styles from './Film.module.scss'
+import classNames from "classnames"
 
 export const Film = () => {
     const {query: {id}} = useRouter()
     const {data} = useGetFilmByIdQuery(id)
-    const {ageRating, name, description, shortDescription, year, genres, slogan, movieLength} = {...data}
-    const videoRef = useRef<HTMLDivElement>(null)
-    
+    const {ageRating, name, description, shortDescription, fees, year, genres, slogan, budget, movieLength, countries} = {...data}
+    const worldFees = fees?.world?.value - fees?.usa?.value;
+
     useEffect(() => {
-        yo(videoRef.current)
-        window.addEventListener("resize", yo_resize)
+        const script = document.createElement('script')
+        script.src = "https://kinobd.ru/js/player_.js"
+        document.body.appendChild(script)
+        return () => { document.body.removeChild(script) }
     }, [])
 
     const items = [
         {caption: 'Год производства', value: year, condition: year},
-        {caption: 'Страна', value: data?.countries[0].name, condition: data?.countries.length},
+        {caption: 'Страны', value: countries?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>), condition: countries?.length},
         {caption: 'Жанр', value: genres?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>), condition: genres?.length},
         {caption: 'Слоган', value: slogan, condition: slogan},
         {caption: 'Возраст', value: <span className={classNames('g-age', styles.age)}>{ageRating}+</span>, condition: ageRating},
-        {caption: 'Время', value: movieLength, condition: movieLength},
+        {caption: 'Время', value: `${movieLength} мин`, condition: movieLength},
+        {caption: 'Бюджет', value: `${budget?.currency} ${normalPrice(budget?.value)}`, condition: budget?.value},
+        {caption: 'Сборы в США', value: `${fees?.usa?.currency} ${normalPrice(fees?.usa?.value)}`, condition: fees?.world},
+        {caption: 'Сборы в мире', value: `+ ${fees?.world?.currency} ${normalPrice(worldFees)} = ${fees?.world?.currency} ${normalPrice(fees?.world?.value)}`, condition: fees?.world},
     ]
 
     return (
@@ -53,7 +58,7 @@ export const Film = () => {
                         </ul>
                     </div>
                 </div>
-                <div id="yohoho" className={styles.video} data-kinopoisk={id} data-resize="1" data-tv="1"></div>
+                <div className={styles.video} data-kinopoisk={id} id="kinobd"></div>
             </div>
         </section>
     )
