@@ -4,22 +4,28 @@ import { useRouter } from "next/router"
 import { useGetFilmByIdQuery } from "../../../services/KinopoiskService"
 import { Fragment, useEffect, useRef, useState } from "react"
 import { BackBtn } from "../../BackBtn/BackBtn"
-import {kbp, kb_resize} from '../../../helpers/player'
+import { yo, yo_resize } from '../../../helpers/player'
 import styles from './Film.module.scss'
 
 export const Film = () => {
     const {query: {id}} = useRouter()
-    
     const {data} = useGetFilmByIdQuery(id)
-
-    const videoRef = useRef<HTMLDivElement>(null)
-
     const {ageRating, name, description, shortDescription, year, genres, slogan, movieLength} = {...data}
-
+    const videoRef = useRef<HTMLDivElement>(null)
+    
     useEffect(() => {
-        kbp(videoRef.current)
-        window.addEventListener("resize", kb_resize)
+        yo(videoRef.current)
+        window.addEventListener("resize", yo_resize)
     }, [])
+
+    const items = [
+        {caption: 'Год производства', value: year, condition: year},
+        {caption: 'Страна', value: data?.countries[0].name, condition: data?.countries.length},
+        {caption: 'Жанр', value: genres?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>), condition: genres?.length},
+        {caption: 'Слоган', value: slogan, condition: slogan},
+        {caption: 'Возраст', value: <span className={classNames('g-age', styles.age)}>{ageRating}+</span>, condition: ageRating},
+        {caption: 'Время', value: movieLength, condition: movieLength},
+    ]
 
     return (
         <section className={styles.section}>
@@ -38,38 +44,16 @@ export const Film = () => {
                         <p className={styles.desc}>{description}</p>
                         <h2 className={classNames('g-title', styles.subtitle)}>О фильме</h2>
                         <ul className={classNames('list-reset', styles.info)}>
-                            <li className={styles.infoItem}>
-                                <span className={styles.infoCaption}>Год производства</span>
-                                <span className={styles.infoValue}>{year}</span>
-                            </li>
-                            <li className={styles.infoItem}>
-                                <span className={styles.infoCaption}>Страна</span>
-                                <span className={styles.infoValue}>{data?.countries[0].name}</span>
-                            </li>
-                            <li className={styles.infoItem}>
-                                <span className={styles.infoCaption}>Жанр</span>
-                                <span className={styles.infoValue}>{genres?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>)}</span>
-                            </li>
-                            <li className={styles.infoItem}>
-                                <span className={styles.infoCaption}>Слоган</span>
-                                <span className={styles.infoValue}>{slogan}</span>
-                            </li>
-                            <li className={styles.infoItem}>
-                                <span className={styles.infoCaption}>Возраст</span>
-                                {ageRating ?
-                                    <span className={styles.infoValue}>
-                                        <span className={classNames('g-age', styles.age)}>{ageRating}+</span>
-                                    </span>
-                                : '—'}
-                            </li>
-                            <li className={styles.infoItem}>
-                                <span className={styles.infoCaption}>Время</span>
-                                <span className={styles.infoValue}>{movieLength} мин</span>
-                            </li>
+                            {items.map(el => (
+                                <li key={el.caption} className={styles.infoItem}>
+                                    <span className={styles.infoCaption}>{el.caption}</span>
+                                    {el.condition ? <span className={styles.infoValue}>{el.value}</span> : '—'}
+                                </li>   
+                            ))}
                         </ul>
                     </div>
                 </div>
-                <div ref={videoRef} className={styles.video} data-kinopoisk={id} id="kinobd"></div>
+                <div id="yohoho" className={styles.video} data-kinopoisk={id} data-resize="1" data-tv="1"></div>
             </div>
         </section>
     )
