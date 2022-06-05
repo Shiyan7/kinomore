@@ -13,8 +13,6 @@ export const Film = () => {
     const {ageRating, name, description, shortDescription, fees, year, genres, slogan, budget, movieLength, countries} = {...data}
     const worldFees = fees?.world?.value - fees?.usa?.value;
 
-    console.log(data);
-
     useEffect(() => {
         const script = document.createElement('script')
         script.src = "https://kinobd.ru/js/player_.js"
