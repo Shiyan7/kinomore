@@ -102,3 +102,13 @@ a {
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
 }
+
+.wrapper {
+    padding: 40px 30px;
+    background-color: #fff;
+    height: 100%;
+    
+    @media (max-width: 768px) {
+        padding: 35px 15px;
+    }
+}

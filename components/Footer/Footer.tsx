@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import Link from 'next/link'
+import { CARTOONS_ROUTE, FILMS_ROUTE, SERIES_ROUTE } from '../../constants/routes'
 import { Logo } from '../Logo/Logo'
 import styles from './Footer.module.scss'
 
@@ -10,18 +11,18 @@ export const Footer = () => {
         <Logo />
         <ul className={classNames('list-reset', styles.list)}>
           <li className={styles.item}>
-            <Link href='/films'>
+            <Link href={FILMS_ROUTE}>
               <a className={styles.link}>Фильмы</a>
             </Link>
           </li>
           <li className={styles.item}>
-            <Link href='/series'>
+            <Link href={SERIES_ROUTE}>
               <a className={styles.link}>Сериалы</a>
             </Link>
           </li>
           <li className={styles.item}>
-            <Link href='/cartoons'>
-              <a className={styles.link}>Мультики</a>
+            <Link href={CARTOONS_ROUTE}>
+              <a className={styles.link}>Мультфильмы</a>
             </Link>
           </li>
         </ul>

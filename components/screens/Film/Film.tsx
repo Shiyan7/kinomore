@@ -36,7 +36,7 @@ export const Film = () => {
 
     return (
         <section className={styles.section}>
-            <div className={classNames('container', styles.container)}>
+            <div className='container wrapper'>
                 <BackBtn />
                 <div className={styles.content}>
                     <div className={styles.left}>

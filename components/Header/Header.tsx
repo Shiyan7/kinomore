@@ -8,6 +8,7 @@ import { Search } from '../Search/Search'
 import { useRef, useState } from 'react'
 import { useOnClickOutside } from 'usehooks-ts'
 import { Logo } from '../Logo/Logo'
+import { CARTOONS_ROUTE, FAVORITES_ROUTE, FILMS_ROUTE, HOME_ROUTE, LOGIN_ROUTE, SERIES_ROUTE } from '../../constants/routes'
 
 export const Header = () => {
 
@@ -21,12 +22,12 @@ export const Header = () => {
     useOnClickOutside(ref, () => setOpen(false))
 
     const items = [
-        {icon: <FiHome />, href: '/', text: 'Главная'},
-        {icon: <FiFilm />, href: '/films', text: 'Фильмы'},
-        {icon: <FiTv />, href: '/series', text: 'Сериалы'},
-        {icon: <BiMovie />, href: '/cartoons', text: 'Мультики'},
-        {icon: <FiHeart />, href: '/favorites', text: 'Избранное'},
-        {icon: <FiUser />, href: '/auth', text: 'Войти'}
+        {icon: <FiHome />, href: HOME_ROUTE, text: 'Главная'},
+        {icon: <FiFilm />, href: FILMS_ROUTE, text: 'Фильмы'},
+        {icon: <FiTv />, href: SERIES_ROUTE, text: 'Сериалы'},
+        {icon: <BiMovie />, href: CARTOONS_ROUTE, text: 'Мультфильмы'},
+        {icon: <FiHeart />, href: FAVORITES_ROUTE, text: 'Избранное'},
+        {icon: <FiUser />, href: LOGIN_ROUTE, text: 'Войти'}
     ]
 
     return (
