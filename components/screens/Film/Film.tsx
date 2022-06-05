@@ -13,6 +13,8 @@ export const Film = () => {
     const {ageRating, name, description, shortDescription, fees, year, genres, slogan, budget, movieLength, countries} = {...data}
     const worldFees = fees?.world?.value - fees?.usa?.value;
 
+    console.log(data);
+
     useEffect(() => {
         const script = document.createElement('script')
         script.src = "https://kinobd.ru/js/player_.js"
@@ -28,8 +30,8 @@ export const Film = () => {
         {caption: 'Возраст', value: <span className={classNames('g-age', styles.age)}>{ageRating}+</span>, condition: ageRating},
         {caption: 'Время', value: `${movieLength} мин`, condition: movieLength},
         {caption: 'Бюджет', value: `${budget?.currency} ${normalPrice(budget?.value)}`, condition: budget?.value},
-        {caption: 'Сборы в США', value: `${fees?.usa?.currency} ${normalPrice(fees?.usa?.value)}`, condition: fees?.world},
-        {caption: 'Сборы в мире', value: `+ ${fees?.world?.currency} ${normalPrice(worldFees)} = ${fees?.world?.currency} ${normalPrice(fees?.world?.value)}`, condition: fees?.world},
+        {caption: 'Сборы в США', value: `${fees?.usa?.currency} ${normalPrice(fees?.usa?.value)}`, condition: fees?.usa},
+        {caption: 'Сборы в мире', value: `+ ${fees?.world?.currency} ${normalPrice(worldFees)} = ${fees?.world?.currency} ${normalPrice(fees?.world?.value)}`, condition: fees?.usa},
     ]
 
     return (
