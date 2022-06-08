@@ -1,7 +1,7 @@
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
-import classNames from 'classnames';
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import classNames from 'classnames';
 
 interface PaginationProps {
   page: number;

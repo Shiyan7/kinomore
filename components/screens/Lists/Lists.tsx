@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, ReactNode } from 'react'
 import { CARTOONS_ROUTE, FILMS_ROUTE, SERIES_ROUTE, YEARS_ROUTE } from '../../../constants/routes'
+import { BackBtn } from '../../BackBtn/BackBtn'
 import { Title } from '../../Title/Title'
 import styles from './Lists.module.scss'
 

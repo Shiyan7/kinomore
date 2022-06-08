@@ -43,6 +43,13 @@
     overflow-y: auto;
     height: 40px;
     max-width: 100%;
+    
+    @media (max-width: 768px) {
+        margin-left: calc((var(--container-offset) / -100) * 100) !important;
+        margin-right: calc((var(--container-offset) / -100) * 100) !important;
+        min-width: calc(100% + calc(var(--container-offset) * 2)) !important;
+        padding: 0 var(--container-offset);
+    }
 
     &Item {
         &:not(:last-child) {
