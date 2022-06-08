@@ -17,6 +17,8 @@
 
         @media (max-width: 576px) {
             margin-bottom: 10px;
+            font-size: 30px;
+            line-height: 40px;
         }
     }
 
@@ -28,7 +30,9 @@
         max-width: 800px;
 
         @media (max-width: 576px) {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            line-height: 23px;
         }
     }
 
@@ -62,6 +66,14 @@
             color: rgba(#000, 0.5);
             transition: color 0.3s;
 
+            &:nth-child(2) {
+                margin-left: auto;
+
+                @media (max-width: 576px) {
+                    margin-left: 0;
+                }
+            }
+
             @media (max-width: 576px) {
                 font-size: 14px;
                 line-height: 18px;
@@ -75,7 +87,7 @@
                 margin-right: 20px;
 
                 @media (max-width: 576px) {
-                    margin-right: 14px;
+                    margin-right: 0;
                 }
             }
         }
@@ -96,7 +108,7 @@
         }
 
         @media (max-width: 576px) {
-            row-gap: 15px;
+            row-gap: 25px;
         }
     }
 }

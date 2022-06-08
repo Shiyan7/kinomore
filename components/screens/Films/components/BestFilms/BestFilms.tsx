@@ -32,14 +32,12 @@ export const BestFilms = () => {
           <Link href={FILMS_ROUTE}>
             <a className='catalog-top__link'>Все списки</a>
           </Link>
-          <div className="catalog-top__right">
-            <Link href={BEST_FILMS_ROUTE}>
-              <a className='catalog-top__link'>Топ 250 фильмов</a>
-            </Link>
-            <Link href={BEST_FILMS_ROUTE}>
-              <a className='catalog-top__link'>Топ 250 сериалов</a>
-            </Link>
-          </div>
+          <Link href={BEST_FILMS_ROUTE}>
+            <a className='catalog-top__link'>Топ 250 фильмов</a>
+          </Link>
+          <Link href={BEST_FILMS_ROUTE}>
+            <a className='catalog-top__link'>Топ 250 сериалов</a>
+          </Link>
         </div>
         <Title classN="catalog__title">250 лучших фильмов</Title>
         <p className="catalog__desc">Рейтинг составлен по результатам голосования посетителей сайта. Любой желающий может принять в нем участие, проголосовав за свой любимый фильм.</p>

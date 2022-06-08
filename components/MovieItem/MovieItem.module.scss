@@ -12,10 +12,6 @@
         padding: 0;
     }
 
-    @media (max-width: 576px) {
-        align-items: flex-start;
-    }
-
     @media (min-width: 1025px) {
 
         &:hover {
@@ -60,10 +56,14 @@
     display: inline-block;
     font-weight: 500;
     font-size: 18px;
-    line-height: 18px;
+    line-height: 24px;
     margin-bottom: 8px;
     color: var(--color-dark);
     transition: color 0.3s;
+
+    @media (max-width: 576px) {
+        padding-right: 80px;
+    }
 
     &:hover {
         color: var(--color-primary);
@@ -80,6 +80,10 @@
 .info {
     display: block;
     margin-bottom: 8px;
+    
+    @media (max-width: 576px) {
+        margin-bottom: 5px;
+    }
 }
 
 .desc {
@@ -101,7 +105,10 @@
     padding-left: 90px;
 
     @media (max-width: 576px) {
-        padding-left: 20px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-left: 0;
     }
 }
 
