@@ -1,19 +1,17 @@
 import { FC } from 'react'
 import { FilmItem } from '../../../../FilmItem/FilmItem'
 import { useGetNewFilmsQuery } from '../../../../../services/KinopoiskService'
-import { useDispatch } from 'react-redux'
-import { loadMoreFilms } from '../../../../../store/reducers/loadMoreSlice'
 import { useTypedSelector } from '../../../../../hooks/useTypedSelector'
 import { FILMS_ROUTE } from '../../../../../constants/routes'
 import { Button } from '../../../../Button/Button'
 import { Title } from '../../../../Title/Title'
+import { useActions } from '../../../../../hooks/useActions'
 
 export const NewMovies: FC = () => {
 
   const {filmsLimit} = useTypedSelector(state => state.loadReducer)
   const {data, isFetching} = useGetNewFilmsQuery(filmsLimit)
-  const dispatch = useDispatch()
-  const handleShowMore = () => dispatch(loadMoreFilms(5))
+  const {loadMoreFilms} = useActions()
   const condition = data?.docs?.length === data?.total
   
   return (
@@ -31,7 +29,7 @@ export const NewMovies: FC = () => {
         {!condition &&
           <Button
             classN='g-section__btn'
-            onClick={handleShowMore}
+            onClick={loadMoreFilms}
           >
             {isFetching ? 'Загрузка...' : 'Показать ещё'}
           </Button>

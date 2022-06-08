@@ -1,23 +1,17 @@
 import { FC } from 'react'
 import { FilmItem } from '../../../../FilmItem/FilmItem'
 import { useGetNewSeriesQuery } from '../../../../../services/KinopoiskService'
-import Link from 'next/link'
 import { useTypedSelector } from '../../../../../hooks/useTypedSelector'
-import { useDispatch } from 'react-redux'
-import { loadMoreSeries } from '../../../../../store/reducers/loadMoreSlice'
 import { SERIES_ROUTE } from '../../../../../constants/routes'
 import { Button } from '../../../../Button/Button'
 import { Title } from '../../../../Title/Title'
+import { useActions } from '../../../../../hooks/useActions'
 
 export const NewSeries: FC = () => {
 
   const {seriesLimit} = useTypedSelector(state => state.loadReducer)
   const {data, isFetching} = useGetNewSeriesQuery(seriesLimit)
-
-  const dispatch = useDispatch()
-
-  const handleShowMore = () => dispatch(loadMoreSeries(5))
-
+  const {loadMoreSeries} = useActions()
   const condition = data?.docs.length === data?.total;
 
   return (
@@ -35,7 +29,7 @@ export const NewSeries: FC = () => {
         {!condition &&
           <Button
             classN='g-section__btn'
-            onClick={handleShowMore}
+            onClick={loadMoreSeries}
           >
             {isFetching ? 'Загрузка...' : 'Показать ещё'}
           </Button>

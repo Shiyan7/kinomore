@@ -1,14 +1,13 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import {ChangeEvent, FormEvent, useState} from 'react'
 import {FiSearch} from 'react-icons/fi'
+import {useRouter} from 'next/router'
+import {useActions} from '../../hooks/useActions'
 import styles from './Search.module.scss'
 import classNames from 'classnames'
-import { useDispatch } from 'react-redux'
-import { setSearch } from '../../store/reducers/searchSlice'
-import { useRouter } from 'next/router'
 
 export const Search = () => {
     
-    const dispatch = useDispatch()
+    const {setSearch} = useActions()
     const router = useRouter();
     const [value, setValue] = useState<string>('')
     
@@ -18,7 +17,7 @@ export const Search = () => {
 
     const submitForm = (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
         e.preventDefault()
-        dispatch(setSearch(value))
+        setSearch(value)
         setValue('')
         router.push(`/search/${value}`)
     }

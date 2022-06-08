@@ -1,9 +1,7 @@
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
-import classNames from "classnames"
-import Nouislider from "nouislider-react"
 import { ChangeEvent, FC, useState } from "react"
-import { useDispatch } from "react-redux";
 import { Input } from "../Input/Input";
+import Nouislider from "nouislider-react"
 import styles from './Slider.module.scss'
 
 interface SliderProps {
@@ -18,7 +16,6 @@ interface SliderProps {
 
 export const Slider: FC<SliderProps> = ({ min, max, startMin, startMax, step, setMin, setMax}) => {
 
-  const dispatch = useDispatch()
   const [inputHandle, setInputHandle] = useState({left: startMin, right: startMax});
   const leftInputHandle = Math.ceil(Number(inputHandle.left))
   const rightInputHandle = Math.ceil(Number(inputHandle.right))
@@ -32,8 +29,8 @@ export const Slider: FC<SliderProps> = ({ min, max, startMin, startMax, step, se
   }
 
   const handleSliderChange = () => {
-    dispatch(setMin(leftInputHandle))
-    dispatch(setMax(rightInputHandle))
+    setMin(leftInputHandle)
+    setMax(rightInputHandle)
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

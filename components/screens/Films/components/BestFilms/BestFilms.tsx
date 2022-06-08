@@ -4,15 +4,15 @@ import { Filter } from "../../../../Filter/Filter"
 import { Slider } from "../../../../Slider/Slider";
 import { MovieItem } from "../../../../MovieItem/MovieItem";
 import { BEST_FILMS_ROUTE, FILMS_ROUTE } from "../../../../../constants/routes"
-import { setBestFilmsRatingMin, setBestFilmsRatingMax } from "../../../../../store/reducers/ratingSlice";
-import { setBestFilmsYearMin, setBestFilmsYearMax } from "../../../../../store/reducers/yearSlice";
 import { useTypedSelector } from "../../../../../hooks/useTypedSelector";
 import Link from "next/link"
+import { useActions } from "../../../../../hooks/useActions";
 
 export const BestFilms = () => {
 
   const {bestFilmsRating} = useTypedSelector(state => state.ratingReducer)
   const {bestFilmsYear} = useTypedSelector(state => state.yearReducer)
+  const {setBestFilmsRatingMin, setBestFilmsRatingMax, setBestFilmsYearMin, setBestFilmsYearMax} = useActions()
   const {data} = useGetBestFilmsQuery({
     page: 0,
     minRating: bestFilmsRating?.minRating,

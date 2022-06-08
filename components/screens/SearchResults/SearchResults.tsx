@@ -1,21 +1,19 @@
-import classNames from "classnames"
 import { useRouter } from "next/router"
-import { useDispatch } from "react-redux"
+import { useActions } from "../../../hooks/useActions"
 import { useTypedSelector } from "../../../hooks/useTypedSelector"
 import { useGetFilmByNameQuery } from "../../../services/KinopoiskService"
-import { loadMoreResults } from "../../../store/reducers/loadMoreSlice"
 import { BackBtn } from "../../BackBtn/BackBtn"
 import { FilmItem } from "../../FilmItem/FilmItem"
 import { Title } from "../../Title/Title"
 import styles from './SearchResults.module.scss'
+import classNames from "classnames"
 
 export const SearchResults = () => {
 
     const {query: {id}} = useRouter()
     const {resultsLimit} = useTypedSelector(state => state.loadReducer)
     const {data, isLoading, isFetching} = useGetFilmByNameQuery({search: id, limit: resultsLimit})
-    const dispatch = useDispatch()
-    const handleShowMore = () => dispatch(loadMoreResults(5))
+    const {loadMoreResults} = useActions()
     const condition = data?.docs.length === data?.total;
 
     return (
@@ -29,7 +27,7 @@ export const SearchResults = () => {
                 ))}
                 <p className={styles.desc}>{!data?.docs.length && !isLoading ? 'Ничего не найдено!' : isLoading && 'Загрузка' }</p>
                 </ul>
-                {!condition && <button onClick={handleShowMore} className='btn-reset g-btn g-section__btn'>
+                {!condition && <button onClick={loadMoreResults} className='btn-reset g-btn g-section__btn'>
                     {isFetching ? 'Загрузка...' : 'Показать ещё'}
                 </button>}
             </div>
