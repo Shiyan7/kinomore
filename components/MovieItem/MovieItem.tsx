@@ -16,8 +16,6 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
 
     const {poster, description, names, year, movieLength, rating, shortDescription} = item;
 
-    console.log(item);
-
     return (
         <div className={styles.container}>
             <div className={styles.left}>

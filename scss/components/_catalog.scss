@@ -3,6 +3,10 @@
 
     &__container {
         padding: 25px 40px 60px;
+
+        @media (max-width: 768px) {
+            padding: 20px 15px 50px;
+        }
     }
 
     &__title {
@@ -24,9 +28,7 @@
         max-width: 800px;
 
         @media (max-width: 576px) {
-            font-size: 11px;
-            line-height: 22px;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
         }
     }
 
@@ -34,10 +36,10 @@
         display: grid;
         column-gap: 60px;
         grid-template-columns: 240px auto;
-    }
 
-    &__content {
-        width: 100%;
+        @media (max-width: 1024px) {
+            display: block;
+        }
     }
 
     &-top {
@@ -47,6 +49,10 @@
         padding-bottom: 20px;
         margin-bottom: 40px;
         border-bottom: 1px solid rgba(#000, 0.1);
+        
+        @media (max-width: 576px) {
+            margin-bottom: 20px;
+        }
 
         &__link {
             display: inline-block;
@@ -56,13 +62,41 @@
             color: rgba(#000, 0.5);
             transition: color 0.3s;
 
+            @media (max-width: 576px) {
+                font-size: 14px;
+                line-height: 18px;
+            }
+
             &:hover {
                 color: #000;
             }
 
             &:not(:last-child) {
                 margin-right: 20px;
+
+                @media (max-width: 576px) {
+                    margin-right: 14px;
+                }
             }
+        }
+    }
+
+    &__filters {
+        @media (max-width: 1024px) {
+            margin-bottom: 50px;
+        }
+    }
+
+    &__grid {
+        margin-bottom: 50px;
+
+        @media (max-width: 1024px) {
+            display: grid;
+            row-gap: 30px;
+        }
+
+        @media (max-width: 576px) {
+            row-gap: 15px;
         }
     }
 }

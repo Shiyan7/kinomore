@@ -12,9 +12,10 @@ interface SliderProps {
   startMax: number;
   setMin: ActionCreatorWithPayload<number>;
   setMax: ActionCreatorWithPayload<number>;
+  setPage: ActionCreatorWithPayload<number>;
 }
 
-export const Slider: FC<SliderProps> = ({ min, max, startMin, startMax, step, setMin, setMax}) => {
+export const Slider: FC<SliderProps> = ({ min, max, startMin, startMax, step, setMin, setMax, setPage}) => {
 
   const [inputHandle, setInputHandle] = useState({left: startMin, right: startMax});
   const leftInputHandle = Math.ceil(Number(inputHandle.left))
@@ -31,6 +32,7 @@ export const Slider: FC<SliderProps> = ({ min, max, startMin, startMax, step, se
   const handleSliderChange = () => {
     setMin(leftInputHandle)
     setMax(rightInputHandle)
+    setPage(1)
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

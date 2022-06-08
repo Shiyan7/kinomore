@@ -3,6 +3,10 @@
 
     &:not(:last-child) {
       margin-bottom: 55px;
+
+      @media (max-width: 576px) {
+        margin-bottom: 30px;
+      }
     }
   
     &Active {

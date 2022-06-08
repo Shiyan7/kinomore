@@ -7,19 +7,23 @@ import { BEST_FILMS_ROUTE, FILMS_ROUTE } from "../../../../../constants/routes"
 import { useTypedSelector } from "../../../../../hooks/useTypedSelector";
 import Link from "next/link"
 import { useActions } from "../../../../../hooks/useActions";
+import { Pagination } from "../../../../Pagination/Pagination";
 
 export const BestFilms = () => {
 
   const {bestFilmsRating} = useTypedSelector(state => state.ratingReducer)
   const {bestFilmsYear} = useTypedSelector(state => state.yearReducer)
-  const {setBestFilmsRatingMin, setBestFilmsRatingMax, setBestFilmsYearMin, setBestFilmsYearMax} = useActions()
+  const {setBestFilmsRatingMin, setBestFilmsRatingMax, setBestFilmsYearMin, setBestFilmsYearMax, setBestFilmsPage} = useActions()
+  const {bestFilmsPage} = useTypedSelector(state => state.paginationReducer)
   const {data} = useGetBestFilmsQuery({
-    page: 0,
+    page: bestFilmsPage,
     minRating: bestFilmsRating?.minRating,
     maxRating: bestFilmsRating?.maxRating,
     minYear: bestFilmsYear.minYear,
     maxYear: bestFilmsYear.maxYear
   })
+
+  const condition = data?.pages === 1
 
   return (
     <section className="catalog">
@@ -40,7 +44,7 @@ export const BestFilms = () => {
         <Title classN="catalog__title">250 лучших фильмов</Title>
         <p className="catalog__desc">Рейтинг составлен по результатам голосования посетителей сайта. Любой желающий может принять в нем участие, проголосовав за свой любимый фильм.</p>
         <div className="catalog__body">
-          <div className="filters">
+          <div className="filters catalog__filters">
             <div className="filters__content">
               <Filter name="Рейтинг кинопоиска">
                 <Slider
@@ -50,6 +54,7 @@ export const BestFilms = () => {
                   startMax={bestFilmsRating.maxRating}
                   setMin={setBestFilmsRatingMin}
                   setMax={setBestFilmsRatingMax}
+                  setPage={setBestFilmsPage}
                   step={1}
                 />
               </Filter>
@@ -61,6 +66,7 @@ export const BestFilms = () => {
                   startMax={bestFilmsYear.maxYear}
                   setMin={setBestFilmsYearMin}
                   setMax={setBestFilmsYearMax}
+                  setPage={setBestFilmsPage}
                 />
               </Filter>
             </div>
@@ -71,6 +77,7 @@ export const BestFilms = () => {
                 <MovieItem key={el.id} item={el} />
               ))}
             </div>
+            {data && !condition && <Pagination page={bestFilmsPage} pages={data.pages} setPage={setBestFilmsPage} />}
           </div>
         </div>
       </div>

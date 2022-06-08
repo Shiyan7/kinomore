@@ -7,27 +7,38 @@
     border-radius: 5px;
     transition: box-shadow 0.3s;
     border-radius: 8px;
+    
+    @media (max-width: 1024px) {
+        padding: 0;
+    }
 
-    &:hover {
-        box-shadow: 0 2px 25px rgba(#000, 0.1);
+    @media (max-width: 576px) {
+        align-items: flex-start;
+    }
 
-        &:before {
-            opacity: 0;
-            visibility: hidden;
+    @media (min-width: 1025px) {
+
+        &:hover {
+            box-shadow: 0 2px 25px rgba(#000, 0.1);
+
+            &:before {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 20px;
+                right: 20px;
+                height: 1px;
+                background-color: rgba(#000, 0.1);
+                transition: opacity 0.3s, visibility 0.3s;
+            }
         }
     }
-
-    &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 20px;
-        right: 20px;
-        height: 1px;
-        background-color: rgba(#000, 0.1);
-        transition: opacity 0.3s, visibility 0.3s;
-    }
-}
 
 .left {
     display: flex;
@@ -88,6 +99,10 @@
     display: flex;
     align-items: center;
     padding-left: 90px;
+
+    @media (max-width: 576px) {
+        padding-left: 20px;
+    }
 }
 
 .rating {
@@ -101,9 +116,18 @@
 .btn {
     padding: 10px;
 
+    @media (max-width: 576px) {
+        padding: 3px;
+        font-size: 0;        
+    }
+
     svg {
         margin-left: 0;
         margin-right: 8px;
+
+        @media (max-width: 576px) {
+            margin-right: 0;
+        }
     }
 
     &:hover {

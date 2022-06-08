@@ -1,9 +1,9 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {API_TOKEN, API_URL} from '../constants/api'
-import { IData } from '../types/IData';
-import { IFilm } from '../types/IFilm';
-import { IFilterArgs } from '../types/IFilterArgs';
-import { ISearchArgs } from '../types/ISearchArgs';
+import {IData} from '../types/IData';
+import {IFilm} from '../types/IFilm';
+import {IFilterArgs} from '../types/IFilterArgs';
+import {ISearchArgs} from '../types/ISearchArgs';
 
 export const kinopoiskAPI = createApi({
   reducerPath: 'kinopoiskAPI',

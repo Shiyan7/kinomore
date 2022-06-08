@@ -14,9 +14,10 @@ export const getServerSideProps: GetServerSideProps = async (params) => {
   const state = store.getState()
   const {bestFilmsRating} = state.ratingReducer
   const {bestFilmsYear} = state.yearReducer
+  const {bestFilmsPage} = state.paginationReducer
   
   await store.dispatch(getBestFilms.initiate({
-    page: 0,
+    page: bestFilmsPage,
     minRating: bestFilmsRating?.minRating,
     maxRating: bestFilmsRating?.maxRating,
     minYear: bestFilmsYear.minYear,
