@@ -5,7 +5,7 @@ import { IFilm } from '../../types/IFilm'
 import styles from './FilmItem.module.scss'
 import {FiStar, FiBookmark} from 'react-icons/fi'
 import classNames from 'classnames'
-import { convertType } from '../../helpers/convertType'
+import { convertType } from '../../helpers/convertType/convertType'
 
 interface FilmItemProps {
     item: IFilm

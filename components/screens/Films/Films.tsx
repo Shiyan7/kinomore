@@ -1,11 +1,12 @@
 import Link from "next/link"
 import { Textfit } from 'react-textfit';
+import { BEST_FILMS_ROUTE, WAR_FILMS_ROUTE } from "../../../constants/routes";
 
 export const Films = () => {
   return (
     <ul className="list-reset movie-list">
       <li className="movie-list__item">
-        <Link href='#'>
+        <Link href={BEST_FILMS_ROUTE}>
           <a className="movie-item">  
             <Textfit
               className="movie-item__poster"
@@ -33,7 +34,7 @@ export const Films = () => {
         </Link>
       </li>
       <li className="movie-list__item">
-        <Link href='#'>
+        <Link href={WAR_FILMS_ROUTE}>
           <a className="movie-item">
             <Textfit
               className="movie-item__poster"

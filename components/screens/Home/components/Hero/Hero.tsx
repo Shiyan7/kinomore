@@ -4,6 +4,8 @@ import { FiArrowRight } from 'react-icons/fi'
 import styles from './Hero.module.scss'
 import { useRef } from 'react'
 import { useEffect } from 'react'
+import { Button } from '../../../../Button/Button'
+import { Title } from '../../../../Title/Title'
 
 export const Hero = () => {
 
@@ -29,14 +31,12 @@ export const Hero = () => {
       </video>
       <div className={classNames('container', styles.container)}>
         <div className={styles.content}>
-        <h2 className={classNames('g-title', styles.title)}>Доктор Стрэндж: В&nbsp;мультивселенной безумия</h2>
+        <Title variant='h2' classN={styles.title}>Доктор Стрэндж: В&nbsp;мультивселенной безумия</Title>
         <p className={styles.desc}>Продолжение магических приключений Доктора Стрэнджа в новых мистических мирах и в противостоянии с новыми врагами.</p>
-        <Link href='/film/1219909'>
-          <a className={classNames('g-btn', styles.link)}>
-            Подробнее
-            <FiArrowRight />
-          </a>
-        </Link>
+        <Button href='/film/1219909'>
+          Подробнее
+          <FiArrowRight />
+        </Button>
         </div>
       </div>
     </section>

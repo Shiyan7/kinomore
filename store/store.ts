@@ -3,6 +3,8 @@ import { createWrapper } from "next-redux-wrapper";
 import { kinopoiskAPI } from "../services/KinopoiskService";
 import { searchReducer } from "./reducers/searchSlice";
 import { loadReducer } from "./reducers/loadMoreSlice";
+import { ratingReducer } from "./reducers/ratingSlice";
+import { yearReducer } from "./reducers/yearSlice";
 import { useMemo } from 'react'
 
 let store: AppStore
@@ -12,6 +14,8 @@ export function initStore(preloadedState = {}) {
     reducer: {
       searchReducer,
       loadReducer,
+      ratingReducer,
+      yearReducer,
       [kinopoiskAPI.reducerPath]: kinopoiskAPI.reducer,
     },
     preloadedState,

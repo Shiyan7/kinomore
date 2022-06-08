@@ -1,0 +1,14 @@
+.g-input {
+    border: 1px solid #e4e6ef;
+    border-radius: 10px;
+    padding: 0 15px;
+    height: 44px;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color-text);
+
+    &::placeholder {
+        color: #a5a5ad;
+        opacity: 1;
+    }
+}

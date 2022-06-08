@@ -11,3 +11,11 @@
     font-size: 18px;
     line-height: 18px;
 }
+
+.title {
+    margin-bottom: 35px;
+
+    @media (max-width: 576px) {
+        margin-bottom: 25px;
+    }
+}

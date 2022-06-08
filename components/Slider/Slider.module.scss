@@ -1,0 +1,16 @@
+.container {
+    width: 100%;
+}
+
+.inputs {
+    display: flex;
+    margin-bottom: 17px;
+}
+
+.input {
+    width: 100%;
+
+    &:not(:last-child) {
+        margin-right: 10px;
+    }
+}

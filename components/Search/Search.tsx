@@ -3,24 +3,23 @@ import {FiSearch} from 'react-icons/fi'
 import styles from './Search.module.scss'
 import classNames from 'classnames'
 import { useDispatch } from 'react-redux'
-import { useTypedSelector } from '../../hooks/redux'
-import { setSearch, setValue } from '../../store/reducers/searchSlice'
+import { setSearch } from '../../store/reducers/searchSlice'
 import { useRouter } from 'next/router'
 
 export const Search = () => {
     
     const dispatch = useDispatch()
     const router = useRouter();
-    const {value, search} = useTypedSelector(state => state.searchReducer)
+    const [value, setValue] = useState<string>('')
     
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        dispatch(setValue(e.target.value))
+        setValue(e.target.value)
     }
 
     const submitForm = (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
         e.preventDefault()
         dispatch(setSearch(value))
-        dispatch(setValue(''))
+        setValue('')
         router.push(`/search/${value}`)
     }
 

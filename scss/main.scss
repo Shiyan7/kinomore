@@ -1,10 +1,12 @@
 @import "vars";
 @import "global";
+@import "vendor";
 
-@import "./components/g-logo";
 @import "./components/g-title";
 @import "./components/g-btn";
-@import "./components/g-section";
 @import "./components/g-back";
-@import "./components/g-age";
+@import "./components/g-input";
+@import "./components/g-section";
 @import "./components/list";
+@import "./components/catalog";
+@import "./components/noUi";
