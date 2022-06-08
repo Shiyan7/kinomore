@@ -1,20 +1,21 @@
 import styles from './Header.module.scss'
+import {CARTOONS_ROUTE, FAVORITES_ROUTE, FILMS_ROUTE, HOME_ROUTE, LOGIN_ROUTE, SERIES_ROUTE} from '../../constants/routes'
 import {FiFilm, FiMenu, FiHome, FiUser, FiTv, FiHeart, FiX} from 'react-icons/fi'
 import {BiMovie} from 'react-icons/bi'
+import {useRouter} from 'next/router'
+import {Search} from '../Search/Search'
+import {useRef, useState} from 'react'
+import {useOnClickOutside} from 'usehooks-ts'
+import {Logo} from '../Logo/Logo'
 import classNames from 'classnames'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { Search } from '../Search/Search'
-import { useRef, useState } from 'react'
-import { useOnClickOutside } from 'usehooks-ts'
-import { Logo } from '../Logo/Logo'
-import { CARTOONS_ROUTE, FAVORITES_ROUTE, FILMS_ROUTE, HOME_ROUTE, LOGIN_ROUTE, SERIES_ROUTE } from '../../constants/routes'
 
 export const Header = () => {
 
     const ref = useRef(null)
     const router = useRouter()
     const [open, setOpen] = useState(false);
+
     const handleOpen = () => {
         setOpen(!open)
     }

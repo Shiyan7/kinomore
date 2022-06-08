@@ -1,26 +1,24 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import {ChangeEvent, FormEvent, useState} from 'react'
 import {FiSearch} from 'react-icons/fi'
+import {useRouter} from 'next/router'
+import {useActions} from '../../hooks/useActions'
 import styles from './Search.module.scss'
 import classNames from 'classnames'
-import { useDispatch } from 'react-redux'
-import { useTypedSelector } from '../../hooks/redux'
-import { setSearch, setValue } from '../../store/reducers/searchSlice'
-import { useRouter } from 'next/router'
 
 export const Search = () => {
     
-    const dispatch = useDispatch()
+    const {setSearch} = useActions()
     const router = useRouter();
-    const {value, search} = useTypedSelector(state => state.searchReducer)
+    const [value, setValue] = useState<string>('')
     
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        dispatch(setValue(e.target.value))
+        setValue(e.target.value)
     }
 
     const submitForm = (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
         e.preventDefault()
-        dispatch(setSearch(value))
-        dispatch(setValue(''))
+        setSearch(value)
+        setValue('')
         router.push(`/search/${value}`)
     }
 

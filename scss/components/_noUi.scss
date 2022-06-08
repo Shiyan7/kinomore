@@ -1,0 +1,45 @@
+.noUi-horizontal {
+    height: 4px;
+}
+
+.noUi-base {
+    width: calc(100% - 16px);
+}
+
+.noUi-connects {
+    width: calc(100% + 16px);
+}
+
+.noUi-target {
+    border: none;
+    box-shadow: none;
+    background-color: rgba(#000, 0.2);
+}
+
+.noUi-connect {
+    background-color: var(--color-primary);
+}
+
+.noUi-horizontal .noUi-handle {
+    top: -6px;
+    width: 17px;
+    height: 17px;
+}
+
+.noUi-handle {
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0 0 3px rgba(145, 158, 171, 70%);
+    background-color: #fff;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0 5px rgba(145, 158, 171, 70%);
+    }
+}
+
+.noUi-handle::after,
+.noUi-handle::before {
+    display: none;
+}

@@ -112,3 +112,8 @@ a {
         padding: 35px 15px;
     }
 }
+
+::selection {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+}

@@ -1,0 +1,50 @@
+.filter {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 55px;
+
+      @media (max-width: 576px) {
+        margin-bottom: 30px;
+      }
+    }
+  
+    &Active {
+  
+      .filterControl svg {
+        transform: rotate(180deg);
+      }
+  
+      .filterContent {
+        display: block;
+      }
+    }
+  
+    &Control {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+  
+      svg {
+        display: block;
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s;
+      }
+    }
+  
+    &Content {
+      display: none;
+      margin-top: 20px;
+  
+      &__item {
+        &:not(:last-child) {
+          margin-bottom: 12px;
+        }
+      }
+    }
+}
