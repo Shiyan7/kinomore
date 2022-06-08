@@ -2,17 +2,11 @@
     display: flex;
     align-items: center;
   
-    @media (max-width: 576px) {
+    @media (max-width: 1024px) {
       justify-content: center;
     }
   
     &__item {
-  
-      &:nth-child(5) {
-        @media (max-width: 576px) {
-          display: none;
-        }
-      }
   
       &:not(:last-child) {
         margin-right: 12px;
@@ -48,10 +42,6 @@
         border: 1px solid var(--color-primary);
         color: #fff;
         background-color: var(--color-primary);
-      }
-  
-      &--prev svg {
-        transform: rotate(180deg);
       }
   
       &--disabled {
