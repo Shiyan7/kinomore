@@ -11,13 +11,13 @@ export const loadSlice = createSlice({
     initialState,
     reducers: {
         loadMoreFilms: (state, action) => {
-            state.filmsLimit += 5
+            state.filmsLimit += action.payload
         },
         loadMoreSeries: (state, action) => {
-            state.seriesLimit += 5
+            state.seriesLimit += action.payload
         },
         loadMoreResults: (state, action) => {
-            state.resultsLimit += 5
+            state.resultsLimit += action.payload
         },
     }
 })

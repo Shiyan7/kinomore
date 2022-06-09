@@ -12,6 +12,8 @@ export const NewMovies = () => {
   const {data, isFetching} = useGetNewFilmsQuery(filmsLimit)
   const {loadMoreFilms} = useActions()
   const condition = data?.docs?.length === data?.total
+
+  const handleLoadMore = () => loadMoreFilms(5)
   
   return (
     <section>
@@ -28,7 +30,7 @@ export const NewMovies = () => {
         {!condition &&
           <Button
             classN='g-section__btn'
-            onClick={loadMoreFilms}
+            onClick={handleLoadMore}
           >
             {isFetching ? 'Загрузка...' : 'Показать ещё'}
           </Button>

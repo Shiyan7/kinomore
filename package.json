@@ -15,7 +15,6 @@
     "@types/nprogress": "^0.2.0",
     "@types/react-lines-ellipsis": "^0.15.1",
     "classnames": "^2.3.1",
-    "dotenv": "^16.0.1",
     "next": "12.1.6",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.5.2",

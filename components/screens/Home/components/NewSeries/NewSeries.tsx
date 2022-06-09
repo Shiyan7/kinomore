@@ -13,6 +13,8 @@ export const NewSeries = () => {
   const {loadMoreSeries} = useActions()
   const condition = data?.docs.length === data?.total;
 
+  const handleLoadMore = () => loadMoreSeries(5)
+
   return (
     <section>
       <div className='container g-section__container'>
@@ -28,7 +30,7 @@ export const NewSeries = () => {
         {!condition &&
           <Button
             classN='g-section__btn'
-            onClick={loadMoreSeries}
+            onClick={handleLoadMore}
           >
             {isFetching ? 'Загрузка...' : 'Показать ещё'}
           </Button>
