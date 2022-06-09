@@ -40,7 +40,7 @@ export const HorrorFilms = () => {
           </Link>
         </div>
         <Title classN="catalog__title">250 лучших фильмов ужасов</Title>
-        <p className="catalog__desc">Лучшие фильмы ужасы. Рейтинг составлен по результатам голосования посетителей сайта. Любой желающий может принять в нем участие, проголосовав за свой любимый фильм.</p>
+        <p className="catalog__desc">Рейтинг составлен по результатам голосования сайта IMDb.</p>
         <div className="catalog__body">
           <div className="filters catalog__filters">
             <div className="filters__content">
