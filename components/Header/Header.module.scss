@@ -29,16 +29,6 @@
         width: 100%;
         background-color: #333;
         padding: 20px var(--container-offset);
-        justify-content: space-between;
-    }
-}
-
-.logo {
-    @media (max-width: 768px) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
 }
 
@@ -56,6 +46,7 @@
     transition: opacity 0.3s;
 
     @media (max-width: 768px) {
+        order: 3;
         margin-right: 0;
     }
 
@@ -205,9 +196,11 @@
 }
 
 .menuLink {
+    margin-left: auto;
     font-size: 17px;
     line-height: 17px;
     display: none;
+    margin-right: 15px;
 
     @media (max-width: 768px) {
         display: inline-block;
