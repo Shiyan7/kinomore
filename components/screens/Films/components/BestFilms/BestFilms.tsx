@@ -1,29 +1,29 @@
-import { useGetBestFilmsQuery } from "../../../../../services/KinopoiskService"
-import { Title } from "../../../../Title/Title";
-import { Filter } from "../../../../Filter/Filter"
-import { Slider } from "../../../../Slider/Slider";
-import { MovieItem } from "../../../../MovieItem/MovieItem";
-import { BEST_FILMS_ROUTE, FILMS_ROUTE } from "../../../../../constants/routes"
-import { useTypedSelector } from "../../../../../hooks/useTypedSelector";
+import { useGetBestFilmsQuery } from "@/services/KinopoiskService"
+import { Title } from "@/components/Title/Title";
+import { Filter } from "@/components/Filter/Filter"
+import { Slider } from "@/components/Slider/Slider";
+import { MovieItem } from "@/components/MovieItem/MovieItem";
+import { BEST_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes"
+import { useTypedSelector } from "@/hooks/useTypedSelector";
+import { useActions } from "@/hooks/useActions";
+import { Pagination } from "@/components//Pagination/Pagination";
 import Link from "next/link"
-import { useActions } from "../../../../../hooks/useActions";
-import { Pagination } from "../../../../Pagination/Pagination";
 
 export const BestFilms = () => {
 
-  const {bestFilmsRating} = useTypedSelector(state => state.ratingReducer)
-  const {bestFilmsYear} = useTypedSelector(state => state.yearReducer)
-  const {setBestFilmsRatingMin, setBestFilmsRatingMax, setBestFilmsYearMin, setBestFilmsYearMax, setBestFilmsPage} = useActions()
-  const {bestFilmsPage} = useTypedSelector(state => state.paginationReducer)
+  const {bestFilmsRating} = useTypedSelector(state => state.ratingReducer);
+  const {bestFilmsYear} = useTypedSelector(state => state.yearReducer);
+  const {setBestFilmsRatingMin, setBestFilmsRatingMax, setBestFilmsYearMin, setBestFilmsYearMax, setBestFilmsPage} = useActions();
+  const {bestFilmsPage} = useTypedSelector(state => state.paginationReducer);
   const {data} = useGetBestFilmsQuery({
     page: bestFilmsPage,
     minRating: bestFilmsRating?.minRating,
     maxRating: bestFilmsRating?.maxRating,
     minYear: bestFilmsYear.minYear,
     maxYear: bestFilmsYear.maxYear
-  })
+  });
 
-  const condition = data?.pages === 1
+  const condition = data?.pages === 1;
 
   return (
     <section className="catalog">

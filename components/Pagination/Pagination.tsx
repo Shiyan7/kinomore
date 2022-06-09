@@ -44,7 +44,7 @@ export const Pagination: FC<PaginationProps> = ({page, pages, setPage, classN}) 
       <li className='g-pagination__item'>
         <button
           onClick={handleForward}
-          className={classNames('btn-reset g-pagination__btn g-pagination__link--next', page === pages && 'g-pagination__btn--disabled')}
+          className={classNames('btn-reset g-pagination__btn g-pagination__link--next', page === 5 && 'g-pagination__btn--disabled')}
         >
           <FiChevronRight />
         </button>

@@ -1,11 +1,9 @@
-import classNames from 'classnames'
-import Image from 'next/image'
-import Link from 'next/link'
 import { FC } from 'react'
 import { FiBookmark } from 'react-icons/fi'
-import { convertNumbers } from '../../helpers/convertNumbers/convertNumbers'
-import { IFilm } from '../../types/IFilm'
-import { Button } from '../Button/Button'
+import { IFilm } from '@/types/IFilm'
+import { Button } from '@/components/Button/Button'
+import Image from 'next/image'
+import Link from 'next/link'
 import styles from './MovieItem.module.scss'
 
 interface MovieItemProps {
@@ -28,13 +26,13 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
                         />
                     </a>
                 </Link>
-                <Link href={`/film/${item.id}`}>
-                    <a className={styles.text}>
-                        <span className={styles.title}>{names[0].name}</span>
-                        <span className={styles.info}>{year}{movieLength && `, ${movieLength} мин.`}</span>
-                        <p className={styles.desc}>{shortDescription ? shortDescription : description}</p>
-                    </a>
-                </Link>
+                <div className={styles.text}>
+                    <Link href={`/film/${item.id}`}>
+                        <a className={styles.title}>{names[0].name}</a>
+                    </Link>
+                    <span className={styles.info}>{year}{movieLength && `, ${movieLength} мин.`}</span>
+                    <p className={styles.desc}>{shortDescription ? shortDescription : description}</p>
+                </div>
             </div>
             <div className={styles.right}>
                 <span className={styles.rating}>

@@ -1,6 +1,6 @@
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { ChangeEvent, FC, useState } from "react"
-import { Input } from "../Input/Input";
+import { Input } from "@/components/Input/Input";
 import Nouislider from "nouislider-react"
 import styles from './Slider.module.scss'
 

@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next';
-import { Home } from '../components/screens/Home/Home';
-import { getNewFilms, getNewSeries } from '../services/KinopoiskService';
-import { initStore  } from '../store/store';
+import { Home } from '@/components/screens/Home/Home';
+import { getNewFilms, getNewSeries } from '@/services/KinopoiskService';
+import { initStore  } from '@/store/store';
 
 const Index: NextPage = () => {
   return (

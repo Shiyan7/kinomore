@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next';
-import { SearchResults } from '../../components/screens/SearchResults/SearchResults';
-import { getFilmByName } from '../../services/KinopoiskService';
-import { initStore } from '../../store/store';
+import { SearchResults } from '@/components/screens/SearchResults/SearchResults';
+import { getFilmByName } from '@/services/KinopoiskService';
+import { initStore } from '@/store/store';
 
 const searchResults: NextPage = () => {
     return (

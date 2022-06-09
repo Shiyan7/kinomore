@@ -1,10 +1,10 @@
 import { useRouter } from "next/router"
-import { useActions } from "../../../hooks/useActions"
-import { useTypedSelector } from "../../../hooks/useTypedSelector"
-import { useGetFilmByNameQuery } from "../../../services/KinopoiskService"
-import { BackBtn } from "../../BackBtn/BackBtn"
-import { FilmItem } from "../../FilmItem/FilmItem"
-import { Title } from "../../Title/Title"
+import { useActions } from "@/hooks/useActions"
+import { useTypedSelector } from "@/hooks/useTypedSelector"
+import { useGetFilmByNameQuery } from "@/services/KinopoiskService"
+import { BackBtn } from "@/components/BackBtn/BackBtn"
+import { FilmItem } from "@/components/FilmItem/FilmItem"
+import { Title } from "@/components/Title/Title"
 import styles from './SearchResults.module.scss'
 import classNames from "classnames"
 

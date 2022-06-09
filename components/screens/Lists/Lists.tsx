@@ -1,11 +1,10 @@
-import classNames from 'classnames'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, ReactNode } from 'react'
-import { CARTOONS_ROUTE, FILMS_ROUTE, SERIES_ROUTE, YEARS_ROUTE } from '../../../constants/routes'
-import { BackBtn } from '../../BackBtn/BackBtn'
-import { Title } from '../../Title/Title'
+import { CARTOONS_ROUTE, FILMS_ROUTE, SERIES_ROUTE, YEARS_ROUTE } from '@/constants/routes'
+import { Title } from '@/components/Title/Title'
 import styles from './Lists.module.scss'
+import classNames from 'classnames'
+import Link from 'next/link'
 
 interface ListsProps {
   children: ReactNode

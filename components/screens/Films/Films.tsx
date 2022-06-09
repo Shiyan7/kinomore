@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { BEST_FILMS_ROUTE, WAR_FILMS_ROUTE } from "../../../constants/routes";
+import { BEST_FILMS_ROUTE, WAR_FILMS_ROUTE } from "@/constants/routes";
 
 export const Films = () => {
   return (

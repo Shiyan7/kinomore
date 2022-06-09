@@ -1,6 +1,6 @@
 import { NextPage } from "next";
-import { Films } from "../../../../components/screens/Films/Films";
-import { Lists } from "../../../../components/screens/Lists/Lists";
+import { Films } from "@/components/screens/Films/Films";
+import { Lists } from "@/components/screens/Lists/Lists";
 
 const FilmsPage: NextPage = () => {
   return (

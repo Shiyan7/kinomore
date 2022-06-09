@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from "next";
-import { BestFilms } from "../../../../components/screens/Films/components/BestFilms/BestFilms";
-import { getBestFilms } from "../../../../services/KinopoiskService";
-import { initStore } from "../../../../store/store";
+import { BestFilms } from "@/components/screens/Films/components/BestFilms/BestFilms";
+import { getBestFilms } from "@/services/KinopoiskService";
+import { initStore } from "@/store/store";
 
 const BestFilmsPage: NextPage = () => {
   return (

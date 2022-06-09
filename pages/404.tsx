@@ -1,5 +1,5 @@
 import React from 'react';
-import { NotFound } from '../components/screens/NotFound/NotFound';
+import { NotFound } from '@/components/screens/NotFound/NotFound';
 
 const page404 = () => {
     return (

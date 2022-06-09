@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { Title } from "../../Title/Title"
+import { Title } from "@/components/Title/Title"
 import { useRouter } from "next/router"
-import { useGetFilmByIdQuery } from "../../../services/KinopoiskService"
+import { useGetFilmByIdQuery } from "@/services/KinopoiskService"
 import { Fragment, useEffect } from "react"
-import { BackBtn } from "../../BackBtn/BackBtn"
-import { convertNumbers } from "../../../helpers/convertNumbers/convertNumbers"
+import { BackBtn } from "@/components/BackBtn/BackBtn"
+import { convertNumbers } from "@/helpers/convertNumbers/convertNumbers"
 import styles from './Film.module.scss'
 import classNames from "classnames"
 

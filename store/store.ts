@@ -1,6 +1,6 @@
 import { configureStore, PreloadedState } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
-import { kinopoiskAPI } from "../services/KinopoiskService";
+import { kinopoiskAPI } from "@/services/KinopoiskService";
 import { searchReducer } from "./reducers/searchSlice";
 import { loadReducer } from "./reducers/loadMoreSlice";
 import { ratingReducer } from "./reducers/ratingSlice";

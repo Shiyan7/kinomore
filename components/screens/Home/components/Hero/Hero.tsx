@@ -1,16 +1,15 @@
-import classNames from 'classnames'
-import Link from 'next/link'
 import { FiArrowRight } from 'react-icons/fi'
-import styles from './Hero.module.scss'
 import { useRef } from 'react'
 import { useEffect } from 'react'
-import { Button } from '../../../../Button/Button'
-import { Title } from '../../../../Title/Title'
+import { Button } from '@/components/Button/Button'
+import { Title } from '@/components/Title/Title'
+import classNames from 'classnames'
+import styles from './Hero.module.scss'
 
 export const Hero = () => {
 
   const videoRef = useRef<HTMLVideoElement>(null)
-  const trailerUrl = require('../../../../../public/trailer.mp4')
+  const trailerUrl = require('@/public/trailer.mp4')
 
   useEffect(() => {
     videoRef.current?.play()

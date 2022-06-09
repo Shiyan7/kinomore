@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { WarFilms } from "../../../../components/screens/Films/components/WarFilms/WarFilms";
+import { WarFilms } from "@/components/screens/Films/components/WarFilms/WarFilms";
 
 const WarFilmsPage: NextPage = () => {
   return (

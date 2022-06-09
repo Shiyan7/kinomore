@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import styles from './NotFound.module.scss'
-import { Button } from '../../Button/Button'
-import { HOME_ROUTE } from '../../../constants/routes'
-import { Title } from '../../Title/Title'
+import { Button } from '@/components/Button/Button'
+import { HOME_ROUTE } from '@/constants/routes'
+import { Title } from '@/components/Title/Title'
 
 export const NotFound = () => {
   return (

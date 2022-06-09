@@ -1,13 +1,12 @@
-import { FC } from 'react'
-import { FilmItem } from '../../../../FilmItem/FilmItem'
-import { useGetNewSeriesQuery } from '../../../../../services/KinopoiskService'
-import { useTypedSelector } from '../../../../../hooks/useTypedSelector'
-import { SERIES_ROUTE } from '../../../../../constants/routes'
-import { Button } from '../../../../Button/Button'
-import { Title } from '../../../../Title/Title'
-import { useActions } from '../../../../../hooks/useActions'
+import { FilmItem } from '@/components/FilmItem/FilmItem'
+import { useGetNewSeriesQuery } from '@/services/KinopoiskService'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { SERIES_ROUTE } from '@/constants/routes'
+import { Button } from '@/components/Button/Button'
+import { Title } from '@/components/Title/Title'
+import { useActions } from '@/hooks/useActions'
 
-export const NewSeries: FC = () => {
+export const NewSeries = () => {
 
   const {seriesLimit} = useTypedSelector(state => state.loadReducer)
   const {data, isFetching} = useGetNewSeriesQuery(seriesLimit)

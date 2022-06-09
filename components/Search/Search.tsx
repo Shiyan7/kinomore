@@ -1,7 +1,7 @@
 import {ChangeEvent, FormEvent, useState} from 'react'
 import {FiSearch} from 'react-icons/fi'
 import {useRouter} from 'next/router'
-import {useActions} from '../../hooks/useActions'
+import {useActions} from '@/hooks/useActions'
 import styles from './Search.module.scss'
 import classNames from 'classnames'
 

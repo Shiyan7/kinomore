@@ -1,9 +1,9 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {API_TOKEN, API_URL} from '../constants/api'
-import {IData} from '../types/IData';
-import {IFilm} from '../types/IFilm';
-import {IFilterArgs} from '../types/IFilterArgs';
-import {ISearchArgs} from '../types/ISearchArgs';
+import {API_TOKEN, API_URL} from '@/constants/api'
+import {IData} from '@/types/IData';
+import {IFilm} from '@/types/IFilm';
+import {IFilterArgs} from '@/types/IFilterArgs';
+import {ISearchArgs} from '@/types/ISearchArgs';
 
 export const kinopoiskAPI = createApi({
   reducerPath: 'kinopoiskAPI',
@@ -27,7 +27,7 @@ export const kinopoiskAPI = createApi({
     }),
     getBestFilms: build.query<IData, IFilterArgs>({
       query: args =>
-        `/movie?field=rating.kp&search=${args.minRating}-${args.maxRating}&field=year&search=${args.minYear}-${args.maxYear}&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&limit=50&page=${args.page}&token=${API_TOKEN}`
+        `/movie?field=rating.kp&search=${args.minRating}-${args.maxRating}&field=year&search=${args.minYear}-${args.maxYear}&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.kp&sortType=-1&limit=50&page=${args.page}&token=${API_TOKEN}`
     }),
     getBestWarFilms: build.query<IData, number>({
       query: page =>
