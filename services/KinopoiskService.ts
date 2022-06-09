@@ -29,10 +29,18 @@ export const kinopoiskAPI = createApi({
       query: args =>
         `/movie?field=rating.kp&search=${args.minRating}-${args.maxRating}&field=year&search=${args.minYear}-${args.maxYear}&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.kp&sortType=-1&limit=50&page=${args.page}&token=${API_KEY}`
     }),
-    getBestWarFilms: build.query<IData, number>({
-      query: page =>
-        `/movie?search[]=movie&search[]=фантастика&search[]=1990-2021&search[]=2-10&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&field=votes.kp&page=${page}&token=${API_KEY}`
-    })
+    getComedyFilms: build.query<IData, IFilterArgs>({
+      query: args =>
+        `/movie?search[]=movie&search[]=комедия&search[]=${args.minYear}-${args.maxYear}&search[]=${args.minRating}-${args.maxRating}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&field=votes.kp&limit=50&page=${args.page}&token=${API_KEY}`
+    }),
+    getWarFilms: build.query<IData, IFilterArgs>({
+      query: args =>
+        `/movie?search[]=movie&search[]=военный&search[]=${args.minYear}-${args.maxYear}&search[]=${args.minRating}-${args.maxRating}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&field=votes.kp&limit=50&page=${args.page}&token=${API_KEY}`
+    }),
+    getHorrorFilms: build.query<IData, IFilterArgs>({
+      query: args =>
+        `/movie?search[]=movie&search[]=ужасы&search[]=${args.minYear}-${args.maxYear}&search[]=${args.minRating}-${args.maxRating}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&field=votes.kp&limit=50&page=${args.page}&token=${API_KEY}`
+    }),
   }),
 });
 
@@ -41,8 +49,10 @@ export const {
   useGetNewSeriesQuery,
   useGetFilmByIdQuery,
   useGetFilmByNameQuery,
-  useGetBestWarFilmsQuery,
-  useGetBestFilmsQuery
+  useGetBestFilmsQuery,
+  useGetComedyFilmsQuery,
+  useGetWarFilmsQuery,
+  useGetHorrorFilmsQuery
 } = kinopoiskAPI;
 
 export const {
@@ -51,5 +61,7 @@ export const {
   getFilmById,
   getFilmByName,
   getBestFilms,
-  getBestWarFilms
+  getComedyFilms,
+  getWarFilms,
+  getHorrorFilms
 } = kinopoiskAPI.endpoints;

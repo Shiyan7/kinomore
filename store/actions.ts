@@ -1,7 +1,6 @@
 import { loadMoreFilms, loadMoreSeries, loadMoreResults } from "@/store/reducers/loadMoreSlice";
-import { setBestFilmsRatingMin, setBestFilmsRatingMax } from "@/store/reducers/ratingSlice";
-import { setBestFilmsYearMin, setBestFilmsYearMax } from "@/store/reducers/yearSlice";
-import { setBestFilmsPage } from "@/store/reducers/paginationSlice";
+import { setRatingMin, setRatingMax, setYearMin, setYearMax } from "@/store/reducers/filtersSlice";
+import { setPage } from "@/store/reducers/paginationSlice";
 import { setSearch } from "@/store/reducers/searchSlice";
 
 export {
@@ -9,9 +8,9 @@ export {
     loadMoreFilms,
     loadMoreSeries,
     loadMoreResults,
-    setBestFilmsRatingMin,
-    setBestFilmsRatingMax,
-    setBestFilmsYearMin,
-    setBestFilmsYearMax,
-    setBestFilmsPage
+    setRatingMin,
+    setRatingMax,
+    setYearMin,
+    setYearMax,
+    setPage
 }

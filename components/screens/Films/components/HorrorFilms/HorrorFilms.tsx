@@ -7,15 +7,15 @@ import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {MovieItem} from "@/components/MovieItem/MovieItem";
 import {Pagination} from "@/components/Pagination/Pagination";
 import {BEST_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes"
-import {useGetWarFilmsQuery} from "@/services/KinopoiskService"
+import {useGetHorrorFilmsQuery} from "@/services/KinopoiskService"
 import Link from "next/link"
 
-export const WarFilms = () => {
+export const HorrorFilms = () => {
 
   const {setRatingMin, setRatingMax, setYearMin, setYearMax, setPage} = useActions();
   const {year, rating} = useTypedSelector(state => state.filtersReducer);
   const {page} = useTypedSelector(state => state.paginationReducer);
-  const {data} = useGetWarFilmsQuery({
+  const {data} = useGetHorrorFilmsQuery({
     page: page,
     minRating: rating?.minRating,
     maxRating: rating?.maxRating,
@@ -39,8 +39,8 @@ export const WarFilms = () => {
             <a className='catalog-top__link'>Топ 250 сериалов</a>
           </Link>
         </div>
-        <Title classN="catalog__title">250 лучших военных фильмов</Title>
-        <p className="catalog__desc">Рейтинг лучших фильмов о войне. Рейтинг составлен по результатам голосования посетителей сайта. Любой желающий может принять в нем участие, проголосовав за свой любимый фильм.</p>
+        <Title classN="catalog__title">250 лучших фильмов ужасов</Title>
+        <p className="catalog__desc">Лучшие фильмы ужасы. Рейтинг составлен по результатам голосования посетителей сайта. Любой желающий может принять в нем участие, проголосовав за свой любимый фильм.</p>
         <div className="catalog__body">
           <div className="filters catalog__filters">
             <div className="filters__content">

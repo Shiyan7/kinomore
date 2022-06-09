@@ -12,16 +12,15 @@ import Link from "next/link"
 
 export const BestFilms = () => {
 
-  const {setBestFilmsRatingMin, setBestFilmsRatingMax, setBestFilmsYearMin, setBestFilmsYearMax, setBestFilmsPage} = useActions();
-  const {bestFilmsRating} = useTypedSelector(state => state.ratingReducer);
-  const {bestFilmsYear} = useTypedSelector(state => state.yearReducer);
-  const {bestFilmsPage} = useTypedSelector(state => state.paginationReducer);
+  const {setRatingMin, setRatingMax, setYearMin, setYearMax, setPage} = useActions();
+  const {year, rating} = useTypedSelector(state => state.filtersReducer);
+  const {page} = useTypedSelector(state => state.paginationReducer);
   const {data} = useGetBestFilmsQuery({
-    page: bestFilmsPage,
-    minRating: bestFilmsRating?.minRating,
-    maxRating: bestFilmsRating?.maxRating,
-    minYear: bestFilmsYear.minYear,
-    maxYear: bestFilmsYear.maxYear
+    page: page,
+    minRating: rating?.minRating,
+    maxRating: rating?.maxRating,
+    minYear: year.minYear,
+    maxYear: year.maxYear
   });
 
   const condition = data?.pages === 1;
@@ -49,11 +48,11 @@ export const BestFilms = () => {
                 <Slider
                   min={1}
                   max={10}
-                  startMin={bestFilmsRating.minRating}
-                  startMax={bestFilmsRating.maxRating}
-                  setMin={setBestFilmsRatingMin}
-                  setMax={setBestFilmsRatingMax}
-                  setPage={setBestFilmsPage}
+                  startMin={rating.minRating}
+                  startMax={rating.maxRating}
+                  setMin={setRatingMin}
+                  setMax={setRatingMax}
+                  setPage={setPage}
                   step={1}
                 />
               </Filter>
@@ -61,11 +60,11 @@ export const BestFilms = () => {
                 <Slider
                   min={1990}
                   max={2022}
-                  startMin={bestFilmsYear.minYear}
-                  startMax={bestFilmsYear.maxYear}
-                  setMin={setBestFilmsYearMin}
-                  setMax={setBestFilmsYearMax}
-                  setPage={setBestFilmsPage}
+                  startMin={year.minYear}
+                  startMax={year.maxYear}
+                  setMin={setYearMin}
+                  setMax={setYearMax}
+                  setPage={setPage}
                 />
               </Filter>
             </div>
@@ -76,7 +75,7 @@ export const BestFilms = () => {
                 <MovieItem key={el.id} item={el} />
               ))}
             </div>
-            {data && !condition && <Pagination page={bestFilmsPage} pages={data.pages} setPage={setBestFilmsPage} />}
+            {data && !condition && <Pagination page={page} pages={data.pages} setPage={setPage} />}
           </div>
         </div>
       </div>

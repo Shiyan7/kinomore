@@ -1,11 +1,11 @@
 import { GetServerSideProps, NextPage } from "next";
-import { BestFilms } from "@/components/screens/Films/components/BestFilms/BestFilms";
-import { getBestFilms } from "@/services/KinopoiskService";
+import { getHorrorFilms } from "@/services/KinopoiskService";
 import { initStore } from "@/store/store";
+import { HorrorFilms } from "@/components/screens/Films/components/HorrorFilms/HorrorFilms";
 
-const BestFilmsPage: NextPage = () => {
+const HorrorFilmsPage: NextPage = () => {
   return (
-    <BestFilms />
+    <HorrorFilms />
   );
 };
 
@@ -15,7 +15,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const {rating, year} = state.filtersReducer
   const {page} = state.paginationReducer
   
-  await store.dispatch(getBestFilms.initiate({
+  await store.dispatch(getHorrorFilms.initiate({
     page: page,
     minRating: rating?.minRating,
     maxRating: rating?.maxRating,
@@ -26,4 +26,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return { props: { initialReduxState: store.getState()}
 }}
 
-export default BestFilmsPage;
+export default HorrorFilmsPage;
