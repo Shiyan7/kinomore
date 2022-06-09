@@ -45,6 +45,11 @@
     color: #fff;
     transition: opacity 0.3s;
 
+    @media (max-width: 768px) {
+        order: 3;
+        margin-right: 0;
+    }
+
     &:hover {
         opacity: 1;
     }
@@ -110,19 +115,19 @@
     color: #fff;
     opacity: 0.8;
     transition: opacity 0.3s;
+    outline: none;
 
     &:before {
         content: "";
         position: absolute;
+        display: none;
         bottom: -8px;
         left: 0;
         width: 16px;
         height: 2.5px;
         border-radius: 5px;
+        outline: none;
         background-color: var(--color-primary);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s, visibility 0.3s;
     }
 
     &Active {
@@ -132,12 +137,15 @@
         font-weight: 500;
 
         &:before {
-            opacity: 1;
-            visibility: visible;
+            display: block;
         }
     }
 
     &:hover {
+        opacity: 1;
+    }
+
+    &:focus-visible {
         opacity: 1;
     }
 
@@ -184,5 +192,17 @@
 
     &:hover {
         color: #fff;
+    }
+}
+
+.menuLink {
+    margin-left: auto;
+    font-size: 17px;
+    line-height: 17px;
+    display: none;
+    margin-right: 15px;
+
+    @media (max-width: 768px) {
+        display: inline-block;
     }
 }

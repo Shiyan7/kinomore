@@ -1,12 +1,12 @@
-import styles from './Header.module.scss'
 import {CARTOONS_ROUTE, FAVORITES_ROUTE, FILMS_ROUTE, HOME_ROUTE, LOGIN_ROUTE, SERIES_ROUTE} from '@/constants/routes'
-import {FiFilm, FiMenu, FiHome, FiUser, FiTv, FiHeart, FiX} from 'react-icons/fi'
+import {FiFilm, FiMenu, FiHome, FiTv, FiHeart, FiX} from 'react-icons/fi'
 import {BiMovie} from 'react-icons/bi'
 import {useRouter} from 'next/router'
 import {Search} from '@/components/Search/Search'
 import {useEffect, useRef, useState} from 'react'
 import {useOnClickOutside} from 'usehooks-ts'
 import {Logo} from '@/components/Logo/Logo'
+import styles from './Header.module.scss'
 import classNames from 'classnames'
 import Link from 'next/link'
 
@@ -27,8 +27,7 @@ export const Header = () => {
         {icon: <FiFilm />, href: FILMS_ROUTE, text: 'Фильмы'},
         {icon: <FiTv />, href: SERIES_ROUTE, text: 'Сериалы'},
         {icon: <BiMovie />, href: CARTOONS_ROUTE, text: 'Мультфильмы'},
-        {icon: <FiHeart />, href: FAVORITES_ROUTE, text: 'Избранное'},
-        {icon: <FiUser />, href: LOGIN_ROUTE, text: 'Войти'}
+        {icon: <FiHeart />, href: FAVORITES_ROUTE, text: 'Избранное'}
     ]
 
     useEffect(() => {
@@ -61,6 +60,9 @@ export const Header = () => {
                             ))}
                         </ul>
                     </div>
+                    <Link href="/auth">
+                        <a className={classNames(styles.link, styles.menuLink)}>Войти</a>
+                    </Link>
                 </div>
                 <Search />
                 <Link href="/auth">
