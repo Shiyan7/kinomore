@@ -4,7 +4,7 @@ import {FiFilm, FiMenu, FiHome, FiUser, FiTv, FiHeart, FiX} from 'react-icons/fi
 import {BiMovie} from 'react-icons/bi'
 import {useRouter} from 'next/router'
 import {Search} from '@/components/Search/Search'
-import {useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {useOnClickOutside} from 'usehooks-ts'
 import {Logo} from '@/components/Logo/Logo'
 import classNames from 'classnames'
@@ -30,6 +30,11 @@ export const Header = () => {
         {icon: <FiHeart />, href: FAVORITES_ROUTE, text: 'Избранное'},
         {icon: <FiUser />, href: LOGIN_ROUTE, text: 'Войти'}
     ]
+
+    useEffect(() => {
+        router.events.on("routeChangeComplete", () => setOpen(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <header className={styles.header}>
