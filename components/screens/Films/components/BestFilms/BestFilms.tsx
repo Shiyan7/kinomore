@@ -1,12 +1,13 @@
-import { useGetBestFilmsQuery } from "@/services/KinopoiskService"
-import { Title } from "@/components/Title/Title";
-import { Filter } from "@/components/Filter/Filter"
-import { Slider } from "@/components/Slider/Slider";
-import { MovieItem } from "@/components/MovieItem/MovieItem";
-import { BEST_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes"
-import { useTypedSelector } from "@/hooks/useTypedSelector";
-import { useActions } from "@/hooks/useActions";
-import { Pagination } from "@/components//Pagination/Pagination";
+
+import {useActions} from "@/hooks/useActions";
+import {Title} from "@/components/Title/Title";
+import {Filter} from "@/components/Filter/Filter"
+import {Slider} from "@/components/Slider/Slider";
+import {useTypedSelector} from "@/hooks/useTypedSelector";
+import {MovieItem} from "@/components/MovieItem/MovieItem";
+import {Pagination} from "@/components/Pagination/Pagination";
+import {BEST_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes"
+import {useGetBestFilmsQuery} from "@/services/KinopoiskService"
 import Link from "next/link"
 
 export const BestFilms = () => {
@@ -44,7 +45,7 @@ export const BestFilms = () => {
         <div className="catalog__body">
           <div className="filters catalog__filters">
             <div className="filters__content">
-              <Filter name="Рейтинг кинопоиска">
+              <Filter name="Рейтинг фильмов">
                 <Slider
                   min={1}
                   max={10}
