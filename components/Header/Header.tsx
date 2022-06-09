@@ -1,4 +1,4 @@
-import {CARTOONS_ROUTE, FAVORITES_ROUTE, FILMS_ROUTE, HOME_ROUTE, LOGIN_ROUTE, SERIES_ROUTE} from '@/constants/routes'
+import {CARTOONS_ROUTE, FAVORITES_ROUTE, FILMS_ROUTE, HOME_ROUTE, SERIES_ROUTE} from '@/constants/routes'
 import {FiFilm, FiMenu, FiHome, FiTv, FiHeart, FiX} from 'react-icons/fi'
 import {BiMovie} from 'react-icons/bi'
 import {useRouter} from 'next/router'

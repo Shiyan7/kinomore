@@ -40,7 +40,7 @@ export const WarFilms = () => {
           </Link>
         </div>
         <Title classN="catalog__title">250 лучших военных фильмов</Title>
-        <p className="catalog__desc">Рейтинг составлен по результатам голосования сайта IMDb.</p>
+        <p className="catalog__desc">Рейтинг лучших фильмов ужасов</p>
         <div className="catalog__body">
           <div className="filters catalog__filters">
             <div className="filters__content">

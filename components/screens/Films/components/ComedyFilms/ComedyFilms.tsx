@@ -40,7 +40,7 @@ export const ComedyFilms = () => {
           </Link>
         </div>
         <Title classN="catalog__title">250 лучших комедий</Title>
-        <p className="catalog__desc">Рейтинг составлен по результатам голосования сайта IMDb.</p>
+        <p className="catalog__desc">Лучшие комедии для просмотра всей семьей.</p>
         <div className="catalog__body">
           <div className="filters catalog__filters">
             <div className="filters__content">
