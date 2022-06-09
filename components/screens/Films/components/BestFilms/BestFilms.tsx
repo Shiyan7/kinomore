@@ -11,9 +11,9 @@ import Link from "next/link"
 
 export const BestFilms = () => {
 
+  const {setBestFilmsRatingMin, setBestFilmsRatingMax, setBestFilmsYearMin, setBestFilmsYearMax, setBestFilmsPage} = useActions();
   const {bestFilmsRating} = useTypedSelector(state => state.ratingReducer);
   const {bestFilmsYear} = useTypedSelector(state => state.yearReducer);
-  const {setBestFilmsRatingMin, setBestFilmsRatingMax, setBestFilmsYearMin, setBestFilmsYearMax, setBestFilmsPage} = useActions();
   const {bestFilmsPage} = useTypedSelector(state => state.paginationReducer);
   const {data} = useGetBestFilmsQuery({
     page: bestFilmsPage,

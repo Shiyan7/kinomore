@@ -20,6 +20,7 @@
       "@/types/*": ["types/*"],
       "@/components/*": ["components/*"],
       "@/services/*": ["services/*"],
+      "@/scss/*": ["scss/*"],
       "@/store/*": ["store/*"],
       "@/constants/*": ["constants/*"],
       "@/hooks/*": ["hooks/*"],

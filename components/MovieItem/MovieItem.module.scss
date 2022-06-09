@@ -72,6 +72,7 @@
 
 .text {
     display: flex;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     color: var(--color-dark);
