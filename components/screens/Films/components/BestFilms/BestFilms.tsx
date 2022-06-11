@@ -6,23 +6,27 @@ import {Slider} from "@/components/Slider/Slider";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {MovieItem} from "@/components/MovieItem/MovieItem";
 import {Pagination} from "@/components/Pagination/Pagination";
-import {BEST_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes"
-import {useGetBestFilmsQuery} from "@/services/KinopoiskService"
-import Link from "next/link"
+import {BEST_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes";
+import {useGetBestFilmsQuery} from "@/services/KinopoiskService";
 import { getCurrentYear } from "@/helpers/getCurrentYear/getCurrentYear";
+import Link from "next/link"
+import { Radio } from "@/components/Radio/Radio";
 
 export const BestFilms = () => {
 
-  const {setRatingMin, setRatingMax, setYearMin, setYearMax, setPage} = useActions();
-  const {year, rating} = useTypedSelector(state => state.filtersReducer);
+  const {setRatingMin, setRatingMax, setYearMin, setYearMax, setPage, setSortByNew} = useActions();
+  const {year, rating, sortByNew} = useTypedSelector(state => state.filtersReducer);
   const {page} = useTypedSelector(state => state.paginationReducer);
   const {data} = useGetBestFilmsQuery({
     page: page,
     minRating: rating?.minRating,
     maxRating: rating?.maxRating,
     minYear: year.minYear,
-    maxYear: year.maxYear
+    maxYear: year.maxYear,
+    sort: sortByNew
   });
+
+  console.log(sortByNew);
 
   const condition = data?.pages === 1;
 
@@ -66,6 +70,22 @@ export const BestFilms = () => {
                   setMin={setYearMin}
                   setMax={setYearMax}
                   setPage={setPage}
+                />
+              </Filter>
+              <Filter name="Год выхода">
+                {/* <Checkbox checked={sortByNew} action={setSortByNew} /> */}
+                <Radio
+                  txt='Сначала новые'
+                  name="sortByYear"
+                  value='-1'
+                  checked
+                  changeHandler={setSortByNew}
+                />
+                <Radio
+                  txt='Сначала старые'
+                  name="sortByYear"
+                  value='1'
+                  changeHandler={setSortByNew}
                 />
               </Filter>
             </div>

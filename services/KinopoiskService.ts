@@ -28,7 +28,7 @@ export const kinopoiskAPI = createApi({
     }),
     getBestFilms: build.query<IData, IFilterArgs>({
       query: args =>
-        `/movie?field=rating.kp&search=${args.minRating}-${args.maxRating}&field=year&search=${args.minYear}-${args.maxYear}&field=typeNumber&search=1&sortField=year&sortType=1&sortField=votes.kp&sortType=-1&limit=50&page=${args.page}&token=${API_KEY}`
+        `/movie?field=rating.kp&search=${args.minRating}-${args.maxRating}&field=year&search=${args.minYear}-${args.maxYear}&field=typeNumber&search=1&sortField=year&sortType=${args.sort}&limit=50&page=${args.page}&token=${API_KEY}`
     }),
     getComedyFilms: build.query<IData, IFilterArgs>({
       query: args =>

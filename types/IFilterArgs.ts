@@ -4,4 +4,5 @@ export interface IFilterArgs {
     maxRating: number;
     minYear: number;
     maxYear: number;
+    sort?: string;
 }
