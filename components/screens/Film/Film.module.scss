@@ -34,8 +34,9 @@
 .desc {
     margin: 0;
     font-size: 16px;
-    line-height: 22px;
+    line-height: 24px;
     margin-bottom: 30px;
+    color: rgba(#000, 0.5);
 
     @media (max-width: 576px) {
         margin-bottom: 20px;
@@ -126,6 +127,6 @@
     @media (max-width: 576px) {
         font-size: 26px;
         line-height: 33px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 }
