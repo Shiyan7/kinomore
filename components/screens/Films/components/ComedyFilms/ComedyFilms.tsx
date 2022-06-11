@@ -4,9 +4,9 @@ import {Pagination} from "@/components/Pagination/Pagination";
 import {BEST_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes";
 import {Filters} from "@/components/Filters/Filters";
 import {Spinner, SpinnerSizes} from "@/components/Spinner/Spinner";
-import {useEffect} from "react";
 import {useGetComedyFilmsQuery} from "@/services/KinopoiskService";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
+import {FiltersToggle} from "@/components/FiltersToggle/FiltersToggle";
 import Link from "next/link";
 
 export const ComedyFilms = () => {
@@ -21,10 +21,6 @@ export const ComedyFilms = () => {
     maxYear: year.maxYear,
     releaseYear: sortByRelease
   });
-
-  useEffect(() => {
-    scrollTo(0, 170)
-  }, [page])
 
   const Content = () => (
     <>
@@ -64,6 +60,7 @@ export const ComedyFilms = () => {
           <div className="catalog__content">
             {isLoading || isFetching ? <Loader /> : <Content />}
           </div>
+          <FiltersToggle />
         </div>
       </div>
     </section>

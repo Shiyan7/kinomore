@@ -21,6 +21,10 @@ export const Pagination = memo<PaginationProps>(({pages, classN}) => {
 
   if(array.length > 5) array.length = 5
 
+  useEffect(() => {
+    scrollTo(0, 0)
+  }, [page])
+
   return (
     <>
       {pages !== 1 &&
