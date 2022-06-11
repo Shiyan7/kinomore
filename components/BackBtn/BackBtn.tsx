@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { ButtonHTMLAttributes, FC } from 'react'
+import { ButtonHTMLAttributes, FC, memo } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
 import classNames from 'classnames'
 
@@ -7,7 +7,7 @@ interface BackBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     classN?: string
 }
 
-export const BackBtn: FC<BackBtnProps> = ({classN, ...props}) => {
+export const BackBtn = memo<BackBtnProps>(({classN, ...props}) => {
 
     const router = useRouter()
     const handleBack = () => router.back()
@@ -22,4 +22,6 @@ export const BackBtn: FC<BackBtnProps> = ({classN, ...props}) => {
             Назад
         </button>
     )
-}
+})
+
+BackBtn.displayName = 'BackBtn'

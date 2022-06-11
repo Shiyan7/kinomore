@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC, memo, useEffect } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useActions } from '@/hooks/useActions';
@@ -9,7 +9,7 @@ interface PaginationProps {
   classN?: string;
 }
 
-export const Pagination: FC<PaginationProps> = ({pages, classN}) => {
+export const Pagination = memo<PaginationProps>(({pages, classN}) => {
 
   const {page} = useTypedSelector(state => state.paginationReducer)
   const {setPage} = useActions()
@@ -59,4 +59,6 @@ export const Pagination: FC<PaginationProps> = ({pages, classN}) => {
       }
     </>
   )
-}
+})
+
+Pagination.displayName = 'Pagination'

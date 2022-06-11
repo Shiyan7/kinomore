@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 
@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement | HTMLAncho
     href?: string;
 }
 
-export const Button: FC<ButtonProps> = ({children, variant, classN, href, ...props}) => {
+export const Button = memo<ButtonProps>(({children, variant, classN, href, ...props}) => {
 
     return (
         <>
@@ -38,4 +38,6 @@ export const Button: FC<ButtonProps> = ({children, variant, classN, href, ...pro
             }
         </>
     )
-}
+})
+
+Button.displayName = 'Button'

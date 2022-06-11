@@ -8,6 +8,7 @@ import {Spinner, SpinnerSizes} from "@/components/Spinner/Spinner";
 import {useEffect} from "react";
 import {useGetBestFilmsQuery} from "@/services/KinopoiskService";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
+import {FiltersToggle} from "@/components/FiltersToggle/FiltersToggle";
 import Link from "next/link";
 
 export const BestFilms = () => {
@@ -65,6 +66,7 @@ export const BestFilms = () => {
           <div className="catalog__content">
             {isLoading || isFetching ? <Loader /> : <Content />}
           </div>
+          <FiltersToggle />
         </div>
       </div>
     </section>

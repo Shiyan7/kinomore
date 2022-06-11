@@ -5,6 +5,7 @@ import { searchReducer } from "./reducers/searchSlice";
 import { loadReducer } from "./reducers/loadMoreSlice";
 import { paginationReducer } from "./reducers/paginationSlice";
 import { filtersReducer } from "./reducers/filtersSlice";
+import { toggleReducer } from "./reducers/toggleSlice";
 import { useMemo } from 'react'
 
 let store: AppStore
@@ -16,6 +17,7 @@ export function initStore(preloadedState = {}) {
       loadReducer,
       filtersReducer,
       paginationReducer,
+      toggleReducer,
       [kinopoiskAPI.reducerPath]: kinopoiskAPI.reducer,
     },
     preloadedState,

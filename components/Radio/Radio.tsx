@@ -1,7 +1,6 @@
-import { ActionCreator, ActionCreatorWithoutPayload, ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import { memo } from 'react'
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import classNames from 'classnames'
-import React from 'react'
-import { FC } from 'react'
 
 interface RadioProps {
     checked?: boolean;
@@ -12,7 +11,7 @@ interface RadioProps {
     changeHandler: ActionCreatorWithPayload<string>
 }
 
-export const Radio: FC<RadioProps> = ({checked = false, classN, changeHandler, label, name, value}) => {
+export const Radio = memo<RadioProps>(({checked = false, classN, changeHandler, label, name, value}) => {
 
     const handleChange = () => changeHandler(value)
 
@@ -30,4 +29,6 @@ export const Radio: FC<RadioProps> = ({checked = false, classN, changeHandler, l
             <span className="g-radio__caption">{label}</span>
         </label>
     )
-}
+})
+
+Radio.displayName = 'Radio'

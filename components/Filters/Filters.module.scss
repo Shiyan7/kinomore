@@ -1,6 +1,23 @@
 .filters {
     @media (max-width: 1024px) {
-        margin-bottom: 50px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 10000;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+        overflow-x: hidden;
+        overflow-y: auto;
+        min-width: 360px;
+
+        &.opened {
+            opacity: 1;
+            visibility: visible;
+        }
     }
     
     @media (max-width: 576px) {
@@ -12,4 +29,15 @@
     position: sticky;
     top: 105px;
     left: 0;
+
+    @media (max-width: 1024px) {
+        position: static;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 50px 15px;
+    }
+
+    @media (max-width: 576px) {
+        padding: 30px 15px;
+    }
 }

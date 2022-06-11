@@ -63,10 +63,9 @@
         font-weight: 700;
 
         @media (max-width: 576px) {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 28px;
             line-height: 38px;
-            margin-bottom: 8px;
         }
     }
 
@@ -78,7 +77,7 @@
         max-width: 800px;
 
         @media (max-width: 576px) {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-size: 15px;
             line-height: 26px;
         }
@@ -99,6 +98,10 @@
         align-items: center;
         justify-content: center;
         height: 100%;
+
+        @media (max-width: 1024px) {
+            padding: 100px 0;
+        }
     }
 
     &__grid {

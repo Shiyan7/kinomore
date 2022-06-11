@@ -1,18 +1,21 @@
-import { getCurrentYear } from "@/helpers/getCurrentYear/getCurrentYear";
-import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { useActions } from '@/hooks/useActions';
-import { Filter } from "@/components/Filter/Filter"
-import { Slider } from "@/components/Slider/Slider";
-import { Radio } from "@/components/Radio/Radio";
+import {getCurrentYear} from "@/helpers/getCurrentYear/getCurrentYear";
+import {useTypedSelector} from '@/hooks/useTypedSelector';
+import {useActions} from '@/hooks/useActions';
+import {Filter} from "@/components/Filter/Filter"
+import {Slider} from "@/components/Slider/Slider";
+import {Radio} from "@/components/Radio/Radio";
 import styles from './Filters.module.scss'
+import classNames from "classnames";
 
 export const Filters = () => {
 
     const {setRatingMin, setRatingMax, setYearMin, setYearMax, setSortByRelease} = useActions();
     const {year, rating} = useTypedSelector(state => state.filtersReducer);
+    const {openedFilters} = useTypedSelector(state => state.toggleReducer);
+
 
     return (
-        <div className={styles.filters}>
+        <div className={classNames(styles.filters, openedFilters && styles.opened)}>
             <div className={styles.content}>
                 <Filter name="Рейтинг фильмов">
                     <Slider

@@ -1,0 +1,32 @@
+.btn {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10002;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-primary);
+    border-radius: 100%;
+    font-size: 30px;
+    color: #fff;
+    transition: background-color 0.3s;
+
+    @media (min-width: 1025px) {
+        display: none;
+    }
+
+    @media (max-width: 576px) {
+        right: 20px;
+        bottom: 20px;
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+    }
+
+    &:hover {
+        background-color: var(--color-dark-primary);
+    }
+}
