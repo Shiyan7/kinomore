@@ -9,7 +9,6 @@ import styles from './Hero.module.scss'
 export const Hero = () => {
 
   const videoRef = useRef<HTMLVideoElement>(null)
-  const trailerUrl = require('@/public/trailer.mp4')
 
   useEffect(() => {
     videoRef.current?.play()
@@ -21,7 +20,7 @@ export const Hero = () => {
       <video
         ref={videoRef}
         className={styles.video}
-        src={trailerUrl}
+        src='/trailer.mp4'
         playsInline
         muted
         autoPlay

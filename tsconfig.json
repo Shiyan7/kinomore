@@ -20,11 +20,9 @@
       "@/types/*": ["types/*"],
       "@/components/*": ["components/*"],
       "@/services/*": ["services/*"],
-      "@/scss/*": ["scss/*"],
       "@/store/*": ["store/*"],
       "@/constants/*": ["constants/*"],
       "@/hooks/*": ["hooks/*"],
-      "@/public/*": ["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app.jsx", "store/store.js"],

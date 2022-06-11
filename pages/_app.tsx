@@ -1,5 +1,5 @@
 import 'normalize.css'
-import '@/scss/main.scss'
+import '../scss/main.scss'
 import type { AppProps } from 'next/app'
 import { Layout } from '@/components/Layout/Layout'
 import { useStore } from '@/store/store'

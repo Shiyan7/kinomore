@@ -1,4 +1,3 @@
-import logoUrl from '@/public/logo.svg'
 import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -14,7 +13,7 @@ export const Logo: FC<LogoProps> = ({classN}) => {
       <a className={classNames('g-logo', classN)}>
         <Image
           layout="fill"
-          src={logoUrl}
+          src='/logo.svg'
           alt="Kinomore"
         />
       </a>
