@@ -1,5 +1,7 @@
-const convertNumbers = require('./convertNumbers');
+import {convertNumbers} from './convertNumbers'
 
-test('конвертирование числа в читабельный вид', () => {
-    expect(convertNumbers(500000))
+describe('конвертирование числа в читабельный вид', () => {
+    test('корректное значение', () => {
+        expect(convertNumbers(200000)).toBe('200 000');
+    })
 })
