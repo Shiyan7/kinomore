@@ -1,7 +1,5 @@
 import {convertType} from './convertType';
 
-describe('конвертирование типа с апи на русский', () => {
-    test('пример конвертирования', () => {
-        expect(convertType('tv-series')).toBe('сериал');
-    })
+test('конвертирование типа с английского на русский', () => {
+    expect(convertType('film')).toBe('фильм');
 })
