@@ -1,0 +1,15 @@
+.filters {
+    @media (max-width: 1024px) {
+        margin-bottom: 50px;
+    }
+    
+    @media (max-width: 576px) {
+        margin-bottom: 40px;
+    }
+}
+
+.content {
+    position: sticky;
+    top: 105px;
+    left: 0;
+}

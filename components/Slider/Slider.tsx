@@ -3,6 +3,7 @@ import { ChangeEvent, FC, useState } from "react"
 import { Input } from "@/components/Input/Input";
 import Nouislider from "nouislider-react"
 import styles from './Slider.module.scss'
+import { useActions } from "@/hooks/useActions";
 
 interface SliderProps {
   min: number;
@@ -12,14 +13,14 @@ interface SliderProps {
   startMax: number;
   setMin: ActionCreatorWithPayload<number>;
   setMax: ActionCreatorWithPayload<number>;
-  setPage: ActionCreatorWithPayload<number>;
 }
 
-export const Slider: FC<SliderProps> = ({ min, max, startMin, startMax, step, setMin, setMax, setPage}) => {
+export const Slider: FC<SliderProps> = ({ min, max, startMin, startMax, step, setMin, setMax}) => {
 
   const [inputHandle, setInputHandle] = useState({left: startMin, right: startMax});
   const leftInputHandle = Math.ceil(Number(inputHandle.left))
   const rightInputHandle = Math.ceil(Number(inputHandle.right))
+  const {setPage} = useActions()
 
   const handleSlider = (sliderVal: number[]) => {
 

@@ -12,7 +12,7 @@ const ComedyFilmsPage: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async () => {
   const store = initStore()
   const state = store.getState()
-  const {rating, year} = state.filtersReducer
+  const {rating, year, sortByRelease} = state.filtersReducer
   const {page} = state.paginationReducer
   
   await store.dispatch(getComedyFilms.initiate({
@@ -20,7 +20,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
     minRating: rating?.minRating,
     maxRating: rating?.maxRating,
     minYear: year.minYear,
-    maxYear: year.maxYear
+    maxYear: year.maxYear,
+    releaseYear: sortByRelease
   }))
 
   return { props: { initialReduxState: store.getState()}

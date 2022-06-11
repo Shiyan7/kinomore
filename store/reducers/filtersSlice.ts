@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     year: {minYear: 1990, maxYear: getCurrentYear()},
     rating: {minRating: 8, maxRating: 10},
-    sortByNew: '-1'
+    sortByRelease: '-1'
 }
 
 export const filtersSlice = createSlice({
@@ -23,8 +23,8 @@ export const filtersSlice = createSlice({
         setRatingMax: (state, action) => {
             state.rating.maxRating = action.payload
         },
-        setSortByNew: (state, action) => {
-            state.sortByNew = action.payload
+        setSortByRelease: (state, action) => {
+            state.sortByRelease = action.payload
         }
     }
 })
@@ -34,7 +34,7 @@ export const {
     setYearMax,
     setRatingMin,
     setRatingMax,
-    setSortByNew
+    setSortByRelease
 } = filtersSlice.actions;
 
 export const filtersReducer = filtersSlice.reducer;

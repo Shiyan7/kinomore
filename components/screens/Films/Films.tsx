@@ -10,7 +10,7 @@ export const Films = () => {
             <span className="movie-item__poster">Лучшие</span>
             <div className="movie-item__text">
               <h2 className="movie-item__title">Лучшие фильмы</h2>
-              <p className="movie-item__desc">250 фильмов</p>
+              <p className="movie-item__desc">Лучшие фильмы</p>
             </div>
           </a>
         </Link>
@@ -21,7 +21,7 @@ export const Films = () => {
             <span className="movie-item__poster">Комедии</span>
             <div className="movie-item__text">
               <h2 className="movie-item__title">Лучшие коммедии</h2>
-              <p className="movie-item__desc">250 коммедий</p>
+              <p className="movie-item__desc">Лучшие коммедии</p>
             </div>
           </a>
         </Link>
@@ -32,7 +32,7 @@ export const Films = () => {
             <span className="movie-item__poster">Военные</span>
             <div className="movie-item__text">
               <h2 className="movie-item__title">Лучшие военные фильмы</h2>
-              <p className="movie-item__desc">250 военных фильмов</p>
+              <p className="movie-item__desc">Военные фильмы</p>
             </div>
           </a>
         </Link>
@@ -42,8 +42,8 @@ export const Films = () => {
           <a className="movie-item">
             <span className="movie-item__poster">Ужасы</span>
             <div className="movie-item__text">
-              <h2 className="movie-item__title">Лучших фильмы ужасов</h2>
-              <p className="movie-item__desc">250 фильмов ужасов</p>
+              <h2 className="movie-item__title">Лучшие фильмы ужасов</h2>
+              <p className="movie-item__desc">Фильмы ужасов</p>
             </div>
           </a>
         </Link>
