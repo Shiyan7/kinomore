@@ -4,6 +4,7 @@ import {IData} from '@/types/IData';
 import {IFilm} from '@/types/IFilm';
 import {IFilterArgs} from '@/types/IFilterArgs';
 import {ISearchArgs} from '@/types/ISearchArgs';
+import { getCurrentYear } from '@/helpers/getCurrentYear/getCurrentYear';
 
 export const kinopoiskAPI = createApi({
   reducerPath: 'kinopoiskAPI',
@@ -15,11 +16,11 @@ export const kinopoiskAPI = createApi({
     }),
     getNewFilms: build.query<IData, number>({
       query: limit =>
-        `/movie?field=rating.kp&search=5-10&field=year&search=2022&field=typeNumber&search=1&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_KEY}`
+        `/movie?field=rating.kp&search=5-10&field=year&search=${getCurrentYear()}&field=typeNumber&search=1&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_KEY}`
     }),
     getNewSeries: build.query<IData, number>({
       query: limit =>
-        `/movie?field=rating.kp&search=5-10&field=year&search=2022&field=typeNumber&search=2&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_KEY}`,
+        `/movie?field=rating.kp&search=5-10&field=year&search=${getCurrentYear()}&field=typeNumber&search=2&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_KEY}`,
     }),
     getFilmByName: build.query<IData, ISearchArgs>({
       query: args =>

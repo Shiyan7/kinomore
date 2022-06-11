@@ -9,6 +9,7 @@ import {Pagination} from "@/components/Pagination/Pagination";
 import {BEST_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes"
 import {useGetBestFilmsQuery} from "@/services/KinopoiskService"
 import Link from "next/link"
+import { getCurrentYear } from "@/helpers/getCurrentYear/getCurrentYear";
 
 export const BestFilms = () => {
 
@@ -59,7 +60,7 @@ export const BestFilms = () => {
               <Filter name="Года производства">
                 <Slider
                   min={1990}
-                  max={2022}
+                  max={getCurrentYear()}
                   startMin={year.minYear}
                   startMax={year.maxYear}
                   setMin={setYearMin}

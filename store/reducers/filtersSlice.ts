@@ -1,7 +1,8 @@
+import { getCurrentYear } from "@/helpers/getCurrentYear/getCurrentYear";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    year: {minYear: 1990, maxYear: 2022},
+    year: {minYear: 1990, maxYear: getCurrentYear()},
     rating: {minRating: 8, maxRating: 10},
 }
 
