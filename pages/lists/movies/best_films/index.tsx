@@ -15,10 +15,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const {filters} = state.filtersReducer
   const {page} = state.paginationReducer
   
-  await store.dispatch(getBestFilms.initiate({
-    page: page,
-    filters
-  }))
+  await store.dispatch(getBestFilms.initiate({page: page, filters}))
 
   return { props: { initialReduxState: store.getState()}
 }}
