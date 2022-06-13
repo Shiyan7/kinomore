@@ -9,7 +9,11 @@
     &__item {
   
       &:not(:last-child) {
-        margin-right: 12px;
+        margin-right: 15px;
+
+        @media (max-width: 576px) {
+          margin-right: 12px;
+        }
       }
     }
   
@@ -19,10 +23,15 @@
       justify-content: center;
       border: 1px solid rgba(#000, 0.2);
       border-radius: 100%;
-      width: 38px;
-      height: 38px;
+      width: 42px;
+      height: 42px;
       color: var(--color-dark);
       transition: background-color 0.3s, color 0.3s, border 0.3s;
+
+      @media (max-width: 576px) {
+        width: 36px;
+        height: 36px;
+      }
   
       svg {
         display: block;

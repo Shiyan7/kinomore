@@ -1,18 +1,33 @@
-import {getCurrentYear} from "@/helpers/getCurrentYear/getCurrentYear";
 import {useTypedSelector} from '@/hooks/useTypedSelector';
 import {useActions} from '@/hooks/useActions';
 import {Filter} from "@/components/Filter/Filter"
 import {Slider} from "@/components/Slider/Slider";
 import {Radio} from "@/components/Radio/Radio";
+import { Button } from "../Button/Button";
+import { useState } from 'react';
+import { IFilter } from '@/types/IFilter';
 import styles from './Filters.module.scss'
 import classNames from "classnames";
+import { getCurrentYear } from '@/helpers/getCurrentYear/getCurrentYear';
 
 export const Filters = () => {
 
-    const {setRatingMin, setRatingMax, setYearMin, setYearMax, setSortByRelease} = useActions();
-    const {year, rating} = useTypedSelector(state => state.filtersReducer);
+    const {setFilterRatings, setFiterYears, setSortByRelease, setPage, toggleFilters} = useActions();
+    const {filters} = useTypedSelector(state => state.filtersReducer);
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
 
+    // use state
+    const [rating, setRating] = useState<IFilter>(filters.rating)
+    const [year, setYear] = useState<IFilter>(filters.year)
+    const [sort, setSort] = useState<string>(filters.sortByRelease)
+
+    const handleApplyForm = () => {
+        setPage(1)
+        setFilterRatings(rating)
+        setFiterYears(year)
+        setSortByRelease(sort)
+        toggleFilters(!openedFilters)
+    }
 
     return (
         <div className={classNames(styles.filters, openedFilters && styles.opened)}>
@@ -21,38 +36,34 @@ export const Filters = () => {
                     <Slider
                         min={1}
                         max={10}
-                        startMin={rating.minRating}
-                        startMax={rating.maxRating}
-                        setMin={setRatingMin}
-                        setMax={setRatingMax}
+                        start={rating}
+                        setValue={setRating}
                         step={1}
                     />
                 </Filter>
                 <Filter name="Года производства">
                     <Slider
-                        min={1990}
+                        min={1970}
                         max={getCurrentYear()}
-                        startMin={year.minYear}
-                        startMax={year.maxYear}
-                        setMin={setYearMin}
-                        setMax={setYearMax}
+                        start={year}
+                        setValue={setYear}
                     />
                 </Filter>
                 <Filter name="Год выхода">
                     <Radio
-                        label='Сначала новые'
-                        name="sortByYear"
-                        value='-1'
-                        checked
-                        changeHandler={setSortByRelease}
+                        label='Сначала старые'
+                        value='1'
+                        sort={sort}
+                        changeHandler={setSort}
                     />
                     <Radio
-                        label='Сначала старые'
-                        name="sortByYear"
-                        value='1'
-                        changeHandler={setSortByRelease}
+                        label='Сначала новые'
+                        value='-1'
+                        sort={sort}
+                        changeHandler={setSort}
                     />
                 </Filter>
+                <Button classN={styles.btn} onClick={handleApplyForm}>Применить</Button>
             </div>
         </div>
     )

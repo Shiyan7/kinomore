@@ -1,11 +1,11 @@
 .filter {
     width: 100%;
 
-    &:not(:last-child) {
-      margin-bottom: 55px;
+    &:not(:first-child) {
+      margin-top: 55px;
 
       @media (max-width: 576px) {
-        margin-bottom: 30px;
+        margin-top: 30px;
       }
     }
   

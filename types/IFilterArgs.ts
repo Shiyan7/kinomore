@@ -1,8 +1,12 @@
+import { IFilter } from "./IFilter";
+
+interface IFilters {
+    rating: IFilter;
+    year: IFilter;
+    sortByRelease?: string;
+}
+
 export interface IFilterArgs {
     page: number;
-    minRating: any;
-    maxRating: number;
-    minYear: number;
-    maxYear: number;
-    releaseYear?: string;
+    filters: IFilters
 }

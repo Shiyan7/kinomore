@@ -8,19 +8,16 @@ import {Spinner, SpinnerSizes} from "@/components/Spinner/Spinner";
 import {useGetBestFilmsQuery} from "@/services/KinopoiskService";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {FiltersToggle} from "@/components/FiltersToggle/FiltersToggle";
+import {Device} from '@/components/Device';
 import Link from "next/link";
 
 export const BestFilms = () => {
 
-  const {year, rating, sortByRelease} = useTypedSelector(state => state.filtersReducer);
+  const {filters} = useTypedSelector(state => state.filtersReducer);
   const {page} = useTypedSelector(state => state.paginationReducer);
   const {data, isLoading, isFetching} = useGetBestFilmsQuery({
     page: page,
-    minRating: rating?.minRating,
-    maxRating: rating?.maxRating,
-    minYear: year.minYear,
-    maxYear: year.maxYear,
-    releaseYear: sortByRelease
+    filters
   });
 
   const Content = () => (
@@ -61,7 +58,9 @@ export const BestFilms = () => {
           <div className="catalog__content">
             {isLoading || isFetching ? <Loader /> : <Content />}
           </div>
-          <FiltersToggle />
+          <Device mobile>
+            <FiltersToggle />
+          </Device>
         </div>
       </div>
     </section>

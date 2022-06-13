@@ -9,7 +9,7 @@ const Index: NextPage = () => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (params) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const store = initStore()
   const state = store.getState()
   const {filmsLimit, seriesLimit} = state.loadReducer

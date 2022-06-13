@@ -1,44 +1,34 @@
-import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { ChangeEvent, FC, useState } from "react"
 import { Input } from "@/components/Input/Input";
+import { IFilter } from "@/types/IFilter";
 import Nouislider from "nouislider-react"
 import styles from './Slider.module.scss'
-import { useActions } from "@/hooks/useActions";
 
 interface SliderProps {
   min: number;
   max: number;
   step?: number;
-  startMin: number;
-  startMax: number;
-  setMin: ActionCreatorWithPayload<number>;
-  setMax: ActionCreatorWithPayload<number>;
+  start: IFilter;
+  setValue: ({}: IFilter) => void;
 }
 
-export const Slider: FC<SliderProps> = ({ min, max, startMin, startMax, step, setMin, setMax}) => {
+export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
 
-  const [inputHandle, setInputHandle] = useState({left: startMin, right: startMax});
-  const leftInputHandle = Math.ceil(Number(inputHandle.left))
-  const rightInputHandle = Math.ceil(Number(inputHandle.right))
-  const {setPage} = useActions()
+  const {minValue, maxValue} = start;
+  const [sliderHandle, setSliderHandle] = useState({minValue, maxValue});
+  const {minValue: leftHandle, maxValue: rightHandle} = sliderHandle
 
-  const handleSlider = (sliderVal: number[]) => {
+  const handleSlider = () => setValue({minValue: leftHandle, maxValue: rightHandle})
 
-    setInputHandle({
-      left: sliderVal[0],
-      right: sliderVal[1]
-    })
-  }
-
-  const handleSliderChange = () => {
-    setMin(leftInputHandle)
-    setMax(rightInputHandle)
-    setPage(1)
+  const handleSliderChange = (sliderVal: number[]) => {
+    handleSlider();
+    setSliderHandle({minValue: sliderVal[0], maxValue: sliderVal[1]})
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputHandle({...inputHandle, [e.target.name]: e.target.value})
-    handleSliderChange()
+    const {name, value} = e.target;
+    setSliderHandle({...sliderHandle, [name]: value});
+    handleSlider();
   }
 
   return (
@@ -46,33 +36,40 @@ export const Slider: FC<SliderProps> = ({ min, max, startMin, startMax, step, se
       <div className={styles.inputs}>
         <Input
           classN={styles.input}
-          name="left"
+          name="minValue"
           type="number"
           placeholder={min?.toString()}
-          value={leftInputHandle}
+          value={leftHandle}
           onChange={handleChange}
           min={min}
           max={max}
         />
         <Input
           classN={styles.input}
-          name="right"
+          name="maxValue"
           type="number"
           placeholder={max?.toString()}
-          value={rightInputHandle}
+          value={rightHandle}
           onChange={handleChange}
           min={min}
           max={max}
         />
       </div>
       <Nouislider
-        onUpdate={handleSlider}
         onChange={handleSliderChange}
         range={{ min: min, max: max }}
         animate={false}
+        start={[leftHandle, rightHandle]}
         step={step}
-        start={[inputHandle.left, inputHandle.right]}
         connect
+        format={{
+          from: function(value) {
+            return Math.ceil(Number(value))
+          },
+          to: function(value) {
+            return Math.ceil(Number(value))
+          }
+        }}
       />
     </div>
   )
