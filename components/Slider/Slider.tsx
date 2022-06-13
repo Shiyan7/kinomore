@@ -1,8 +1,8 @@
-import { ChangeEvent, FC, SetStateAction, useState } from "react"
+import { ChangeEvent, FC, useState } from "react"
 import { Input } from "@/components/Input/Input";
+import { IFilter } from "@/types/IFilter";
 import Nouislider from "nouislider-react"
 import styles from './Slider.module.scss'
-import { IFilter } from "@/types/IFilter";
 
 interface SliderProps {
   min: number;
@@ -19,17 +19,8 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
   const leftInputHandle = Math.ceil(Number(inputHandle.minValue))
   const rightInputHandle = Math.ceil(Number(inputHandle.maxValue))
 
-  const handleSlider = (sliderVal: number[]) => {
-
-    setInputHandle({
-      minValue: sliderVal[0],
-      maxValue: sliderVal[1]
-    })
-  }
-
-  const handleSliderChange = () => {
-    setValue({minValue: leftInputHandle, maxValue: rightInputHandle})
-  }
+  const handleSlider = (sliderVal: number[]) => setInputHandle({minValue: sliderVal[0], maxValue: sliderVal[1]})
+  const handleSliderChange = () => setValue({minValue: leftInputHandle, maxValue: rightInputHandle})
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputHandle({...inputHandle, [e.target.name]: e.target.value})
@@ -41,7 +32,7 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
       <div className={styles.inputs}>
         <Input
           classN={styles.input}
-          name="left"
+          name="minValue"
           type="number"
           placeholder={min?.toString()}
           value={leftInputHandle}
@@ -51,7 +42,7 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
         />
         <Input
           classN={styles.input}
-          name="right"
+          name="maxValue"
           type="number"
           placeholder={max?.toString()}
           value={rightInputHandle}
@@ -65,8 +56,8 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
         onChange={handleSliderChange}
         range={{ min: min, max: max }}
         animate={false}
-        step={step}
         start={[inputHandle.minValue, inputHandle.maxValue]}
+        step={step}
         connect
       />
     </div>

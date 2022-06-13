@@ -28,7 +28,7 @@ export const filtersSlice = createSlice({
 export const {
     setFiterYears,
     setFilterRatings,
-    setSortByRelease
+    setSortByRelease,
 } = filtersSlice.actions;
 
 export const filtersReducer = filtersSlice.reducer;

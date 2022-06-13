@@ -32,7 +32,7 @@
 
     @media (max-width: 1024px) {
         position: static;
-        max-width: 800px;
+        max-width: 600px;
         margin: 0 auto;
         padding: 50px 15px;
     }
@@ -42,17 +42,17 @@
     }
 }
 
-.btns {
-    display: flex;
-    align-items: center;
-}
-
 .btn {
-    width: 50%;
+    width: 100%;
     padding-left: 0;
     padding-right: 0;
+    margin-top: 40px;
 
-    &:not(:last-child) {
-        margin-right: 10px;
+    @media (max-width: 1024px) {
+        min-height: 50px;
+    }
+
+    @media (max-width: 576px) {
+        min-height: 40px;
     }
 }

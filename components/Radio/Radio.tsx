@@ -1,16 +1,15 @@
-import { memo, SetStateAction } from 'react'
+import { memo } from 'react'
 import classNames from 'classnames'
 
 interface RadioProps {
-    checked?: boolean;
+    sort: string;
     label?: string;
     classN?: string;
-    name: string;
     value: string;
     changeHandler: (value: string) => void
 }
 
-export const Radio = memo<RadioProps>(({checked = false, classN, changeHandler, label, name, value}) => {
+export const Radio = memo<RadioProps>(({sort, classN, changeHandler, label, value}) => {
 
     const handleChange = () => changeHandler(value)
 
@@ -19,9 +18,8 @@ export const Radio = memo<RadioProps>(({checked = false, classN, changeHandler, 
             <input
                 className="input-reset g-radio__input"
                 type="radio"
-                name={name}
                 value={value}
-                defaultChecked={checked}
+                checked={value === sort}
                 onChange={handleChange}
             />
             <span className="g-radio__switch"></span>

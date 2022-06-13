@@ -12,7 +12,7 @@ import { getCurrentYear } from '@/helpers/getCurrentYear/getCurrentYear';
 
 export const Filters = () => {
 
-    const {setFilterRatings, setFiterYears, setSortByRelease, setPage} = useActions();
+    const {setFilterRatings, setFiterYears, setSortByRelease, setPage, toggleFilters} = useActions();
     const {filters} = useTypedSelector(state => state.filtersReducer);
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
 
@@ -26,10 +26,7 @@ export const Filters = () => {
         setFilterRatings(rating)
         setFiterYears(year)
         setSortByRelease(sort)
-    }
-
-    const handleResetForm = () => {
-        
+        toggleFilters(!openedFilters)
     }
 
     return (
@@ -55,22 +52,18 @@ export const Filters = () => {
                 <Filter name="Год выхода">
                     <Radio
                         label='Сначала новые'
-                        name="sortByYear"
                         value='-1'
-                        checked
+                        sort={sort}
                         changeHandler={setSort}
                     />
                     <Radio
                         label='Сначала старые'
-                        name="sortByYear"
                         value='1'
+                        sort={sort}
                         changeHandler={setSort}
                     />
                 </Filter>
-                <div className={styles.btns}>
-                    <Button classN={styles.btn} onClick={handleApplyForm}>Применить</Button>
-                    <Button classN={styles.btn} onClick={handleResetForm} variant='stroke'>Сбросить</Button>
-                </div>
+                <Button classN={styles.btn} onClick={handleApplyForm}>Применить</Button>
             </div>
         </div>
     )
