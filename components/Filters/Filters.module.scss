@@ -41,3 +41,18 @@
         padding: 30px 15px;
     }
 }
+
+.btns {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    width: 50%;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:not(:last-child) {
+        margin-right: 10px;
+    }
+}

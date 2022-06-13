@@ -6,13 +6,13 @@ import {Slider} from "@/components/Slider/Slider";
 import {Radio} from "@/components/Radio/Radio";
 import styles from './Filters.module.scss'
 import classNames from "classnames";
+import { Button } from "../Button/Button";
 
 export const Filters = () => {
 
     const {setRatingMin, setRatingMax, setYearMin, setYearMax, setSortByRelease} = useActions();
     const {year, rating} = useTypedSelector(state => state.filtersReducer);
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
-
 
     return (
         <div className={classNames(styles.filters, openedFilters && styles.opened)}>
@@ -53,6 +53,10 @@ export const Filters = () => {
                         changeHandler={setSortByRelease}
                     />
                 </Filter>
+                <div className={styles.btns}>
+                    <Button classN={styles.btn}>Применить</Button>
+                    <Button classN={styles.btn} variant='stroke'>Сбросить</Button>
+                </div>
             </div>
         </div>
     )
