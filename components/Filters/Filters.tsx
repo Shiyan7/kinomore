@@ -1,4 +1,3 @@
-import {getCurrentYear} from "@/helpers/getCurrentYear/getCurrentYear";
 import {useTypedSelector} from '@/hooks/useTypedSelector';
 import {useActions} from '@/hooks/useActions';
 import {Filter} from "@/components/Filter/Filter"
@@ -10,8 +9,8 @@ import { Button } from "../Button/Button";
 
 export const Filters = () => {
 
-    const {setRatingMin, setRatingMax, setYearMin, setYearMax, setSortByRelease} = useActions();
-    const {year, rating} = useTypedSelector(state => state.filtersReducer);
+    const {setFilterRatings, setFiterYears, setSortByRelease} = useActions();
+    const {filters} = useTypedSelector(state => state.filtersReducer);
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
 
     return (
@@ -21,14 +20,12 @@ export const Filters = () => {
                     <Slider
                         min={1}
                         max={10}
-                        startMin={rating.minRating}
-                        startMax={rating.maxRating}
-                        setMin={setRatingMin}
-                        setMax={setRatingMax}
+                        start={filters.rating}
+                        setValue={setFilterRatings}
                         step={1}
                     />
                 </Filter>
-                <Filter name="Года производства">
+                {/* <Filter name="Года производства">
                     <Slider
                         min={1990}
                         max={getCurrentYear()}
@@ -37,7 +34,7 @@ export const Filters = () => {
                         setMin={setYearMin}
                         setMax={setYearMax}
                     />
-                </Filter>
+                </Filter> */}
                 <Filter name="Год выхода">
                     <Radio
                         label='Сначала новые'

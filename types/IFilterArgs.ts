@@ -1,8 +1,10 @@
+interface IFilters {
+    rating: any;
+    year: any;
+    releaseYear?: string;
+}
+
 export interface IFilterArgs {
     page: number;
-    minRating: any;
-    maxRating: number;
-    minYear: number;
-    maxYear: number;
-    releaseYear?: string;
+    filters: IFilters
 }
