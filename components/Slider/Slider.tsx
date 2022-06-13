@@ -1,39 +1,34 @@
-import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
-import { ChangeEvent, FC, useState } from "react"
+import { ChangeEvent, FC, SetStateAction, useState } from "react"
 import { Input } from "@/components/Input/Input";
 import Nouislider from "nouislider-react"
 import styles from './Slider.module.scss'
-import { useActions } from "@/hooks/useActions";
+import { IFilter } from "@/types/IFilter";
 
 interface SliderProps {
   min: number;
   max: number;
   step?: number;
-  start: any;
-  setValue: any;
+  start: IFilter;
+  setValue: ({}: IFilter) => void;
 }
 
 export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
 
   const {minValue, maxValue} = start;
-  console.log(start);
-  
-  const [inputHandle, setInputHandle] = useState({left: minValue, right: maxValue});
-  const leftInputHandle = Math.ceil(Number(inputHandle.left))
-  const rightInputHandle = Math.ceil(Number(inputHandle.right))
-  const {setPage} = useActions()
+  const [inputHandle, setInputHandle] = useState({minValue, maxValue});
+  const leftInputHandle = Math.ceil(Number(inputHandle.minValue))
+  const rightInputHandle = Math.ceil(Number(inputHandle.maxValue))
 
   const handleSlider = (sliderVal: number[]) => {
 
     setInputHandle({
-      left: sliderVal[0],
-      right: sliderVal[1]
+      minValue: sliderVal[0],
+      maxValue: sliderVal[1]
     })
   }
 
   const handleSliderChange = () => {
     setValue({minValue: leftInputHandle, maxValue: rightInputHandle})
-    setPage(1)
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -71,7 +66,7 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
         range={{ min: min, max: max }}
         animate={false}
         step={step}
-        start={[inputHandle.left, inputHandle.right]}
+        start={[inputHandle.minValue, inputHandle.maxValue]}
         connect
       />
     </div>

@@ -1,5 +1,4 @@
-import { memo } from 'react'
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import { memo, SetStateAction } from 'react'
 import classNames from 'classnames'
 
 interface RadioProps {
@@ -8,7 +7,7 @@ interface RadioProps {
     classN?: string;
     name: string;
     value: string;
-    changeHandler: ActionCreatorWithPayload<string>
+    changeHandler: (value: string) => void
 }
 
 export const Radio = memo<RadioProps>(({checked = false, classN, changeHandler, label, name, value}) => {

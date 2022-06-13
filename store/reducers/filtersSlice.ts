@@ -5,7 +5,7 @@ const initialState = {
     filters: {
         year: {minValue: 1990, maxValue: getCurrentYear()},
         rating: {minValue: 8, maxValue: 10},
-        releaseYear: '-1'
+        sortByRelease: '-1'
     }
 }
 
@@ -20,7 +20,7 @@ export const filtersSlice = createSlice({
             state.filters.rating = action.payload
         },
         setSortByRelease: (state, action) => {
-            state.filters.releaseYear = action.payload
+            state.filters.sortByRelease = action.payload
         }
     }
 })

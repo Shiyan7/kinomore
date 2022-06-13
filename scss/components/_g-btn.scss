@@ -13,17 +13,6 @@
     background-color: var(--color-primary);
     transition: color 0.3s ease, background-color 0.3s ease;
 
-    &--stroke {
-        border: 1px solid var(--color-primary);
-        color: var(--color-primary);
-        background-color: transparent;
-    
-        &:hover {
-            color: var(--color-white);
-            background-color: var(--color-primary);
-        }
-    }
-
     svg {
         width: 16px;
         height: 16px;
@@ -46,6 +35,17 @@
 
         svg {
             transform: translateX(2px);
+        }
+    }
+
+    &--stroke {
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+        background-color: transparent;
+    
+        &:hover {
+            color: var(--color-white);
+            background-color: var(--color-primary);
         }
     }
 }

@@ -1,7 +1,7 @@
 interface IFilters {
     rating: any;
     year: any;
-    releaseYear?: string;
+    sortByRelease?: string;
 }
 
 export interface IFilterArgs {
