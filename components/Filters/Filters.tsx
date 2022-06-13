@@ -3,11 +3,11 @@ import {useActions} from '@/hooks/useActions';
 import {Filter} from "@/components/Filter/Filter"
 import {Slider} from "@/components/Slider/Slider";
 import {Radio} from "@/components/Radio/Radio";
-import styles from './Filters.module.scss'
-import classNames from "classnames";
 import { Button } from "../Button/Button";
 import { useState } from 'react';
 import { IFilter } from '@/types/IFilter';
+import styles from './Filters.module.scss'
+import classNames from "classnames";
 import { getCurrentYear } from '@/helpers/getCurrentYear/getCurrentYear';
 
 export const Filters = () => {
@@ -44,7 +44,7 @@ export const Filters = () => {
                 <Filter name="Года производства">
                     <Slider
                         min={1970}
-                        max={2030}
+                        max={getCurrentYear()}
                         start={year}
                         setValue={setYear}
                     />

@@ -15,20 +15,19 @@ interface SliderProps {
 export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
 
   const {minValue, maxValue} = start;
-  const [inputHandle, setInputHandle] = useState({minValue, maxValue});
-  const leftInputHandle = Math.floor(Number(inputHandle.minValue))
-  const rightInputHandle = Math.floor(Number(inputHandle.maxValue))
+  const [sliderHandle, setSliderHandle] = useState({minValue, maxValue});
+  const {minValue: leftHandle, maxValue: rightHandle} = sliderHandle
 
-  const handleSlider = () => setValue({minValue: leftInputHandle, maxValue: rightInputHandle})
+  const handleSlider = () => setValue({minValue: leftHandle, maxValue: rightHandle})
 
   const handleSliderChange = (sliderVal: number[]) => {
     handleSlider();
-    setInputHandle({minValue: sliderVal[0], maxValue: sliderVal[1]})
+    setSliderHandle({minValue: sliderVal[0], maxValue: sliderVal[1]})
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target;
-    setInputHandle({...inputHandle, [name]: value});
+    setSliderHandle({...sliderHandle, [name]: value});
     handleSlider();
   }
 
@@ -40,7 +39,7 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
           name="minValue"
           type="number"
           placeholder={min?.toString()}
-          value={leftInputHandle}
+          value={leftHandle}
           onChange={handleChange}
           min={min}
           max={max}
@@ -50,7 +49,7 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
           name="maxValue"
           type="number"
           placeholder={max?.toString()}
-          value={rightInputHandle}
+          value={rightHandle}
           onChange={handleChange}
           min={min}
           max={max}
@@ -60,9 +59,17 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
         onChange={handleSliderChange}
         range={{ min: min, max: max }}
         animate={false}
-        start={[inputHandle.minValue, inputHandle.maxValue]}
+        start={[leftHandle, rightHandle]}
         step={step}
         connect
+        format={{
+          from: function(value) {
+            return Math.ceil(Number(value))
+          },
+          to: function(value) {
+            return Math.ceil(Number(value))
+          }
+        }}
       />
     </div>
   )
