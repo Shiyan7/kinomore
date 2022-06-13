@@ -18,17 +18,12 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
   const [sliderHandle, setSliderHandle] = useState({minValue, maxValue});
   const {minValue: leftHandle, maxValue: rightHandle} = sliderHandle
 
-  const handleSlider = () => setValue({minValue: leftHandle, maxValue: rightHandle})
-
-  const handleSliderChange = (sliderVal: number[]) => {
-    handleSlider();
-    setSliderHandle({minValue: sliderVal[0], maxValue: sliderVal[1]})
-  }
+  const handleSlider = (sliderVal: number[]) => setSliderHandle({minValue: sliderVal[0], maxValue: sliderVal[1]})
+  const handleSliderChange = () => setValue({minValue: leftHandle, maxValue: rightHandle})
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = e.target;
-    setSliderHandle({...sliderHandle, [name]: value});
-    handleSlider();
+    setSliderHandle({...sliderHandle, [e.target.name]: e.target.value})
+    handleSliderChange()
   }
 
   return (
@@ -56,6 +51,7 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
         />
       </div>
       <Nouislider
+        onUpdate={handleSlider}
         onChange={handleSliderChange}
         range={{ min: min, max: max }}
         animate={false}
@@ -67,7 +63,7 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
             return Math.ceil(Number(value))
           },
           to: function(value) {
-            return Math.ceil(Number(value))
+            return Math.ceil(value)
           }
         }}
       />
