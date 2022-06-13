@@ -6,20 +6,17 @@ import {Filters} from "@/components/Filters/Filters";
 import {Spinner, SpinnerSizes} from "@/components/Spinner/Spinner";
 import {useGetWarFilmsQuery} from "@/services/KinopoiskService";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
-import Link from "next/link";
+import {Device} from '@/components/Device';
 import { FiltersToggle } from "@/components/FiltersToggle/FiltersToggle";
+import Link from "next/link";
 
 export const WarFilms = () => {
 
-  const {year, rating, sortByRelease} = useTypedSelector(state => state.filtersReducer);
+  const {filters} = useTypedSelector(state => state.filtersReducer);
   const {page} = useTypedSelector(state => state.paginationReducer);
   const {data, isLoading, isFetching} = useGetWarFilmsQuery({
     page: page,
-    minRating: rating?.minRating,
-    maxRating: rating?.maxRating,
-    minYear: year.minYear,
-    maxYear: year.maxYear,
-    releaseYear: sortByRelease
+    filters
   });
 
   const Content = () => (
@@ -60,7 +57,9 @@ export const WarFilms = () => {
           <div className="catalog__content">
             {isLoading || isFetching ? <Loader /> : <Content />}
           </div>
-          <FiltersToggle />
+          <Device mobile>
+            <FiltersToggle />
+          </Device>
         </div>
       </div>
     </section>

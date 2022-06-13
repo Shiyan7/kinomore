@@ -5,7 +5,7 @@ const initialState = {
     filters: {
         year: {minValue: 1990, maxValue: getCurrentYear()},
         rating: {minValue: 8, maxValue: 10},
-        sortByRelease: '-1'
+        sortByRelease: '1'
     }
 }
 

@@ -12,16 +12,12 @@ const HorrorFilmsPage: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async () => {
   const store = initStore()
   const state = store.getState()
-  const {rating, year, sortByRelease} = state.filtersReducer
+  const {filters} = state.filtersReducer
   const {page} = state.paginationReducer
   
   await store.dispatch(getHorrorFilms.initiate({
     page: page,
-    minRating: rating?.minRating,
-    maxRating: rating?.maxRating,
-    minYear: year.minYear,
-    maxYear: year.maxYear,
-    releaseYear: sortByRelease
+    filters
   }))
 
   return { props: { initialReduxState: store.getState()}

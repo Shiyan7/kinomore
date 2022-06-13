@@ -43,22 +43,22 @@ export const Filters = () => {
                 </Filter>
                 <Filter name="Года производства">
                     <Slider
-                        min={1990}
-                        max={getCurrentYear()}
+                        min={1970}
+                        max={2030}
                         start={year}
                         setValue={setYear}
                     />
                 </Filter>
                 <Filter name="Год выхода">
                     <Radio
-                        label='Сначала новые'
-                        value='-1'
+                        label='Сначала старые'
+                        value='1'
                         sort={sort}
                         changeHandler={setSort}
                     />
                     <Radio
-                        label='Сначала старые'
-                        value='1'
+                        label='Сначала новые'
+                        value='-1'
                         sort={sort}
                         changeHandler={setSort}
                     />

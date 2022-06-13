@@ -16,8 +16,8 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
 
   const {minValue, maxValue} = start;
   const [inputHandle, setInputHandle] = useState({minValue, maxValue});
-  const leftInputHandle = Math.ceil(Number(inputHandle.minValue))
-  const rightInputHandle = Math.ceil(Number(inputHandle.maxValue))
+  const leftInputHandle = Math.floor(Number(inputHandle.minValue))
+  const rightInputHandle = Math.floor(Number(inputHandle.maxValue))
 
   const handleSlider = (sliderVal: number[]) => setInputHandle({minValue: sliderVal[0], maxValue: sliderVal[1]})
   const handleSliderChange = () => setValue({minValue: leftInputHandle, maxValue: rightInputHandle})

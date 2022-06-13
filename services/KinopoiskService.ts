@@ -31,16 +31,16 @@ export const kinopoiskAPI = createApi({
         `/movie?field=rating.kp&search=${filters.rating.minValue}-${filters.rating.maxValue}&field=year&search=${filters.year.minValue}-${filters.year.maxValue}&field=typeNumber&search=1&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
     }),
     getComedyFilms: build.query<IData, IFilterArgs>({
-      query: args =>
-        `/movie?search[]=movie&search[]=комедия&search[]=${args.minYear}-${args.maxYear}&search[]=${args.minRating}-${args.maxRating}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&sortField=year&sortType=${args.releaseYear}&field=votes.kp&limit=10&page=${args.page}&token=${API_KEY}`
+      query: ({filters, page}) =>
+        `/movie?search[]=movie&search[]=комедия&search[]=${filters.year.minValue}-${filters.year.maxValue}&search[]=${filters.rating.minValue}-${filters.rating.maxValue}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&sortField=year&sortType=${filters.sortByRelease}&field=votes.kp&limit=10&page=${page}&token=${API_KEY}`
     }),
     getWarFilms: build.query<IData, IFilterArgs>({
-      query: args =>
-        `/movie?search[]=movie&search[]=военный&search[]=${args.minYear}-${args.maxYear}&search[]=${args.minRating}-${args.maxRating}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&sortField=year&sortType=${args.releaseYear}&field=votes.kp&limit=10&page=${args.page}&token=${API_KEY}`
+      query: ({filters, page}) =>
+        `/movie?search[]=movie&search[]=военный&search[]=${filters.year.minValue}-${filters.year.maxValue}&search[]=${filters.rating.minValue}-${filters.rating.maxValue}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&sortField=year&sortType=${filters.sortByRelease}&field=votes.kp&limit=10&page=${page}&token=${API_KEY}`
     }),
     getHorrorFilms: build.query<IData, IFilterArgs>({
-      query: args =>
-        `/movie?search[]=movie&search[]=ужасы&search[]=${args.minYear}-${args.maxYear}&search[]=${args.minRating}-${args.maxRating}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&sortField=year&sortType=${args.releaseYear}&field=votes.kp&limit=10&page=${args.page}&token=${API_KEY}`
+      query: ({filters, page}) =>
+        `/movie?search[]=movie&search[]=ужасы&search[]=${filters.year.minValue}-${filters.year.maxValue}&search[]=${filters.rating.minValue}-${filters.rating.maxValue}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&sortField=year&sortType=${filters.sortByRelease}&field=votes.kp&limit=10&page=${page}&token=${API_KEY}`
     }),
   }),
 });
