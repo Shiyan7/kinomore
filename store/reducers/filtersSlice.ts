@@ -9,7 +9,7 @@ const initialState = {
 }
 
 export const filtersSlice = createSlice({
-    name: 'year',
+    name: 'filters',
     initialState,
     reducers: {
         setFiterYears: (state, action) => {

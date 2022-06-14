@@ -57,12 +57,14 @@ export const Filters = () => {
                 </Filter>
                 <Filter name="Год выхода">
                     <Radio
+                        classN={styles.radio}
                         label='Сначала старые'
                         value='1'
                         sort={sort}
                         changeHandler={setSort}
                     />
                     <Radio
+                        classN={styles.radio}
                         label='Сначала новые'
                         value='-1'
                         sort={sort}

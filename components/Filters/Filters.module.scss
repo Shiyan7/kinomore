@@ -56,3 +56,17 @@
         min-height: 40px;
     }
 }
+
+.radio {
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
+  
+    &:not(:last-child) {
+        margin-bottom: 10px;
+
+        @media (max-width: 1024px) {
+            margin-bottom: 0;
+        }
+    }
+}

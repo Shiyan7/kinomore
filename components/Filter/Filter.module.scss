@@ -16,7 +16,7 @@
       }
   
       .filterContent {
-        display: block;
+        display: flex;
       }
     }
   
@@ -40,6 +40,13 @@
     &Content {
       display: none;
       margin-top: 20px;
+      flex-direction: column;
+
+      @media (max-width: 1024px) {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+      }
   
       &__item {
         &:not(:last-child) {

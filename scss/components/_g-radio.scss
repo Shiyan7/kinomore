@@ -2,18 +2,6 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-
-    @media (max-width: 1024px) {
-      margin-right: 20px;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 10px;
-
-      @media (max-width: 1024px) {
-        margin-bottom: 0;
-      }
-    }
   
     &__input {
       position: absolute;
