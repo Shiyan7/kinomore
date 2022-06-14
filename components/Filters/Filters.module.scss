@@ -9,7 +9,7 @@
         background-color: rgba(#000, 0.5);
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.4s, visibility 0.4s;
+        transition: opacity 0.3s, visibility 0.3s;
         min-width: 360px;
         min-height: 400px;
 
@@ -46,7 +46,7 @@
         padding-bottom: 50px;
         background-color: #fff;
         transform: translateY(200%);
-        transition: transform 0.4s;
+        transition: transform 0.3s;
     }
 
     @media (max-width: 576px) {

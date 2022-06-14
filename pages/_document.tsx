@@ -13,7 +13,10 @@ export default function Document() {
         <meta name="theme-color" content="#1f1f1f" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800&display=optional"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />
