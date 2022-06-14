@@ -29,17 +29,32 @@
 .noUi-handle {
     border: none;
     border-radius: 100px;
-    box-shadow: 0 0 3px rgba(145, 158, 171, 70%);
     background-color: #fff;
-    transition: box-shadow 0.3s;
+    box-shadow: none;
+    border: 1px solid rgba(#000, 0.1);
+    transition: border 0.3s;
     cursor: pointer;
 
     &:hover {
-        box-shadow: 0 0 5px rgba(145, 158, 171, 70%);
+        border: 1px solid rgba(#000, 0.2);
     }
 }
 
 .noUi-handle::after,
 .noUi-handle::before {
     display: none;
+}
+
+.noUi-horizontal .noUi-tooltip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: calc(100% + 10px);
+    bottom: 0;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid rgba(#000, 0.1);
+    min-width: 30px;
+    padding: 0 5px;
 }

@@ -1,5 +1,4 @@
-import { ChangeEvent, FC, useState } from "react"
-import { Input } from "@/components/Input/Input";
+import { FC, useState } from "react"
 import { IFilter } from "@/types/IFilter";
 import Nouislider from "nouislider-react"
 import styles from './Slider.module.scss'
@@ -12,52 +11,27 @@ interface SliderProps {
   setValue: ({}: IFilter) => void;
 }
 
-export const Slider: FC<SliderProps> = ({ min, max, start, step, setValue}) => {
+export const Slider: FC<SliderProps> = ({ min, max, start, step = 1, setValue}) => {
 
   const {minValue, maxValue} = start;
-  const [sliderHandle, setSliderHandle] = useState({minValue, maxValue});
-  const {minValue: leftHandle, maxValue: rightHandle} = sliderHandle
-
-  const handleSlider = (sliderVal: number[]) => setSliderHandle({minValue: sliderVal[0], maxValue: sliderVal[1]})
-  const handleSliderChange = () => setValue({minValue: leftHandle, maxValue: rightHandle})
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSliderHandle({...sliderHandle, [e.target.name]: e.target.value})
-    handleSliderChange()
+  const [sliderHandle, setSliderHandle] = useState([minValue, maxValue]);
+  const [leftHandle, rightHandle] = sliderHandle
+  
+  const handleUpdate = (sliderVal: number[]) => {
+    setSliderHandle([sliderVal[0], sliderVal[1]])
+    setValue({minValue: leftHandle, maxValue: rightHandle})
   }
 
   return (
     <div className={styles.container}>
-      <div className={styles.inputs}>
-        <Input
-          classN={styles.input}
-          name="minValue"
-          type="number"
-          placeholder={min?.toString()}
-          value={leftHandle}
-          onChange={handleChange}
-          min={min}
-          max={max}
-        />
-        <Input
-          classN={styles.input}
-          name="maxValue"
-          type="number"
-          placeholder={max?.toString()}
-          value={rightHandle}
-          onChange={handleChange}
-          min={min}
-          max={max}
-        />
-      </div>
       <Nouislider
-        onUpdate={handleSlider}
-        onChange={handleSliderChange}
+        onUpdate={handleUpdate}
         range={{ min: min, max: max }}
         animate={false}
         start={[leftHandle, rightHandle]}
         step={step}
         connect
+        tooltips
         format={{
           from: function(value) {
             return Math.ceil(Number(value))
