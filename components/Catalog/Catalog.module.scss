@@ -126,7 +126,10 @@
 }
 
 .grid {
-    margin-bottom: 50px;
+
+    &:not(:last-child) {
+        margin-bottom: 50px;
+    }
 
     @media (max-width: 1024px) {
         display: grid;

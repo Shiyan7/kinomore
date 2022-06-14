@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export const loadSlice = createSlice({
-    name: 'search',
+    name: 'loadMore',
     initialState,
     reducers: {
         loadMoreFilms: (state, action) => {

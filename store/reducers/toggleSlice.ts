@@ -5,7 +5,7 @@ const initialState = {
 }
 
 export const toggleSlice = createSlice({
-    name: 'year',
+    name: 'toggle',
     initialState,
     reducers: {
         toggleFilters: (state, action) => {

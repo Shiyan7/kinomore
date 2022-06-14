@@ -1,4 +1,4 @@
-import {FILMS_ROUTE} from "@/constants/routes";
+import {All_FILMS_ROUTE} from "@/constants/routes";
 import {useGetFilmByNameQuery} from "@/services/KinopoiskService";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {useRouter} from "next/router";
@@ -23,7 +23,7 @@ export const SearchResults = () => {
     <Catalog classN={styles.section}>
       <Container classN={styles.container}>
         <Heading>Результаты поиска по запросу: {id}</Heading>
-        <Desc>Ничего не нашли?&nbsp;<Link href={FILMS_ROUTE}><a>Список всех фильмов</a></Link></Desc>
+        <Desc>Ничего не нашли?&nbsp;<Link href={All_FILMS_ROUTE}><a>Список всех фильмов</a></Link></Desc>
         <Body data={data} isFetching={isFetching} isLoading={isLoading} />
       </Container>
     </Catalog>

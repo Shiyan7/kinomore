@@ -10,7 +10,7 @@ export const Films = () => {
             <span className="movie-item__poster">Фильмы</span>
             <div className="movie-item__text">
               <h2 className="movie-item__title">Все фильмы</h2>
-              <p className="movie-item__desc">Все фильмы</p>
+              <p className="movie-item__desc">Фильмы</p>
             </div>
           </a>
         </Link>

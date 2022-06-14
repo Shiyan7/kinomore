@@ -97,10 +97,10 @@ namespace Catalog {
               <Pagination pages={data?.pages} />
             </>
           }
-          <Device mobile>
-            <FiltersToggle />
-          </Device>
         </div>
+        <Device mobile>
+          <FiltersToggle />
+        </Device>
       </div>
     )
   }

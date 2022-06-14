@@ -45,10 +45,10 @@
         padding-top: 50px;
         padding-bottom: 50px;
         background-color: #fff;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
         transform: translateY(200%);
         transition: transform 0.4s;
-
-        
     }
 
     @media (max-width: 576px) {
