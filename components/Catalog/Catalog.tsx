@@ -35,24 +35,29 @@ namespace Catalog {
     return <Title classN={styles.title}>{children}</Title>
   }
 
+  export const Subtitle = ({children}: PropsWithChildren<{}>) => {
+    return (
+      <Title classN={styles.subtitle} variant='h2'>{children}</Title>
+    )
+  }
+
   export const Nav = () => {
+
+    const items = [
+      {txt: 'Все списки', href: FILMS_ROUTE},
+      {txt: 'Все фильмы', href: All_FILMS_ROUTE},
+      {txt: 'Все сериалы', href: All_FILMS_ROUTE},
+    ]
+
     return (
       <ul className={classNames('list-reset', styles.nav)}>
-        <li className={styles.navItem}>
-          <Link href={FILMS_ROUTE}>
-            <a className={styles.navLink}>Все списки</a>
-          </Link>
-        </li>
-        <li className={styles.navItem}>
-          <Link href={All_FILMS_ROUTE}>
-            <a className={styles.navLink}>Все фильмы</a>
-          </Link>
-        </li>
-        <li className={styles.navItem}>
-          <Link href={All_FILMS_ROUTE}>
-            <a className={styles.navLink}>Все сериалы</a>
-          </Link>
-        </li>
+        {items.map(el => (
+          <li key={el.txt} className={styles.navItem}>
+            <Link href={el.href}>
+              <a className={styles.navLink}>{el.txt}</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     )
   }
@@ -83,7 +88,7 @@ namespace Catalog {
     return (
       <div className={styles.body}>
         <Filters />
-        {!data?.docs.length && !isFetching && <Title classN={styles.subtitle} variant='h2'>Ничего не найдено!</Title>}
+        {!data?.docs.length && !isFetching && <Subtitle>Ничего не найдено!</Subtitle>}
         <div className={styles.content}>
           {isLoading || isFetching
             ? <Loader /> :
