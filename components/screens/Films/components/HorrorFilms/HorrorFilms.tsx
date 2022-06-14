@@ -50,10 +50,11 @@ export const HorrorFilms = () => {
             <a className='catalog-top__link'>Лучшие сериалы</a>
           </Link>
         </div>
-        <Title classN="catalog__title">Лучшие фильмы ужасов</Title>
-        <p className="catalog__desc">Рейтинг составлен по результатам голосования сайта IMDb.</p>
+        <Title classN="catalog__title">Фильмы ужасов</Title>
+        <p className="catalog__desc">Все фильмы ужасов</p>
         <div className="catalog__body">
           <Filters />
+          {!data?.docs.length && <Title classN="catalog__subtitle" variant='h2'>Ничего не найдено!</Title>}
           <div className="catalog__content">
             {isLoading || isFetching ? <Loader /> : <Content />}
           </div>

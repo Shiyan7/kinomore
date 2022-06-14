@@ -50,10 +50,11 @@ export const ComedyFilms = () => {
             <a className='catalog-top__link'>Лучшие сериалы</a>
           </Link>
         </div>
-        <Title classN="catalog__title">Лучшие комедии</Title>
-        <p className="catalog__desc">Лучшие комедии для просмотра всей семьей.</p>
+        <Title classN="catalog__title">Комедии</Title>
+        <p className="catalog__desc">Комедии для просмотра всей семьей.</p>
         <div className="catalog__body">
           <Filters />
+          {!data?.docs.length && <Title classN="catalog__subtitle" variant='h2'>Ничего не найдено!</Title>}
           <div className="catalog__content">
             {isLoading || isFetching ? <Loader /> : <Content />}
           </div>

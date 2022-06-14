@@ -51,9 +51,10 @@ export const WarFilms = () => {
           </Link>
         </div>
         <Title classN="catalog__title">Военные фильмы</Title>
-        <p className="catalog__desc">Рейтинг составлен по результатам голосования на сайте IMDb.</p>
+        <p className="catalog__desc">Все фильмы мира про войну</p>
         <div className="catalog__body">
           <Filters />
+          {!data?.docs.length && <Title classN="catalog__subtitle" variant='h2'>Ничего не найдено!</Title>}
           <div className="catalog__content">
             {isLoading || isFetching ? <Loader /> : <Content />}
           </div>

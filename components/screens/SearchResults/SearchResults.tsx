@@ -1,7 +1,7 @@
 import {Title} from "@/components/Title/Title";
 import {MovieItem} from "@/components/MovieItem/MovieItem";
 import {Pagination} from "@/components/Pagination/Pagination";
-import {FILMS_ROUTE } from "@/constants/routes";
+import {All_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes";
 import {Filters} from "@/components/Filters/Filters";
 import {Spinner, SpinnerSizes} from "@/components/Spinner/Spinner";
 import {useGetFilmByNameQuery} from "@/services/KinopoiskService";
@@ -26,12 +26,12 @@ export const SearchResults = () => {
 
     const Content = () => (
         <>
-        <div className='catalog__grid'>
-            {data?.docs?.map(el => (
-                <MovieItem key={el.id} item={el} />
-            ))}
-        </div>
-        <Pagination pages={data?.pages} />
+          <div className='catalog__grid'>
+              {data?.docs?.map(el => (
+                  <MovieItem key={el.id} item={el} />
+              ))}
+          </div>
+          <Pagination pages={data?.pages} />
         </>
     )
 
@@ -45,13 +45,14 @@ export const SearchResults = () => {
       <section className="catalog">
         <div className={classNames('container wrapper catalog__container', styles.container)}>
           <Title classN="catalog__title">Результаты поиска по запросу: {id}</Title>
-          <p className="catalog__desc">Для поиска хорошего кино рекомендуем&nbsp;
-            <Link href={FILMS_ROUTE}>
-              <a>навигатор по лучшим фильмам.</a>
+          <p className="catalog__desc">Ничего не нашли?&nbsp;
+            <Link href={All_FILMS_ROUTE}>
+              <a>Список всех фильмов</a>
             </Link>
           </p>
           <div className="catalog__body">
             <Filters />
+            {!data?.docs.length && <Title classN="catalog__subtitle" variant='h2'>Ничего не найдено!</Title>}
             <div className="catalog__content">
               {isLoading || isFetching ? <Loader /> : <Content />}
             </div>
