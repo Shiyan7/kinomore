@@ -1,4 +1,3 @@
-import classNames from 'classnames'
 import { FC } from 'react'
 import styles from './Spinner.module.scss'
 

@@ -90,8 +90,7 @@ namespace Catalog {
         <Filters />
         {!data?.docs.length && !isFetching && <Subtitle>Ничего не найдено!</Subtitle>}
         <div className={styles.content}>
-          {isLoading || isFetching
-            ? <Loader /> :
+          {isLoading || isFetching ? <Loader /> :
             <>
               <Catalog.Grid data={data} />
               <Pagination pages={data?.pages} />

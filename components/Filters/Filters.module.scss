@@ -45,8 +45,6 @@
         padding-top: 50px;
         padding-bottom: 50px;
         background-color: #fff;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
         transform: translateY(200%);
         transition: transform 0.4s;
     }
@@ -86,7 +84,7 @@
     padding-right: 0;
 
     &:not(:last-child) {
-        margin-right: 20px;
+        margin-right: 15px;
     }
 
     @media (max-width: 1024px) {
