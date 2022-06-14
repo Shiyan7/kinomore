@@ -21,7 +21,7 @@ export const Lists = ({children}: PropsWithChildren<{}>) => {
     <section className={styles.section}>
       <div className={classNames('container wrapper', styles.wrapper)}>
         <div className={styles.top}>
-          <Title classN={styles.title}>Списки</Title>
+          <Title className={styles.title}>Списки</Title>
           <ul className={classNames('list-reset', styles.nav)}>
             {items.map(el => (
               <li key={el.txt} className={styles.navItem}>

@@ -2,13 +2,13 @@ import classNames from 'classnames'
 import { FC, InputHTMLAttributes } from 'react'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    classN?: string
+    className?: string
 }
 
-export const Input: FC<InputProps> = ({classN,...props}) => {
+export const Input: FC<InputProps> = ({className,...props}) => {
   return (
     <input
-        className={classNames('input-reset', 'g-input', classN)}
+        className={classNames('input-reset', 'g-input', className)}
         {...props}
     />
   )

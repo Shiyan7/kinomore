@@ -29,7 +29,7 @@ export const Hero = () => {
       </video>
       <div className={classNames('container', styles.container)}>
         <div className={styles.content}>
-        <Title variant='h2' classN={styles.title}>Доктор Стрэндж: В&nbsp;мультивселенной безумия</Title>
+        <Title variant='h2' className={styles.title}>Доктор Стрэндж: В&nbsp;мультивселенной безумия</Title>
         <p className={styles.desc}>Продолжение магических приключений Доктора Стрэнджа в новых мистических мирах и в противостоянии с новыми врагами.</p>
         <Button href='/film/1219909'>
           Подробнее

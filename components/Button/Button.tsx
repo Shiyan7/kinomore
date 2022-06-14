@@ -5,11 +5,11 @@ import Link from 'next/link';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
     children?: ReactNode;
     variant?: 'stroke';
-    classN?: string;
+    className?: string;
     href?: string;
 }
 
-export const Button = memo<ButtonProps>(({children, variant, classN, href, ...props}) => {
+export const Button = memo<ButtonProps>(({children, variant, className, href, ...props}) => {
 
     return (
         <>
@@ -18,7 +18,7 @@ export const Button = memo<ButtonProps>(({children, variant, classN, href, ...pr
                 <a
                     className={classNames('g-btn',
                         variant === 'stroke' && 'g-btn--stroke',
-                        classN,
+                        className,
                     )}
                     {...props}
                 >
@@ -29,7 +29,7 @@ export const Button = memo<ButtonProps>(({children, variant, classN, href, ...pr
             <button
                 className={classNames('btn-reset', 'g-btn',
                     variant === 'stroke' && 'g-btn--stroke',
-                    classN
+                    className
                 )}
                 {...props}
             >

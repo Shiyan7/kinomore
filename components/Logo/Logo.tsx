@@ -4,13 +4,13 @@ import Link from 'next/link'
 import { FC } from 'react'
 
 interface LogoProps {
-  classN?: string
+  className?: string
 }
 
-export const Logo: FC<LogoProps> = ({classN}) => {
+export const Logo: FC<LogoProps> = ({className}) => {
   return (
     <Link href='/'>
-      <a className={classNames('g-logo', classN)}>
+      <a className={classNames('g-logo', className)}>
         <Image
           layout="fill"
           src='/logo.svg'

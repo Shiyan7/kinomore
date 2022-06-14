@@ -8,9 +8,9 @@ export const NotFound = () => {
   return (
     <section className={styles.section}>
         <div className={classNames('container', styles.container)}>
-            <Title classN={styles.title}>404. Страница не найдена</Title>
+            <Title className={styles.title}>404. Страница не найдена</Title>
             <p className={styles.desc}>Возможно, она была перемещена, или вы просто неверно указали адрес страницы.</p>
-            <Button href={HOME_ROUTE} classN={styles.link}>Вернуться на главную</Button>
+            <Button href={HOME_ROUTE} className={styles.link}>Вернуться на главную</Button>
         </div>
     </section>
   )

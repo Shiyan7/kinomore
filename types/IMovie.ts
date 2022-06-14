@@ -104,7 +104,7 @@ export interface ImagesInfo {
     framesCount: number;
 }
 
-export interface IFilm {
+export interface IMovie {
     externalId: ExternalId;
     logo: Logo;
     poster: Poster;

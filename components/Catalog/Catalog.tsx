@@ -14,7 +14,7 @@ import Link from 'next/link';
 
 interface CatalogProps {
   children: ReactNode;
-  classN?: string;
+  className?: string;
 }
 
 interface ContentProps {
@@ -23,21 +23,21 @@ interface ContentProps {
   isLoading?: boolean;
 }
 
-function Catalog ({ children, classN }: CatalogProps) {
-  return <div className={classNames(styles.catalog, classN)}>{children}</div>
+function Catalog ({ children, className }: CatalogProps) {
+  return <div className={classNames(styles.catalog, className)}>{children}</div>
 }
 namespace Catalog {
-  export const Container = ({children, classN}: CatalogProps) => {
-    return <div className={classNames('container wrapper', styles.container, classN)}>{children}</div>
+  export const Container = ({children, className}: CatalogProps) => {
+    return <div className={classNames('container wrapper', styles.container, className)}>{children}</div>
   }
 
   export const Heading = ({children}: PropsWithChildren<{}>) => {
-    return <Title classN={styles.title}>{children}</Title>
+    return <Title className={styles.title}>{children}</Title>
   }
 
   export const Subtitle = ({children}: PropsWithChildren<{}>) => {
     return (
-      <Title classN={styles.subtitle} variant='h2'>{children}</Title>
+      <Title className={styles.subtitle} variant='h2'>{children}</Title>
     )
   }
 

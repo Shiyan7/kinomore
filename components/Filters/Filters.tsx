@@ -61,14 +61,14 @@ export const Filters = () => {
                 </Filter>
                 <Filter name="Год выхода">
                     <Radio
-                        classN={styles.radio}
+                        className={styles.radio}
                         label='Сначала старые'
                         value='1'
                         sort={sort}
                         changeHandler={setSort}
                     />
                     <Radio
-                        classN={styles.radio}
+                        className={styles.radio}
                         label='Сначала новые'
                         value='-1'
                         sort={sort}
@@ -77,13 +77,13 @@ export const Filters = () => {
                 </Filter>
                 <Device desktop>
                     <div className={styles.btns}>
-                        <Button classN={styles.btn} onClick={handleApplyFilters}>Применить</Button>
+                        <Button className={styles.btn} onClick={handleApplyFilters}>Применить</Button>
                     </div>
                 </Device>
                 <Device mobile>
                     <div className={styles.btns}>
-                        <Button classN={styles.btn} onClick={handleApplyFilters}>Применить</Button>
-                        <Button classN={styles.btn} onClick={handleClose} variant='stroke'>Закрыть</Button>
+                        <Button className={styles.btn} onClick={handleApplyFilters}>Применить</Button>
+                        <Button className={styles.btn} onClick={handleClose} variant='stroke'>Закрыть</Button>
                     </div>
                 </Device>
             </div>

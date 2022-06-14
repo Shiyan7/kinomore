@@ -4,10 +4,10 @@ import { FiArrowLeft } from 'react-icons/fi'
 import classNames from 'classnames'
 
 interface BackBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    classN?: string
+    className?: string
 }
 
-export const BackBtn = memo<BackBtnProps>(({classN, ...props}) => {
+export const BackBtn = memo<BackBtnProps>(({className, ...props}) => {
 
     const router = useRouter()
     const handleBack = () => router.back()
@@ -15,7 +15,7 @@ export const BackBtn = memo<BackBtnProps>(({classN, ...props}) => {
     return (
         <button
             onClick={handleBack}
-            className={classNames('btn-reset g-back', classN)}
+            className={classNames('btn-reset g-back', className)}
             {...props}
         >
             <FiArrowLeft />

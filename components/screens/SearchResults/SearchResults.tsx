@@ -20,8 +20,8 @@ export const SearchResults = () => {
   const {Container, Heading, Desc, Body} = Catalog;
 
   return (
-    <Catalog classN={styles.section}>
-      <Container classN={styles.container}>
+    <Catalog className={styles.section}>
+      <Container className={styles.container}>
         <Heading>Результаты поиска по запросу: {id}</Heading>
         <Desc>Ничего не нашли?&nbsp;<Link href={All_FILMS_ROUTE}><a>Список всех фильмов</a></Link></Desc>
         <Body data={data} isFetching={isFetching} isLoading={isLoading} />

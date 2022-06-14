@@ -6,10 +6,10 @@ import classNames from 'classnames';
 
 interface PaginationProps {
   pages: number | any;
-  classN?: string;
+  className?: string;
 }
 
-export const Pagination = memo<PaginationProps>(({pages, classN}) => {
+export const Pagination = memo<PaginationProps>(({pages, className}) => {
 
   const {page} = useTypedSelector(state => state.paginationReducer)
   const {setPage} = useActions()
@@ -28,7 +28,7 @@ export const Pagination = memo<PaginationProps>(({pages, classN}) => {
   return (
     <>
       {pages !== 1 &&
-        <ul className={classNames('list-reset g-pagination', classN)}>
+        <ul className={classNames('list-reset g-pagination', className)}>
           <li className='g-pagination__item'>
             <button
               onClick={handleBack}

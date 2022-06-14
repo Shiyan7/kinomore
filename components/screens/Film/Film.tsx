@@ -46,9 +46,9 @@ export const Film = () => {
                         />
                     </div>
                     <div className={styles.right}>
-                        <Title classN={styles.title} variant='h1'>{name}</Title>
+                        <Title className={styles.title} variant='h1'>{name}</Title>
                         <p className={styles.desc}>{description}</p>
-                        <Title variant="h2" classN={styles.subtitle}>О фильме</Title>
+                        <Title variant="h2" className={styles.subtitle}>О фильме</Title>
                         <ul className={classNames('list-reset', styles.info)}>
                             {items.map(el => (
                                 <li key={el.caption} className={styles.infoItem}>

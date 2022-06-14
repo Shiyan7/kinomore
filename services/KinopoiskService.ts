@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {API_KEY, API_URL} from '@/constants/api'
 import {IData} from '@/types/IData';
-import {IFilm} from '@/types/IFilm';
+import {IMovie} from '@/types/IMovie';
 import {IFilterArgs} from '@/types/IFilterArgs';
 import {ISearchArgs} from '@/types/ISearchArgs';
 import { getCurrentYear } from '@/helpers/getCurrentYear/getCurrentYear';
@@ -10,7 +10,7 @@ export const kinopoiskAPI = createApi({
   reducerPath: 'kinopoiskAPI',
   baseQuery: fetchBaseQuery({baseUrl: API_URL}),
   endpoints: (build) => ({
-    getFilmById: build.query<IFilm, string | string[] | undefined>({
+    getFilmById: build.query<IMovie, string | string[] | undefined>({
       query: id =>
         `/movie?search=${id}&field=id&token=${API_KEY}`
     }),

@@ -3912,7 +3912,7 @@ next-redux-wrapper@^7.0.5:
   resolved "https://registry.npmjs.org/next-redux-wrapper/-/next-redux-wrapper-7.0.5.tgz"
   integrity sha512-UFXdAWG5i+GFT8+Hoqpx3GArkPh34fVWF9YoA2VSHlBzsrPtnRd7NWM6FNSYUennpommTpWJ09mu+r/1UxyIkg==
 
-next-videos@^1.4.0:
+next-videos@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/next-videos/-/next-videos-1.4.0.tgz#6de1fabc5b6bb1d61bd856a82d1eb381c0b1f7ad"
   integrity sha512-upTiDKjUx8CclPRU9c6Q0GY3H8aT+bHl7jdbILK3j75K1TRJOKdSxP7GyVefRWd9kgC9gLtAvCh4OrpFBuFWzg==
@@ -4317,11 +4317,6 @@ react-is@^18.0.0:
   version "18.1.0"
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.1.0.tgz"
   integrity sha512-Fl7FuabXsJnV5Q1qIOQwx/sagGF18kogb4gpfcG4gjLBWO0WDiiz1ko/ExayuxE7InyQkBLkxRFG5oxY6Uu3Kg==
-
-react-lines-ellipsis@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/react-lines-ellipsis/-/react-lines-ellipsis-0.15.0.tgz#07ecc8095f7d598e676ee662c637bd373f3552f4"
-  integrity sha512-8kWpEmu7ijmB6Gz5t+eSjNux2SpVXZBsmfeFE8LjMS7tU3H8ai475CyNc0dH0RDTwt4Esr7c06Xq4SB7Gpl9yQ==
 
 react-redux@^8.0.2:
   version "8.0.2"

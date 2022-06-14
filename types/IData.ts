@@ -1,7 +1,7 @@
-import { IFilm } from "./IFilm";
+import { IMovie } from "./IMovie";
 
 export interface IData {
-    docs: IFilm[];
+    docs: IMovie[];
     total: number;
     limit: number;
     page: number;

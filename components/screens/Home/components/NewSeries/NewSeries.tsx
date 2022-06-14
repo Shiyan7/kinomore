@@ -19,7 +19,7 @@ export const NewSeries = () => {
     <section>
       <div className='container g-section__container'>
         <div className='g-section__top'>
-          <Title variant='h2' classN='g-section__title'>Новые сериалы</Title>
+          <Title variant='h2' className='g-section__title'>Новые сериалы</Title>
           <Button href={SERIES_ROUTE}>Смотреть все</Button>
         </div>
         <ul className='list-reset g-section__grid'>
@@ -29,7 +29,7 @@ export const NewSeries = () => {
         </ul>
         {!condition &&
           <Button
-            classN='g-section__btn'
+            className='g-section__btn'
             onClick={handleLoadMore}
           >
             {isFetching ? 'Загрузка...' : 'Показать ещё'}

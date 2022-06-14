@@ -4,17 +4,17 @@ import classNames from 'classnames'
 interface RadioProps {
     sort: string;
     label?: string;
-    classN?: string;
+    className?: string;
     value: string;
     changeHandler: (value: string) => void
 }
 
-export const Radio = memo<RadioProps>(({sort, classN, changeHandler, label, value}) => {
+export const Radio = memo<RadioProps>(({sort, className, changeHandler, label, value}) => {
 
     const handleChange = () => changeHandler(value)
 
     return (
-        <label className={classNames('g-radio', classN)}>
+        <label className={classNames('g-radio', className)}>
             <input
                 className="input-reset g-radio__input"
                 type="radio"

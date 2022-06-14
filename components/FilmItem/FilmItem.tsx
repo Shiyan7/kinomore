@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { FC } from 'react'
-import { IFilm } from '@/types/IFilm'
-import styles from './FilmItem.module.scss'
+import {IMovie} from '@/types/IMovie'
 import {FiStar, FiBookmark} from 'react-icons/fi'
-import classNames from 'classnames'
 import { convertType } from '@/helpers/convertType/convertType'
+import classNames from 'classnames'
+import styles from './FilmItem.module.scss'
 
 interface FilmItemProps {
-    item: IFilm
+    item: IMovie
 }
 
 export const FilmItem: FC<FilmItemProps> = ({item}) => {
