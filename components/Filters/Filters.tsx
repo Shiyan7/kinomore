@@ -3,12 +3,12 @@ import {useActions} from '@/hooks/useActions';
 import {Filter} from "@/components/Filter/Filter"
 import {Slider} from "@/components/Slider/Slider";
 import {Radio} from "@/components/Radio/Radio";
-import { Button } from "../Button/Button";
-import { useState } from 'react';
-import { IFilter } from '@/types/IFilter';
+import {Button} from "../Button/Button";
+import {useState} from 'react';
+import {IFilter} from '@/types/IFilter';
+import {Device} from '@/components/Device';
 import styles from './Filters.module.scss'
 import classNames from "classnames";
-import { getCurrentYear } from '@/helpers/getCurrentYear/getCurrentYear';
 
 export const Filters = () => {
 
@@ -27,17 +27,21 @@ export const Filters = () => {
     const ratings = rating.minValue !== rating.maxValue ? ratingString : rating.minValue;
     const years = year.minValue !== year.maxValue ? yearString : year.minValue;
 
-    const handleApplyForm = () => {
+    const handleClose = () => {
+        toggleFilters(false)
+    }
+
+    const handleApplyFilters = () => {
         setPage(1)
         setFilterRatings(ratings)
         setFiterYears(years)
         setSortByRelease(sort)
-        toggleFilters(!openedFilters)
+        handleClose()
     }
 
     return (
-        <div className={classNames(styles.filters, openedFilters && styles.opened)}>
-            <div className={styles.content}>
+        <div onClick={handleClose} className={classNames(styles.filters, openedFilters && styles.opened)}>
+            <div onClick={e => e.stopPropagation()} className={styles.content}>
                 <Filter name="Рейтинг фильмов">
                     <Slider
                         min={1}
@@ -71,7 +75,15 @@ export const Filters = () => {
                         changeHandler={setSort}
                     />
                 </Filter>
-                <Button classN={styles.btn} onClick={handleApplyForm}>Применить</Button>
+                <Device desktop>
+                    <Button classN={styles.btn} onClick={handleApplyFilters}>Применить</Button>
+                </Device>
+                <Device mobile>
+                    <div className={styles.btns}>
+                        <Button classN={styles.btn} onClick={handleApplyFilters}>Применить</Button>
+                        <Button classN={styles.btn} onClick={handleClose} variant='stroke'>Закрыть</Button>
+                    </div>
+                </Device>
             </div>
         </div>
     )
