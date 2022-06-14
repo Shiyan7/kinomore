@@ -42,7 +42,7 @@ export const Filters = () => {
     return (
         <div onClick={handleClose} className={classNames(styles.filters, openedFilters && styles.opened)}>
             <div onClick={e => e.stopPropagation()} className={styles.content}>
-                <Filter name="Рейтинг фильмов">
+                <Filter name="Рейтинг">
                     <Slider
                         min={1}
                         max={10}

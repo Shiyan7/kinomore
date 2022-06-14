@@ -31,7 +31,9 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
                         <a className={styles.title}>{names[0].name}</a>
                     </Link>
                     <span className={styles.info}>{year}{movieLength && `, ${movieLength} мин.`}</span>
-                    <p className={styles.desc}>{shortDescription ? shortDescription : description}</p>
+                    <Link href={`/film/${item.id}`}>
+                        <a className={styles.desc}>{shortDescription ? shortDescription : description}</a>
+                    </Link>
                 </div>
             </div>
             <div className={styles.right}>

@@ -54,7 +54,7 @@ export const HorrorFilms = () => {
         <p className="catalog__desc">Все фильмы ужасов</p>
         <div className="catalog__body">
           <Filters />
-          {!data?.docs.length && <Title classN="catalog__subtitle" variant='h2'>Ничего не найдено!</Title>}
+          {!data?.docs.length && !isFetching && <Title classN="catalog__subtitle" variant='h2'>Ничего не найдено!</Title>}
           <div className="catalog__content">
             {isLoading || isFetching ? <Loader /> : <Content />}
           </div>
