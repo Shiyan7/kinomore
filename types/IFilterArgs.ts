@@ -1,8 +1,6 @@
-import { IFilter } from "./IFilter";
-
 interface IFilters {
-    rating: IFilter;
-    year: IFilter;
+    rating: string;
+    year: string;
     sortByRelease?: string;
 }
 

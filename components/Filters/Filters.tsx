@@ -16,15 +16,21 @@ export const Filters = () => {
     const {filters} = useTypedSelector(state => state.filtersReducer);
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
 
-    // use state
-    const [rating, setRating] = useState<IFilter>(filters.rating)
-    const [year, setYear] = useState<IFilter>(filters.year)
-    const [sort, setSort] = useState<string>(filters.sortByRelease)
+    // локальные состояние для передачи в стор
+    const [rating, setRating] = useState<IFilter>({minValue: 8, maxValue: 10});
+    const [year, setYear] = useState<IFilter>({minValue: 1990, maxValue: 2022});
+    const [sort, setSort] = useState<string>(filters.sortByRelease);
+
+    //условия и строки
+    const ratingString = `${rating.minValue}-${rating.maxValue}`;
+    const yearString = `${year.minValue}-${year.maxValue}`;
+    const ratings = rating.minValue !== rating.maxValue ? ratingString : rating.minValue;
+    const years = year.minValue !== year.maxValue ? yearString : year.minValue;
 
     const handleApplyForm = () => {
         setPage(1)
-        setFilterRatings(rating)
-        setFiterYears(year)
+        setFilterRatings(ratings)
+        setFiterYears(years)
         setSortByRelease(sort)
         toggleFilters(!openedFilters)
     }
@@ -44,7 +50,7 @@ export const Filters = () => {
                 <Filter name="Года производства">
                     <Slider
                         min={1970}
-                        max={getCurrentYear()}
+                        max={2022}
                         start={year}
                         setValue={setYear}
                     />

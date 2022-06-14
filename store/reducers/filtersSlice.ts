@@ -1,10 +1,9 @@
-import { getCurrentYear } from "@/helpers/getCurrentYear/getCurrentYear";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     filters: {
-        year: {minValue: 1990, maxValue: getCurrentYear()},
-        rating: {minValue: 8, maxValue: 10},
+        year: '1990-2022',
+        rating: '8-10',
         sortByRelease: '1'
     }
 }
