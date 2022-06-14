@@ -76,6 +76,15 @@
         line-height: 28px;
         max-width: 800px;
 
+        a {
+            text-decoration: underline;
+            color: var(--color-dark);
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
         @media (max-width: 576px) {
             margin-bottom: 30px;
             font-size: 15px;

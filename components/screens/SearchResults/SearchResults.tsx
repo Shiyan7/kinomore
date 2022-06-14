@@ -1,39 +1,65 @@
-import { useRouter } from "next/router"
-import { useActions } from "@/hooks/useActions"
-import { useTypedSelector } from "@/hooks/useTypedSelector"
-import { useGetFilmByNameQuery } from "@/services/KinopoiskService"
-import { BackBtn } from "@/components/BackBtn/BackBtn"
-import { FilmItem } from "@/components/FilmItem/FilmItem"
-import { Title } from "@/components/Title/Title"
-import { Button } from "@/components/Button/Button"
+import {Title} from "@/components/Title/Title";
+import {MovieItem} from "@/components/MovieItem/MovieItem";
+import {Pagination} from "@/components/Pagination/Pagination";
+import {FILMS_ROUTE } from "@/constants/routes";
+import {Filters} from "@/components/Filters/Filters";
+import {Spinner, SpinnerSizes} from "@/components/Spinner/Spinner";
+import {useGetFilmByNameQuery} from "@/services/KinopoiskService";
+import {useTypedSelector} from "@/hooks/useTypedSelector";
+import {FiltersToggle} from "@/components/FiltersToggle/FiltersToggle";
+import {Device} from '@/components/Device';
+import { useRouter } from "next/router";
 import styles from './SearchResults.module.scss'
-import classNames from "classnames"
+import Link from "next/link";
+import classNames from "classnames";
 
 export const SearchResults = () => {
 
     const {query: {id}} = useRouter()
-    const {resultsLimit} = useTypedSelector(state => state.loadReducer)
-    const {data, isLoading, isFetching} = useGetFilmByNameQuery({search: id, limit: resultsLimit})
-    const {loadMoreResults} = useActions()
-    const condition = data?.docs.length === data?.total;
+    const {filters} = useTypedSelector(state => state.filtersReducer);
+    const {page} = useTypedSelector(state => state.paginationReducer);
+    const {data, isLoading, isFetching} = useGetFilmByNameQuery({
+      search: id,
+      page: page,
+      filters
+    });
 
-    const handleLoadMore = () => loadMoreResults(5)
+    const Content = () => (
+        <>
+        <div className='catalog__grid'>
+            {data?.docs?.map(el => (
+                <MovieItem key={el.id} item={el} />
+            ))}
+        </div>
+        <Pagination pages={data?.pages} />
+        </>
+    )
+
+    const Loader = () => (
+      <div className="catalog__spinner">
+        <Spinner variant={SpinnerSizes.medium}  />
+      </div>
+    )
 
     return (
-        <section className={styles.section}>
-            <div className='container g-section__container'>
-                <BackBtn />
-                <Title variant="h2" classN={classNames('g-section__title', styles.title)}>Результаты поиска по запросу: {id}</Title>
-                <ul className='list-reset g-section__grid'>
-                {data?.docs?.map(el => (
-                    <FilmItem key={el.id} item={el} />
-                ))}
-                <p className={styles.desc}>{!data?.docs.length && !isLoading ? 'Ничего не найдено!' : isLoading && 'Загрузка' }</p>
-                </ul>
-                {!condition && <Button onClick={handleLoadMore} classN='g-section__btn'>
-                    {isFetching ? 'Загрузка...' : 'Показать ещё'}
-                </Button>}
+      <section className="catalog">
+        <div className={classNames('container wrapper catalog__container', styles.container)}>
+          <Title classN="catalog__title">Результаты поиска по запросу: {id}</Title>
+          <p className="catalog__desc">Для поиска хорошего кино рекомендуем&nbsp;
+            <Link href={FILMS_ROUTE}>
+              <a>навигатор по лучшим фильмам.</a>
+            </Link>
+          </p>
+          <div className="catalog__body">
+            <Filters />
+            <div className="catalog__content">
+              {isLoading || isFetching ? <Loader /> : <Content />}
             </div>
-        </section>
+            <Device mobile>
+              <FiltersToggle />
+            </Device>
+          </div>
+        </div>
+      </section>
     )
 }

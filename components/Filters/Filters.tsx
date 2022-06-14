@@ -17,7 +17,7 @@ export const Filters = () => {
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
 
     // локальные состояние для передачи в стор
-    const [rating, setRating] = useState<IFilter>({minValue: 8, maxValue: 10});
+    const [rating, setRating] = useState<IFilter>({minValue: 1, maxValue: 10});
     const [year, setYear] = useState<IFilter>({minValue: 1990, maxValue: 2022});
     const [sort, setSort] = useState<string>(filters.sortByRelease);
 
@@ -76,7 +76,9 @@ export const Filters = () => {
                     />
                 </Filter>
                 <Device desktop>
-                    <Button classN={styles.btn} onClick={handleApplyFilters}>Применить</Button>
+                    <div className={styles.btns}>
+                        <Button classN={styles.btn} onClick={handleApplyFilters}>Применить</Button>
+                    </div>
                 </Device>
                 <Device mobile>
                     <div className={styles.btns}>

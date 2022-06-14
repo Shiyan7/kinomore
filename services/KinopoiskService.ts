@@ -22,11 +22,11 @@ export const kinopoiskAPI = createApi({
       query: limit =>
         `/movie?field=rating.kp&search=5-10&field=year&search=${getCurrentYear()}&field=typeNumber&search=2&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_KEY}`,
     }),
-    getFilmByName: build.query<IData, ISearchArgs>({
-      query: args =>
-        `/movie?search=${args.search}&field=name&limit=${args.limit}isStrict=false&token=${API_KEY}`
+    getFilmByName: build.query<IData, IFilterArgs>({
+      query: ({filters, page, search}) =>
+        `/movie?search=${search}&field=name&search=${filters.rating}&field=typeNumber&search=${filters.year}&field=year&sortField=year&sortType=${filters.sortByRelease}&page=${page}&isStrict=false&token=${API_KEY}`
     }),
-    getBestFilms: build.query<IData, IFilterArgs>({
+    getAllFilms: build.query<IData, IFilterArgs>({
       query: ({filters, page}) =>
         `/movie?field=rating.kp&search=${filters.rating}&field=year&search=${filters.year}&field=typeNumber&search=1&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
     }),
@@ -50,7 +50,7 @@ export const {
   useGetNewSeriesQuery,
   useGetFilmByIdQuery,
   useGetFilmByNameQuery,
-  useGetBestFilmsQuery,
+  useGetAllFilmsQuery,
   useGetComedyFilmsQuery,
   useGetWarFilmsQuery,
   useGetHorrorFilmsQuery
@@ -61,7 +61,7 @@ export const {
   getNewSeries,
   getFilmById,
   getFilmByName,
-  getBestFilms,
+  getAllFilms,
   getComedyFilms,
   getWarFilms,
   getHorrorFilms

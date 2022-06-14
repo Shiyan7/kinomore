@@ -1,7 +1,7 @@
 import {Title} from "@/components/Title/Title";
 import {MovieItem} from "@/components/MovieItem/MovieItem";
 import {Pagination} from "@/components/Pagination/Pagination";
-import {BEST_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes";
+import {All_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes";
 import {Filters} from "@/components/Filters/Filters";
 import {Spinner, SpinnerSizes} from "@/components/Spinner/Spinner";
 import {useGetComedyFilmsQuery} from "@/services/KinopoiskService";
@@ -43,10 +43,10 @@ export const ComedyFilms = () => {
           <Link href={FILMS_ROUTE}>
             <a className='catalog-top__link'>Все списки</a>
           </Link>
-          <Link href={BEST_FILMS_ROUTE}>
+          <Link href={All_FILMS_ROUTE}>
             <a className='catalog-top__link'>Лучшие фильмы</a>
           </Link>
-          <Link href={BEST_FILMS_ROUTE}>
+          <Link href={All_FILMS_ROUTE}>
             <a className='catalog-top__link'>Лучшие сериалы</a>
           </Link>
         </div>

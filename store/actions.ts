@@ -1,4 +1,4 @@
-import { loadMoreFilms, loadMoreSeries, loadMoreResults } from "@/store/reducers/loadMoreSlice";
+import { loadMoreFilms, loadMoreSeries } from "@/store/reducers/loadMoreSlice";
 import { setFilterRatings, setFiterYears, setSortByRelease } from "@/store/reducers/filtersSlice";
 import { toggleFilters } from "@/store/reducers/toggleSlice";
 import { setPage } from "@/store/reducers/paginationSlice";
@@ -8,7 +8,6 @@ export {
     setSearch,
     loadMoreFilms,
     loadMoreSeries,
-    loadMoreResults,
     setFilterRatings,
     setFiterYears,
     setSortByRelease,

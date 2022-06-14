@@ -13,9 +13,10 @@ export const getServerSideProps: GetServerSideProps = async (params) => {
     const store = initStore()
     const state = store.getState()
     const id = params.query.id
-    const {resultsLimit} = state.loadReducer
+    const {filters} = state.filtersReducer
+    const {page} = state.paginationReducer
     
-    await store.dispatch(getFilmByName.initiate({search: id, limit: resultsLimit}))
+    await store.dispatch(getFilmByName.initiate({search: id, page: page, filters}))
   
     return { props: { initialReduxState: store.getState()}
 }}

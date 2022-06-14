@@ -2,20 +2,20 @@
 import {Title} from "@/components/Title/Title";
 import {MovieItem} from "@/components/MovieItem/MovieItem";
 import {Pagination} from "@/components/Pagination/Pagination";
-import {BEST_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes";
+import {All_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes";
 import {Filters} from "@/components/Filters/Filters";
 import {Spinner, SpinnerSizes} from "@/components/Spinner/Spinner";
-import {useGetBestFilmsQuery} from "@/services/KinopoiskService";
+import {useGetAllFilmsQuery} from "@/services/KinopoiskService";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {FiltersToggle} from "@/components/FiltersToggle/FiltersToggle";
 import {Device} from '@/components/Device';
 import Link from "next/link";
 
-export const BestFilms = () => {
+export const AllFilms = () => {
 
   const {filters} = useTypedSelector(state => state.filtersReducer);
   const {page} = useTypedSelector(state => state.paginationReducer);
-  const {data, isLoading, isFetching} = useGetBestFilmsQuery({
+  const {data, isLoading, isFetching} = useGetAllFilmsQuery({
     page: page,
     filters
   });
@@ -44,15 +44,15 @@ export const BestFilms = () => {
           <Link href={FILMS_ROUTE}>
             <a className='catalog-top__link'>Все списки</a>
           </Link>
-          <Link href={BEST_FILMS_ROUTE}>
+          <Link href={All_FILMS_ROUTE}>
             <a className='catalog-top__link'>Лучшие фильмы</a>
           </Link>
-          <Link href={BEST_FILMS_ROUTE}>
+          <Link href={All_FILMS_ROUTE}>
             <a className='catalog-top__link'>Лучшие сериалы</a>
           </Link>
         </div>
-        <Title classN="catalog__title">Лучшие фильмы</Title>
-        <p className="catalog__desc">Рейтинг составлен по результатам голосования на сайте IMDb.</p>
+        <Title classN="catalog__title">Все фильмы</Title>
+        <p className="catalog__desc">Фильмы всего мира</p>
         <div className="catalog__body">
           <Filters />
           <div className="catalog__content">

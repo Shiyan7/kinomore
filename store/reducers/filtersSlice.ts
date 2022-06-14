@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     filters: {
         year: '1990-2022',
-        rating: '8-10',
+        rating: '1-10',
         sortByRelease: '1'
     }
 }
