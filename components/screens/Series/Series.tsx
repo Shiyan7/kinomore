@@ -1,5 +1,29 @@
+import {useGetSeriesQuery} from "@/services/KinopoiskService";
+import {useTypedSelector} from "@/hooks/useTypedSelector";
+import {Catalog} from "@/components/Catalog/Catalog";
+import {Filters} from "@/components/Filters/Filters";
+
 export const Series = () => {
+
+  const {filters} = useTypedSelector(state => state.filtersReducer);
+  const {page} = useTypedSelector(state => state.paginationReducer);
+  const {data, isLoading, isFetching} = useGetSeriesQuery({
+    page: page,
+    filters
+  });
+
+  const {Container, Heading, Desc, Body, Content} = Catalog;
+
   return (
-    <div>Series</div>
+    <Catalog>
+      <Container>
+        <Heading>Все сериалы</Heading>
+        <Desc>Сериалы всего мира</Desc>
+        <Body>
+          <Filters />
+          <Content data={data} isLoading={isLoading} isFetching={isFetching} />
+        </Body>
+      </Container>
+    </Catalog>
   )
 }

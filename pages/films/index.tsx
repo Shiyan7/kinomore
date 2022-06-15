@@ -1,11 +1,11 @@
 import { GetServerSideProps, NextPage } from "next";
-import { getComedyFilms } from "@/services/KinopoiskService";
+import { Films } from "@/components/screens/Films/Films";
+import { getFilms } from "@/services/KinopoiskService";
 import { initStore } from "@/store/store";
-import { ComedyFilms } from "@/components/screens/Films/components/ComedyFilms/ComedyFilms";
 
-const ComedyFilmsPage: NextPage = () => {
+const FilmsPage: NextPage = () => {
   return (
-    <ComedyFilms />
+    <Films />
   );
 };
 
@@ -15,9 +15,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const {filters} = state.filtersReducer
   const {page} = state.paginationReducer
   
-  await store.dispatch(getComedyFilms.initiate({page: page, filters}))
+  await store.dispatch(getFilms.initiate({page: page, filters}))
 
   return { props: { initialReduxState: store.getState()}
 }}
 
-export default ComedyFilmsPage;
+export default FilmsPage;

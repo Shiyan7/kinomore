@@ -11,7 +11,7 @@ export const NewSeries = () => {
   const {seriesLimit} = useTypedSelector(state => state.loadReducer)
   const {data, isFetching} = useGetNewSeriesQuery(seriesLimit)
   const {loadMoreSeries} = useActions()
-  const condition = data?.docs.length === data?.total;
+  const condition = data?.docs?.length === data?.total;
 
   const handleLoadMore = () => loadMoreSeries(5)
 

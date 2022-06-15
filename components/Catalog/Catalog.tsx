@@ -1,4 +1,4 @@
-import {All_FILMS_ROUTE, FILMS_ROUTE } from "@/constants/routes";
+import {FILMS_ROUTE, SERIES_ROUTE, CARTOONS_ROUTE } from "@/constants/routes";
 import {PropsWithChildren, ReactNode} from 'react'
 import {Device} from '../Device';
 import {Filters} from '../Filters/Filters';
@@ -23,12 +23,12 @@ interface ContentProps {
   isLoading?: boolean;
 }
 
-function Catalog ({ children, className }: CatalogProps) {
-  return <div className={classNames(styles.catalog, className)}>{children}</div>
+function Catalog ({ children }: PropsWithChildren<{}>) {
+  return <div className={styles.catalog}>{children}</div>
 }
 namespace Catalog {
-  export const Container = ({children, className}: CatalogProps) => {
-    return <div className={classNames('container wrapper', styles.container, className)}>{children}</div>
+  export const Container = ({children}: PropsWithChildren<{}>) => {
+    return <div className={classNames('container wrapper', styles.container)}>{children}</div>
   }
 
   export const Heading = ({children}: PropsWithChildren<{}>) => {
@@ -38,27 +38,6 @@ namespace Catalog {
   export const Subtitle = ({children}: PropsWithChildren<{}>) => {
     return (
       <Title className={styles.subtitle} variant='h2'>{children}</Title>
-    )
-  }
-
-  export const Nav = () => {
-
-    const items = [
-      {txt: 'Все списки', href: FILMS_ROUTE},
-      {txt: 'Все фильмы', href: All_FILMS_ROUTE},
-      {txt: 'Все сериалы', href: All_FILMS_ROUTE},
-    ]
-
-    return (
-      <ul className={classNames('list-reset', styles.nav)}>
-        {items.map(el => (
-          <li key={el.txt} className={styles.navItem}>
-            <Link href={el.href}>
-              <a className={styles.navLink}>{el.txt}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
     )
   }
 
@@ -84,23 +63,28 @@ namespace Catalog {
     )
   }
 
-  export const Body = ({data, isLoading, isFetching}: ContentProps) => {
+  export const Body = ({children}: PropsWithChildren<{}>) => {
     return (
       <div className={styles.body}>
-        <Filters />
-        {!data?.docs.length && !isFetching && <Subtitle>Ничего не найдено!</Subtitle>}
-        <div className={styles.content}>
-          {isLoading || isFetching ? <Loader /> :
-            <>
-              <Catalog.Grid data={data} />
-              <Pagination pages={data?.pages} />
-            </>
-          }
-        </div>
+        {children}
         <Device mobile>
           <FiltersToggle />
         </Device>
       </div>
+    )
+  }
+
+  export const Content = ({data, isLoading, isFetching}: ContentProps) => {
+    return (
+      <>
+        {isLoading || isFetching ? <Loader /> :
+          <div className={styles.content}>
+            {!data?.docs.length && <Subtitle>Ничего не найдено!</Subtitle>}
+            <Catalog.Grid data={data} />
+            <Pagination pages={data?.pages} />
+          </div>
+        }
+      </>
     )
   }
 }

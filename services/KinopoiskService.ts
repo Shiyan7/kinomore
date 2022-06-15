@@ -3,7 +3,6 @@ import {API_KEY, API_URL} from '@/constants/api'
 import {IData} from '@/types/IData';
 import {IMovie} from '@/types/IMovie';
 import {IFilterArgs} from '@/types/IFilterArgs';
-import {ISearchArgs} from '@/types/ISearchArgs';
 import { getCurrentYear } from '@/helpers/getCurrentYear/getCurrentYear';
 
 export const kinopoiskAPI = createApi({
@@ -24,23 +23,19 @@ export const kinopoiskAPI = createApi({
     }),
     getFilmByName: build.query<IData, IFilterArgs>({
       query: ({filters, page, search}) =>
-        `/movie?search=${search}&field=name&search=${filters.rating}&field=typeNumber&search=${filters.year}&field=year&sortField=year&sortType=${filters.sortByRelease}&page=${page}&isStrict=false&token=${API_KEY}`
+        `/movie?${filters.genre !== '' && `search[]=${filters.genre}&field[]=genres.name`}&search=${search}&field=name&search=${filters.rating}&field=rating.kp&search=${filters.year}&field=year&sortField=year&sortType=${filters.sortByRelease}&page=${page}&isStrict=false&token=${API_KEY}`
     }),
-    getAllFilms: build.query<IData, IFilterArgs>({
+    getFilms: build.query<IData, IFilterArgs>({
       query: ({filters, page}) =>
-        `/movie?field=rating.kp&search=${filters.rating}&field=year&search=${filters.year}&field=typeNumber&search=1&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
+      `/movie?${filters.genre !== '' && `search[]=${filters.genre}&field[]=genres.name`}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=1&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
     }),
-    getComedyFilms: build.query<IData, IFilterArgs>({
+    getSeries: build.query<IData, IFilterArgs>({
       query: ({filters, page}) =>
-        `/movie?search[]=movie&search[]=комедия&search[]=${filters.year}&search[]=${filters.rating}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&sortField=year&sortType=${filters.sortByRelease}&field=votes.kp&limit=10&page=${page}&token=${API_KEY}`
+        `/movie?${filters.genre !== '' && `search[]=${filters.genre}&field[]=genres.name`}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=2&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
     }),
-    getWarFilms: build.query<IData, IFilterArgs>({
+    getCartoons: build.query<IData, IFilterArgs>({
       query: ({filters, page}) =>
-        `/movie?search[]=movie&search[]=военный&search[]=${filters.year}&search[]=${filters.rating}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&sortField=year&sortType=${filters.sortByRelease}&field=votes.kp&limit=10&page=${page}&token=${API_KEY}`
-    }),
-    getHorrorFilms: build.query<IData, IFilterArgs>({
-      query: ({filters, page}) =>
-        `/movie?search[]=movie&search[]=ужасы&search[]=${filters.year}&search[]=${filters.rating}&search=!null&search=!null&field[]=type&field[]=genres.name&field[]=year&field=rating.kp&field=name&sortField=year&sortType=${filters.sortByRelease}&field=votes.kp&limit=10&page=${page}&token=${API_KEY}`
+      `/movie?${filters.genre !== '' && `search[]=${filters.genre}&field[]=genres.name`}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=3&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
     }),
   }),
 });
@@ -50,10 +45,9 @@ export const {
   useGetNewSeriesQuery,
   useGetFilmByIdQuery,
   useGetFilmByNameQuery,
-  useGetAllFilmsQuery,
-  useGetComedyFilmsQuery,
-  useGetWarFilmsQuery,
-  useGetHorrorFilmsQuery
+  useGetFilmsQuery,
+  useGetSeriesQuery,
+  useGetCartoonsQuery
 } = kinopoiskAPI;
 
 export const {
@@ -61,8 +55,7 @@ export const {
   getNewSeries,
   getFilmById,
   getFilmByName,
-  getAllFilms,
-  getComedyFilms,
-  getWarFilms,
-  getHorrorFilms
+  getFilms,
+  getSeries,
+  getCartoons
 } = kinopoiskAPI.endpoints;

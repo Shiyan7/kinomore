@@ -1,11 +1,6 @@
 export const HOME_ROUTE = '/';
-export const FILMS_ROUTE = '/lists/categories/movies';
-export const SERIES_ROUTE = '/lists/categories/movies/series';
-export const CARTOONS_ROUTE = '/lists/categories/movies/cartoons';
-export const YEARS_ROUTE = '/lists/categories/movies/years';
-export const All_FILMS_ROUTE = '/lists/movies/all_films';
-export const COMEDY_FILMS_ROUTE = '/lists/movies/comedy_films';
-export const HORROR_FILMS_ROUTE = '/lists/movies/horror_films';
-export const WAR_FILMS_ROUTE = '/lists/movies/war_films';
+export const FILMS_ROUTE = '/films';
+export const SERIES_ROUTE = '/series';
+export const CARTOONS_ROUTE = '/cartoons';
 export const FAVORITES_ROUTE = '/favorites';
 export const LOGIN_ROUTE = '/auth';

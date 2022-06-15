@@ -2,7 +2,7 @@
     width: 100%;
 
     &:not(:first-child) {
-      margin-top: 60px;
+      margin-top: 55px;
 
       @media (max-width: 576px) {
         margin-top: 50px;
@@ -43,8 +43,7 @@
       flex-direction: column;
 
       @media (max-width: 1024px) {
-        align-items: center;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
       }
   

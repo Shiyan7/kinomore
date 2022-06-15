@@ -2,6 +2,7 @@ interface IFilters {
     rating: string;
     year: string;
     sortByRelease?: string;
+    genre: string;
 }
 
 export interface IFilterArgs {

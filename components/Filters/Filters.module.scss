@@ -11,7 +11,6 @@
         visibility: hidden;
         transition: opacity 0.3s, visibility 0.3s;
         min-width: 360px;
-        min-height: 400px;
 
         &.opened {
             opacity: 1;
@@ -29,9 +28,6 @@
 }
 
 .content {
-    position: sticky;
-    top: 105px;
-    left: 0;
 
     @media (max-width: 1024px) {
         position: absolute;
@@ -39,19 +35,38 @@
         left: 0;
         width: 100%;
         bottom: 0;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 0 20px;
-        padding-top: 50px;
-        padding-bottom: 50px;
         background-color: #fff;
         transform: translateY(200%);
         transition: transform 0.3s;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    @media (max-height: 600px) {
+        top: 0;
+        transform: translateY(0%);
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1024px) {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 50px 20px;
     }
 
     @media (max-width: 576px) {
         padding-top: 30px;
         padding-bottom: 30px;
+    }
+}
+
+.radios {
+    @media (max-width: 1024px) {
+        display: flex;
     }
 }
 
@@ -74,7 +89,8 @@
     margin-top: 40px;
 
     @media (max-width: 576px) {
-        margin-top: 30px;
+        padding-top: 30px;
+        margin-top: auto;
     }
 }
 
