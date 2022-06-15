@@ -45,7 +45,7 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
                     className={styles.btn}
                 >
                     <FiBookmark />
-                    Буду смотреть
+                    В избранное
                 </Button>
             </div>
         </div>
