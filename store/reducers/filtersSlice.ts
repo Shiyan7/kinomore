@@ -31,7 +31,7 @@ const initialState = {
     filters: {
         year: '1990-2022',
         rating: '1-10',
-        sortByRelease: '1',
+        sortByRelease: '-1',
         genre: ''
     }
 }

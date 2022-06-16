@@ -71,15 +71,15 @@ export const Filters = () => {
                         <div className={styles.radios}>
                             <Radio
                                 className={styles.radio}
-                                label='Сначала старые'
-                                value='1'
+                                label='Сначала новые'
+                                value='-1'
                                 sort={sort}
                                 changeHandler={setSort}
                             />
                             <Radio
                                 className={styles.radio}
-                                label='Сначала новые'
-                                value='-1'
+                                label='Сначала старые'
+                                value='1'
                                 sort={sort}
                                 changeHandler={setSort}
                             />
