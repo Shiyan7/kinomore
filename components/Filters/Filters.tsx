@@ -4,13 +4,12 @@ import {Filter} from "@/components/Filter/Filter"
 import {Slider} from "@/components/Slider/Slider";
 import {Radio} from "@/components/Radio/Radio";
 import {Button} from "../Button/Button";
-import {useState} from 'react';
+import {FormEvent, useState} from 'react';
 import {IFilter} from '@/types/IFilter';
 import {Device} from '@/components/Device';
 import {Select} from '../Select/Select';
 import styles from './Filters.module.scss'
 import classNames from "classnames";
-
 
 export const Filters = () => {
 
@@ -34,7 +33,8 @@ export const Filters = () => {
         toggleFilters(false)
     }
 
-    const handleApplyFilters = () => {
+    const handleApplyFilters = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         setPage(1)
         setFilterRatings(ratings)
         setFiterYears(years)
@@ -44,7 +44,7 @@ export const Filters = () => {
     }
 
     return (
-        <div onClick={handleClose} className={classNames(styles.filters, openedFilters && styles.opened)}>
+        <form onSubmit={handleApplyFilters} noValidate onClick={handleClose} className={classNames(styles.filters, openedFilters && styles.opened)}>
             <div onClick={e => e.stopPropagation()} className={styles.content}>
                 <div className={styles.container}>
                     <Filter name="Рейтинг">
@@ -87,17 +87,17 @@ export const Filters = () => {
                     </Filter>
                     <Device desktop>
                         <div className={styles.btns}>
-                            <Button className={styles.btn} onClick={handleApplyFilters}>Применить</Button>
+                            <Button className={styles.btn}>Применить</Button>
                         </div>
                     </Device>
                     <Device mobile>
                         <div className={styles.btns}>
-                            <Button className={styles.btn} onClick={handleApplyFilters}>Применить</Button>
+                            <Button className={styles.btn}>Применить</Button>
                             <Button className={styles.btn} onClick={handleClose} variant='stroke'>Закрыть</Button>
                         </div>
                     </Device>
                 </div>
             </div>
-        </div>
+        </form>
     )
 }

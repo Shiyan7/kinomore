@@ -1,5 +1,5 @@
 {
-  "name": "kino-more",
+  "name": "kinomore",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -31,14 +31,14 @@
     "eslint-config-next": "12.1.6",
     "jest": "^28.1.1",
     "next-redux-wrapper": "^7.0.5",
+    "react-range": "^1.8.13",
     "normalize.css": "^8.0.1",
-    "nouislider-react": "^3.4.1",
     "nprogress": "^0.2.0",
     "react-device-detect": "^2.2.2",
     "react-icons": "^4.3.1",
     "react-redux": "^8.0.2",
+    "react-select": "^5.3.2",
     "typescript": "4.7.2",
-    "usehooks-ts": "^2.5.3",
-    "react-select": "^5.3.2"
+    "usehooks-ts": "^2.5.3"
   }
 }

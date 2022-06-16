@@ -1,12 +1,9 @@
 .filter {
     width: 100%;
+    outline: none;
 
     &:not(:first-child) {
-      margin-top: 55px;
-
-      @media (max-width: 576px) {
-        margin-top: 50px;
-      }
+      margin-top: 35px;
     }
   
     &Active {

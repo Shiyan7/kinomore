@@ -42,9 +42,18 @@
         overflow-y: auto;
     }
 
-    @media (max-height: 600px) {
-        top: 0;
-        transform: translateY(0%);
+    @media (min-width: 577px) {
+        @media (max-height: 750px) {
+            top: 0;
+            transform: translateY(0%);
+        }
+    }
+    
+    @media (max-width: 576px) {
+        @media (max-height: 640px) {
+            top: 0;
+            transform: translateY(0%);
+        }
     }
 }
 
@@ -85,12 +94,7 @@
 
 .btns {
     display: flex;
-    margin-top: 40px;
-
-    @media (max-width: 576px) {
-        padding-top: 50px;
-        margin-top: auto;
-    }
+    margin-top: 35px;
 }
 
 .btn {

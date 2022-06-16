@@ -17,6 +17,7 @@ export const Filter: FC<FilterProps> = ({name, children}) => {
     return (
         <div className={classNames(styles.filter, open && styles.filterActive)}>
             <button
+                type="button"
                 className={classNames('btn-reset', styles.filterControl)}
                 aria-label={open ? 'Закрыть фильтр' : 'Открыть фильтр'}
                 aria-expanded={open}
