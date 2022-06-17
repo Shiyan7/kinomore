@@ -12,6 +12,7 @@
     position: relative;
     flex-shrink: 0;
     margin-right: 50px;
+    width: fit-content;
 
     @media (max-width: 767px) {
         margin-right: 0;
