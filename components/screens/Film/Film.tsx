@@ -12,11 +12,11 @@ import {MovieFavorite} from "@/components/MovieFavorite/MovieFavorite"
 import {convertType} from "@/helpers/convertType/convertType"
 import {Tab, TabList, TabPanel, Tabs } from "react-tabs"
 import {MovieRating} from "@/components/MovieRating/MovieRating"
+import {Swiper, SwiperSlide} from 'swiper/react';
+import { PersonItem } from "@/components/PersonItem/PersonItem"
 import styles from './Film.module.scss'
 import classNames from "classnames"
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { PersonItem } from "@/components/PersonItem/PersonItem"
 
 export const Film = () => {
     const {query: {id}} = useRouter()
@@ -34,12 +34,10 @@ export const Film = () => {
         genres,
         slogan,
         budget,
-        movieLength,
         countries,
         rating,
         premiere,
         persons,
-        votes,
     } = {...data}
     
     const worldFees = fees?.world?.value - fees?.usa?.value;
@@ -61,7 +59,6 @@ export const Film = () => {
         {caption: 'Жанр', value: genres?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>), condition: genres?.length},
         {caption: 'Слоган', value: slogan, condition: slogan},
         {caption: 'Возраст', value: <span className={styles.age}>{ageRating}+</span>, condition: ageRating},
-        {caption: 'Время', value: `${movieLength} мин`, condition: movieLength},
         {caption: 'Бюджет', value: `${budget?.currency} ${convertNumbers(budget?.value)}`, condition: budget?.value},
         {caption: 'Сборы в США', value: `${fees?.usa?.currency} ${convertNumbers(fees?.usa?.value)}`, condition: fees?.usa},
         {caption: 'Сборы в мире', value: `+ ${fees?.world?.currency} ${convertNumbers(worldFees)} = ${fees?.world?.currency} ${convertNumbers(fees?.world?.value)}`, condition: fees?.usa},
@@ -117,16 +114,18 @@ export const Film = () => {
                     <TabPanel>
                         <Swiper
                             slidesPerView={2}
-                            spaceBetween={30}
+                            spaceBetween={15}
                             breakpoints={{
                                 577: {
                                   slidesPerView: 3,
                                 },
                                 769: {
                                   slidesPerView: 4,
+                                  spaceBetween: 30
                                 },
                                 1025: {
                                   slidesPerView: 6,
+                                  spaceBetween: 30
                                 },
                               }}
                         >
