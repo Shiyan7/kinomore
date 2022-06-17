@@ -153,33 +153,6 @@
     margin-bottom: 25px;
 }
 
-.btns {
-    display: flex;
-    align-items: center;
-    margin-bottom: 50px;
-
-    @media (max-width: 576px) {
-        margin-bottom: 35px;
-    }
-}
-
-.btn {
-
-    @media (max-width: 576px) {
-        padding: 11px 12px;
-        font-size: 15px;
-        line-height: 15px;
-    }
-
-    &:not(:last-child) {
-        margin-right: 15px;
-
-        @media (max-width: 576px) {
-            margin-right: 10px;
-        }
-    }
-}
-
 .facts {
     display: flex;
     flex-direction: column;

@@ -6,8 +6,6 @@ import {Fragment, useEffect } from "react"
 import {BackBtn} from "@/components/BackBtn/BackBtn"
 import {convertNumbers} from "@/helpers/convertNumbers/convertNumbers"
 import {convertTimestampToDate} from "@/helpers/convertTimestampToDate/convertTimestampToDate"
-import {Button} from "@/components/Button/Button"
-import {FiPlay} from "react-icons/fi"
 import {MovieFavorite} from "@/components/MovieFavorite/MovieFavorite"
 import {convertType} from "@/helpers/convertType/convertType"
 import {Tab, TabList, TabPanel, Tabs } from "react-tabs"
@@ -34,6 +32,7 @@ export const Film = () => {
         genres,
         slogan,
         budget,
+        movieLength,
         countries,
         rating,
         premiere,
@@ -60,6 +59,7 @@ export const Film = () => {
         {caption: 'Слоган', value: slogan, condition: slogan},
         {caption: 'Возраст', value: <span className={styles.age}>{ageRating}+</span>, condition: ageRating},
         {caption: 'Бюджет', value: `${budget?.currency} ${convertNumbers(budget?.value)}`, condition: budget?.value},
+        {caption: 'Время', value: `${movieLength} мин`, condition: movieLength},
         {caption: 'Сборы в США', value: `${fees?.usa?.currency} ${convertNumbers(fees?.usa?.value)}`, condition: fees?.usa},
         {caption: 'Сборы в мире', value: `+ ${fees?.world?.currency} ${convertNumbers(worldFees)} = ${fees?.world?.currency} ${convertNumbers(fees?.world?.value)}`, condition: fees?.usa},
         {caption: 'Премьера в мире' , value: convertTimestampToDate(premiere?.world, "D MMMM YYYY"), condition: premiere?.world},
@@ -78,19 +78,11 @@ export const Film = () => {
                         />
 
                         <MovieRating rating={rating} />
+                        <MovieFavorite id={id} />
                     </div>
                     <div className={styles.right}>
                         {name && <Title className={styles.title} variant='h1'>{name} ({year})</Title>}
                         <span className={styles.originalTitle}>{alternativeName}</span>
-                        <div className={styles.btns}>
-                            <Button className={styles.btn}>
-                                Смотреть
-                                <FiPlay />
-                            </Button>
-                            <MovieFavorite className={styles.btn} variant='stroke' id={id}>
-                                В избранное
-                            </MovieFavorite>
-                        </div>
                         <Title variant="h2" className={styles.subtitle}>О {convertType(type)}е</Title>
                         <ul className={classNames('list-reset', styles.info)}>
                             {items.map(el => (
