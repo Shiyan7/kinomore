@@ -98,7 +98,7 @@ export const Film = () => {
                     <TabList>
                         <Tab>Описание</Tab>
                         <Tab>Актёры</Tab>
-                        {facts && <Tab>Факты</Tab>}
+                        {facts?.length > 0 && <Tab>Факты</Tab>}
                     </TabList>
                     <TabPanel>
                         <p className={styles.desc}>{description}</p>
@@ -130,7 +130,7 @@ export const Film = () => {
                             })}
                         </Swiper>
                     </TabPanel>
-                    {facts &&
+                    {facts?.length > 0  &&
                         <TabPanel>
                             <Title variant="h2" className={styles.factsTitle}>Знаете ли вы, что…</Title>
                             <ul className={classNames('list-reset', styles.facts)}>
