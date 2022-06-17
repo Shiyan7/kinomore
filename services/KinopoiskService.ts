@@ -37,6 +37,9 @@ export const kinopoiskAPI = createApi({
       query: ({filters, page}) =>
       `/movie?${filters.genre !== '' && `search[]=${filters.genre}&field[]=genres.name`}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=3&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
     }),
+    getPerson: build.query({
+      query: () => `/person?name=&token=${API_KEY}`
+    })
   }),
 });
 
@@ -47,7 +50,8 @@ export const {
   useGetFilmByNameQuery,
   useGetFilmsQuery,
   useGetSeriesQuery,
-  useGetCartoonsQuery
+  useGetCartoonsQuery,
+  useGetPersonQuery
 } = kinopoiskAPI;
 
 export const {
@@ -57,5 +61,6 @@ export const {
   getFilmByName,
   getFilms,
   getSeries,
-  getCartoons
+  getCartoons,
+  getPerson
 } = kinopoiskAPI.endpoints;

@@ -5,6 +5,7 @@ import { Button } from '@/components/Button/Button'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './MovieItem.module.scss'
+import { MovieFavorite } from '../MovieFavorite/MovieFavorite'
 
 interface MovieItemProps {
     item: IMovie
@@ -40,13 +41,9 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
                 <span className={styles.rating}>
                     {rating.kp}
                 </span>
-                <Button
-                    variant='stroke'
-                    className={styles.btn}
-                >
-                    <FiBookmark />
+                <MovieFavorite className={styles.btn} id={item.id} variant='stroke'>
                     В избранное
-                </Button>
+                </MovieFavorite>
             </div>
         </div>
     )

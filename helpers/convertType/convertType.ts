@@ -1,6 +1,7 @@
-export function convertType (type: string) {
+export function convertType (type: string | undefined) {
     switch(type) {
         case "tv-series":
+        case "animated-series":
             return 'сериал'
         case "carton":
             return 'мультик'

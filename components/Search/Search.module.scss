@@ -13,7 +13,7 @@
     font-size: 14px;
     line-height: 14px;
     border-radius: 5px;
-    font-weight: 400;
+    font-weight: 300;
     width: 400px;
     height: 100%;
     background-color: #333;
@@ -32,7 +32,7 @@
     
     &::placeholder {
         opacity: 1;
-        color: rgba(#fff, 0.4);
+        color: rgba(#fff, 0.5);
     }
 }
 

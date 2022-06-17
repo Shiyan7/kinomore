@@ -1,3 +1,6 @@
+import { IPerson } from "./IPerson";
+import { IRating } from "./IRating";
+
 export interface ExternalId {
     _id: string;
     imdb: string;
@@ -19,15 +22,6 @@ export interface Backdrop {
     url: string;
 }
 
-export interface Rating {
-    _id: string;
-    kp: number;
-    imdb: number;
-    filmCritics: number;
-    russianFilmCritics: number;
-    await: number;
-}
-
 export interface Votes {
     _id: string;
     kp: number;
@@ -42,6 +36,12 @@ export interface Trailer {
     url: string;
     name: string;
     site: string;
+}
+
+export interface Facts {
+    spoiler: boolean;
+    type: string;
+    value: string;
 }
 
 export interface Videos {
@@ -64,7 +64,8 @@ export interface Fees {
 
 export interface Premiere {
     _id: string;
-    digital: Date;
+    country: string;
+    world: string;
 }
 
 export interface Country {
@@ -77,15 +78,6 @@ export interface Genre {
 
 export interface Name {
     name: string;
-}
-
-export interface Person {
-    id: number;
-    name: string;
-    enName: string;
-    description: string;
-    enProfession: string;
-    photo: string;
 }
 
 export interface SeasonsInfo {
@@ -109,7 +101,7 @@ export interface IMovie {
     logo: Logo;
     poster: Poster;
     backdrop: Backdrop;
-    rating: Rating;
+    rating: IRating;
     votes: Votes;
     videos: Videos;
     budget: Budget;
@@ -123,12 +115,12 @@ export interface IMovie {
     createdAt: Date;
     description: string;
     enName?: any;
-    facts: any[];
+    facts: Facts[];
     genres: Genre[];
     movieLength: number;
     name: string;
     names: Name[];
-    persons: Person[];
+    persons: IPerson[];
     productionCompanies: any[];
     ratingMpaa?: any;
     seasonsInfo: SeasonsInfo[];

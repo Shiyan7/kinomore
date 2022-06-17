@@ -66,32 +66,6 @@
     object-fit: cover;
 }
 
-.rating {
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    top: 10px;
-    left: 10px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: 400;
-    min-width: 35px;
-    text-align: center;
-    background-color: var(--color-primary);
-    border-radius: 5px;
-
-    @media (max-width: 1024px) {
-        left: 10px;
-    }
-
-    svg {
-        width: 14px;
-        height: 14px;
-        margin-right: 5px;
-    }
-}
-
 .title {
     display: inline-block;
     font-weight: 500;
@@ -114,24 +88,4 @@
 .info {
     display: block;
     color: rgba(#1f1f1f, 0.8);
-}
-
-.favorite {
-    position: absolute;
-    z-index: 2;
-    right: 10px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 10px;
-    width: 25px;
-    height: 30px;
-    border-radius: 5px;
-    background-color: var(--color-primary);
-    transition: background-color 0.3s;
-
-    &:hover {
-        background-color: var(--color-dark-primary);
-    }
 }

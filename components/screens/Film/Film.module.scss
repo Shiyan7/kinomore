@@ -2,16 +2,23 @@
     display: flex;
     margin-bottom: 50px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
         flex-direction: column;
+        margin-bottom: 30px;
     }
 }
 
 .left {
+    position: relative;
     flex-shrink: 0;
     margin-right: 50px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    @media (max-width: 576px) {
         margin-right: 0;
         margin-bottom: 20px;
     }
@@ -24,6 +31,7 @@
     border-radius: 5px;
     overflow: hidden;
     object-fit: cover;
+    aspect-ratio: 3 / 4.5;
     background-color: var(--color-dark);
 
     @media (max-width: 576px) {
@@ -105,7 +113,7 @@
         width: 100% !important;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
         margin-left: calc((var(--container-offset) / -100) * 100) !important;
         margin-right: calc((var(--container-offset) / -100) * 100) !important;
         min-width: calc(100% + calc(var(--container-offset) * 2)) !important;
@@ -113,7 +121,7 @@
     }
 
     @media (max-width: 576px) {
-        max-height: 350px;
+        max-height: 330px;
     }
 }
 
@@ -121,12 +129,81 @@
     font-weight: 800;
     font-size: 40px;
     line-height: 48px;
-    max-width: 500px;
+    max-width: 650px;
     margin-bottom: 20px;
 
     @media (max-width: 576px) {
         font-size: 26px;
         line-height: 33px;
         margin-bottom: 15px;
+    }
+}
+
+
+.originalTitle {
+    display: block;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 20px;
+    color: rgba(#000, 0.5);
+    margin-bottom: 25px;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+    @media (max-width: 576px) {
+        margin-bottom: 35px;
+    }
+}
+
+.btn {
+
+    @media (max-width: 576px) {
+        padding: 11px 12px;
+        font-size: 15px;
+        line-height: 15px;
+    }
+
+    &:not(:last-child) {
+        margin-right: 15px;
+
+        @media (max-width: 576px) {
+            margin-right: 10px;
+        }
+    }
+}
+
+.facts {
+    display: flex;
+    flex-direction: column;
+}
+
+.factsTitle {
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.factsItem {
+    position: relative;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(#000, 0.5);
+
+    a {
+        color: var(--color-dark);
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &:not(:last-child) {
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+        border-bottom: 1px solid rgba(#000, 0.1);
     }
 }

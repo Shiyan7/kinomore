@@ -1,0 +1,36 @@
+.favorite {
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 10px;
+    width: 25px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: var(--color-primary);
+    transition: background-color 0.3s;
+
+    svg {
+        flex-shrink: 0;
+    }
+
+    &:hover {
+        background-color: var(--color-dark-primary);
+    }
+}
+
+.stroke {
+    svg {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+    
+    &:hover {
+        svg {
+            transform: none;
+        }
+    }
+}

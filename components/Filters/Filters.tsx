@@ -93,7 +93,7 @@ export const Filters = () => {
                     <Device mobile>
                         <div className={styles.btns}>
                             <Button className={styles.btn}>Применить</Button>
-                            <Button className={styles.btn} onClick={handleClose} variant='stroke'>Закрыть</Button>
+                            <Button type='button' className={styles.btn} onClick={handleClose} variant='stroke'>Закрыть</Button>
                         </div>
                     </Device>
                 </div>

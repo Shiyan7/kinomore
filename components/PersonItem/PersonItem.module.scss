@@ -1,0 +1,54 @@
+.image {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/3;
+    height: auto;
+    background-color: var(--color-dark);
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+    &:hover {
+        &:before {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        background-color: rgba(#000, 0.2);
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+}
+
+.title {
+    margin: 0;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: var(--color-dark);
+    transition: color 0.3s;
+
+    &:hover {
+        color: var(--color-primary);
+    }
+}
+
+.role {
+    display: block;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(#000, 0.5);
+}

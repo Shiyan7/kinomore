@@ -1,7 +1,5 @@
-import {FILMS_ROUTE, SERIES_ROUTE, CARTOONS_ROUTE } from "@/constants/routes";
-import {PropsWithChildren, ReactNode} from 'react'
+import {PropsWithChildren} from 'react'
 import {Device} from '../Device';
-import {Filters} from '../Filters/Filters';
 import {FiltersToggle} from '../FiltersToggle/FiltersToggle';
 import {MovieItem} from '../MovieItem/MovieItem';
 import {Pagination} from '../Pagination/Pagination';
@@ -10,12 +8,6 @@ import {Title} from '../Title/Title';
 import {IData} from '@/types/IData';
 import classNames from 'classnames';
 import styles from './Catalog.module.scss'
-import Link from 'next/link';
-
-interface CatalogProps {
-  children: ReactNode;
-  className?: string;
-}
 
 interface ContentProps {
   data: IData | undefined;

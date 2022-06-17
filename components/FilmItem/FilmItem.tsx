@@ -2,10 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { FC } from 'react'
 import {IMovie} from '@/types/IMovie'
-import {FiStar, FiBookmark} from 'react-icons/fi'
-import { convertType } from '@/helpers/convertType/convertType'
-import classNames from 'classnames'
+import {convertType} from '@/helpers/convertType/convertType'
+import {MovieRating} from '../MovieRating/MovieRating'
 import styles from './FilmItem.module.scss'
+import { MovieFavorite } from '../MovieFavorite/MovieFavorite'
 
 interface FilmItemProps {
     item: IMovie
@@ -26,11 +26,8 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
                         />
                     </a>
                 </Link>
-                <span className={styles.rating}>
-                    <FiStar />
-                    {item.rating.imdb}
-                </span>
-                <button className={classNames('btn-reset', styles.favorite)}><FiBookmark /></button>
+                <MovieRating rating={item.rating} />
+                <MovieFavorite id={item.id} />
             </div>
             <Link href={`/film/${item.id}`}>
                 <a className={styles.title}>{item.names[0]?.name}</a>

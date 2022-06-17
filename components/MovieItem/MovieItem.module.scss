@@ -131,17 +131,8 @@
     }
 
     svg {
-        margin-left: 0;
-        margin-right: 8px;
-
         @media (max-width: 576px) {
             margin-right: 0;
-        }
-    }
-
-    &:hover {
-        svg {
-            transform: none;
         }
     }
 }
