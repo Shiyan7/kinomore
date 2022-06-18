@@ -1,4 +1,4 @@
-.g-btn {
+.btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -37,15 +37,17 @@
             transform: translateX(2px);
         }
     }
+}
 
-    &--stroke {
-        border: 1px solid var(--color-primary);
-        color: var(--color-primary);
-        background-color: transparent;
-    
-        &:hover {
-            color: var(--color-white);
-            background-color: var(--color-primary);
-        }
+
+
+.stroke {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: transparent;
+
+    &:hover {
+        color: var(--color-white);
+        background-color: var(--color-primary);
     }
 }

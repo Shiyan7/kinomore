@@ -1,5 +1,5 @@
 .favorite {
-    position: absolute;
+    /* position: absolute;
     z-index: 2;
     right: 10px;
     color: #fff;
@@ -11,26 +11,85 @@
     height: 30px;
     border-radius: 5px;
     background-color: var(--color-primary);
+    transition: background-color 0.3s; */
+    border-radius: 100%;
+    width: 40px;
+    white-space: nowrap;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dark);
+    background-color: #f2f2f2;
     transition: background-color 0.3s;
 
     svg {
         flex-shrink: 0;
+        fill: currentColor;
+        stroke: currentColor;
     }
 
     &:hover {
-        background-color: var(--color-dark-primary);
+        background-color: rgba(#999, 0.25);
     }
 }
 
-.stroke {
-    svg {
-        margin-left: 0;
-        margin-right: 8px;
+.text {
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    line-height: 16px;
+    background-color: transparent;
+    color: #999;
+    border: 1px solid rgba(#000, .2);
+
+    @media (max-width: 576px) {
+        padding: 6px;
+        font-size: 0;
     }
-    
+
     &:hover {
-        svg {
-            transform: none;
+        background-color: rgba(#999, 0.1);
+    }
+
+    svg {
+        width: 14px;
+        height: 14px;
+        margin-right: 5px;
+        stroke: currentColor;
+        fill: currentColor;
+
+        @media (max-width: 576px) {
+            margin-right: 0;
         }
+    }
+}
+
+
+
+.regular {
+    width: auto;
+    height: auto;
+    border-radius: 30px;
+    padding: 13px 24px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    background-color: #f2f2f2;
+    color: var(--color-dark);
+
+
+    &:hover {
+        background-color: #e6e6e6;
+    }
+
+    svg {
+        width: 14px;
+        height: 14px;
+        margin-right: 10px;
+        stroke: currentColor;
+        fill: currentColor;
     }
 }

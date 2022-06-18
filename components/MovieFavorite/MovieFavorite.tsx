@@ -5,12 +5,12 @@ import styles from './MovieFavorite.module.scss'
 
 interface MovieFavoriteProps {
     id: number | string | string[] | undefined;
-    variant?: 'stroke';
+    variant?: 'circle' | 'text' | 'regular';
     children?: ReactNode;
     className?: string;
 }
 
-export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'fill', children, className}) => {
+export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'circle', children, className}) => {
 
     const handleFavorites = () => {
         console.log('id', id);
@@ -21,8 +21,9 @@ export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'fill', chi
         onClick={handleFavorites}
         className={classNames(
             'btn-reset',
-            variant === 'fill' && styles.favorite,
-            variant === 'stroke' && classNames('g-btn g-btn--stroke',  styles.stroke),
+            styles.favorite,
+            variant === 'text' && styles.text,
+            variant === 'regular' && styles.regular,
             className
         )}>
             <FiBookmark />

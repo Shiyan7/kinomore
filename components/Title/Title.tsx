@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import styles from './Title.module.scss'
 import classNames from "classnames";
 
 interface TitleProps {
@@ -14,7 +15,7 @@ export const Title: FC<TitleProps> = (({className, variant = "h1", children, ...
 
   return (
     <Tag
-      className={classNames('g-title', className)}
+      className={classNames(styles.title, className)}
       {...props}
     >
       {children}

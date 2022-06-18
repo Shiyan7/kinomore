@@ -1,6 +1,7 @@
-import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
+import styles from './Button.module.scss'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
     children?: ReactNode;
@@ -16,8 +17,9 @@ export const Button = memo<ButtonProps>(({children, variant, className, href, ..
             {href ?
             <Link href={href}>
                 <a
-                    className={classNames('g-btn',
-                        variant === 'stroke' && 'g-btn--stroke',
+                    className={classNames(
+                        styles.btn,
+                        variant === 'stroke' && styles.stroke,
                         className,
                     )}
                     {...props}
@@ -27,8 +29,9 @@ export const Button = memo<ButtonProps>(({children, variant, className, href, ..
             </Link>
             :
             <button
-                className={classNames('btn-reset', 'g-btn',
-                    variant === 'stroke' && 'g-btn--stroke',
+                className={classNames('btn-reset',
+                    styles.btn,
+                    variant === 'stroke' && styles.stroke,
                     className
                 )}
                 {...props}

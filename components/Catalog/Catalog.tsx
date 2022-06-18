@@ -67,6 +67,7 @@ namespace Catalog {
   }
 
   export const Content = ({data, isLoading, isFetching}: ContentProps) => {
+
     return (
       <>
         {isLoading || isFetching ? <Loader /> :

@@ -41,9 +41,7 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
                 <span className={styles.rating}>
                     {rating.kp}
                 </span>
-                <MovieFavorite className={styles.btn} id={item.id} variant='stroke'>
-                    В избранное
-                </MovieFavorite>
+                <MovieFavorite id={item.id} variant='text'>В избранное</MovieFavorite>
             </div>
         </div>
     )

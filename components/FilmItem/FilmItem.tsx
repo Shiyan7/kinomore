@@ -5,7 +5,6 @@ import {IMovie} from '@/types/IMovie'
 import {convertType} from '@/helpers/convertType/convertType'
 import {MovieRating} from '../MovieRating/MovieRating'
 import styles from './FilmItem.module.scss'
-import { MovieFavorite } from '../MovieFavorite/MovieFavorite'
 
 interface FilmItemProps {
     item: IMovie
@@ -27,7 +26,6 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
                     </a>
                 </Link>
                 <MovieRating rating={item.rating} />
-                <MovieFavorite id={item.id} />
             </div>
             <Link href={`/film/${item.id}`}>
                 <a className={styles.title}>{item.names[0]?.name}</a>

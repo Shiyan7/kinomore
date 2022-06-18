@@ -1,7 +1,8 @@
-import { FC, memo, useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useActions } from '@/hooks/useActions';
+import styles from './Pagination.module.scss'
 import classNames from 'classnames';
 
 interface PaginationProps {
@@ -28,33 +29,33 @@ export const Pagination = memo<PaginationProps>(({pages, className}) => {
   return (
     <>
       {pages !== 1 &&
-        <ul className={classNames('list-reset g-pagination', className)}>
-          <li className='g-pagination__item'>
+        <ul className={classNames('list-reset', styles.pagination, className)}>
+          <li className={styles.item}>
             <button
               onClick={handleBack}
-              className={classNames('btn-reset g-pagination__btn g-pagination__link--prev', page === 1 && 'g-pagination__btn--disabled')}
+              className={classNames('btn-reset', styles.btn, page === 1 && styles.btnDisabled)}
             >
               <FiChevronLeft />
             </button>
           </li>
           {array?.map(el => (
-            <li key={el} className='g-pagination__item'>
+            <li key={el} className={styles.item}>
               {page === el
               ?
-                <span className={classNames('g-pagination__btn g-pagination__btn--current')}>
+                <span className={classNames(styles.btn, styles.btnCurrent)}>
                   {el}
                 </span>
               :
-                <button onClick={() => handleSetPage(el)} className='btn-reset g-pagination__btn'>
+                <button onClick={() => handleSetPage(el)} className={classNames('btn-reset', styles.btn)}>
                   {el}
                 </button>
               }
             </li>
           ))}
-          <li className='g-pagination__item'>
+          <li className={styles.item}>
             <button
               onClick={handleForward}
-              className={classNames('btn-reset g-pagination__btn g-pagination__link--next', page === isMaxPages && 'g-pagination__btn--disabled')}
+              className={classNames('btn-reset', styles.btn, page === isMaxPages && styles.btnDisabled)}
             >
               <FiChevronRight />
             </button>

@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { ButtonHTMLAttributes, FC, memo } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
+import styles from './BackBtn.module.scss'
 import classNames from 'classnames'
 
 interface BackBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -15,7 +16,7 @@ export const BackBtn = memo<BackBtnProps>(({className, ...props}) => {
     return (
         <button
             onClick={handleBack}
-            className={classNames('btn-reset g-back', className)}
+            className={classNames('btn-reset', styles.back, className)}
             {...props}
         >
             <FiArrowLeft />

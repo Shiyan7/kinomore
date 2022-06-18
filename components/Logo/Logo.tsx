@@ -1,7 +1,8 @@
+import { FC } from 'react'
 import classNames from 'classnames'
 import Image from 'next/image'
+import styles from './Logo.module.scss'
 import Link from 'next/link'
-import { FC } from 'react'
 
 interface LogoProps {
   className?: string
@@ -10,7 +11,7 @@ interface LogoProps {
 export const Logo: FC<LogoProps> = ({className}) => {
   return (
     <Link href='/'>
-      <a className={classNames('g-logo', className)}>
+      <a className={classNames(styles.logo, className)}>
         <Image
           layout="fill"
           src='/logo.svg'

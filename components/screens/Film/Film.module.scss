@@ -154,6 +154,16 @@
     margin-bottom: 25px;
 }
 
+.btn {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+
+    @media (max-width: 576px) {
+        margin-bottom: 25px;
+    }
+}
+
 .facts {
     display: flex;
     flex-direction: column;

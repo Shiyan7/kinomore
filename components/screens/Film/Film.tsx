@@ -15,6 +15,7 @@ import { PersonItem } from "@/components/PersonItem/PersonItem"
 import styles from './Film.module.scss'
 import classNames from "classnames"
 import 'swiper/css';
+import { Button } from "@/components/Button/Button"
 
 export const Film = () => {
     const {query: {id}} = useRouter()
@@ -78,11 +79,11 @@ export const Film = () => {
                         />
 
                         <MovieRating rating={rating} />
-                        <MovieFavorite id={id} />
                     </div>
                     <div className={styles.right}>
                         {name && <Title className={styles.title} variant='h1'>{name} ({year})</Title>}
                         <span className={styles.originalTitle}>{alternativeName}</span>
+                        <MovieFavorite className={styles.btn} variant='regular' id={id}>В избранное</MovieFavorite>
                         <Title variant="h2" className={styles.subtitle}>О {convertType(type)}е</Title>
                         <ul className={classNames('list-reset', styles.info)}>
                             {items.map(el => (
@@ -98,7 +99,7 @@ export const Film = () => {
                     <TabList>
                         <Tab>Описание</Tab>
                         <Tab>Актёры</Tab>
-                        {facts?.length > 0 && <Tab>Факты</Tab>}
+                        {facts && facts?.length > 0 && <Tab>Факты</Tab>}
                     </TabList>
                     <TabPanel>
                         <p className={styles.desc}>{description}</p>
@@ -130,7 +131,7 @@ export const Film = () => {
                             })}
                         </Swiper>
                     </TabPanel>
-                    {facts?.length > 0  &&
+                    {facts && facts?.length > 0  &&
                         <TabPanel>
                             <Title variant="h2" className={styles.factsTitle}>Знаете ли вы, что…</Title>
                             <ul className={classNames('list-reset', styles.facts)}>

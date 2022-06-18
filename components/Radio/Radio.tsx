@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import classNames from 'classnames'
+import styles from './Radio.module.scss'
 
 interface RadioProps {
     sort: string;
@@ -14,16 +15,16 @@ export const Radio = memo<RadioProps>(({sort, className, changeHandler, label, v
     const handleChange = () => changeHandler(value)
 
     return (
-        <label className={classNames('g-radio', className)}>
+        <label className={classNames(styles.radio, className)}>
             <input
-                className="input-reset g-radio__input"
+                className={classNames('input-reset', styles.input)}
                 type="radio"
                 value={value}
                 checked={value === sort}
                 onChange={handleChange}
             />
-            <span className="g-radio__switch"></span>
-            <span className="g-radio__caption">{label}</span>
+            <span className={styles.switch}></span>
+            <span className={styles.caption}>{label}</span>
         </label>
     )
 })
