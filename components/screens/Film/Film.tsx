@@ -51,7 +51,7 @@ export const Film = () => {
 						В избранное
 					</MovieFavorite>
 					<Title variant="h2" className={styles.subtitle}>
-						Про {convertType(type)}
+						О {convertType(type)}е
 					</Title>
 					<FilmInfo data={data} />
 				</div>

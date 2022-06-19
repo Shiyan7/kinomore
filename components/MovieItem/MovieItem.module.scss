@@ -121,4 +121,8 @@
     font-weight: 600;
     margin-right: 25px;
     margin-left: 5px;
+
+    @media (max-width: 576px) {
+        margin-right: 15px;
+    }
 }

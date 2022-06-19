@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10000;
+    z-index: 20000;
     background-color: var(--color-dark);
 }
 
@@ -163,6 +163,7 @@
     line-height: 18px;
     font-weight: 500;
     color: #fff;
+    outline: none;
     transition: color 0.3s;
 
     @media (max-width: 768px) {
@@ -183,7 +184,8 @@
         transition: opacity 0.3s, visibility 0.3s;
     }
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
         &:before {
             opacity: 1;
             visibility: visible;
