@@ -125,5 +125,14 @@ a {
     left: 0;
     width: 100%;
     height: 5px;
-    background-color: var(--color-primary);
+    overflow: hidden;
+
+    div.bar {
+        height: 5px;
+        background-color: var(--color-primary);
+
+        .peg {
+            display: none;
+        }
+    }
 }
