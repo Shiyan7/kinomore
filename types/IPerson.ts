@@ -3,6 +3,6 @@ export interface IPerson {
     name: string;
     enName: string;
     description: string;
-    enProfession: string;
+    enProfession: 'director' | 'actor' | 'design' | 'producer' | 'composer' | 'editor';
     photo: string;
 }

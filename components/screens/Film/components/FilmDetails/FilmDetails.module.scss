@@ -1,0 +1,11 @@
+.desc {
+    margin: 0;
+    font-size: 15px;
+    line-height: 23px;
+    margin-bottom: 30px;
+    color: rgba(#000, 0.5);
+
+    @media (max-width: 576px) {
+        margin-bottom: 20px;
+    }
+}

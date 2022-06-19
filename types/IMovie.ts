@@ -1,3 +1,4 @@
+import { IMovieFacts } from "./IMovieFacts";
 import { IPerson } from "./IPerson";
 import { IRating } from "./IRating";
 
@@ -36,12 +37,6 @@ export interface Trailer {
     url: string;
     name: string;
     site: string;
-}
-
-export interface Facts {
-    spoiler: boolean;
-    type: string;
-    value: string;
 }
 
 export interface Videos {
@@ -115,7 +110,7 @@ export interface IMovie {
     createdAt: Date;
     description: string;
     enName?: any;
-    facts: Facts[];
+    facts: IMovieFacts[];
     genres: Genre[];
     movieLength: number;
     name: string;

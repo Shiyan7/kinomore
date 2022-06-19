@@ -127,8 +127,12 @@ a {
     height: 5px;
     overflow: hidden;
 
+    @media (max-width: 576px) {
+        height: 3px;
+    }
+
     div.bar {
-        height: 5px;
+        height: inherit;
         background-color: var(--color-primary);
 
         .peg {
