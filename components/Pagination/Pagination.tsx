@@ -2,7 +2,7 @@ import { memo, useEffect } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useActions } from '@/hooks/useActions';
-import styles from './Pagination.module.scss'
+import styles from './Pagination.module.scss';
 import classNames from 'classnames';
 
 interface PaginationProps {
@@ -33,7 +33,7 @@ export const Pagination = memo<PaginationProps>(({pages, className}) => {
           <li className={styles.item}>
             <button
               onClick={handleBack}
-              className={classNames('btn-reset', styles.btn, page === 1 && styles.btnDisabled)}
+              className={classNames('btn-reset', styles.btn, page === 1 && styles.disabled)}
             >
               <FiChevronLeft />
             </button>
@@ -42,7 +42,7 @@ export const Pagination = memo<PaginationProps>(({pages, className}) => {
             <li key={el} className={styles.item}>
               {page === el
               ?
-                <span className={classNames(styles.btn, styles.btnCurrent)}>
+                <span className={classNames(styles.btn, styles.current)}>
                   {el}
                 </span>
               :
@@ -55,7 +55,7 @@ export const Pagination = memo<PaginationProps>(({pages, className}) => {
           <li className={styles.item}>
             <button
               onClick={handleForward}
-              className={classNames('btn-reset', styles.btn, page === isMaxPages && styles.btnDisabled)}
+              className={classNames('btn-reset', styles.btn, page === isMaxPages && styles.disabled)}
             >
               <FiChevronRight />
             </button>
