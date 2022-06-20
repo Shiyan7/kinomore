@@ -8,6 +8,14 @@
     }
 }
 
+.container {
+    padding-bottom: 60px;
+
+    @media (max-width: 576px) {
+        padding-bottom: 50px;
+    }
+}
+
 .left {
     position: relative;
     flex-shrink: 0;

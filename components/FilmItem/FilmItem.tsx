@@ -35,7 +35,7 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
             <Link href={`/film/${id}`}>
                 <a className={styles.title}>{name ? name : enName}</a>
             </Link>
-            <span className={styles.info}>{year && `${year}, `} {convertType(type)}</span>
+            {type?.length && <span className={styles.info}>{year && `${year}, `} {convertType(type)}</span>}
         </li>
     )
 }

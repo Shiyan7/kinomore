@@ -11,6 +11,7 @@ import {FilmInfo} from "./components/FilmInfo/FilmInfo"
 import {FilmDetails} from "./components/FilmDetails/FilmDetails"
 import { SimilarMovies } from "@/components/SimilarMovies/SimilarMovies"
 import styles from './Film.module.scss'
+import classNames from "classnames"
 
 export const Film = () => {
     const {query: { id }} = useRouter();
@@ -37,7 +38,7 @@ export const Film = () => {
 
     return (
       <section className={styles.section}>
-        <div className="container wrapper">
+        <div className={classNames('container wrapper', styles.container)}>
         	<BackBtn />
 			<div className={styles.content}>
 				<div className={styles.left}>
