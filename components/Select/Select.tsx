@@ -50,15 +50,15 @@ export const Select: FC<SelectProps> = ({options, handleSelect}) => {
 
   return (
     <ReactSelect
-        instanceId="select"
-        options={options}
-        styles={selectStyle}
-        onChange={handleChange}
-        defaultValue={options[0]}
-        components={{
-          IndicatorSeparator: () => null,
-          DropdownIndicator: DropdownIndicator
-        }}
+      instanceId="select"
+      options={options}
+      styles={selectStyle}
+      onChange={handleChange}
+      defaultValue={options[0]}
+      components={{
+        IndicatorSeparator: () => null,
+        DropdownIndicator: DropdownIndicator
+      }}
     />
   )
 }

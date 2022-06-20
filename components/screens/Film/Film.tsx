@@ -17,14 +17,14 @@ export const Film = () => {
     const {query: { id }} = useRouter();
     const {data} = useGetFilmByIdQuery(id)
     const {
-        alternativeName,
-        name,
-        type,
-        shortDescription,
-        year,
-        rating,
-		similarMovies
-    } = {...data}
+		alternativeName,
+		name,
+		type,
+		shortDescription,
+		year,
+		rating,
+		similarMovies,
+    } = { ...data };
 
     useEffect(() => {
 		const script = document.createElement("script");

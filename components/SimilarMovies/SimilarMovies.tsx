@@ -1,8 +1,7 @@
-import { ISimilarMovie } from "@/types/ISimilarMovie"
-import classNames from "classnames";
-import { FC } from "react"
-import { FilmItem } from "../FilmItem/FilmItem";
-import { Title } from "../Title/Title";
+import {FC} from "react"
+import {Title} from "../Title/Title";
+import {ISimilarMovie} from "@/types/ISimilarMovie"
+import {FilmItem} from "../FilmItem/FilmItem";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import styles from './SimilarMovies.module.scss'

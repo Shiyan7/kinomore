@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { Cartoons } from "@/components/screens/Cartoons/Cartoons";
 import { getCartoons } from "@/services/KinopoiskService";
 import { initStore } from "@/store/store";
@@ -9,7 +9,7 @@ const CartoonsPage: NextPage = () => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const store = initStore()
   const state = store.getState()
   const {filters} = state.filtersReducer

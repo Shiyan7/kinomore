@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import { Home } from '@/components/screens/Home/Home';
 import { getNewFilms, getNewSeries } from '@/services/KinopoiskService';
 import { initStore  } from '@/store/store';
@@ -9,7 +9,7 @@ const Index: NextPage = () => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const store = initStore()
   const state = store.getState()
   const {filmsLimit, seriesLimit} = state.loadReducer

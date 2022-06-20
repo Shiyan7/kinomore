@@ -2,9 +2,9 @@ import { FC } from 'react'
 import styles from './Spinner.module.scss'
 
 export enum SpinnerSizes {
-    small= '32px',
-    medium= '48px',
-    large= '100px'
+    small = '32px',
+    medium = '48px',
+    large = '100px'
 }
 
 interface SpinnerProps {

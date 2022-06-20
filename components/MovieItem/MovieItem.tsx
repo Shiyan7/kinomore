@@ -1,11 +1,9 @@
-import { FC } from 'react'
-import { FiBookmark } from 'react-icons/fi'
-import { IMovie } from '@/types/IMovie'
-import { Button } from '@/components/Button/Button'
+import {FC} from 'react'
+import {MovieFavorite} from '../MovieFavorite/MovieFavorite'
+import {IMovie} from '@/types/IMovie'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './MovieItem.module.scss'
-import { MovieFavorite } from '../MovieFavorite/MovieFavorite'
 
 interface MovieItemProps {
     item: IMovie
@@ -41,7 +39,7 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
                 <span className={styles.rating}>
                     {rating.kp}
                 </span>
-                <MovieFavorite id={item.id} variant='text'>В избранное</MovieFavorite>
+                <MovieFavorite id={item.id} variant='text' />
             </div>
         </div>
     )

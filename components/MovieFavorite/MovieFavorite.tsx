@@ -27,7 +27,7 @@ export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'circle', c
             className
         )}>
             <FiBookmark />
-            {children}
+            В избранное
       </button>
     )
 }

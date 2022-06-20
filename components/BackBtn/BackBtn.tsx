@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router'
-import { ButtonHTMLAttributes, FC, memo } from 'react'
-import { FiArrowLeft } from 'react-icons/fi'
+import {useRouter} from 'next/router'
+import {ButtonHTMLAttributes, memo} from 'react'
+import {FiChevronLeft} from 'react-icons/fi'
 import styles from './BackBtn.module.scss'
 import classNames from 'classnames'
 
@@ -19,7 +19,7 @@ export const BackBtn = memo<BackBtnProps>(({className, ...props}) => {
             className={classNames('btn-reset', styles.back, className)}
             {...props}
         >
-            <FiArrowLeft />
+            <FiChevronLeft />
             Назад
         </button>
     )

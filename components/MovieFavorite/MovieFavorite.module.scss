@@ -67,6 +67,12 @@
     background-color: #f2f2f2;
     color: var(--color-dark);
 
+    @media (max-width: 576px) {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 11px 20px;
+    }
+
 
     &:hover {
         background-color: #e6e6e6;

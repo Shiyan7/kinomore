@@ -7,14 +7,22 @@
     color: var(--color-light-dark);
     margin-bottom: 30px;
 
+    &:hover {
+        svg {
+            transform: translateX(-1px);
+        }
+    }
+
     @media (max-width: 576px) {
         margin-bottom: 25px;
     }
     
     svg {
         display: block;
-        margin-right: 8px;
+        margin-right: 5px;
         width: 20px;
         height: 20px;
+        stroke: currentColor;
+        transition: transform 0.3s;
     }
 }

@@ -102,7 +102,7 @@ export const Slider: FC<SliderProps> = ({ min, max, start, step = 1, setValue}) 
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              border: "1px solid rgba(0,0,0,.1)"
+              border: "3px solid var(--color-primary)"
             }}
           />
         )}
