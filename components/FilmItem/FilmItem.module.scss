@@ -5,27 +5,9 @@
 .top {
     position: relative;
     display: block;
-    height: 350px;
     margin-bottom: 20px;
 
-    @media (max-width: 1200px) {
-        height: 400px;
-    }
-
-    @media (max-width: 1024px) {
-        height: 380px;
-    }
-
-    @media (max-width: 768px) {
-        height: 500px;
-    }
-
-    @media (max-width: 576px) {
-        height: 300px;
-    }
-
     @media (max-width: 400px) {
-        height: 250px;
         margin-bottom: 15px;
     }
 }
@@ -36,6 +18,7 @@
     height: 100%;
     border-radius: 5px;
     overflow: hidden;
+    background-color: var(--color-dark);
 
     &:hover {
         &:before {

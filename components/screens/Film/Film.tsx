@@ -9,6 +9,7 @@ import {useRouter} from "next/router"
 import {useGetFilmByIdQuery} from "@/services/KinopoiskService"
 import {FilmInfo} from "./components/FilmInfo/FilmInfo"
 import {FilmDetails} from "./components/FilmDetails/FilmDetails"
+import { SimilarMovies } from "@/components/SimilarMovies/SimilarMovies"
 import styles from './Film.module.scss'
 
 export const Film = () => {
@@ -21,6 +22,7 @@ export const Film = () => {
         shortDescription,
         year,
         rating,
+		similarMovies
     } = {...data}
 
     useEffect(() => {
@@ -58,6 +60,7 @@ export const Film = () => {
 			</div>
 			<FilmDetails data={data} />
 			<div className={styles.video} data-kinopoisk={id} id="kinobd" />
+			{similarMovies?.length ? <SimilarMovies movies={similarMovies} /> : null}
         </div>
       </section>
     );

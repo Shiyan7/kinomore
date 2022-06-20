@@ -1,0 +1,24 @@
+.container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    @media (max-width: 576px) {
+        padding-top: 35px;
+        padding-bottom: 20px;
+    }
+}
+
+.title {
+    margin-bottom: 40px;
+
+    @media (max-width: 576px) {
+        margin-bottom: 25px;
+    }
+}
+
+.list {
+    display: grid;
+    column-gap: 30px;
+    row-gap: 50px;
+    grid-template-columns: repeat(4, 1fr);
+}

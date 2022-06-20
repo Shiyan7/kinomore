@@ -2,12 +2,10 @@
     display: block;
     position: relative;
     width: 100%;
-    aspect-ratio: 2/3;
-    height: auto;
+    height: 100%;
     background-color: var(--color-dark);
     overflow: hidden;
     border-radius: 5px;
-    margin-bottom: 10px;
 
     &:hover {
         &:before {
@@ -40,6 +38,7 @@
     margin-bottom: 3px;
     color: var(--color-dark);
     transition: color 0.3s;
+    margin-top: 10px;
 
     &:hover {
         color: var(--color-primary);

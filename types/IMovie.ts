@@ -1,30 +1,22 @@
 import { IMovieFacts } from "./IMovieFacts";
+import { IMoviePoster } from "./IMoviePoster";
 import { IPerson } from "./IPerson";
 import { IRating } from "./IRating";
+import { ISimilarMovie } from "./ISimilarMovie";
 
 export interface ExternalId {
-    _id: string;
     imdb: string;
 }
 
 export interface Logo {
-    _id: string;
     url: string;
-}
-
-export interface Poster {
-    _id: string;
-    url: string;
-    previewUrl: string;
 }
 
 export interface Backdrop {
-    _id: string;
     url: string;
 }
 
 export interface Votes {
-    _id: string;
     kp: number;
     imdb: number;
     filmCritics: number;
@@ -33,32 +25,27 @@ export interface Votes {
 }
 
 export interface Trailer {
-    _id: string;
     url: string;
     name: string;
     site: string;
 }
 
 export interface Videos {
-    _id: string;
     trailers: Trailer[];
     teasers: any[];
 }
 
 export interface Budget {
-    _id: string;
     value: number;
     currency: string;
 }
 
 export interface Fees {
-    _id: string;
     usa: any;
     world: any;
 }
 
 export interface Premiere {
-    _id: string;
     country: string;
     world: string;
 }
@@ -81,20 +68,18 @@ export interface SeasonsInfo {
 }
 
 export interface Technology {
-    _id: string;
     hasImax: boolean;
     has3D: boolean;
 }
 
 export interface ImagesInfo {
-    _id: string;
     framesCount: number;
 }
 
 export interface IMovie {
     externalId: ExternalId;
     logo: Logo;
-    poster: Poster;
+    poster: IMoviePoster;
     backdrop: Backdrop;
     rating: IRating;
     votes: Votes;
@@ -119,7 +104,7 @@ export interface IMovie {
     productionCompanies: any[];
     ratingMpaa?: any;
     seasonsInfo: SeasonsInfo[];
-    sequelsAndPrequels: any[];
+    sequelsAndPrequels: ISimilarMovie[];
     shortDescription: string;
     similarMovies: any[];
     slogan?: any;

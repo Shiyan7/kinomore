@@ -4468,6 +4468,13 @@ react-range@^1.8.13:
   resolved "https://registry.yarnpkg.com/react-range/-/react-range-1.8.13.tgz#68dd104dcf70d1ac232a5bc87dd54d72c7e5e66d"
   integrity sha512-Hp7JhEm5hdmBTkbAZLzFet93RgHtEWyba0LQzavZstJDp6kUAIy3c/9PGuICTRq+tUEFN442eeqGbHqZlq4KeA==
 
+react-ratio@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/react-ratio/-/react-ratio-0.1.5.tgz#32660a0e2d02ad7f507dc30f5039461c4fedbe46"
+  integrity sha512-4NMc1+bShMiNJTehEUqK5Obw2WQog4by3xtYM8bjcBkAJnyOWorrpgPW6LIEK/k75r9WVM7skcOCWEqt7uqnTQ==
+  dependencies:
+    prop-types "^15.6.0"
+
 react-redux@^8.0.2:
   version "8.0.2"
   resolved "https://registry.npmjs.org/react-redux/-/react-redux-8.0.2.tgz"

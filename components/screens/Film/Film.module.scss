@@ -14,6 +14,10 @@
     margin-right: 50px;
     width: fit-content;
 
+    @media (max-width: 1024px) {
+        margin-right: 40px;
+    }
+
     @media (max-width: 767px) {
         margin-right: 0;
         margin-bottom: 30px;
@@ -32,11 +36,11 @@
 .image {
     position: relative;
     width: 300px;
-    min-height: auto;
+    height: auto;
     border-radius: 5px;
     overflow: hidden;
     object-fit: cover;
-    aspect-ratio: 3 / 4.5;
+    aspect-ratio: 2 / 3;
     background-color: var(--color-dark);
 
     @media (max-width: 576px) {
@@ -96,7 +100,7 @@
     display: block;
     font-weight: 300;
     font-size: 20px;
-    line-height: 20px;
+    line-height: 28px;
     color: rgba(#000, 0.5);
     margin-bottom: 25px;
 }
