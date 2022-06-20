@@ -17,8 +17,8 @@ export const Cartoons = () => {
   return (
     <Catalog>
       <Container>
-        <Heading>Все мультики</Heading>
-        <Desc>Мультики всего мира</Desc>
+        <Heading>Все мультфильмы</Heading>
+        <Desc>Мультфильмы всего мира</Desc>
         <Body>
           <Filters />
           <Content data={data} isLoading={isLoading} isFetching={isFetching} />
