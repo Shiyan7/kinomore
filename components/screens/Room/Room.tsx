@@ -14,7 +14,7 @@ export const Room = () => {
 
     useEffect(() => {
       const script = document.createElement("script");
-      script.src = "//yohoho.cc/yo.js";
+      script.src = "https://kinobd.ru/js/player_.js";
       document.body.appendChild(script);
     }, []);
     
@@ -23,7 +23,7 @@ export const Room = () => {
         <div className={styles.left}>
           <RoomHeader title={name} />
           <div className={styles.video}>
-            <div id="yohoho" data-resize="1" data-bg="#141414" data-kinopoisk={id}></div>
+            <div id="kinobd" data-resize="1" data-bg="#000" data-kinopoisk={id}></div>
           </div>
         </div>
         <Chat />
