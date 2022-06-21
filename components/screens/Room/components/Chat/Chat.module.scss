@@ -5,10 +5,8 @@
     height: 100%;
     background-color: #333;
     padding: 15px 10px;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
     @media (max-width: 1024px) {
         min-width: 100%;
@@ -58,7 +56,7 @@
     display: flex;
     align-items: center;
     border-top: 1px solid rgba(#fff, 0.1);
-    margin: 0 -10px;
+    margin: auto -10px 0;
     padding: 12px 10px 0;
 }
 
