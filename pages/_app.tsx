@@ -6,7 +6,6 @@ import { useStore } from '@/store/store'
 import { Provider } from 'react-redux'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import useVH from "react-vh";
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css';
 
@@ -15,8 +14,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const store = useStore(pageProps.initialReduxState)
   
   const router = useRouter()
-
-  useVH()
 
   NProgress.configure({
     showSpinner: false,
