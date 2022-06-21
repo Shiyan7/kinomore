@@ -4,7 +4,8 @@
     height: 100%;
 
     @media (max-width: 1024px) {
-        display: block;
+        flex: 1 1 auto;
+        flex-direction: column;
     }
 }
 
