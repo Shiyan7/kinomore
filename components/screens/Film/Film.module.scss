@@ -113,10 +113,18 @@
     margin-bottom: 25px;
 }
 
-.btn {
+.btns {
+    display: flex;
+    align-items: center;
     margin-bottom: 35px;
 
     @media (max-width: 576px) {
         margin-bottom: 25px;
+    }
+}
+
+.btn {
+    &:not(:last-child) {
+        margin-right: 15px;
     }
 }

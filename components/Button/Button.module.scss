@@ -51,3 +51,39 @@
         background-color: var(--color-primary);
     }
 }
+
+.regular {
+    width: auto;
+    height: auto;
+    border-radius: 30px;
+    padding: 13px 24px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+
+    @media (max-width: 576px) {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 11px 20px;
+    }
+
+
+    &:hover {
+        background-color: var(--color-dark-primary);
+
+        svg {
+            transform: none;
+        }
+    }
+
+    svg {
+        width: 14px;
+        height: 14px;
+        margin-left: 0;
+        margin-right: 10px;
+        stroke: currentColor;
+        fill: currentColor;
+    }
+}

@@ -14,7 +14,7 @@ export const SimilarMovies: FC<SimilarMoviesProps> = ({movies}) => {
     
     return (
         <div className={styles.container}>
-            <Title variant='h2' className={styles.title}>Сиквелы и приквелы</Title>
+            <Title variant='h2' className={styles.title}>Похожее кино</Title>
             <Swiper
                 slidesPerView={2}
                 spaceBetween={15}

@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import {Title} from "@/components/Title/Title"
-import {useEffect } from "react"
 import {BackBtn} from "@/components/BackBtn/BackBtn"
 import {MovieFavorite} from "@/components/MovieFavorite/MovieFavorite"
 import {convertType} from "@/helpers/convertType/convertType"
@@ -12,6 +11,8 @@ import {FilmDetails} from "./components/FilmDetails/FilmDetails"
 import { SimilarMovies } from "@/components/SimilarMovies/SimilarMovies"
 import styles from './Film.module.scss'
 import classNames from "classnames"
+import { Button } from "@/components/Button/Button"
+import { FiPlay } from "react-icons/fi"
 
 export const Film = () => {
     const {query: { id }} = useRouter();
@@ -25,16 +26,6 @@ export const Film = () => {
 		rating,
 		similarMovies,
     } = { ...data };
-
-    useEffect(() => {
-		const script = document.createElement("script");
-		script.src = "https://kinobd.ru/js/player_.js";
-		document.body.appendChild(script);
-		
-		return () => {
-			document.body.removeChild(script);
-		};
-    }, []);
 
     return (
       <section className={styles.section}>
@@ -50,9 +41,15 @@ export const Film = () => {
 						{name} ({year})
 					</Title>
 					<span className={styles.originalTitle}>{alternativeName}</span>
-					<MovieFavorite className={styles.btn} variant="regular" id={id}>
-						В избранное
-					</MovieFavorite>
+					<div className={styles.btns}>
+						<Button href={`/room/${id}`} className={styles.btn} variant="regular">
+							<FiPlay />
+							Смотреть
+						</Button>
+						<MovieFavorite className={styles.btn} variant="regular" id={id}>
+							В избранное
+						</MovieFavorite>
+					</div>
 					<Title variant="h2" className={styles.subtitle}>
 						О {convertType(type)}е
 					</Title>
@@ -60,7 +57,6 @@ export const Film = () => {
 				</div>
 			</div>
 			<FilmDetails data={data} />
-			<div className={styles.video} data-kinopoisk={id} id="kinobd" />
 			{similarMovies?.length ? <SimilarMovies movies={similarMovies} /> : null}
         </div>
       </section>

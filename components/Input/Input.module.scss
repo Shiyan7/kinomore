@@ -12,3 +12,14 @@
         opacity: 1;
     }
 }
+
+.dark {
+    padding: 0 10px;
+    background-color: rgba(#000, 0.4);
+    height: 40px;
+    color: var(--color-white);
+
+    &::placeholder {
+        color: rgba(#fff, 0.5);
+    }
+}

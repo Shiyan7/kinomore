@@ -4,6 +4,7 @@
     display: inline-block;
     width: 119px;
     height: 24px;
+    flex-shrink: 0;
     
     @media (max-width: 768px) {
         width: 89px;

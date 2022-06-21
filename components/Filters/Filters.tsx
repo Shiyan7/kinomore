@@ -44,7 +44,13 @@ export const Filters = () => {
     }
 
     return (
-        <form onSubmit={handleApplyFilters} noValidate onClick={handleClose} className={classNames(styles.filters, openedFilters && styles.opened)}>
+        <form
+            action="#"
+            onSubmit={handleApplyFilters}
+            noValidate
+            onClick={handleClose}
+            className={classNames(styles.filters, openedFilters && styles.opened)}
+        >
             <div onClick={e => e.stopPropagation()} className={styles.content}>
                 <div className={styles.container}>
                     <Filter name="Рейтинг">

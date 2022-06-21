@@ -1,10 +1,16 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { getPerson } from '@/services/KinopoiskService';
 import { initStore } from '@/store/store';
+import { Header } from '@/components/Header/Header';
+import { Footer } from '@/components/Footer/Footer';
 
 const PersonPage: NextPage = () => {
     return (
-        <div>Актёр</div>
+        <>
+            <Header />
+            <div>Актёр</div>
+            <Footer />
+        </>
     );
 };
 

@@ -1,0 +1,32 @@
+import {Chat} from "@/components/Chat/Chat";
+import {useGetFilmByIdQuery} from "@/services/KinopoiskService";
+import {useRouter} from "next/router";
+import {useEffect} from "react";
+import {RoomHeader} from "./components/RoomHeader/RoomHeader";
+import styles from './Room.module.scss'
+
+export const Room = () => {
+
+    const {query: { id }} = useRouter();
+
+    const {data} = useGetFilmByIdQuery(id)
+    const { name } = { ...data };
+
+    useEffect(() => {
+      const script = document.createElement("script");
+      script.src = "//yohoho.cc/yo.js";
+      document.body.appendChild(script);
+    }, []);
+    
+    return (
+      <div className={styles.content}>
+        <div className={styles.left}>
+          <RoomHeader title={name} />
+          <div className={styles.video}>
+            <div id="yohoho" data-resize="1" data-bg="#141414" data-kinopoisk={id}></div>
+          </div>
+        </div>
+        <Chat />
+      </div>
+    )
+}

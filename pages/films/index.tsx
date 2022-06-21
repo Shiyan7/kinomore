@@ -2,10 +2,16 @@ import { GetStaticProps, NextPage } from "next";
 import { Films } from "@/components/screens/Films/Films";
 import { getFilms } from "@/services/KinopoiskService";
 import { initStore } from "@/store/store";
+import { Header } from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
 
 const FilmsPage: NextPage = () => {
   return (
-    <Films />
+    <>
+      <Header />
+      <Films />
+      <Footer />
+    </>
   );
 };
 
