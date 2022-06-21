@@ -12,7 +12,6 @@ export const RoomHeader: FC<RoomHeaderProps> = ({title}) => {
         <header className={styles.header}>
             <div className={styles.container}>
                 <BackBtn className={styles.btn} />
-                <Logo className={styles.logo} />
                 <h1 className={styles.title}>{title}</h1>
             </div>
         </header>
