@@ -4532,11 +4532,6 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-vh@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-vh/-/react-vh-1.1.1.tgz#5c01db6b819c65579f79c28a15d730c087d06640"
-  integrity sha512-Eq4L5qCiv74/Gz3B8JFy8J9mivj65JfGkuELFpH6r7lTmOxFiBtBLPrYB0bY/lySOXga5Zn+J6QuzqEY0+uYnQ==
-
 react@18.1.0:
   version "18.1.0"
   resolved "https://registry.npmjs.org/react/-/react-18.1.0.tgz"
