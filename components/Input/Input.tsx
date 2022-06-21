@@ -5,7 +5,7 @@ import styles from './Input.module.scss'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     className?: string;
     variant?: 'dark';
-    value: string;
+    value: string | number;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
