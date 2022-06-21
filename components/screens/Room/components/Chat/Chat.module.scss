@@ -23,12 +23,21 @@
     margin: 0 -10px 25px;
     padding: 0 10px 15px;
     border-bottom: 1px solid rgba(#fff, 0.1);
+
+    @media (max-width: 576px) {
+        margin-bottom: 15px;
+    }
 }
 
 .copyLink {
     padding: 8px;
     font-size: 14px;
     line-height: 14px;
+
+    @media (max-width: 576px) {
+        font-size: 13px;
+        line-height: 13px;
+    }
 }
 
 .refresh {
@@ -59,8 +68,13 @@
 
 .noMessages {
     font-size: 16px;
-    line-height: 16px;
+    line-height: 19px;
     font-weight: 400;
     color: var(--color-white);
     text-align: center;
+
+    @media (max-width: 576px) {
+        font-size: 14px;
+        line-height: 17px;
+    }
 }

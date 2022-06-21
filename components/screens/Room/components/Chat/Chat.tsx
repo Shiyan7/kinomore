@@ -1,12 +1,13 @@
+import { useRouter } from 'next/router';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { FiRefreshCw, FiSend } from 'react-icons/fi';
-import { useCopyToClipboard } from 'usehooks-ts';
-import { Button } from '../Button/Button';
-import { Input } from '../Input/Input';
+import { Button } from '@/components/Button/Button';
+import { Input } from '@/components/Input/Input';
 import styles from './Chat.module.scss';
 
 export const Chat = () => {
 
+  const router = useRouter()
   const [value, setValue] = useState<string>('')
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

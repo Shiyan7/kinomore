@@ -1,4 +1,4 @@
-import {Chat} from "@/components/Chat/Chat";
+import {Chat} from "./components/Chat/Chat";
 import {useGetFilmByIdQuery} from "@/services/KinopoiskService";
 import {useRouter} from "next/router";
 import {useEffect} from "react";

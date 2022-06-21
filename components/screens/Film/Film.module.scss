@@ -126,5 +126,9 @@
 .btn {
     &:not(:last-child) {
         margin-right: 15px;
+
+        @media (max-width: 576px) {
+            margin-right: 10px;
+        }
     }
 }
