@@ -4,11 +4,13 @@ import { NextPage } from "next";
 
 const FavoritesPage: NextPage = () => {
     return (
-        <div>
+        <>
             <Header />
-            Избранное
+            <main className='main'>
+                Избранное
+            </main>
             <Footer />
-        </div>
+        </>
     );
 };
 

@@ -9,7 +9,9 @@ const Index: NextPage = () => {
   return (
     <>
       <Header />
-      <Home />
+      <main className='main'>
+        <Home />
+      </main>
       <Footer />
     </>
   );

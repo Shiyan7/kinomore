@@ -7,7 +7,9 @@ const page404 = () => {
     return (
         <>
             <Header />
-            <NotFound />
+            <main className='main'>
+                <NotFound />
+            </main>
             <Footer />
         </>
     );

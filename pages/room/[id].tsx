@@ -5,7 +5,9 @@ import { Room } from "@/components/screens/Room/Room";
 
 const RoomPage: NextPage = () => {
     return (
-        <Room />
+        <main className='main'>
+            <Room />
+        </main>
     )
 }
 

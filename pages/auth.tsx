@@ -4,11 +4,13 @@ import { NextPage } from "next";
 
 const AuthPage: NextPage = () => {
     return (
-        <div>
+        <>
             <Header />
-            Авторизация
+            <main className='main'>
+                Авторизация
+            </main>
             <Footer />
-        </div>
+        </>
     );
 };
 

@@ -8,7 +8,9 @@ const PersonPage: NextPage = () => {
     return (
         <>
             <Header />
-            <div>Актёр</div>
+            <main className='main'>
+                Актёр
+            </main>
             <Footer />
         </>
     );

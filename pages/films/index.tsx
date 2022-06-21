@@ -9,7 +9,9 @@ const FilmsPage: NextPage = () => {
   return (
     <>
       <Header />
-      <Films />
+      <main className='main'>
+        <Films />
+      </main>
       <Footer />
     </>
   );

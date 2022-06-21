@@ -2,10 +2,18 @@ import { GetStaticProps, NextPage } from "next";
 import { Cartoons } from "@/components/screens/Cartoons/Cartoons";
 import { getCartoons } from "@/services/KinopoiskService";
 import { initStore } from "@/store/store";
+import { Header } from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
 
 const CartoonsPage: NextPage = () => {
   return (
-    <Cartoons />
+    <>
+      <Header />
+      <main className='main'>
+        <Cartoons />
+      </main>
+      <Footer />
+    </>
   );
 };
 

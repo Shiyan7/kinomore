@@ -9,7 +9,9 @@ const searchResults: NextPage = () => {
     return (
         <>
             <Header />
-            <SearchResults />
+            <main className='main'>
+                <SearchResults />
+            </main>
             <Footer />
         </>
     );
