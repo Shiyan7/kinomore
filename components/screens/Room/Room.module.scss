@@ -4,7 +4,7 @@
     height: 100%;
 
     @media (max-width: 1024px) {
-        flex-direction: column;
+        display: block;
     }
 }
 
@@ -14,7 +14,6 @@
     height: calc(100% - 63px);
 
     @media (max-width: 1024px) {
-        max-width: 100%;
         height: auto;
     }
 }
