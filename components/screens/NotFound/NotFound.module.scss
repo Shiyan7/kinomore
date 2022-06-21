@@ -28,6 +28,7 @@
 }
 
 .title {
+    composes: title from "../../Title/Title.module.scss";
     font-weight: 800;
     font-size: 60px;
     line-height: 70px;
