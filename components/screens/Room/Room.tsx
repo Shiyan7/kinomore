@@ -22,8 +22,8 @@ export const Room = () => {
       <div className={styles.content}>
         <div className={styles.left}>
           <RoomHeader title={name} />
-          <div className={styles.video}>
-            <div id="kinobd" data-resize="1" data-bg="#000" data-kinopoisk={id}></div>
+          <div className={styles.videoContainer}>
+            <div className={styles.video} id="kinobd" data-resize="1" data-bg="#000" data-kinopoisk={id}></div>
           </div>
         </div>
         <Chat />
