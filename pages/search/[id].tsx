@@ -2,10 +2,16 @@ import { GetServerSideProps, NextPage } from 'next';
 import { SearchResults } from '@/components/screens/SearchResults/SearchResults';
 import { getFilmByName } from '@/services/KinopoiskService';
 import { initStore } from '@/store/store';
+import { Header } from '@/components/Header/Header';
+import { Footer } from '@/components/Footer/Footer';
 
 const searchResults: NextPage = () => {
     return (
-        <SearchResults />
+        <>
+            <Header />
+            <SearchResults />
+            <Footer />
+        </>
     );
 };
 

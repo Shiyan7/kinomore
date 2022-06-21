@@ -19,6 +19,7 @@
     border-radius: 5px;
     overflow: hidden;
     background-color: var(--color-dark);
+    cursor: pointer;
 
     &:hover {
         &:before {

@@ -5,7 +5,7 @@ import styles from './Button.module.scss'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
     children?: ReactNode;
-    variant?: 'stroke';
+    variant?: 'stroke' | 'regular';
     className?: string;
     href?: string;
 }
@@ -20,6 +20,7 @@ export const Button = memo<ButtonProps>(({children, variant, className, href, ..
                     className={classNames(
                         styles.btn,
                         variant === 'stroke' && styles.stroke,
+                        variant === 'regular' && styles.regular,
                         className,
                     )}
                     {...props}
@@ -32,6 +33,7 @@ export const Button = memo<ButtonProps>(({children, variant, className, href, ..
                 className={classNames('btn-reset',
                     styles.btn,
                     variant === 'stroke' && styles.stroke,
+                    variant === 'regular' && styles.regular,
                     className
                 )}
                 {...props}
