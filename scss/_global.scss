@@ -54,7 +54,7 @@ a {
     border: none;
     border-radius: 0;
     outline: none;
-    background-color: #fff;
+    background-color: var(--color-white);
 
     &::-webkit-search-decoration,
     &::-webkit-search-cancel-button,
@@ -105,7 +105,7 @@ a {
 
 .wrapper {
     padding: 40px 30px;
-    background-color: #fff;
+    background-color: var(--color-white);
     height: 100%;
     
     @media (max-width: 768px) {

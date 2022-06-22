@@ -55,7 +55,7 @@
 .title {
     font-size: 40px;
     line-height: 50px;
-    color: #fff;
+    color: var(--color-white);
     margin-bottom: 40px;
 
     @media (max-width: 576px) {
@@ -69,7 +69,7 @@
     margin: 0;
     font-size: 18px;
     line-height: 26px;
-    color: #fff;
+    color: var(--color-white);
     margin-bottom: 40px;
     max-width: 400px;
 

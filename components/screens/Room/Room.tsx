@@ -8,9 +8,9 @@ import styles from './Room.module.scss'
 export const Room = () => {
 
     const {query: {id}} = useRouter();
-
     const {data} = useGetFilmByIdQuery(id)
     const { name } = { ...data };
+    
 
     useEffect(() => {
       const script = document.createElement("script");

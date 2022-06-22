@@ -39,7 +39,7 @@
   @media (min-width: 1025px) {
     &:hover:not(.disabled) {
       border: 1px solid var(--color-primary);
-      color: #fff;
+      color: var(--color-white);
       background-color: var(--color-primary);
     }
   }
@@ -48,7 +48,7 @@
 
 .current {
   border: 1px solid var(--color-primary);
-  color: #fff;
+  color: var(--color-white);
   background-color: var(--color-primary);
 }
 

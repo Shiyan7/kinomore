@@ -35,7 +35,7 @@
         left: 0;
         width: 100%;
         bottom: 0;
-        background-color: #fff;
+        background-color: var(--color-white);
         transform: translateY(200%);
         transition: transform 0.3s;
         overflow-x: hidden;

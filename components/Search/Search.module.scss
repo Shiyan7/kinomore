@@ -22,7 +22,7 @@
     @media (max-width: 768px) {
         width: 100%;
         border-radius: 0;
-        color: #fff;
+        color: var(--color-white);
         font-size: 15px;
         line-height: 15px;
         background-color: var(--color-light-dark);
@@ -46,7 +46,7 @@
     top: 50%;
     right: -42px;
     transform: translateY(-50%);
-    color: #fff;
+    color: var(--color-white);
 
     @media (max-width: 768px) {
         right: 5px;

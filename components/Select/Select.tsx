@@ -24,8 +24,8 @@ export const Select: FC<SelectProps> = ({options, handleSelect}) => {
     option: (provided, state) => ({
       ...provided,
       '&:active': { backgroundColor: 'rgba(0,0,0, 0.1)'},
-      backgroundColor: state.isSelected ? 'var(--color-primary) !important;'  : state.isFocused ? '#f2f2f2' : '#fff',
-      color: state.isSelected ? '#fff' : '#000',
+      backgroundColor: state.isSelected ? 'var(--color-primary) !important;'  : state.isFocused ? '#f2f2f2' : 'var(--color-white)',
+      color: state.isSelected ? 'var(--color-white)' : '#000',
       fontWeight: state.isSelected ? 400 : 400,
     }),
     dropdownIndicator: (base) => ({

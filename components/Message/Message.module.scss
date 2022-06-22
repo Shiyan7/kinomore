@@ -1,8 +1,9 @@
 .message {
     background-color: var(--color-light-dark);
-    color: #fff;
+    color: var(--color-white);
     padding: 17px 14px;
     border-radius: 5px;
+    overflow: hidden;
 
     &:not(:last-child) {
         margin-bottom: 10px;

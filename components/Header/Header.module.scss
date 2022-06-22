@@ -42,7 +42,7 @@
     width: 24px;
     height: 24px;
     opacity: 0.6;
-    color: #fff;
+    color: var(--color-white);
     transition: opacity 0.3s;
 
     @media (max-width: 768px) {
@@ -112,7 +112,7 @@
     font-size: 15px;
     line-height: 15px;
     font-weight: 400;
-    color: #fff;
+    color: var(--color-white);
     opacity: 0.8;
     transition: opacity 0.3s;
     outline: none;
@@ -162,7 +162,7 @@
     font-size: 18px;
     line-height: 18px;
     font-weight: 500;
-    color: #fff;
+    color: var(--color-white);
     outline: none;
     transition: color 0.3s;
 
@@ -193,7 +193,7 @@
     }
 
     &:hover {
-        color: #fff;
+        color: var(--color-white);
     }
 }
 
