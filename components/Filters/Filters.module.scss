@@ -40,8 +40,8 @@
         transition: transform 0.3s;
         overflow-x: hidden;
         overflow-y: auto;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
 
         &:before {
             content: "";
@@ -49,8 +49,8 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 30px;
-            height: 4px;
+            width: 35px;
+            height: 5px;
             border-radius: 30px;
             background-color: rgba(#000, 0.15);
         }
@@ -65,6 +65,9 @@
     }
     
     @media (max-width: 576px) {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        
         @media (max-height: 640px) {
             top: 0;
             transform: translateY(0%);
@@ -80,11 +83,11 @@
     @media (max-width: 1024px) {
         max-width: 600px;
         margin: 0 auto;
-        padding: 60px 20px;
+        padding: 60px 20px 50px;
     }
 
     @media (max-width: 576px) {
-        padding: 40px 20px;
+        padding: 40px 20px 30px;
     }
 }
 
