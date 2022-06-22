@@ -5,8 +5,8 @@ import styles from './Input.module.scss'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     className?: string;
     variant?: 'dark';
-    value: string | number;
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    value?: string | number;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input: FC<InputProps> = ({className, variant, value, onChange, ...props}) => {
