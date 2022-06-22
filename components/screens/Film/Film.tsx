@@ -8,11 +8,11 @@ import {useRouter} from "next/router"
 import {useGetFilmByIdQuery} from "@/services/KinopoiskService"
 import {FilmInfo} from "./components/FilmInfo/FilmInfo"
 import {FilmDetails} from "./components/FilmDetails/FilmDetails"
-import { SimilarMovies } from "@/components/SimilarMovies/SimilarMovies"
+import {SimilarMovies} from "@/components/SimilarMovies/SimilarMovies"
+import {Button} from "@/components/Button/Button"
+import {FiPlay} from "react-icons/fi"
 import styles from './Film.module.scss'
 import classNames from "classnames"
-import { Button } from "@/components/Button/Button"
-import { FiPlay } from "react-icons/fi"
 
 export const Film = () => {
     const {query: { id }} = useRouter();

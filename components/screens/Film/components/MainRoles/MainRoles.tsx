@@ -2,7 +2,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {Navigation} from 'swiper';
 import {PersonItem} from "@/components/PersonItem/PersonItem";
 import {SliderBtn, SliderBtnContainer} from '@/components/SliderBtn/SliderBtn';
-import {FC, memo, useRef} from 'react';
+import {FC, useRef} from 'react';
 import {IPerson} from '@/types/IPerson';
 import 'swiper/css';
 
@@ -26,11 +26,18 @@ export const MainRoles: FC<MainRolesProps> = (({roles}) => {
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current,
                 }}
-                onBeforeInit={(swiper) => {
-                    // @ts-ignore
-                    swiper.params.navigation.prevEl = navigationPrevRef.current;
-                    // @ts-ignore
-                    swiper.params.navigation.nextEl = navigationNextRef.current;
+                onSwiper={(swiper) => {
+                    setTimeout(() => {
+                        // @ts-ignore
+                        swiper.params.navigation.prevEl = navigationPrevRef.current;
+                        // @ts-ignore
+                        swiper.params.navigation.nextEl = navigationNextRef.current;
+            
+                        // Re-init navigation
+                        swiper.navigation.destroy()
+                        swiper.navigation.init()
+                        swiper.navigation.update()
+                    })
                 }}
                 breakpoints={{
                     577: {
@@ -47,7 +54,7 @@ export const MainRoles: FC<MainRolesProps> = (({roles}) => {
                         slidesPerView: 6,
                         spaceBetween: 30
                     },
-                    }}
+                }}
             >
                 {roles?.map(item => {
                     return (
