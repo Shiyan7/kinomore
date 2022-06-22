@@ -1,13 +1,13 @@
 import { Hero } from "./components/Hero/Hero";
-import { NewMovies } from "./components/NewMovies/NewMovies";
-import { NewSeries } from "./components/NewSeries/NewSeries";
+import { NewFilms } from "./components/NewMovies/NewFilms";
+import { NewSeries } from "./components/NewMovies/NewSeries";
 
 export const Home = () => {
 
     return (
         <>
             <Hero />
-            <NewMovies />
+            <NewFilms />
             <NewSeries />
         </>
     )

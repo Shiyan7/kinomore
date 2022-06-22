@@ -5,7 +5,7 @@ import {Input} from '@/components/Input/Input';
 import {IMessage} from '@/types/IMessage';
 import {Message} from '@/components/Message/Message';
 import styles from './Chat.module.scss';
-import { useCopyToClipboard } from 'usehooks-ts';
+import {useCopyToClipboard} from 'usehooks-ts'
 import { useRouter } from 'next/router';
 
 export const Chat = () => {
@@ -57,7 +57,7 @@ export const Chat = () => {
         </div>
         <div ref={ref} className={styles.content}>
           {messages.length ? (
-            messages.map((item) => <Message key={item.timestamp} item={item} />)
+            messages.map(item => <Message key={item.timestamp} item={item} />)
           ) : (
             <span className={styles.noMessages}>
               Нет сообщений
