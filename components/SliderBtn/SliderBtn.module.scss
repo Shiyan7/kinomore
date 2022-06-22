@@ -2,11 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-
-    @media (max-width: 576px) {
-        margin-top: 15px;
-    }
 }
 
 .btn {
@@ -20,6 +15,11 @@
     background-color: var(--color-white);
     color: var(--color-dark);
     transition: color 0.3s, background-color 0.3s, border 0.3s;
+    margin-top: 20px;
+
+    @media (max-width: 576px) {
+        margin-top: 15px;
+    }
     
     &[disabled] {
         color: rgba(#000, 0.3);
