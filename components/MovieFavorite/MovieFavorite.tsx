@@ -1,16 +1,15 @@
+import {FC} from 'react'
+import {FiBookmark} from 'react-icons/fi'
 import classNames from 'classnames'
-import React, { FC, ReactNode } from 'react'
-import { FiBookmark } from 'react-icons/fi'
 import styles from './MovieFavorite.module.scss'
 
 interface MovieFavoriteProps {
     id: number | string | string[] | undefined;
     variant?: 'circle' | 'text' | 'regular';
-    children?: ReactNode;
     className?: string;
 }
 
-export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'circle', children, className}) => {
+export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'circle', className}) => {
 
     const handleFavorites = () => {
         console.log('id', id);

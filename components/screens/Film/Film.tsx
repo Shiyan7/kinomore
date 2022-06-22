@@ -46,9 +46,7 @@ export const Film = () => {
 							<FiPlay />
 							Смотреть
 						</Button>
-						<MovieFavorite className={styles.btn} variant="regular" id={id}>
-							В избранное
-						</MovieFavorite>
+						<MovieFavorite className={styles.btn} variant="regular" id={id} />
 					</div>
 					<Title variant="h2" className={styles.subtitle}>
 						О {convertType(type)}е

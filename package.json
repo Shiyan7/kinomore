@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@types/react-helmet": "^6.1.5",
+    "@types/react-swipeable": "^5.2.0",
     "classnames": "^2.3.1",
     "moment": "^2.29.3",
     "next": "12.1.6",
@@ -29,6 +30,7 @@
     "react-ratio": "^0.1.5",
     "react-redux": "^8.0.2",
     "react-select": "^5.3.2",
+    "react-swipeable": "^7.0.0",
     "react-tabs": "^5.1.0",
     "sass": "^1.52.1",
     "swiper": "^8.2.4",
