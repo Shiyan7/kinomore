@@ -1,6 +1,5 @@
 import { IPerson } from "./IPerson";
 import { IRating } from "./IRating";
-import { ISimilarMovie } from "./ISimilarMovie";
 
 interface IMovieExternalId {
     imdb: string;
@@ -113,7 +112,7 @@ export interface IMovie {
     productionCompanies: any[];
     ratingMpaa?: any;
     seasonsInfo: IMovieSeasonsInfo[];
-    sequelsAndPrequels: ISimilarMovie[];
+    sequelsAndPrequels: IMovie[];
     shortDescription: string;
     similarMovies: any[];
     slogan?: any;
