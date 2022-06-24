@@ -1,7 +1,7 @@
-import classNames from 'classnames'
 import { FC, ReactNode, useState } from 'react'
 import { FiChevronDown } from 'react-icons/fi';
 import styles from './Filter.module.scss'
+import classNames from 'classnames'
 
 interface FilterProps {
     name: string;

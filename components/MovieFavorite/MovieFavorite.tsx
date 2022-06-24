@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import styles from './MovieFavorite.module.scss'
 import { useFavourites } from '@/hooks/useFavourite';
 
-interface MovieFavoriteProps {
+export interface MovieFavoriteProps {
     id: number;
     isFavourite: boolean;
     variant?: 'text' | 'regular';

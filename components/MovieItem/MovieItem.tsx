@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import {MovieFavorite} from '../MovieFavorite/MovieFavorite'
+import {MovieFavorite} from '../MovieFavorite/index'
 import {IMovie} from '@/types/IMovie'
 import Image from 'next/image'
 import Link from 'next/link'

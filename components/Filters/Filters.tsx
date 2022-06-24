@@ -8,10 +8,10 @@ import {FormEvent, useState} from 'react';
 import {IFilter} from '@/types/IFilter';
 import {Device} from '@/components/Device';
 import {Select} from '../Select/Select';
-import {useSwipeable} from 'react-swipeable'
-import styles from './Filters.module.scss'
-import classNames from "classnames";
+import {useSwipeable} from 'react-swipeable';
 import { getCurrentYear } from '@/helpers/getCurrentYear/getCurrentYear';
+import styles from './Filters.module.scss';
+import classNames from "classnames";
 
 export const Filters = () => {
 
