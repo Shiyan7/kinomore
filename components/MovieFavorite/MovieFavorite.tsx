@@ -1,11 +1,11 @@
-import {FC, useState} from 'react'
+import {FC, useEffect, useState} from 'react'
 import {FiBookmark, FiCheck} from 'react-icons/fi'
 import classNames from 'classnames'
 import styles from './MovieFavorite.module.scss'
 import { useFavourites } from '@/hooks/useFavourite';
 
 interface MovieFavoriteProps {
-    id: string | string[] | undefined;
+    id: any;
     isFavourite: boolean;
     variant?: 'text' | 'regular';
     className?: string;
@@ -17,7 +17,7 @@ export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'text', cla
 
   return (
     <button
-      onClick={() => toggleFavourite(Number(id))}
+      onClick={() => toggleFavourite(id)}
       className={classNames(
         "btn-reset",
         styles.favorite,
