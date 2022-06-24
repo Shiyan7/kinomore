@@ -42,7 +42,7 @@ export const kinopoiskAPI = createApi({
     }),
     getFavourites: build.query<IData, IFilterArgs>({
       query: ({query, filters, page}) =>
-      `/movie?${filters.genre !== '' && `search[]=${filters.genre}&field[]=genres.name`}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&${query}&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
+      !query?.length ? `/movie?${filters.genre !== '' && `search[]=${filters.genre}&field[]=genres.name`}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&${query}&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}` : ''
     })
   }),
 });
