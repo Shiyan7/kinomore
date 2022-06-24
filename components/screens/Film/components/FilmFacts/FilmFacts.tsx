@@ -1,6 +1,6 @@
 import {Title} from "@/components/Title/Title"
 import {FC, memo} from "react"
-import {IMovieFacts} from "@/types/IMovieFacts"
+import {IMovieFacts} from "@/types/IMovie"
 import classNames from "classnames"
 import styles from './FilmFacts.module.scss'
 

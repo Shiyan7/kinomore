@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang='ru'>
       <Head>
-        <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <link rel="manifest" href="/manifest.json" />
         <link href="/icons/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />

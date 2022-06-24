@@ -1,11 +1,11 @@
-import {FC, useEffect, useState} from 'react'
+import {FC} from 'react'
 import {FiBookmark, FiCheck} from 'react-icons/fi'
 import classNames from 'classnames'
 import styles from './MovieFavorite.module.scss'
 import { useFavourites } from '@/hooks/useFavourite';
 
 interface MovieFavoriteProps {
-    id: any;
+    id: number;
     isFavourite: boolean;
     variant?: 'text' | 'regular';
     className?: string;

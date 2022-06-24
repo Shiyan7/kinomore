@@ -5,7 +5,7 @@ interface IFilters {
     genre: string;
 }
 
-export interface IFilterArgs {
+export interface IQuery {
     query?: string;
     page?: number;
     filters: IFilters;

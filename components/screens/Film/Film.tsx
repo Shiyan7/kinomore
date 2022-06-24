@@ -51,7 +51,7 @@ export const Film = () => {
 							<FiPlay />
 							Смотреть
 						</Button>
-						<MovieFavorite isFavourite={isFavourite} className={styles.btn} variant="regular" id={data?.id} />
+						<MovieFavorite isFavourite={isFavourite} className={styles.btn} variant="regular" id={Number(data?.id)} />
 					</div>
 					<Title variant="h2" className={styles.subtitle}>
 						О {convertType(type)}е

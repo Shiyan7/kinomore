@@ -1,22 +1,31 @@
-import { IMovieFacts } from "./IMovieFacts";
-import { IMoviePoster } from "./IMoviePoster";
 import { IPerson } from "./IPerson";
 import { IRating } from "./IRating";
 import { ISimilarMovie } from "./ISimilarMovie";
 
-export interface ExternalId {
+interface IMovieExternalId {
     imdb: string;
 }
 
-export interface Logo {
+export interface IMoviePoster {
+    url: string;
+    previewUrl: string;
+}
+
+interface IMovieLogo {
     url: string;
 }
 
-export interface Backdrop {
+export interface IMovieFacts {
+    spoiler: boolean;
+    type: string;
+    value: string;
+}
+
+interface IMovieBackdrop {
     url: string;
 }
 
-export interface Votes {
+interface IMovieVotes {
     kp: number;
     imdb: number;
     filmCritics: number;
@@ -24,98 +33,98 @@ export interface Votes {
     await: number;
 }
 
-export interface Trailer {
+interface IMovieTrailer {
     url: string;
     name: string;
     site: string;
 }
 
-export interface Videos {
-    trailers: Trailer[];
+interface IMovieVideos {
+    trailers: IMovieTrailer[];
     teasers: any[];
 }
 
-export interface Budget {
+interface IMovieBudget {
     value: number;
     currency: string;
 }
 
-export interface Fees {
+interface IMovieFees {
     usa: any;
     world: any;
 }
 
-export interface Premiere {
+interface IMoviePremiere {
     country: string;
     world: string;
 }
 
-export interface Country {
+interface IMovieCountry {
     name: string;
 }
 
-export interface Genre {
+interface IMovieGenre {
     name: string;
 }
 
-export interface Name {
+interface IMovieName {
     name: string;
 }
 
-export interface SeasonsInfo {
+interface IMovieSeasonsInfo {
     number: number;
     episodesCount: number;
 }
 
-export interface Technology {
+interface IMovieTechnology {
     hasImax: boolean;
     has3D: boolean;
 }
 
-export interface ImagesInfo {
+interface IMovieImagesInfo {
     framesCount: number;
 }
 
 export interface IMovie {
-    externalId: ExternalId;
-    logo: Logo;
+    externalId: IMovieExternalId;
+    logo: IMovieLogo;
     poster: IMoviePoster;
-    backdrop: Backdrop;
+    backdrop: IMovieBackdrop;
     rating: IRating;
-    votes: Votes;
-    videos: Videos;
-    budget: Budget;
-    fees: Fees;
-    premiere: Premiere;
+    votes: IMovieVotes;
+    videos: IMovieVideos;
+    budget: IMovieBudget;
+    fees: IMovieFees;
+    premiere: IMoviePremiere;
     collections: any[];
     updateDates: any[];
     id: number;
     alternativeName?: any;
-    countries: Country[];
+    countries: IMovieCountry[];
     createdAt: Date;
     description: string;
     enName?: any;
     facts: IMovieFacts[];
-    genres: Genre[];
+    genres: IMovieGenre[];
     movieLength: number;
     name: string;
-    names: Name[];
+    names: IMovieName[];
     persons: IPerson[];
     productionCompanies: any[];
     ratingMpaa?: any;
-    seasonsInfo: SeasonsInfo[];
+    seasonsInfo: IMovieSeasonsInfo[];
     sequelsAndPrequels: ISimilarMovie[];
     shortDescription: string;
     similarMovies: any[];
     slogan?: any;
     spokenLanguages: any[];
-    technology: Technology;
+    technology: IMovieTechnology;
     ticketsOnSale: boolean;
     type: string;
     typeNumber: number;
     updatedAt: Date;
     year: number;
-    imagesInfo: ImagesInfo;
+    imagesInfo: IMovieImagesInfo;
     ageRating: number;
     lists: any[];
     createDate: Date;

@@ -1,10 +1,10 @@
-import { convertTimestampToDate } from '@/helpers/convertTimestampToDate/convertTimestampToDate'
+import {convertTimestampToDate} from '@/helpers/convertTimestampToDate/convertTimestampToDate'
 import {IMessage} from '@/types/IMessage'
 import {memo} from 'react'
 import styles from './Message.module.scss'
 
 interface MessageProps {
-    item: IMessage
+    item: IMessage;
 }
 
 export const Message = memo<MessageProps>(({item}) => {
