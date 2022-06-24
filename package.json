@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/react-helmet": "^6.1.5",
     "@types/react-swipeable": "^5.2.0",
     "classnames": "^2.3.1",
     "moment": "^2.29.3",

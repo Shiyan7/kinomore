@@ -11,6 +11,7 @@ import {FilmDetails} from "./components/FilmDetails/FilmDetails"
 import {SimilarMovies} from "@/components/SimilarMovies/SimilarMovies"
 import {Button} from "@/components/Button/Button"
 import {FiPlay} from "react-icons/fi"
+import {useFavourites} from "@/hooks/useFavourite"
 import styles from './Film.module.scss'
 import classNames from "classnames"
 
@@ -26,6 +27,10 @@ export const Film = () => {
 		rating,
 		similarMovies,
     } = { ...data };
+
+	const { favourites } = useFavourites();
+
+    const isFavourite = favourites.includes(Number(id))
 
     return (
       <section className={styles.section}>
@@ -46,7 +51,7 @@ export const Film = () => {
 							<FiPlay />
 							Смотреть
 						</Button>
-						<MovieFavorite className={styles.btn} variant="regular" id={id} />
+						<MovieFavorite isFavourite={isFavourite} className={styles.btn} variant="regular" id={data?.id} />
 					</div>
 					<Title variant="h2" className={styles.subtitle}>
 						О {convertType(type)}е

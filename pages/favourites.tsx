@@ -1,17 +1,18 @@
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
+import { Favourites } from "@/components/screens/Favourites/Favourites";
 import { NextPage } from "next";
 
-const FavoritesPage: NextPage = () => {
+const FavouritesPage: NextPage = () => {
     return (
         <>
             <Header />
             <main className='main'>
-                Избранное
+                <Favourites />
             </main>
             <Footer />
         </>
     );
 };
 
-export default FavoritesPage;
+export default FavouritesPage;

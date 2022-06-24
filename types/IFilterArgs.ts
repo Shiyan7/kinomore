@@ -6,7 +6,8 @@ interface IFilters {
 }
 
 export interface IFilterArgs {
-    page: number;
+    query?: string;
+    page?: number;
     filters: IFilters;
     search?: string | string[] | undefined;
 }

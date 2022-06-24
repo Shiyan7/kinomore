@@ -11,11 +11,11 @@ export const Room = () => {
     const {data} = useGetFilmByIdQuery(id)
     const {name} = { ...data };
 
-    useEffect(() => {
+    /* useEffect(() => {
       const script = document.createElement("script");
       script.src = "https://kinobd.ru/js/player_.js";
       document.body.appendChild(script);
-    }, []);
+    }, []); */
     
     return (
       <div className={styles.content}>

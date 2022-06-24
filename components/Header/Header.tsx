@@ -1,4 +1,4 @@
-import {CARTOONS_ROUTE, FAVORITES_ROUTE, FILMS_ROUTE, HOME_ROUTE, SERIES_ROUTE} from '@/constants/routes'
+import {CARTOONS_ROUTE, FAVOURITES_ROUTE, FILMS_ROUTE, HOME_ROUTE, SERIES_ROUTE} from '@/constants/routes'
 import {FiFilm, FiMenu, FiHome, FiTv, FiHeart, FiX} from 'react-icons/fi'
 import {BiMovie} from 'react-icons/bi'
 import {useRouter} from 'next/router'
@@ -27,7 +27,7 @@ export const Header = () => {
         {icon: <FiFilm />, href: FILMS_ROUTE, text: 'Фильмы'},
         {icon: <FiTv />, href: SERIES_ROUTE, text: 'Сериалы'},
         {icon: <BiMovie />, href: CARTOONS_ROUTE, text: 'Мультфильмы'},
-        {icon: <FiHeart />, href: FAVORITES_ROUTE, text: 'Избранное'}
+        {icon: <FiHeart />, href: FAVOURITES_ROUTE, text: 'Избранное'}
     ]
 
     useEffect(() => {

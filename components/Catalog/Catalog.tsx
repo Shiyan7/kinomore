@@ -72,7 +72,7 @@ namespace Catalog {
       <>
         {isLoading || isFetching ? <Loader /> :
           <div className={styles.content}>
-            {!data?.docs.length && <Subtitle>Ничего не найдено!</Subtitle>}
+            {!data?.docs?.length && <Subtitle>Ничего не найдено!</Subtitle>}
             <Catalog.Grid data={data} />
             <Pagination pages={data?.pages} />
           </div>

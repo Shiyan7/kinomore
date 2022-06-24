@@ -8,7 +8,16 @@
     justify-content: center;
     color: var(--color-dark);
     background-color: #f2f2f2;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+
+    &.active {
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+        
+        svg {
+            fill: none;
+        }
+    }
 
     svg {
         flex-shrink: 0;
@@ -16,8 +25,10 @@
         stroke: currentColor;
     }
 
-    &:hover {
-        background-color: rgba(#999, 0.25);
+    @media (min-width: 577px) {
+        &:hover {
+            background-color: rgba(#999, 0.25);
+        }
     }
 }
 
@@ -31,14 +42,36 @@
     background-color: transparent;
     color: #999;
     border: 1px solid rgba(#000, .2);
+    min-width: 140px;
+    min-height: 34px;
+
+    &.active {
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+
+        @media (min-width: 577px) {
+            &:hover {
+                color: var(--color-white);
+                background-color: var(--color-primary);
+            }
+        }
+        
+        svg {
+            fill: none;
+        }
+    }
 
     @media (max-width: 576px) {
         padding: 6px;
         font-size: 0;
+        min-width: auto;
+        min-height: auto;
     }
 
-    &:hover {
-        background-color: rgba(#999, 0.1);
+    @media (min-width: 577px) {
+        &:hover {
+            background-color: rgba(#999, 0.1);
+        }
     }
 
     svg {
@@ -66,16 +99,33 @@
     line-height: 18px;
     background-color: #f2f2f2;
     color: var(--color-dark);
+    min-width: 167px;
+    min-height: 46px;
+
+    &.active {
+        background-color: var(--color-white);
+        
+        @media (min-width: 577px) {
+            &:hover {
+                color: var(--color-white);
+                background-color: var(--color-primary);
+            }
+        }
+    }
 
     @media (max-width: 576px) {
         font-size: 14px;
         line-height: 17px;
         padding: 11px 20px;
+        min-width: 153px;
+        min-height: 41px;
     }
 
 
-    &:hover {
-        background-color: #e6e6e6;
+    @media (min-width: 577px) {
+        &:hover {
+            background-color: #e6e6e6;
+        }
     }
 
     svg {

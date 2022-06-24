@@ -4,14 +4,19 @@ import {IMovie} from '@/types/IMovie'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './MovieItem.module.scss'
+import { useFavourites } from '@/hooks/useFavourite'
 
 interface MovieItemProps {
     item: IMovie
 }
 
-export const MovieItem: FC<MovieItemProps> = ({item}) => {
+export const MovieItem: FC<MovieItemProps> = ({ item }) => {
 
     const {poster, description, name, enName, year, movieLength, rating, shortDescription, id} = item;
+
+    const { favourites } = useFavourites();
+
+    const isFavourite = favourites.includes(id)
 
     return (
         <div className={styles.container}>
@@ -39,7 +44,11 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
                 <span className={styles.rating}>
                     {rating.kp}
                 </span>
-                <MovieFavorite id={id} variant='text' />
+                <MovieFavorite
+                    id={id}
+                    variant='text'
+                    isFavourite={isFavourite}
+                />
             </div>
         </div>
     )
