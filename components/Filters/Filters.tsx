@@ -11,6 +11,7 @@ import {Select} from '../Select/Select';
 import {useSwipeable} from 'react-swipeable'
 import styles from './Filters.module.scss'
 import classNames from "classnames";
+import { getCurrentYear } from '@/helpers/getCurrentYear/getCurrentYear';
 
 export const Filters = () => {
 
@@ -20,7 +21,7 @@ export const Filters = () => {
 
     // локальные состояние для передачи в стор
     const [rating, setRating] = useState<IFilter>({minValue: 1, maxValue: 10});
-    const [year, setYear] = useState<IFilter>({minValue: 1990, maxValue: 2022});
+    const [year, setYear] = useState<IFilter>({minValue: 1960, maxValue: getCurrentYear()});
     const [sort, setSort] = useState<string>(filters.sortByRelease);
     const [genre, setGenre] = useState<string>(filters.genre)
 
@@ -67,8 +68,8 @@ export const Filters = () => {
                     </Filter>
                     <Filter name="Года производства">
                         <Slider
-                            min={1970}
-                            max={2022}
+                            min={1887}
+                            max={getCurrentYear()}
                             start={year}
                             setValue={setYear}
                         />

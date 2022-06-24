@@ -1,15 +1,15 @@
 import {FC, useRef} from "react"
 import {Title} from "../Title/Title";
-import {ISimilarMovie} from "@/types/ISimilarMovie"
 import {FilmItem} from "../FilmItem/FilmItem";
 import {Navigation} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {SliderBtn, SliderBtnContainer} from '@/components/SliderBtn/SliderBtn';
 import 'swiper/css';
 import styles from './SimilarMovies.module.scss'
+import { IMovie } from "@/types/IMovie";
 
 interface SimilarMoviesProps {
-    movies: ISimilarMovie[] | undefined;
+    movies: IMovie[] | undefined;
 }
 
 export const SimilarMovies: FC<SimilarMoviesProps> = ({movies}) => {

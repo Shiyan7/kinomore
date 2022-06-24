@@ -1,3 +1,4 @@
+import { getCurrentYear } from "@/helpers/getCurrentYear/getCurrentYear";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -29,7 +30,7 @@ const initialState = {
         {label: "Фэнтези", value: "фэнтези"}
     ],
     filters: {
-        year: '1990-2022',
+        year: `1960-${getCurrentYear()}`,
         rating: '1-10',
         sortByRelease: '-1',
         genre: ''
