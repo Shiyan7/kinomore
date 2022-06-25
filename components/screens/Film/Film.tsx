@@ -17,7 +17,7 @@ import classNames from "classnames"
 
 export const Film = () => {
     const {query: { id }} = useRouter();
-    const {data} = useGetFilmByIdQuery(id)
+    const {data, isLoading, isError} = useGetFilmByIdQuery(Number(id))
     const {
 		alternativeName,
 		name,
@@ -31,6 +31,8 @@ export const Film = () => {
 	const { favourites } = useFavourites();
 
     const isFavourite = favourites.includes(Number(id))
+	const movieTitle = name ? name : isLoading ? 'Загрузка' : 'Без названия'
+	const movieYear = year && `(${year})`
 
     return (
       <section className={styles.section}>
@@ -43,15 +45,15 @@ export const Film = () => {
 				</div>
 				<div className={styles.right}>
 					<Title className={styles.title} variant="h1">
-						{name} ({year})
+						{movieTitle} {movieYear}
 					</Title>
 					<span className={styles.originalTitle}>{alternativeName}</span>
 					<div className={styles.btns}>
-						<Button href={`/room/${data?.id}`} className={styles.btn} variant="regular">
+						<Button href={`/room/${data?.id}`} className={styles.btn} variant="regular" disabled={isError}>
 							<FiPlay />
 							Смотреть
 						</Button>
-						<MovieFavorite isFavourite={isFavourite} className={styles.btn} variant="regular" id={Number(data?.id)} />
+						<MovieFavorite isFavourite={isFavourite} className={styles.btn} variant="regular" id={Number(data?.id)} disabled={isError} />
 					</div>
 					<Title variant="h2" className={styles.subtitle}>
 						О {convertType(type)}е

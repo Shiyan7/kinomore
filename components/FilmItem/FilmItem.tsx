@@ -1,11 +1,11 @@
+import {FC} from 'react';
+import {IMovie} from '@/types/IMovie';
+import {convertType} from '@/helpers/convertType/convertType';
+import {MovieRating} from '../MovieRating/MovieRating';
+import Ratio from 'react-ratio';
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { FC } from 'react'
-import {IMovie} from '@/types/IMovie'
-import {convertType} from '@/helpers/convertType/convertType'
-import {MovieRating} from '../MovieRating/MovieRating'
-import styles from './FilmItem.module.scss'
-import Ratio from 'react-ratio';
+import styles from './FilmItem.module.scss';
 
 interface FilmItemProps {
     item: IMovie

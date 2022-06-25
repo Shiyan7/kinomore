@@ -9,9 +9,10 @@ export interface MovieFavoriteProps {
     isFavourite: boolean;
     variant?: 'text' | 'regular';
     className?: string;
+    disabled?: boolean;
 }
 
-export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'text', className, isFavourite}) => {
+export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'text', className, isFavourite, disabled}) => {
 
   const {toggleFavourite} = useFavourites()
 
@@ -26,6 +27,7 @@ export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'text', cla
         variant === "regular" && styles.regular,
         className
       )}
+      disabled={disabled}
     >
       {isFavourite ? <FiCheck /> : <FiBookmark />}
       {isFavourite ? 'В избранном' : 'В избранное'}

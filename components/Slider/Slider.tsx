@@ -1,8 +1,8 @@
 import { ChangeEvent, FC, useState } from "react"
 import { IFilter } from "@/types/IFilter";
-import styles from './Slider.module.scss'
 import { Input } from "@/components/Input/Input";
 import { Range, getTrackBackground } from "react-range";
+import styles from './Slider.module.scss'
 
 interface SliderProps {
   min: number;

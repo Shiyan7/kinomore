@@ -1,10 +1,14 @@
-import { FC } from 'react'
-import { ISelectValue } from '@/types/ISelectValue'
+import {FC} from 'react'
+import {FiChevronDown} from 'react-icons/fi';
 import ReactSelect, { components, StylesConfig, DropdownIndicatorProps  } from 'react-select'
-import { FiChevronDown } from 'react-icons/fi';
+
+type SelectValue = {
+  label: string;
+  value: string;
+}
 
 interface SelectProps {
-  options: ISelectValue[];
+  options: SelectValue[];
   handleSelect: (value: string) => void;
 }
 
@@ -46,7 +50,7 @@ export const Select: FC<SelectProps> = ({options, handleSelect}) => {
     })
   };
 
-  const handleChange = ({value}: ISelectValue | any) => handleSelect(value)
+  const handleChange = ({value}: SelectValue | any) => handleSelect(value)
 
   return (
     <ReactSelect

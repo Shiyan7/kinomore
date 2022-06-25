@@ -9,6 +9,7 @@ import {Logo} from '@/components/Logo/Logo'
 import styles from './Header.module.scss'
 import classNames from 'classnames'
 import Link from 'next/link'
+import {Device} from '@/components/Device'
 
 export const Header = () => {
 
@@ -45,7 +46,7 @@ export const Header = () => {
                     >
                         {open ? <FiX /> : <FiMenu /> }
                     </button>
-                    <Logo />
+                    <Logo className={styles.logo} />
                     <div className={classNames(styles.dropdown, open && styles.dropdownOpen)}>
                         <ul className={classNames('list-reset', styles.dropdownList)}>
                             {items.map(el => (
@@ -60,9 +61,11 @@ export const Header = () => {
                             ))}
                         </ul>
                     </div>
-                    <Link href="/auth">
-                        <a className={classNames(styles.link, styles.menuLink)}>Войти</a>
-                    </Link>
+                    <Device mobile>
+                        <Link href="/auth">
+                            <a className={classNames(styles.link, styles.menuLink)}>Войти</a>
+                        </Link>
+                    </Device>
                 </div>
                 <Search />
                 <Link href="/auth">

@@ -9,9 +9,13 @@ interface MovieRatingProps {
 
 export const MovieRating: FC<MovieRatingProps> = ({rating}) => {
   return (
-    <span className={styles.rating}>
-        <FiStar />
-        {rating?.kp ? rating.kp : rating?.imdb}
-    </span>
+    <>
+      {rating &&
+        <span className={styles.rating}>
+          <FiStar />
+            {rating?.kp ? rating.kp : rating?.imdb}
+        </span>
+      }
+    </>
   )
 }

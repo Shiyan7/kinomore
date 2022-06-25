@@ -18,6 +18,12 @@
     }
 }
 
+.logo {
+    @media (max-width: 768px) {
+        margin-right: auto;
+    }
+}
+
 .menu {
     position: relative;
     display: flex;
@@ -198,7 +204,6 @@
 }
 
 .menuLink {
-    margin-left: auto;
     font-size: 15px;
     line-height: 15px;
     display: none;

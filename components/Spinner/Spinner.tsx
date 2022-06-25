@@ -8,7 +8,7 @@ export enum SpinnerSizes {
 }
 
 interface SpinnerProps {
-    variant: SpinnerSizes;
+    variant?: SpinnerSizes;
 }
 
 export const Spinner: FC<SpinnerProps> = ({variant = SpinnerSizes.small}) => {

@@ -9,7 +9,7 @@ export const kinopoiskAPI = createApi({
   reducerPath: 'kinopoiskAPI',
   baseQuery: fetchBaseQuery({baseUrl: API_URL}),
   endpoints: (build) => ({
-    getFilmById: build.query<IMovie, string | string[] | undefined>({
+    getFilmById: build.query<IMovie, number>({
       query: id =>
         `/movie?search=${id}&field=id&token=${API_KEY}`
     }),
