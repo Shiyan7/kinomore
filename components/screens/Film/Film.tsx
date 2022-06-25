@@ -17,7 +17,7 @@ import classNames from "classnames"
 
 export const Film = () => {
     const {query: { id }} = useRouter();
-    const {data, isLoading, isError} = useGetFilmByIdQuery(Number(id))
+    const {data, isLoading, isError} = useGetFilmByIdQuery(id)
     const {
 		alternativeName,
 		name,
@@ -53,7 +53,7 @@ export const Film = () => {
 							<FiPlay />
 							Смотреть
 						</Button>
-						<MovieFavorite isFavourite={isFavourite} className={styles.btn} variant="regular" id={Number(data?.id)} disabled={isError} />
+						<MovieFavorite isFavourite={isFavourite} className={styles.btn} variant="regular" id={data?.id} disabled={isError} />
 					</div>
 					<Title variant="h2" className={styles.subtitle}>
 						О {convertType(type)}е

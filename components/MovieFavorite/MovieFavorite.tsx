@@ -5,7 +5,7 @@ import styles from './MovieFavorite.module.scss'
 import { useFavourites } from '@/hooks/useFavourite';
 
 export interface MovieFavoriteProps {
-    id: number;
+    id: string | number | string[] | undefined;
     isFavourite: boolean;
     variant?: 'text' | 'regular';
     className?: string;
@@ -18,7 +18,7 @@ export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'text', cla
 
   return (
     <button
-      onClick={() => toggleFavourite(id)}
+      onClick={() => toggleFavourite(Number(id))}
       className={classNames(
         "btn-reset",
         styles.favorite,
