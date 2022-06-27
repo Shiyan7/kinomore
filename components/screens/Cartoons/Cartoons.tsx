@@ -12,13 +12,13 @@ export const Cartoons = () => {
     filters
   });
 
-  const {Container, Heading, Desc, Body, Content} = Catalog;
+  const {Container, Heading, Description, Body, Content} = Catalog;
 
   return (
     <Catalog>
       <Container>
         <Heading>Все мультфильмы</Heading>
-        <Desc>Мультфильмы всего мира</Desc>
+        <Description>Мультфильмы всего мира</Description>
         <Body>
           <Filters />
           <Content data={data} isLoading={isLoading} isFetching={isFetching} />

@@ -1,16 +1,15 @@
-import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, memo, PropsWithChildren, ReactNode } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 import styles from './Button.module.scss'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
-    children?: ReactNode;
     variant?: 'stroke' | 'regular';
     className?: string;
     href?: string;
 }
 
-export const Button = memo<ButtonProps>(({children, variant, className, href, ...props}) => {
+export const Button = memo<PropsWithChildren<ButtonProps>>(({children, variant, className, href, ...props}) => {
 
     return (
         <>

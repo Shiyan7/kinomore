@@ -1,8 +1,8 @@
-import {FC} from 'react'
-import {FiBookmark, FiCheck} from 'react-icons/fi'
-import classNames from 'classnames'
-import styles from './MovieFavorite.module.scss'
-import { useFavourites } from '@/hooks/useFavourite';
+import {FC} from 'react';
+import {FiBookmark, FiCheck} from 'react-icons/fi';
+import {useFavourites} from '@/hooks/useFavourite';
+import classNames from 'classnames';
+import styles from './MovieFavorite.module.scss';
 
 export interface MovieFavoriteProps {
     id: string | number | string[] | undefined;

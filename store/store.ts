@@ -1,16 +1,16 @@
 import { configureStore, PreloadedState } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
 import { kinopoiskAPI } from "@/services/KinopoiskService";
-import { searchReducer } from "./reducers/searchSlice";
-import { loadReducer } from "./reducers/loadMoreSlice";
-import { paginationReducer } from "./reducers/paginationSlice";
-import { filtersReducer } from "./reducers/filtersSlice";
-import { toggleReducer } from "./reducers/toggleSlice";
+import { searchReducer } from "./reducers/search.slice";
+import { loadReducer } from "./reducers/loadMore.slice";
+import { paginationReducer } from "./reducers/pagination.slice";
+import { filtersReducer } from "./reducers/filters.slice";
+import { toggleReducer } from "./reducers/toggle.slice";
 import { useMemo } from 'react'
 
 let store: AppStore
 
-export function initStore(preloadedState = {}) {
+export const initStore = (preloadedState = {}) => {
   return configureStore({
     reducer: {
       searchReducer,

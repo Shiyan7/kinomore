@@ -1,5 +1,4 @@
 import { IPerson } from "./IPerson";
-import { IRating } from "./IRating";
 
 interface IMovieExternalId {
     imdb: string;
@@ -41,6 +40,15 @@ interface IMovieTrailer {
 interface IMovieVideos {
     trailers: IMovieTrailer[];
     teasers: any[];
+}
+
+export interface IMovieRating {
+    _id: string;
+    kp: number;
+    imdb: number;
+    filmCritics: number;
+    russianFilmCritics: number;
+    await: number;
 }
 
 interface IMovieBudget {
@@ -89,7 +97,7 @@ export interface IMovie {
     logo: IMovieLogo;
     poster: IMoviePoster;
     backdrop: IMovieBackdrop;
-    rating: IRating;
+    rating: IMovieRating;
     votes: IMovieVotes;
     videos: IMovieVideos;
     budget: IMovieBudget;

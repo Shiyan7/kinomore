@@ -3,7 +3,7 @@ import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {useRouter} from "next/router";
 import {Catalog} from "@/components/Catalog/Catalog";
 import {Filters} from "@/components/Filters/Filters";
-import { FILMS_ROUTE } from "@/constants/routes";
+import {RoutesEnum} from "@/constants/routes";
 import Link from "next/link";
 
 export const SearchResults = () => {
@@ -17,13 +17,13 @@ export const SearchResults = () => {
     filters
   });
   
-  const {Container, Heading, Desc, Body, Content} = Catalog;
+  const {Container, Heading, Description, Body, Content} = Catalog;
 
   return (
     <Catalog>
       <Container>
         <Heading>Результаты поиска по запросу: {id}</Heading>
-        <Desc>Ничего не нашли?&nbsp;<Link href={FILMS_ROUTE}><a>Список всех фильмов</a></Link></Desc>
+        <Description>Ничего не нашли?&nbsp;<Link href={RoutesEnum.Films}><a>Список всех фильмов</a></Link></Description>
         <Body>
           <Filters />
           <Content data={data} isLoading={isLoading} isFetching={isFetching} />

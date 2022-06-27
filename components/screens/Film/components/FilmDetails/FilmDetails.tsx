@@ -20,9 +20,9 @@ export const FilmDetails: FC<FilmDetailsProps> = ({data}) => {
     });
 
     const tabs = [
-        {txt: 'Описание', content: <p className={styles.desc}>{description}</p>, condition: description?.length},
-        {txt: 'Актёры', content: <MainRoles roles={roles} />, condition: roles?.length},
-        {txt: 'Факты', content: <FilmFacts facts={facts} />, condition: facts?.length},
+      {txt: 'Описание', content: <p className={styles.desc}>{description}</p>, condition: description?.length},
+      {txt: 'Актёры', content: <MainRoles roles={roles} />, condition: roles?.length},
+      {txt: 'Факты', content: <FilmFacts facts={facts} />, condition: facts?.length},
     ]
 
     return (

@@ -1,4 +1,4 @@
-import {CARTOONS_ROUTE, FAVOURITES_ROUTE, FILMS_ROUTE, HOME_ROUTE, SERIES_ROUTE} from '@/constants/routes'
+import {RoutesEnum} from '@/constants/routes'
 import {FiFilm, FiMenu, FiHome, FiTv, FiHeart, FiX} from 'react-icons/fi'
 import {BiMovie} from 'react-icons/bi'
 import {useRouter} from 'next/router'
@@ -6,10 +6,10 @@ import {Search} from '@/components/Search/Search'
 import {useEffect, useRef, useState} from 'react'
 import {useOnClickOutside} from 'usehooks-ts'
 import {Logo} from '@/components/Logo/Logo'
+import {Device} from '@/components/Device'
 import styles from './Header.module.scss'
 import classNames from 'classnames'
 import Link from 'next/link'
-import {Device} from '@/components/Device'
 
 export const Header = () => {
 
@@ -24,11 +24,11 @@ export const Header = () => {
     useOnClickOutside(ref, () => setOpen(false))
 
     const items = [
-        {icon: <FiHome />, href: HOME_ROUTE, text: 'Главная'},
-        {icon: <FiFilm />, href: FILMS_ROUTE, text: 'Фильмы'},
-        {icon: <FiTv />, href: SERIES_ROUTE, text: 'Сериалы'},
-        {icon: <BiMovie />, href: CARTOONS_ROUTE, text: 'Мультфильмы'},
-        {icon: <FiHeart />, href: FAVOURITES_ROUTE, text: 'Избранное'}
+        {icon: <FiHome />, href: RoutesEnum.Home, text: 'Главная'},
+        {icon: <FiFilm />, href: RoutesEnum.Films, text: 'Фильмы'},
+        {icon: <FiTv />, href: RoutesEnum.Series, text: 'Сериалы'},
+        {icon: <BiMovie />, href: RoutesEnum.Cartoons, text: 'Мультфильмы'},
+        {icon: <FiHeart />, href: RoutesEnum.Favourites, text: 'Избранное'}
     ]
 
     useEffect(() => {

@@ -1,6 +1,8 @@
-export const HOME_ROUTE = '/';
-export const FILMS_ROUTE = '/films';
-export const SERIES_ROUTE = '/series';
-export const CARTOONS_ROUTE = '/cartoons';
-export const FAVOURITES_ROUTE = '/favourites';
-export const LOGIN_ROUTE = '/auth';
+export enum RoutesEnum {
+    Home = '/',
+    Films = '/films',
+    Series = '/series',
+    Cartoons = '/cartoons',
+    Favourites = '/favourites',
+    Login = '/auth'
+}

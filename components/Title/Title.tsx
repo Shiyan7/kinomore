@@ -1,16 +1,15 @@
-import { FC, ReactNode } from "react";
+import { FC, PropsWithChildren, ReactNode } from "react";
 import styles from './Title.module.scss'
 import classNames from "classnames";
 
 interface TitleProps {
-  children?: ReactNode;
   className?: string;
   variant?: Sizes;
 }
 
 type Sizes = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-export const Title: FC<TitleProps> = (({className, variant = "h1", children, ...props}) => {
+export const Title: FC<PropsWithChildren<TitleProps>> = (({className, variant = "h1", children, ...props}) => {
   const Tag = `${variant}` as keyof JSX.IntrinsicElements;
 
   return (

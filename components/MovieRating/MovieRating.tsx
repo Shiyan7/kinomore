@@ -1,10 +1,10 @@
-import {IRating} from '@/types/IRating';
+import {IMovieRating} from '@/types/IMovie';
 import {FC} from 'react'
 import {FiStar} from 'react-icons/fi';
 import styles from './MovieRating.module.scss'
 
 interface MovieRatingProps {
-    rating: IRating | undefined;
+    rating: IMovieRating | undefined;
 }
 
 export const MovieRating: FC<MovieRatingProps> = ({rating}) => {

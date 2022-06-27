@@ -24,13 +24,13 @@ export const Favourites = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const {Container, Heading, Desc, Body, Content, Subtitle} = Catalog;
+  const {Container, Heading, Description, Body, Content, Subtitle} = Catalog;
 
   return (
     <Catalog>
       <Container>
         <Heading>Избранное</Heading>
-        <Desc>Список избранного кино</Desc>
+        <Description>Список избранного кино</Description>
         <Body>
           <Filters />
           {query ? <Content data={data} isLoading={isLoading} isFetching={isFetching} /> : <Subtitle>Список избранного пуст</Subtitle>}

@@ -12,13 +12,13 @@ export const Films = () => {
     filters
   });
 
-  const {Container, Heading, Desc, Body, Content} = Catalog;
+  const {Container, Heading, Description, Body, Content} = Catalog;
 
   return (
     <Catalog>
       <Container>
         <Heading>Все фильмы</Heading>
-        <Desc>Фильмы всего мира</Desc>
+        <Description>Фильмы всего мира</Description>
         <Body>
           <Filters />
           <Content data={data} isLoading={isLoading} isFetching={isFetching} />

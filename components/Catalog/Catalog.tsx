@@ -33,7 +33,7 @@ namespace Catalog {
     )
   }
 
-  export const Desc = ({children}: PropsWithChildren<{}>) => {
+  export const Description = ({children}: PropsWithChildren<{}>) => {
     return <p className={styles.desc}>{children}</p>
   }
 
