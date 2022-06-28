@@ -38,7 +38,7 @@ export const kinopoiskAPI = createApi({
       `/movie?${filters.genre !== '' && `search[]=${filters.genre}&field[]=genres.name`}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=3&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${ApiEnum.Key}`
     }),
     getPerson: build.query({
-      query: () => `/person?name=&token=${ApiEnum.Key}`
+      query: name => `/person?name=${name}&token=${ApiEnum.Key}`
     }),
     getFavourites: build.query<IData, IQuery>({
       query: ({query, filters, page}) => `/movie?${filters.genre !== '' && `search[]=${filters.genre}&field[]=genres.name`}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&${query}&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${ApiEnum.Key}`

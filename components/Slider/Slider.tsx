@@ -1,112 +1,89 @@
-import { ChangeEvent, FC, useState } from "react"
-import { IFilter } from "@/types/IFilter";
-import { Input } from "@/components/Input/Input";
-import { Range, getTrackBackground } from "react-range";
-import styles from './Slider.module.scss'
+import {ChangeEvent, FC, useRef } from 'react';
+import {Range } from 'react-range';
+import {SliderThumb} from './components/SliderThumb/SliderThumb';
+import {IRenderThumbParams, IRenderTrackParams} from 'react-range/lib/types';
+import {Input} from '../Input/Input';
+import {SliderTrack} from './components/SliderTrack/SliderTrack';
+import styles from './Slider.module.scss';
 
 interface SliderProps {
-  min: number;
-  max: number;
-  step?: number;
-  start: IFilter;
-  setValue: ({}: IFilter) => void;
-}
+	min: number;
+	max: number;
+	values: number[];
+	step?: number;
+	onChange: (values: number[]) => void;
+};
 
-export const Slider: FC<SliderProps> = ({ min, max, start, step = 1, setValue}) => {
+export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 
-  const {minValue, maxValue} = start;
-  const [sliderHandle, setSliderHandle] = useState({minValue, maxValue});
-  const {minValue: leftHandle, maxValue: rightHandle} = sliderHandle
+	const initialValueRef = useRef<number[]>(values);
 
-  const handleSlider = (values: number[]) => {
-    setSliderHandle({minValue: values[0], maxValue: values[1]})
-    setValue({minValue: values[0], maxValue: values[1]})
-  }
+	const sanitizeValues = (value: number) => {
+		
+		if (value < min) {
+			return min;
+		}
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = e.target
-    const startKey = Object.keys(start)[Number(name)]
-    const sliderKey = Object.keys(sliderHandle)[Number(name)]
-    setSliderHandle({...sliderHandle, [sliderKey]: value})
-    setValue({...start, [startKey]: value})
-  }
+		if (value > max) {
+			return max;
+		}
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.inputs}>
-        <Input
-          className={styles.input}
-          type="number"
-          name="0"
-          placeholder={min.toString()}
-          min={min}
-          max={rightHandle}
-          value={leftHandle}
-          onChange={handleChange}
-        />
-        <Input
-          className={styles.input}
-          type="number"
-          name="1"
-          min={leftHandle}
-          max={max}
-          value={rightHandle}
-          onChange={handleChange}
-          placeholder={max.toString()}
-        />
-      </div>
-      <Range
-        values={[leftHandle, rightHandle]}
-        step={step}
-        min={min}
-        max={max}
-        onChange={handleSlider}
-        renderTrack={({ props, children }) => (
-          <div
-            onMouseDown={props.onMouseDown}
-            onTouchStart={props.onTouchStart}
-            style={{
-              ...props.style,
-              display: "flex"
-            }}
-          >
-            <div
-              ref={props.ref}
-              style={{
-                height: "4px",
-                width: "100%",
-                borderRadius: "3px",
-                background: getTrackBackground({
-                  values: [leftHandle, rightHandle],
-                  colors: ["rgba(0,0,0,.2)", "var(--color-primary)", "rgba(0,0,0,.2)"],
-                  min: min,
-                  max: max
-                }),
-                alignSelf: "center",
-              }}
-            >
-              {children}
-            </div>
-          </div>
-        )}
-        renderThumb={({ props }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: "17px",
-              width: "17px",
-              borderRadius: "100%",
-              outline: 'none',
-              backgroundColor: "var(--color-white)",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              border: "3px solid var(--color-primary)"
-            }}
-          />
-        )}
-      />
-    </div>
-  );
-}
+		return value;
+	};
+
+	const handleRenderTrack: FC<IRenderTrackParams> = ({props, children}) => {
+		return (
+			<SliderTrack
+				min={min}
+				max={max}
+				values={values}
+				props={props}
+			>
+				{children}
+			</SliderTrack>
+		);
+	};
+
+	const handleRenderThumb: FC<IRenderThumbParams> = ({props, value, index}) => {
+		return (
+			<SliderThumb
+				key={index}
+				props={props}
+				value={value}
+				initialValue={initialValueRef.current?.[index]}
+			/>
+		);
+	};
+
+	return (
+		<div className={styles.container}>
+			<div className={styles.inputs}>
+				<Input
+					className={styles.input}
+					value={values[0]}
+					onChange={(e: ChangeEvent<HTMLInputElement>) => {
+						const sanitizedValue = sanitizeValues(parseInt(e?.target.value));
+						onChange([sanitizedValue, values[1]]);
+					}}
+				/>
+				<Input
+					className={styles.input}
+					value={values[1]}
+					onChange={(e: ChangeEvent<HTMLInputElement>) => {
+						const sanitizedValue = sanitizeValues(parseInt(e?.target.value));
+						onChange([values[0], sanitizedValue]);
+					}}
+				/>
+			</div>
+			<Range
+				step={step}
+				min={min}
+				max={max}
+				values={values}
+				onChange={onChange}
+				renderThumb={handleRenderThumb}
+				renderTrack={handleRenderTrack}
+			/>
+		</div>
+	);
+};

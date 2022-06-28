@@ -1,0 +1,10 @@
+.thumb {
+    height: 17px;
+    width: 17px;
+    border-radius: 100%;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--color-primary);
+}

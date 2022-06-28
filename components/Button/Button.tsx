@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, memo, PropsWithChildren, ReactNode } from 'react';
+import {ButtonHTMLAttributes, memo, PropsWithChildren} from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 import styles from './Button.module.scss'
