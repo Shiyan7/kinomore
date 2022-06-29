@@ -1,13 +1,13 @@
+import {FormEvent, useState} from 'react';
+import {useSwipeable} from 'react-swipeable';
 import {useTypedSelector} from '@/hooks/useTypedSelector';
 import {useActions} from '@/hooks/useActions';
 import {Filter} from "./components/Filter/Filter"
 import {Slider} from "@/components/Slider/Slider";
 import {Radio} from "@/components/Radio/Radio";
-import {Button} from "../Button/Button";
-import {FormEvent, useState} from 'react';
+import {Button} from "@/components/Button/Button";
 import {Device} from '@/components/Device';
-import {Select} from '../Select/Select';
-import {useSwipeable} from 'react-swipeable';
+import {Select} from '@/components/Select/Select';
 import {getCurrentYear} from '@/helpers/getCurrentYear/getCurrentYear';
 import styles from './Filters.module.scss';
 import classNames from "classnames";
@@ -46,10 +46,7 @@ export const Filters = () => {
     }
 
     const handlers = useSwipeable({
-        onSwiping: e => {
-            console.log(e);
-            setSwipedValue(e.deltaY)
-        },
+        onSwiping: e => setSwipedValue(e.deltaY),
         onSwipedUp: () => setSwipedValue(0),
         onSwipedDown: () => handleClose(),
         trackMouse: false,
@@ -63,7 +60,8 @@ export const Filters = () => {
             onClick={handleClose}
             className={classNames(styles.filters, openedFilters && styles.opened)}
         >
-            <div {...handlers} style={{transform: `translateY(${swipedValue}px)`}} onClick={e => e.stopPropagation()} className={styles.content}>
+            <div style={{transform: `translateY(${swipedValue}px)`}} onClick={e => e.stopPropagation()} className={styles.content}>
+                <div {...handlers} onClick={handleClose} className={styles.top}></div>
                 <div className={styles.container}>
                     <Filter name="Рейтинг">
                         <Slider
