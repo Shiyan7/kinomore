@@ -14,7 +14,8 @@ import classNames from "classnames";
 
 export const Filters = () => {
 
-    const {setFilterRatings, setFiterYears, setSortByRelease, setFilterGenre, setPage, toggleFilters} = useActions();
+    const {setFilterRatings, setFiterYears, setSortByRelease, setFilterGenre, setPage, toggleFilters, setSwipedValue} = useActions();
+    const {swipedValue} = useTypedSelector(state => state.filtersReducer)
     const {filters, genres} = useTypedSelector(state => state.filtersReducer);
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
 
@@ -44,7 +45,15 @@ export const Filters = () => {
         handleClose()
     }
 
-    const handlers = useSwipeable({trackMouse: false, onSwipedDown: handleClose});
+    const handlers = useSwipeable({
+        onSwiping: e => {
+            console.log(e);
+            setSwipedValue(e.deltaY)
+        },
+        onSwipedUp: () => setSwipedValue(0),
+        onSwipedDown: () => handleClose(),
+        trackMouse: false,
+    });
 
     return (
         <form
@@ -54,7 +63,7 @@ export const Filters = () => {
             onClick={handleClose}
             className={classNames(styles.filters, openedFilters && styles.opened)}
         >
-            <div {...handlers} onClick={e => e.stopPropagation()} className={styles.content}>
+            <div {...handlers} style={{transform: `translateY(${swipedValue}px)`}} onClick={e => e.stopPropagation()} className={styles.content}>
                 <div className={styles.container}>
                     <Filter name="Рейтинг">
                         <Slider

@@ -1,10 +1,10 @@
 import {PropsWithChildren} from 'react'
-import {Device} from '../Device';
-import {FiltersToggle} from '../FiltersToggle/FiltersToggle';
-import {MovieItem} from '../MovieItem/MovieItem';
-import {Pagination} from '../Pagination/Pagination';
-import {Spinner, SpinnerSizes} from '../Spinner/Spinner';
-import {Title} from '../Title/Title';
+import {MovieItem} from '@/components/MovieItem/MovieItem';
+import {Device} from '@/components/Device';
+import {FiltersToggle} from '@/components/FiltersToggle/FiltersToggle';
+import {Pagination} from '@/components/Pagination/Pagination';
+import {Spinner, SpinnerSizes} from '@/components/Spinner/Spinner';
+import {Title} from '@/components/Title/Title';
 import {IData} from '@/types/IData';
 import classNames from 'classnames';
 import styles from './Catalog.module.scss'
