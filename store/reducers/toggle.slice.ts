@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     openedFilters: false,
+    openedMenu: false,
 }
 
 export const toggleSlice = createSlice({
@@ -10,12 +11,16 @@ export const toggleSlice = createSlice({
     reducers: {
         toggleFilters: (state, action) => {
             state.openedFilters = action.payload
+        },
+        toggleMenu: (state, action) => {
+            state.openedMenu = action.payload
         }
     }
 })
 
 export const {
-    toggleFilters
+    toggleFilters,
+    toggleMenu
 } = toggleSlice.actions;
 
 export const toggleReducer = toggleSlice.reducer;

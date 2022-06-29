@@ -2,8 +2,9 @@ import {ChangeEvent, FormEvent, useState} from 'react'
 import {FiSearch} from 'react-icons/fi'
 import {useRouter} from 'next/router'
 import {useActions} from '@/hooks/useActions'
+import {TextField} from '@/components/TextField/TextField'
+import {ButtonBase} from '@/components/ButtonBase/ButtonBase'
 import styles from './Search.module.scss'
-import classNames from 'classnames'
 
 export const Search = () => {
     
@@ -24,16 +25,21 @@ export const Search = () => {
 
     return (
         <form onSubmit={submitForm} action="#" className={styles.form}>
-            <input
-                className={classNames('input-reset', styles.search)}
+            <TextField
+                className={styles.search}
                 type="search"
                 value={value}
                 onChange={handleChange}
                 placeholder='Поиск...'
             />
-            <button disabled={!value.length} onClick={submitForm} className={classNames('btn-reset', styles.searchBtn)}>
+            <ButtonBase
+                ripple={true}
+                className={styles.searchBtn}
+                disabled={!value.length}
+                onClick={submitForm}
+            >
                 <FiSearch />
-            </button>
+            </ButtonBase>
         </form>
     )
 }

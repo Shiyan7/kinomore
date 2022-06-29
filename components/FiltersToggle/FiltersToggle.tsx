@@ -2,7 +2,7 @@ import {useActions} from '@/hooks/useActions'
 import {useTypedSelector} from '@/hooks/useTypedSelector'
 import {FiFilter} from 'react-icons/fi'
 import {useLockedBody} from 'usehooks-ts'
-import classNames from 'classnames'
+import {ButtonBase} from '../ButtonBase/ButtonBase'
 import styles from './FiltersToggle.module.scss'
 
 export const FiltersToggle = () => {
@@ -15,8 +15,8 @@ export const FiltersToggle = () => {
     const handleToggle = () => toggleFilters(!openedFilters)
 
     return (
-        <button className={classNames('btn-reset', styles.btn)} onClick={handleToggle}>
+        <ButtonBase className={styles.btn} onClick={handleToggle}>
             <FiFilter />
-        </button>
+        </ButtonBase>
     )
 }

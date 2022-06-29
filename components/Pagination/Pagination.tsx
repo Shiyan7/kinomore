@@ -1,7 +1,8 @@
 import { memo, useEffect } from 'react'
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { useActions } from '@/hooks/useActions';
+import {FiChevronLeft, FiChevronRight} from 'react-icons/fi';
+import {useTypedSelector} from '@/hooks/useTypedSelector';
+import {useActions} from '@/hooks/useActions';
+import {ButtonBase} from '../ButtonBase/ButtonBase';
 import styles from './Pagination.module.scss';
 import classNames from 'classnames';
 
@@ -31,12 +32,12 @@ export const Pagination = memo<PaginationProps>(({pages, className}) => {
       {pages !== 1 &&
         <ul className={classNames('list-reset', styles.pagination, className)}>
           <li className={styles.item}>
-            <button
+            <ButtonBase
               onClick={handleBack}
-              className={classNames('btn-reset', styles.btn, page === 1 && styles.disabled)}
+              className={classNames(styles.btn, page === 1 && styles.disabled)}
             >
               <FiChevronLeft />
-            </button>
+            </ButtonBase>
           </li>
           {array?.map(el => (
             <li key={el} className={styles.item}>
@@ -46,19 +47,19 @@ export const Pagination = memo<PaginationProps>(({pages, className}) => {
                   {el}
                 </span>
               :
-                <button onClick={() => handleSetPage(el)} className={classNames('btn-reset', styles.btn)}>
+                <ButtonBase onClick={() => handleSetPage(el)} className={styles.btn}>
                   {el}
-                </button>
+                </ButtonBase>
               }
             </li>
           ))}
           <li className={styles.item}>
-            <button
+            <ButtonBase
               onClick={handleForward}
-              className={classNames('btn-reset', styles.btn, page === isMaxPages && styles.disabled)}
+              className={classNames(styles.btn, page === isMaxPages && styles.disabled)}
             >
               <FiChevronRight />
-            </button>
+            </ButtonBase>
           </li>
         </ul>
       }

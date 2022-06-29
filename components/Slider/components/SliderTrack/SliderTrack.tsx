@@ -25,12 +25,12 @@ export const SliderTrack: FC<PropsWithChildren<SliderTrack>> = ({children, value
     );
       
     return (
-		<div
-			ref={props.ref}
-			className={styles.track}
-			style={{background: backgroundStyle}}
-		>
-			{children}
-		</div>
+      <div
+        ref={props.ref}
+        className={styles.track}
+        style={{background: backgroundStyle}}
+      >
+        {children}
+      </div>
     )
 }

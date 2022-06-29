@@ -1,7 +1,7 @@
 import {ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import {FiRefreshCw} from 'react-icons/fi';
 import {Button} from '@/components/Button/Button';
-import {Input} from '@/components/Input/Input';
+import {TextField} from '@/components/TextField/TextField';
 import {IMessage} from '@/types/IMessage';
 import {Message} from '@/components/Message/Message';
 import styles from './Chat.module.scss';
@@ -65,7 +65,7 @@ export const Chat = () => {
           )}
         </div>
         <form onSubmit={sendMessage} className={styles.form} action="#">
-          <Input
+          <TextField
             type='text'
             variant='dark'
             className={styles.input}

@@ -9,15 +9,13 @@
 }
 
 .search {
-    padding: 0 15px;
-    font-size: 14px;
-    line-height: 14px;
     border-radius: 5px;
     font-weight: 300;
     width: 400px;
     height: 100%;
     background-color: #333;
     color: var(--color-white);
+    border: none;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -31,7 +29,6 @@
     }
     
     &::placeholder {
-        opacity: 1;
         color: rgba(#fff, 0.5);
     }
 }

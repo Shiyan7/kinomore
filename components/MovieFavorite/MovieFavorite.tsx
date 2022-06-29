@@ -3,6 +3,7 @@ import {FiBookmark, FiCheck} from 'react-icons/fi';
 import {useFavourites} from '@/hooks/useFavourite';
 import classNames from 'classnames';
 import styles from './MovieFavorite.module.scss';
+import { ButtonBase } from '../ButtonBase/ButtonBase';
 
 export interface MovieFavoriteProps {
     id: string | number | string[] | undefined;
@@ -17,10 +18,10 @@ export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'text', cla
   const {toggleFavourite} = useFavourites()
 
   return (
-    <button
+    <ButtonBase
+      ripple={true}
       onClick={() => toggleFavourite(Number(id))}
       className={classNames(
-        "btn-reset",
         styles.favorite,
         isFavourite && styles.active,
         variant === "text" && styles.text,
@@ -30,7 +31,7 @@ export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'text', cla
       disabled={disabled}
     >
       {isFavourite ? <FiCheck /> : <FiBookmark />}
-      {isFavourite ? 'В избранном' : 'В избранное'}
-    </button>
+      Буду смотреть
+    </ButtonBase>
   );
 }

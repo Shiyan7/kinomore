@@ -1,8 +1,8 @@
-import {ChangeEvent, FC, useRef } from 'react';
-import {Range } from 'react-range';
+import {ChangeEvent, FC, useRef} from 'react';
 import {SliderThumb} from './components/SliderThumb/SliderThumb';
 import {IRenderThumbParams, IRenderTrackParams} from 'react-range/lib/types';
-import {Input} from '../Input/Input';
+import {TextField} from '../TextField/TextField';
+import {Range } from 'react-range';
 import {SliderTrack} from './components/SliderTrack/SliderTrack';
 import styles from './Slider.module.scss';
 
@@ -20,16 +20,12 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 
 	const sanitizeValues = (value: number) => {
 		
-		if (value < min) {
-			return min;
-		}
-
 		if (value > max) {
 			return max;
 		}
 
 		return value;
-	};
+	}
 
 	const handleRenderTrack: FC<IRenderTrackParams> = ({props, children}) => {
 		return (
@@ -42,7 +38,7 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 				{children}
 			</SliderTrack>
 		);
-	};
+	}
 
 	const handleRenderThumb: FC<IRenderThumbParams> = ({props, value, index}) => {
 		return (
@@ -53,12 +49,12 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 				initialValue={initialValueRef.current?.[index]}
 			/>
 		);
-	};
+	}
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.inputs}>
-				<Input
+				<TextField
 					className={styles.input}
 					value={values[0]}
 					onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -66,7 +62,7 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 						onChange([sanitizedValue, values[1]]);
 					}}
 				/>
-				<Input
+				<TextField
 					className={styles.input}
 					value={values[1]}
 					onChange={(e: ChangeEvent<HTMLInputElement>) => {

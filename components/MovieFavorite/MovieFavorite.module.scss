@@ -9,6 +9,7 @@
     color: var(--color-dark);
     background-color: #f2f2f2;
     transition: background-color 0.3s, color 0.3s;
+    border: 1px solid transparent;
 
     &[disabled] {
         opacity: 0.5;
@@ -41,14 +42,12 @@
     width: auto;
     height: auto;
     border-radius: 5px;
-    padding: 8px 16px;
+    padding: 8px 12px;
     font-size: 14px;
     line-height: 16px;
     background-color: transparent;
     color: #999;
     border: 1px solid rgba(#000, .2);
-    min-width: 140px;
-    min-height: 34px;
 
     &.active {
         border: 1px solid var(--color-primary);
@@ -82,7 +81,7 @@
     svg {
         width: 14px;
         height: 14px;
-        margin-right: 5px;
+        margin-right: 7px;
         stroke: currentColor;
         fill: currentColor;
 
@@ -104,8 +103,6 @@
     line-height: 18px;
     background-color: #f2f2f2;
     color: var(--color-dark);
-    min-width: 167px;
-    min-height: 46px;
 
     &.active {
         background-color: var(--color-white);

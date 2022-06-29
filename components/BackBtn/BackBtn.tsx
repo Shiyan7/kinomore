@@ -1,6 +1,7 @@
 import {useRouter} from 'next/router'
 import {ButtonHTMLAttributes, memo} from 'react'
 import {FiChevronLeft} from 'react-icons/fi'
+import {ButtonBase} from '../ButtonBase/ButtonBase'
 import styles from './BackBtn.module.scss'
 import classNames from 'classnames'
 
@@ -14,14 +15,14 @@ export const BackBtn = memo<BackBtnProps>(({className, ...props}) => {
     const handleBack = () => router.back()
 
     return (
-        <button
+        <ButtonBase
+            className={classNames(styles.back, className)}
             onClick={handleBack}
-            className={classNames('btn-reset', styles.back, className)}
             {...props}
         >
             <FiChevronLeft />
             Назад
-        </button>
+        </ButtonBase>
     )
 })
 
