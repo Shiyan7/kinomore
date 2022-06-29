@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 
 export const Chat = () => {
   const {asPath} = useRouter();
-  const [value, copy] = useCopyToClipboard()
+  const [_, copy] = useCopyToClipboard()
   const [message, setMessage] = useState<string>('')
   const [messages, setMessages] = useState<IMessage[]>([])
   const ref = useRef<HTMLDivElement>(null)
@@ -50,8 +50,17 @@ export const Chat = () => {
   return (
     <div className={styles.container}>
         <div className={styles.top}>
-          <Button animationDuration={400} onClick={handleCopyToClipboard} className={styles.copyLink}>Скопировать ссылку</Button>
-          <Button className={styles.refresh}>
+          <Button
+            animationDuration={400}
+            onClick={handleCopyToClipboard}
+            className={styles.copyLink}
+          >
+            Скопировать ссылку
+          </Button>
+          <Button
+            animationDuration={400}
+            className={styles.refresh}
+          >
             <FiRefreshCw />
           </Button>
         </div>
