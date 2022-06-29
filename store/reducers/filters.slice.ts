@@ -54,11 +54,11 @@ export const filtersSlice = createSlice({
         setFilterGenre: (state, action) => {
             state.filters.genre = action.payload
         },
-        resetFilters: state => {
-            state.filters = initialState.filters
-        },
         setSwipedValue: (state, action) => {
             state.swipedValue = action.payload
+        },
+        resetFilters: state => {
+            state.filters = initialState.filters
         }
     }
 })
