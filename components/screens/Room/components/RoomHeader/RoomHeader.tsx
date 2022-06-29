@@ -17,7 +17,7 @@ export const RoomHeader: FC<RoomHeaderProps> = ({title}) => {
                 <BackBtn
                     onClick={() => push(`/film/${id}`)}
                     className={styles.btn}
-                    ripple={true}
+                    ripple
                     variant='icon'
                 />
                 <h1 className={styles.title}>{title}</h1>

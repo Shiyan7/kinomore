@@ -18,7 +18,7 @@ export const SliderBtnContainer = ({children}: PropsWithChildren<{}>) => {
 export const SliderBtn = forwardRef<HTMLButtonElement, SliderBtnProps>((props, ref) => {
     return (
         <ButtonBase
-            ripple={true}
+            ripple
             className={styles.btn}
             ref={ref}
         >

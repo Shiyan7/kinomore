@@ -15,7 +15,7 @@ export const FiltersToggle = () => {
     const handleToggle = () => toggleFilters(!openedFilters)
 
     return (
-        <ButtonBase className={styles.btn} onClick={handleToggle}>
+        <ButtonBase ripple className={styles.btn} onClick={handleToggle}>
             <FiFilter />
         </ButtonBase>
     )

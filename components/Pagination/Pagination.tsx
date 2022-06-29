@@ -33,7 +33,7 @@ export const Pagination = memo<PaginationProps>(({pages, className}) => {
         <ul className={classNames('list-reset', styles.pagination, className)}>
           <li className={styles.item}>
             <ButtonBase
-              ripple={true}
+              ripple
               onClick={handleBack}
               className={classNames(styles.btn, page === 1 && styles.disabled)}
             >
@@ -49,7 +49,7 @@ export const Pagination = memo<PaginationProps>(({pages, className}) => {
                 </span>
               :
                 <ButtonBase
-                  ripple={true}
+                  ripple
                   onClick={() => handleSetPage(el)}
                   className={styles.btn}
                 >
@@ -60,7 +60,7 @@ export const Pagination = memo<PaginationProps>(({pages, className}) => {
           ))}
           <li className={styles.item}>
             <ButtonBase
-              ripple={true}
+              ripple
               onClick={handleForward}
               className={classNames(styles.btn, page === isMaxPages && styles.disabled)}
             >

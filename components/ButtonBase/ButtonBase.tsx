@@ -9,7 +9,7 @@ interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     animationDuration?: number;
 }
 
-export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(({className, ripple = false, animationDuration = 600,  children, ...props},  ref) => {
+export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(({className, ripple = false, animationDuration = 500,  children, ...props},  ref) => {
 
     const buttonRef = useRef<HTMLButtonElement>(null);
     const commonRef = ref || buttonRef

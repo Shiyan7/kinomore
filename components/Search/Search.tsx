@@ -33,7 +33,7 @@ export const Search = () => {
                 placeholder='Поиск...'
             />
             <ButtonBase
-                ripple={true}
+                ripple
                 className={styles.searchBtn}
                 disabled={!value.length}
                 onClick={submitForm}

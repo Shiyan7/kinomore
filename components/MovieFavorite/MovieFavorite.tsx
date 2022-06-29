@@ -19,7 +19,7 @@ export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'text', cla
 
   return (
     <ButtonBase
-      ripple={true}
+      ripple
       onClick={() => toggleFavourite(Number(id))}
       className={classNames(
         styles.favorite,
