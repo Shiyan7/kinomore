@@ -19,7 +19,7 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 	const initialValueRef = useRef<number[]>(values);
 
 	const sanitizeValues = (value: number) => {
-		
+
 		if (value > max) {
 			return max;
 		}
@@ -58,7 +58,7 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 					className={styles.input}
 					value={values[0]}
 					onChange={(e: ChangeEvent<HTMLInputElement>) => {
-						const sanitizedValue = sanitizeValues(parseInt(e?.target.value));
+						const sanitizedValue = sanitizeValues(parseInt(e?.target.value || String(min)));
 						onChange([sanitizedValue, values[1]]);
 					}}
 				/>
