@@ -31,11 +31,9 @@ export const Header = () => {
                     </Device>
                 </div>
                 <Search />
-                <Device desktop>
-                    <Link href="/auth">
-                        <a className={styles.link}>Войти</a>
-                    </Link>
-                </Device>
+                <Link href="/auth">
+                    <a className={styles.link}>Войти</a>
+                </Link>
             </div>
         </header>
     )

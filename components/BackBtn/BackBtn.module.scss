@@ -26,3 +26,26 @@
         transition: transform 0.3s;
     }
 }
+
+.icon {
+    color: var(--color-white);
+    margin-bottom: 0;
+    margin-right: 15px;
+    font-size: 0;
+    line-height: 0;
+    width: 25px;
+    flex-shrink: 0;
+    height: 25px;
+
+    &:hover {
+        svg {
+            transform: none;
+        }
+    }
+
+    svg {
+        width: 100%;
+        height: 100%;
+        margin-right: 0;
+    }
+}
