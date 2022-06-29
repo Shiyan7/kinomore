@@ -460,32 +460,34 @@ function kb_player(iframe, quality, translate, element, buttons, size, provider)
         "translate": translate
     }, "*");
     var kinobdLoading = document.querySelector('#kinobd-loading');
-    kinobdLoading.style.display = 'block';
-    setTimeout(function() {
-        kinobdLoading.style.display = 'none';
-    }, 1000);
+    if(kinobdLoading) {
+        kinobdLoading.style.display = 'block';
+        setTimeout(function() {
+            kinobdLoading.style.display = 'none';
+        }, 1000);
+    }
     var kinobdIframe = document.querySelector('#kinobd-iframe');
 
     var loadtime = null;
     var load_start = Date.now();
-    kinobdIframe.onload = function(){ 
-        var load_end = Date.now();
-        var loadtime = load_end - load_start;
-        console.log(loadtime);
-        console.log("window.onload"); 
-        kb_ping(provider, loadtime);
+    if(kinobdIframe) {
+        kinobdIframe.onload = function(){ 
+            var load_end = Date.now();
+            var loadtime = load_end - load_start;
+            console.log(loadtime);
+            console.log("window.onload"); 
+            kb_ping(provider, loadtime);
+        }
+        kinobdIframe.style.display = 'block';
+        if (iframe.indexOf('nf') + 1) {
+            kb_get(decodeURIComponent(iframe), '', function(json, html) {
+                kinobdIframe.setAttribute('src', 'data:text/html;charset=utf-8,' + encodeURIComponent(html));
+            });
+        } else {
+            kinobdIframe.setAttribute('src', decodeURIComponent(iframe));
+        }
+        kinobdIframe.setAttribute('class', '');
     }
-    
-
-    kinobdIframe.style.display = 'block';
-    if (iframe.indexOf('nf') + 1) {
-        kb_get(decodeURIComponent(iframe), '', function(json, html) {
-            kinobdIframe.setAttribute('src', 'data:text/html;charset=utf-8,' + encodeURIComponent(html));
-        });
-    } else {
-        kinobdIframe.setAttribute('src', decodeURIComponent(iframe));
-    }
-    kinobdIframe.setAttribute('class', '');
     if (typeof element.setAttribute === 'function') {
         var kinobdActive = document.querySelectorAll('.kinobd-active');
         if (kinobdActive) {

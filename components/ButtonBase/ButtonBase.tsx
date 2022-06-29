@@ -5,15 +5,16 @@ import classNames from 'classnames';
 import styles from './ButtonBase.module.scss'
 
 interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    ripple?: boolean,
+    ripple?: boolean;
+    animationDuration?: number;
 }
 
-export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(({className, ripple = false,  children, ...props},  ref) => {
+export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(({className, ripple = false, animationDuration = 600,  children, ...props},  ref) => {
 
     const buttonRef = useRef<HTMLButtonElement>(null);
     const commonRef = ref || buttonRef
     /* @ts-ignore */
-    useRipple(commonRef, {disabled: !ripple, animationLength: 600});
+    useRipple(commonRef, {disabled: !ripple, animationLength: animationDuration});
     
     return (
         <button

@@ -50,7 +50,7 @@ export const Chat = () => {
   return (
     <div className={styles.container}>
         <div className={styles.top}>
-          <Button onClick={handleCopyToClipboard} className={styles.copyLink}>Скопировать ссылку</Button>
+          <Button animationDuration={400} onClick={handleCopyToClipboard} className={styles.copyLink}>Скопировать ссылку</Button>
           <Button className={styles.refresh}>
             <FiRefreshCw />
           </Button>

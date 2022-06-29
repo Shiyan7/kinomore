@@ -8,20 +8,22 @@ import {useActions} from '@/hooks/useActions'
 import styles from './NewMovies.module.scss'
 import classNames from 'classnames'
 import { Grid } from '@/components/Grid/Grid'
+import { useRouter } from 'next/router'
 
 export const NewFilms = () => {
-
+  
+  const {push} = useRouter()
   const {filmsLimit} = useTypedSelector(state => state.loadReducer)
   const {data, isFetching} = useGetNewFilmsQuery(filmsLimit)
   const {loadMoreFilms} = useActions()
   const condition = data?.docs?.length === data?.total
-  
+
   return (
     <section>
       <div className={classNames('container', styles.container)}>
         <div className={styles.top}>
           <Title variant='h2'>Новые фильмы</Title>
-          <Button href={RoutesEnum.Films}>Смотреть все</Button>
+          <Button onClick={() => push(RoutesEnum.Films)}>Смотреть все</Button>
         </div>
         <Grid>
           {data?.docs?.map(el => (

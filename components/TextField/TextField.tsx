@@ -4,16 +4,18 @@ import styles from './TextField.module.scss'
 
 interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     className?: string;
+    variant?: 'dark';
     value?: string | number;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const TextField: FC<TextFieldProps> = ({className, value, onChange, ...props}) => {
+export const TextField: FC<TextFieldProps> = ({className, value, variant, onChange, ...props}) => {
   return (
     <input
         className={classNames(
           'input-reset',
           styles.textField,
+          variant === 'dark' && styles.dark,
           className
         )}
         value={value}

@@ -10,7 +10,11 @@ export const RoomHeader: FC<RoomHeaderProps> = ({title}) => {
     return (
         <header className={styles.header}>
             <div className={styles.container}>
-                <BackBtn ripple={true} variant='icon' />
+                <BackBtn
+                    className={styles.btn}
+                    ripple={true}
+                    variant='icon'
+                />
                 <h1 className={styles.title}>{title}</h1>
             </div>
         </header>

@@ -8,9 +8,11 @@ import {useActions} from '@/hooks/useActions'
 import {Grid} from '@/components/Grid/Grid'
 import styles from './NewMovies.module.scss'
 import classNames from 'classnames'
+import { useRouter } from 'next/router'
 
 export const NewSeries = () => {
 
+  const {push} = useRouter()
   const {seriesLimit} = useTypedSelector(state => state.loadReducer)
   const {data, isFetching} = useGetNewSeriesQuery(seriesLimit)
   const {loadMoreSeries} = useActions()
@@ -21,7 +23,7 @@ export const NewSeries = () => {
       <div className={classNames('container', styles.container)}>
         <div className={styles.top}>
           <Title variant='h2'>Новые сериалы</Title>
-          <Button href={RoutesEnum.Series}>Смотреть все</Button>
+          <Button onClick={() => push(RoutesEnum.Series)}>Смотреть все</Button>
         </div>
         <Grid>
           {data?.docs?.map(el => (

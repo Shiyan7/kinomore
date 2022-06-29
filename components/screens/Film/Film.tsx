@@ -16,7 +16,7 @@ import styles from './Film.module.scss'
 import classNames from "classnames"
 
 export const Film = () => {
-    const {query: { id }} = useRouter();
+    const {push, query: { id }} = useRouter();
     const {data, isLoading, isError} = useGetFilmByIdQuery(id)
     const {
 		alternativeName,
@@ -49,7 +49,7 @@ export const Film = () => {
 					</Title>
 					<span className={styles.originalTitle}>{alternativeName}</span>
 					<div className={styles.btns}>
-						<Button href={`/room/${data?.id}`} className={styles.btn} variant="regular" disabled={isError}>
+						<Button onClick={() => push(`/room/${data?.id}`)} className={styles.btn} variant="regular" disabled={isError}>
 							<FiPlay />
 							Смотреть
 						</Button>
