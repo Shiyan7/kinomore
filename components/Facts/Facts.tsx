@@ -1,14 +1,14 @@
 import {Title} from "@/components/Title/Title"
-import {FC, memo} from "react"
-import {IMovieFacts} from "@/types/IMovie"
+import {memo} from "react"
 import classNames from "classnames"
-import styles from './FilmFacts.module.scss'
+import styles from './Facts.module.scss'
+import { IFact } from "@/types/IFact";
 
 interface FilmFactsProps {
-    facts: IMovieFacts[] | undefined;
+    facts: IFact[] | undefined;
 }
 
-export const FilmFacts = memo<FilmFactsProps>(({facts}) => {
+export const Facts = memo<FilmFactsProps>(({facts}) => {
     return (
         <>
             <Title variant="h2" className={styles.title}>Знаете ли вы, что…</Title>
@@ -21,4 +21,4 @@ export const FilmFacts = memo<FilmFactsProps>(({facts}) => {
     )
 })
 
-FilmFacts.displayName = 'FilmFacts'
+Facts.displayName = 'FilmFacts'

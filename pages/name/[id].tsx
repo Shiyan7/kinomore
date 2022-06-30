@@ -1,15 +1,16 @@
-import { GetServerSideProps, NextPage } from 'next';
-import { getPerson } from '@/services/KinopoiskService';
-import { initStore } from '@/store/store';
-import { Header } from '@/components/Header/Header';
-import { Footer } from '@/components/Footer/Footer';
+import {GetServerSideProps, NextPage } from 'next';
+import {getPersonById} from '@/services/KinopoiskService';
+import {initStore} from '@/store/store';
+import {Header} from '@/components/Header/Header';
+import {Footer} from '@/components/Footer/Footer';
+import {Person} from '@/components/screens/Person/Person';
 
 const PersonPage: NextPage = () => {
     return (
         <>
             <Header />
             <main className='main'>
-                Актёр
+                <Person />
             </main>
             <Footer />
         </>
@@ -18,10 +19,8 @@ const PersonPage: NextPage = () => {
 
 export const getServerSideProps: GetServerSideProps = async (params) => {
     const store = initStore()
-    const state = store.getState()
-    const id = params.query.id
     
-    await store.dispatch(getPerson.initiate({name: id}))
+    await store.dispatch(getPersonById.initiate(params.query.id))
   
     return { props: { initialReduxState: store.getState()}
 }}

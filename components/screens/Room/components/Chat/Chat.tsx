@@ -38,7 +38,7 @@ export const Chat = () => {
   return (
     <div className={styles.container}>
         <div className={styles.top}>
-          <CopyToClipboard variant='btn' />
+          <CopyToClipboard />
         </div>
         <div ref={ref} className={styles.content}>
           {messages.length ? (

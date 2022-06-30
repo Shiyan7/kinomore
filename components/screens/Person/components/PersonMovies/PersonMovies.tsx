@@ -1,21 +1,21 @@
 import {FC} from 'react';
 import {Carousel} from '@/components/Carousel/Carousel';
-import {IMoviePerson} from '@/types/IMovie';
+import {IMovie} from '@/types/IMovie';
 import {SwiperSlide} from 'swiper/react';
-import { PersonItem } from '@/components/PersonItem/PersonItem';
+import {FilmItem} from '@/components/FilmItem/FilmItem';
 
-interface MainRolesProps {
-    roles: IMoviePerson[] | undefined;
+interface PersonMoviesProps {
+    movies: IMovie[] | undefined;
 }
 
-export const MainRoles: FC<MainRolesProps> = (({roles}) => {
+export const PersonMovies: FC<PersonMoviesProps> = (({movies}) => {
 
     return (
         <Carousel>
-            {roles?.map(item => {
+            {movies?.map(item => {
                 return (
                     <SwiperSlide key={item.id}>
-                        <PersonItem item={item} />
+                        <FilmItem item={item} />
                     </SwiperSlide>
                 )
             })}

@@ -1,4 +1,4 @@
-import { IPerson } from "./IPerson";
+import { IFact } from "./IFact";
 
 interface IMovieExternalId {
     imdb: string;
@@ -11,12 +11,6 @@ export interface IMoviePoster {
 
 interface IMovieLogo {
     url: string;
-}
-
-export interface IMovieFacts {
-    spoiler: boolean;
-    type: string;
-    value: string;
 }
 
 interface IMovieBackdrop {
@@ -92,6 +86,15 @@ interface IMovieImagesInfo {
     framesCount: number;
 }
 
+export interface IMoviePerson {
+    id: number;
+    name: string;
+    enName: string;
+    description: string;
+    enProfession: 'director' | 'actor' | 'design' | 'producer' | 'composer' | 'editor';
+    photo: string;
+}
+
 export interface IMovie {
     externalId: IMovieExternalId;
     logo: IMovieLogo;
@@ -111,18 +114,19 @@ export interface IMovie {
     createdAt: Date;
     description: string;
     enName?: any;
-    facts: IMovieFacts[];
+    facts: IFact[];
     genres: IMovieGenre[];
     movieLength: number;
     name: string;
     names: IMovieName[];
-    persons: IPerson[];
+    persons: IMoviePerson[];
     productionCompanies: any[];
     ratingMpaa?: any;
     seasonsInfo: IMovieSeasonsInfo[];
     sequelsAndPrequels: IMovie[];
     shortDescription: string;
     similarMovies: any[];
+    general: boolean;
     slogan?: any;
     spokenLanguages: any[];
     technology: IMovieTechnology;

@@ -5,9 +5,13 @@ interface IFilters {
     genre: string;
 }
 
-export interface IQuery {
+export interface IBaseQUery {
     query?: string;
+    limit?: number;
     page?: number;
+}
+
+export interface IQuery extends IBaseQUery {
     filters: IFilters;
     search?: string | string[] | undefined;
 }

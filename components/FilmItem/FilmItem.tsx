@@ -19,14 +19,16 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
         <li className={styles.item}>
             <div className={styles.top}>
                 <Link href={`/film/${id}`}>
-                    <Ratio ratio={2/3}>
+                    <Ratio ratio={2 / 3}>
                         <a className={styles.imageContainer}>
-                            <Image
-                                className={styles.image}
-                                layout='fill'
-                                src={poster.previewUrl}
-                                alt={description}
-                            />
+                            {poster && (
+                                <Image
+                                    className={styles.image}
+                                    layout="fill"
+                                    src={poster?.previewUrl}
+                                    alt={description}
+                                />
+                            )}
                         </a>
                     </Ratio>
                 </Link>
@@ -35,7 +37,11 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
             <Link href={`/film/${id}`}>
                 <a className={styles.title}>{name ? name : enName}</a>
             </Link>
-            {type?.length && <span className={styles.info}>{year && `${year}, `} {convertType(type)}</span>}
+            {type?.length && (
+                <span className={styles.info}>
+                    {year && `${year}, `} {convertType(type)}
+                </span>
+            )}
         </li>
-    )
+    );
 }

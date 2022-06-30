@@ -7,6 +7,7 @@
     overflow: hidden;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 10px;
 
     &:hover {
         &:before {
@@ -34,9 +35,9 @@
     margin: 0;
     display: inline-block;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 20px;
     font-weight: 500;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
     color: var(--color-dark);
     transition: color 0.3s;
     margin-top: 10px;
@@ -49,6 +50,6 @@
 .role {
     display: block;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 20px;
     color: rgba(#000, 0.5);
 }

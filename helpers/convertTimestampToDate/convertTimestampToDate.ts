@@ -4,6 +4,6 @@ moment.locale('ru')
 
 /* ToDo: переписать на dayjs */
 
-export function convertTimestampToDate (string: string | number | undefined, format: string = 'DD/MM/YYYY') {
+export function convertTimestampToDate (string: string | number | Date | undefined, format: string = 'DD/MM/YYYY') {
     return moment(string).format(format)
 }
