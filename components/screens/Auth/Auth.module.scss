@@ -6,7 +6,7 @@
     padding: 100px 15px;
 
     @media (max-width: 576px) {
-        padding: 60px 15px;
+        padding: 70px 15px;
     }
 }
 
@@ -55,10 +55,6 @@
 .btn {
     margin-top: 5px;
     margin-bottom: 25px;
-
-    @media (max-width: 576px) {
-        margin-right: 20px;
-    }
 
     @media (max-width: 576px) {
         padding: 13px 15px;
