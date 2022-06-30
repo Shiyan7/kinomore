@@ -101,9 +101,11 @@ export const Filters = () => {
                             />
                         </div>
                     </Filter>
-                    <div className={styles.btns}>
-                        <Button className={styles.btn}>Применить</Button>
-                    </div>
+                    <Device desktop>
+                        <div className={styles.btns}>
+                            <Button className={styles.btn}>Применить</Button>
+                        </div>
+                    </Device>
                     <Device mobile>
                         <div className={styles.btns}>
                             <Button className={styles.btn}>Применить</Button>
