@@ -1,15 +1,11 @@
 import {ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
-import {Button} from '@/components/Button/Button';
 import {TextField} from '@/components/TextField/TextField';
 import {IMessage} from '@/types/IMessage';
 import {Message} from '@/components/Message/Message';
-import {useCopyToClipboard} from 'usehooks-ts'
-import {useRouter} from 'next/router';
 import styles from './Chat.module.scss';
+import { CopyToClipboard } from '@/components/CopyToClipboard/CopyToClipboard';
 
 export const Chat = () => {
-  const {asPath} = useRouter();
-  const [_, copy] = useCopyToClipboard()
   const [message, setMessage] = useState<string>('')
   const [messages, setMessages] = useState<IMessage[]>([])
   const ref = useRef<HTMLDivElement>(null)
@@ -18,11 +14,7 @@ export const Chat = () => {
     setMessage(e.target.value)
   }
 
-  const handleCopyToClipboard = () => {
-    const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
-    const URL = `${origin}${asPath}`;
-    copy(URL)
-  }
+  
 
   const sendMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -46,13 +38,7 @@ export const Chat = () => {
   return (
     <div className={styles.container}>
         <div className={styles.top}>
-          <Button
-            variant='sm'
-            onClick={handleCopyToClipboard}
-            className={styles.copyLink}
-          >
-            Скопировать ссылку
-          </Button>
+          <CopyToClipboard variant='btn' />
         </div>
         <div ref={ref} className={styles.content}>
           {messages.length ? (

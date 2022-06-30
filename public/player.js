@@ -7,7 +7,6 @@ function kinobd_key(event) {
     ('Enter' === event.key) || (13 === event.keyCode ? key = 'fullscreen' : 'Left' === event.key) || ('ArrowLeft' === event.key) || (37 === event.keyCode ? key = 'prev' : 'Right' === event.key) || ('ArrowRight' === event.key) || (39 === event.keyCode ? key = 'next' : 'Up' === event.key) || ('ArrowUp' === event.key) || (38 === event.keyCode ? key = 'up' : 'Down' === event.key) || ('ArrowDown' === event.key) || (40 === event.keyCode ? key = 'down' : '0' === event.key) || (48 === event.keyCode ? key = '0' : '1' === event.key) || (49 === event.keyCode ? key = '1' : '2' === event.key) || (50 === event.keyCode ? key = '2' : '3' === event.key) || (51 === event.keyCode ? key = '3' : '4' === event.key) || (52 === event.keyCode ? key = '4' : '5' === event.key) || (53 === event.keyCode ? key = '5' : '6' === event.key) || (54 === event.keyCode ? key = '6' : '7' === event.key) || (55 === event.keyCode ? key = '7' : '8' === event.key) || (56 === event.keyCode ? key = '8' : '9' !== event.key) && (57 !== event.keyCode) || (key = '9');
     if (key && (key === 'up' || key === 'down')) {
         var a = document.querySelector('.kinobd-active');
-        //console.log(key, a.dataset.event, a && a.dataset && a.dataset.event && parseInt(a.dataset.event));
         if (a && a.dataset && a.dataset.event && parseInt(a.dataset.event)) {
             var u = key === 'up' ?
                 document.querySelector('[data-event="' + (parseInt(a.dataset.event) - 1) + '"]:not([style*="display:none"]):not([style*="display: none"]') :
@@ -191,7 +190,6 @@ function kbp(self) {
     }
     var kinobd_buttons = document.querySelector('#kinobd-buttons');
     if (kinobd_buttons) {
-        //console.log('Removing buttons...');
         kinobd_buttons.parentNode.removeChild(kinobd_buttons);
     }
     var kinobd_iframe = document.querySelector('#kinobd-iframe');
@@ -246,23 +244,18 @@ function kbp(self) {
                       document.documentElement.clientHeight,
                       document.documentElement.scrollHeight,
                       document.documentElement.offsetHeight );
-        console.log('1');
     } else if (parseInt(kinobd.offsetHeight) && parseInt(kinobd.offsetHeight) < 370) {
         if (kinobd.parentNode && parseInt(kinobd.parentNode.offsetHeight) && parseInt(kinobd.parentNode.offsetHeight) >= 370) {
             h = parseInt(kinobd.parentNode.offsetHeight);
         } else {
             h = 370;
         }
-        console.log('2');
     } else if (parseInt(kinobd.offsetHeight) && w / 3 < parseInt(kinobd.offsetHeight)) {
         h = parseInt(kinobd.offsetHeight);
-        console.log('3');
     } else if (kinobd.parentNode && parseInt(kinobd.parentNode.offsetHeight) && w / 3 < parseInt(kinobd.parentNode.offsetHeight)) {
         h = parseInt(kinobd.parentNode.offsetHeight);
-        console.log('4');
     } else {
         h = w / 2;
-        console.log('5');
     }
 
     var style = 'width:100%;height:' + h + 'px;border:0;margin:0;padding:0;overflow:hidden;position:relative;';
@@ -278,7 +271,6 @@ function kbp(self) {
             var first = true;
             var buttons = document.createElement('div');
             buttons.setAttribute('id', 'kinobd-buttons');
-            //console.log("Creating a buttons div...");
             var keys = options.player.split(options.separator);
             if (/\/\/|%2F%2F/i.test(options.player)) {
                 var p = [];
@@ -313,7 +305,6 @@ function kbp(self) {
                         players[key].translate.replace(/"/g, '\'') :
                         '';
                     var option = document.createElement('div');
-                    //console.log('Creating MULTIPLE BUTTONS');
                     option.setAttribute('onclick', 'kb_player("' + encodeURIComponent(players[key].iframe) +
                                                                     '", "' +
                                                                     players[key].quality +
@@ -393,16 +384,10 @@ function kbp(self) {
                     if (first) {
                         kb_player(players[key].iframe, players[key].quality, players[key].translate, option, buttons, options.button_size, key);
                         first = false;
-                        //console.log('Creating first elem...');
                     }
                     buttons.appendChild(option);
-                    //console.log(option);
                     if (j && !(j % options.button_limit) && players[keys[i + 1].toLowerCase().trim()] && players[keys[i - 1].toLowerCase().trim()]){
                         var next = document.createElement('div');
-                        //console.log( players[keys[i].toLowerCase().trim()] );
-                        //console.log( players );
-                        //console.log( keys );
-                        //console.log(j, (j % options.button_limit), players[keys[i + 1].toLowerCase().trim()]);
                             next.setAttribute('onclick', 'kb_page(' + Math.ceil((j + 1) / options.button_limit) +
                                                               ', "' +
                                                               options.button_size +
@@ -424,7 +409,6 @@ function kbp(self) {
                         buttons.appendChild(next);
 
                         var prev = document.createElement('div');
-                        //console.log(players[keys[i - 1].toLowerCase().trim()]);
                         prev.setAttribute('onclick', 'kb_page(' + Math.ceil(j / options.button_limit) + ', "' + options.button_size + '");' +
                                                       'kb_player("' + encodeURIComponent(players[keys[i - 1].toLowerCase().trim()].iframe) +
                                                       '", "' +
@@ -474,8 +458,6 @@ function kb_player(iframe, quality, translate, element, buttons, size, provider)
         kinobdIframe.onload = function(){ 
             var load_end = Date.now();
             var loadtime = load_end - load_start;
-            console.log(loadtime);
-            console.log("window.onload"); 
             kb_ping(provider, loadtime);
         }
         kinobdIframe.style.display = 'block';
@@ -577,9 +559,7 @@ function kb_ping(provider, loadtime = null) {
     KbXmlHttp.onreadystatechange = function() {
         if (KbXmlHttp.readyState === 4) {
             if (KbXmlHttp.status === 200) {
-                //console.log(KbXmlHttp.responseText);
             } else {
-                //console.log('error...');
             }
         }
     };
@@ -641,14 +621,6 @@ function kb_resize() {
 window.onresize = function(event) {
     kb_resize()
 };
-
-// var video = document.querySelector('video');
-
-// video.onplay = (event) => {
-//   console.log('The Boolean paused property is now false. Either the ' +
-//   'play() method was called or the autoplay attribute was toggled.');
-// };
-
 
 (function() {
     var a = document.querySelectorAll('[data-kbd]');//

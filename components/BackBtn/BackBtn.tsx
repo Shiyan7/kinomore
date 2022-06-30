@@ -7,11 +7,10 @@ import classNames from 'classnames'
 
 interface BackBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
-    ripple?: boolean;
     variant?: 'icon'
 }
 
-export const BackBtn = memo<BackBtnProps>(({className, ripple, variant, ...props}) => {
+export const BackBtn = memo<BackBtnProps>(({className, variant, ...props}) => {
 
     const router = useRouter()
     const handleBack = () => router.back()
@@ -23,7 +22,6 @@ export const BackBtn = memo<BackBtnProps>(({className, ripple, variant, ...props
                 variant === 'icon' && styles.icon,
                 className
             )}
-            ripple={ripple}
             onClick={handleBack}
             {...props}
         >

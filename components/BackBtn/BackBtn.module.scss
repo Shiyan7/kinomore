@@ -5,16 +5,11 @@
     line-height: 16px;
     font-weight: 400;
     color: var(--color-light-dark);
-    margin-bottom: 30px;
 
     &:hover {
         svg {
             transform: translateX(-1px);
         }
-    }
-
-    @media (max-width: 576px) {
-        margin-bottom: 25px;
     }
     
     svg {
@@ -28,7 +23,6 @@
 }
 
 .icon {
-    margin-bottom: 0;
     margin-right: 15px;
     font-size: 0;
     line-height: 0;

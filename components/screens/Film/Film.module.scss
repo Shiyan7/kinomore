@@ -24,6 +24,17 @@
     }
 }
 
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    
+    @media (max-width: 576px) {
+        margin-bottom: 25px;
+    }
+}
+
 .left {
     position: relative;
     flex-shrink: 0;

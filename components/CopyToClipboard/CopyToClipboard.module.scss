@@ -1,0 +1,15 @@
+.share {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 400;
+    color: var(--color-light-dark);
+    
+    svg {
+        display: block;
+        margin-right: 7px;
+        width: 15px;
+        height: 15px;
+        stroke: currentColor;
+        transition: transform 0.3s;
+    }
+}

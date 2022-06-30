@@ -14,6 +14,7 @@ import {FiPlay} from "react-icons/fi"
 import {useFavourites} from "@/hooks/useFavourite"
 import styles from './Film.module.scss'
 import classNames from "classnames"
+import { CopyToClipboard } from "@/components/CopyToClipboard/CopyToClipboard"
 
 export const Film = () => {
     const {push, query: { id }} = useRouter();
@@ -37,7 +38,10 @@ export const Film = () => {
     return (
       <section className={styles.section}>
         <div className={classNames('container wrapper', styles.container)}>
-        	<BackBtn />
+        	<div className={styles.top}>
+				<BackBtn />
+				<CopyToClipboard />
+			</div>
 			<div className={styles.content}>
 				<div className={styles.left}>
 					<img className={styles.image} src={data?.poster.url} alt={shortDescription} />
