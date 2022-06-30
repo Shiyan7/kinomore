@@ -1,6 +1,6 @@
 .textField {
     border: 1px solid rgba(#000, .2);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0 15px;
     height: 44px;
     font-size: 14px;
@@ -23,4 +23,16 @@
     &::placeholder {
         color: rgba(#fff, 0.5);
     }
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+}
+
+.caption {
+    margin-bottom: 7px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
 }

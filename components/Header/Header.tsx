@@ -9,6 +9,7 @@ import {Dropdown} from './components/Dropdown/Dropdown';
 import styles from './Header.module.scss';
 import classNames from 'classnames';
 import Link from 'next/link';
+import { RoutesEnum } from "@/constants/routes";
 
 export const Header = () => {
 
@@ -25,13 +26,13 @@ export const Header = () => {
                     <Logo className={styles.logo} />
                     <Dropdown />
                     <Device mobile>
-                        <Link href="/auth">
+                        <Link href={RoutesEnum.Login}>
                             <a className={classNames(styles.link, styles.menuLink)}>Войти</a>
                         </Link>
                     </Device>
                 </div>
                 <Search />
-                <Link href="/auth">
+                <Link href={RoutesEnum.Login}>
                     <a className={styles.link}>Войти</a>
                 </Link>
             </div>
