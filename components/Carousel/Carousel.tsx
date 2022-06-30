@@ -2,10 +2,10 @@ import {Navigation} from 'swiper';
 import {Swiper} from 'swiper/react';
 import {SliderBtn, SliderBtnContainer} from '@/components/SliderBtn/SliderBtn';
 import 'swiper/css';
-import { PropsWithChildren, useRef } from "react";
+import {PropsWithChildren, useRef} from "react";
 
 export const Carousel = ({children}: PropsWithChildren<{}>) => {
-    
+
     const navigationPrevRef = useRef<HTMLButtonElement>(null)
     const navigationNextRef = useRef<HTMLButtonElement>(null)
 
@@ -52,8 +52,8 @@ export const Carousel = ({children}: PropsWithChildren<{}>) => {
         >
             {children}
             <SliderBtnContainer>
-                <SliderBtn dir='left' ref={navigationPrevRef} />
-                <SliderBtn dir='right' ref={navigationNextRef} />
+                <SliderBtn dir='left' ref={navigationPrevRef}/>
+                <SliderBtn dir='right' ref={navigationNextRef}/>
             </SliderBtnContainer>
         </Swiper>
     )

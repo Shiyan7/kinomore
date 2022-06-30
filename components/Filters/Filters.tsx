@@ -1,4 +1,4 @@
-import {FormEvent, useState} from 'react';
+import {FormEvent, useEffect, useState} from 'react';
 import {useSwipeable} from 'react-swipeable';
 import {useTypedSelector} from '@/hooks/useTypedSelector';
 import {useActions} from '@/hooks/useActions';
@@ -14,9 +14,8 @@ import classNames from "classnames";
 
 export const Filters = () => {
 
-    const {setFilterRatings, setFiterYears, setSortByRelease, setFilterGenre, setPage, toggleFilters, setSwipedValue} = useActions();
-    const {swipedValue} = useTypedSelector(state => state.filtersReducer)
-    const {filters, genres} = useTypedSelector(state => state.filtersReducer);
+    const {setFilterRatings, setFiterYears, setSortByRelease, setFilterGenre, setPage, toggleFilters, setSwipedValue, resetFilters} = useActions();
+    const {swipedValue, filters, genres} = useTypedSelector(state => state.filtersReducer)
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
 
     // локальные состояние для передачи в стор
@@ -51,6 +50,11 @@ export const Filters = () => {
         onSwipedDown: () => handleClose(),
         trackMouse: false,
     });
+
+    useEffect(() => {
+        resetFilters()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <form
