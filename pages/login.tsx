@@ -3,7 +3,7 @@ import {Header} from "@/components/Header/Header";
 import {SignIn} from "@/components/screens/Auth/components/SignIn/SignIn";
 import {NextPage} from "next";
 
-const SignInPage: NextPage = () => {
+const LoginPage: NextPage = () => {
     return (
         <>
             <Header />
@@ -15,4 +15,4 @@ const SignInPage: NextPage = () => {
     );
 };
 
-export default SignInPage;
+export default LoginPage;

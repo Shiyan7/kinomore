@@ -4,6 +4,6 @@ export enum RoutesEnum {
     Series = '/series',
     Cartoons = '/cartoons',
     Favourites = '/favourites',
-    Login = '/signin',
-    Register = '/signup'
+    Login = '/login',
+    Register = '/register'
 }
