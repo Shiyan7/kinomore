@@ -1,6 +1,6 @@
 import {Footer} from "@/components/Footer/Footer";
 import {Header} from "@/components/Header/Header";
-import {SignIn} from "@/components/screens/Auth/components/SignIn/SignIn";
+import {SignIn} from "@/components/screens/SignIn/SignIn";
 import {NextPage} from "next";
 
 const LoginPage: NextPage = () => {

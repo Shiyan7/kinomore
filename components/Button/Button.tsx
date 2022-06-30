@@ -3,7 +3,7 @@ import {ButtonBase} from '../ButtonBase/ButtonBase';
 import classNames from 'classnames';
 import styles from './Button.module.scss'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'stroke' | 'regular' | 'sm';
     className?: string;
     animationDuration?: number;

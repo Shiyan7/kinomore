@@ -11,7 +11,6 @@ import {SimilarMovies} from "@/components/SimilarMovies/SimilarMovies"
 import {Button} from "@/components/Button/Button"
 import {FiPlay} from "react-icons/fi"
 import {useFavourites} from "@/hooks/useFavourite"
-import {CopyToClipboard} from "@/components/CopyToClipboard/CopyToClipboard"
 import {Fragment} from "react"
 import {convertNumbers} from "@/helpers/convertNumbers/convertNumbers"
 import {convertTimestampToDate} from "@/helpers/convertTimestampToDate/convertTimestampToDate"
@@ -81,7 +80,6 @@ export const Film = () => {
         <div className={classNames('container wrapper', styles.container)}>
         	<div className={styles.top}>
 				<BackBtn />
-				<CopyToClipboard />
 			</div>
 			<div className={styles.content}>
 				<div className={styles.left}>

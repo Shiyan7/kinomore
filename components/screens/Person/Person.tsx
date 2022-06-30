@@ -3,7 +3,6 @@ import {Title} from "@/components/Title/Title"
 import {BackBtn} from "@/components/BackBtn/BackBtn"
 import {useRouter} from "next/router"
 import {useGetFilmsByIdQuery, useGetPersonByIdQuery} from "@/services/KinopoiskService"
-import {CopyToClipboard} from "@/components/CopyToClipboard/CopyToClipboard"
 import {convertTimestampToDate} from "@/helpers/convertTimestampToDate/convertTimestampToDate"
 import {Info} from "@/components/Info/Info"
 import {Fragment} from "react"
@@ -56,7 +55,6 @@ export const Person = () => {
             <div className={classNames('container wrapper', styles.container)}>
                 <div className={styles.top}>
                     <BackBtn/>
-                    <CopyToClipboard />
                 </div>
                 <div className={styles.content}>
                     <div className={styles.left}>

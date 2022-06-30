@@ -2,7 +2,7 @@ import { ChangeEvent, FC, InputHTMLAttributes } from 'react'
 import classNames from 'classnames'
 import styles from './TextField.module.scss'
 
-interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     label?: string;
     className?: string;
     variant?: 'dark';

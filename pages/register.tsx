@@ -1,6 +1,6 @@
 import {Footer} from "@/components/Footer/Footer";
 import {Header} from "@/components/Header/Header";
-import {SignUp} from "@/components/screens/Auth/components/SignUp/SignUp";
+import {SignUp} from "@/components/screens/SignUp/SignUp";
 import {NextPage} from "next";
 
 const RegisterPage: NextPage = () => {
