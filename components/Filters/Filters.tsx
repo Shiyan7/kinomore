@@ -11,6 +11,7 @@ import {Select} from '@/components/Select/Select';
 import {getCurrentYear} from '@/helpers/getCurrentYear/getCurrentYear';
 import styles from './Filters.module.scss';
 import classNames from "classnames";
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
 export const Filters = () => {
 
@@ -18,23 +19,23 @@ export const Filters = () => {
     const {swipedValue, filters, genres} = useTypedSelector(state => state.filtersReducer)
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
 
-    // локальные состояние для передачи в стор
-    const [rating, setRating] = useState<number[]>([1,10]);
-    const [year, setYear] = useState<number[]>([1960, getCurrentYear()]);
-    const [sort, setSort] = useState<string>(filters.sortByRelease);
-    const [genre, setGenre] = useState<string>(filters.genre)
+    // // локальные состояние для передачи в стор
+    // const [rating, setRating] = useState<number[]>([1,10]);
+    // const [year, setYear] = useState<number[]>([1960, getCurrentYear()]);
+    // const [sort, setSort] = useState<string>(filters.sortByRelease);
+    // const [genre, setGenre] = useState<string>(filters.genre)
 
-    //условия и строки
-    const ratingString = `${rating[0]}-${rating[1]}`;
-    const yearString = `${year[0]}-${year[1]}`;
-    const ratings = rating[0] !== rating[1] ? ratingString : rating[0];
-    const years = year[0] !== year[1] ? yearString : year[0];
+    // //условия и строки
+    // const ratingString = `${rating[0]}-${rating[1]}`;
+    // const yearString = `${year[0]}-${year[1]}`;
+    // const ratings = rating[0] !== rating[1] ? ratingString : rating[0];
+    // const years = year[0] !== year[1] ? yearString : year[0];
 
     const handleClose = () => {
         toggleFilters(false)
     }
 
-    const handleApplyFilters = (e: FormEvent<HTMLFormElement>) => {
+    /* const handleApplyFilters = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setPage(1)
         setFilterRatings(ratings)
@@ -42,6 +43,11 @@ export const Filters = () => {
         setSortByRelease(sort)
         setFilterGenre(genre)
         handleClose()
+    } */
+
+    const handleReset = () => {
+        resetFilters()
+        reset()
     }
 
     const handlers = useSwipeable({
@@ -56,10 +62,20 @@ export const Filters = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    const {handleSubmit, control, register, reset} = useForm({
+        defaultValues: {
+            sort: '-1',
+            genres: '',
+        }
+    })
+
+    const onSubmit: SubmitHandler<any> = data => console.log(data);
+
+
     return (
         <form
             action="#"
-            onSubmit={handleApplyFilters}
+            onSubmit={handleSubmit(onSubmit)}
             noValidate
             onClick={handleClose}
             className={classNames(styles.filters, openedFilters && styles.opened)}
@@ -67,7 +83,7 @@ export const Filters = () => {
             <div style={{transform: `translateY(${swipedValue}px)`}} onClick={e => e.stopPropagation()} className={styles.content}>
                 <div {...handlers} onClick={handleClose} className={styles.top}></div>
                 <div className={styles.container}>
-                    <Filter name="Рейтинг">
+                    {/* <Filter name="Рейтинг">
                         <Slider
                             min={1}
                             max={10}
@@ -83,9 +99,13 @@ export const Filters = () => {
                             values={year}
                             onChange={setYear}
                         />
-                    </Filter>
+                    </Filter> */}
                     <Filter name="Жанры">
-                        <Select options={genres} handleSelect={setGenre} />
+                        <Select
+                            name="genres"
+                            options={genres}
+                            control={control}
+                        />
                     </Filter>
                     <Filter name="Год выхода">
                         <div className={styles.radios}>
@@ -93,29 +113,20 @@ export const Filters = () => {
                                 className={styles.radio}
                                 label='Сначала новые'
                                 value='-1'
-                                sort={sort}
-                                changeHandler={setSort}
+                                {...register('sort')}
                             />
                             <Radio
                                 className={styles.radio}
                                 label='Сначала старые'
                                 value='1'
-                                sort={sort}
-                                changeHandler={setSort}
+                                {...register('sort')}
                             />
                         </div>
                     </Filter>
-                    <Device desktop>
-                        <div className={styles.btns}>
-                            <Button className={styles.btn}>Применить</Button>
-                        </div>
-                    </Device>
-                    <Device mobile>
-                        <div className={styles.btns}>
-                            <Button className={styles.btn}>Применить</Button>
-                            <Button type='button' className={styles.btn} onClick={handleClose} variant='stroke'>Закрыть</Button>
-                        </div>
-                    </Device>
+                    <div className={styles.btns}>
+                        <Button className={styles.btn}>Применить</Button>
+                        <Button type='button' className={styles.btn} onClick={handleReset} variant='stroke'>Сбросить</Button>
+                    </div>
                 </div>
             </div>
         </form>

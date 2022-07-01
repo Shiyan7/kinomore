@@ -1,4 +1,5 @@
 import {FC} from 'react'
+import { Controller, ControllerProps } from 'react-hook-form';
 import {FiChevronDown} from 'react-icons/fi';
 import ReactSelect, { components, StylesConfig, DropdownIndicatorProps  } from 'react-select'
 
@@ -8,11 +9,12 @@ type SelectValue = {
 }
 
 interface SelectProps {
+  name: string;
   options: SelectValue[];
-  handleSelect: (value: string) => void;
+  control: any
 }
 
-export const Select: FC<SelectProps> = ({options, handleSelect}) => {
+export const Select: FC<SelectProps> = ({name, control, options}) => {
 
   const DropdownIndicator = (
     props: DropdownIndicatorProps
@@ -50,19 +52,26 @@ export const Select: FC<SelectProps> = ({options, handleSelect}) => {
     })
   };
 
-  const handleChange = ({value}: SelectValue | any) => handleSelect(value)
-
   return (
-    <ReactSelect
-      instanceId="select"
-      options={options}
-      styles={selectStyle}
-      onChange={handleChange}
-      defaultValue={options[0]}
-      components={{
-        IndicatorSeparator: () => null,
-        DropdownIndicator: DropdownIndicator
-      }}
-    />
+    <Controller
+        name={name}
+        control={control}
+        render={({ field: { value, onChange, onBlur } }) => {
+          return (
+            <ReactSelect
+              instanceId="select"
+              options={options}
+              styles={selectStyle}
+              onChange={e => onChange(e)}
+              defaultValue={options[0]}
+              components={{
+                IndicatorSeparator: () => null,
+                DropdownIndicator: DropdownIndicator
+              }}
+              onBlur={onBlur}
+            />
+          );
+        }}
+      />
   )
 }

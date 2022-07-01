@@ -53,7 +53,7 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.inputs}>
+			{/* <div className={styles.inputs}>
 				<TextField
 					className={styles.input}
 					value={values[0]}
@@ -70,13 +70,13 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 						onChange([values[0], sanitizedValue]);
 					}}
 				/>
-			</div>
+			</div> */}
 			<Range
 				step={step}
 				min={min}
 				max={max}
 				values={values}
-				onChange={onChange}
+				onChange={value => onChange(value)}
 				renderThumb={handleRenderThumb}
 				renderTrack={handleRenderTrack}
 			/>

@@ -1,27 +1,21 @@
-import { memo } from 'react'
+import { forwardRef, InputHTMLAttributes, memo } from 'react'
 import classNames from 'classnames'
 import styles from './Radio.module.scss'
 
-interface RadioProps {
-    sort: string;
+interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
     label?: string;
     className?: string;
-    value: string;
-    changeHandler: (value: string) => void
 }
 
-export const Radio = memo<RadioProps>(({sort, className, changeHandler, label, value}) => {
-
-    const handleChange = () => changeHandler(value)
+export const Radio = forwardRef<HTMLInputElement, RadioProps>(({className, label, ...props}, ref) => {
 
     return (
         <label className={classNames(styles.radio, className)}>
             <input
+                ref={ref}
                 className={classNames('input-reset', styles.input)}
                 type="radio"
-                value={value}
-                checked={value === sort}
-                onChange={handleChange}
+                {...props}
             />
             <span className={styles.switch}></span>
             <span className={styles.caption}>{label}</span>
