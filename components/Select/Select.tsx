@@ -1,4 +1,5 @@
 import {FC} from 'react'
+import { isMobile } from 'react-device-detect';
 import {FiChevronDown} from 'react-icons/fi';
 import ReactSelect, { components, StylesConfig, DropdownIndicatorProps  } from 'react-select'
 
@@ -53,8 +54,8 @@ export const Select: FC<SelectProps> = ({name, options, value, onChange}) => {
   return (
     <ReactSelect
       name={name}
+      menuPlacement={isMobile ? 'top' : 'auto'}
       instanceId="select"
-      menuPosition='fixed'
       options={options}
       styles={selectStyle}
       value={value}
