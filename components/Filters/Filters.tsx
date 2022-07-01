@@ -45,11 +45,6 @@ export const Filters = () => {
         handleClose()
     } */
 
-    const handleReset = () => {
-        resetFilters()
-        reset()
-    }
-
     const handlers = useSwipeable({
         onSwiping: e => setSwipedValue(e.deltaY),
         onSwipedUp: () => setSwipedValue(0),
@@ -57,20 +52,26 @@ export const Filters = () => {
         trackMouse: false,
     });
 
-    useEffect(() => {
-        resetFilters()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
     const {handleSubmit, control, register, reset} = useForm({
         defaultValues: {
             sort: '-1',
-            genres: '',
+            genres: genres[0],
         }
     })
 
     const onSubmit: SubmitHandler<any> = data => console.log(data);
 
+    const handleReset = () => {
+        resetFilters()
+        reset()
+    }
+
+
+    useEffect(() => {
+        resetFilters()
+        reset()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <form
@@ -101,10 +102,19 @@ export const Filters = () => {
                         />
                     </Filter> */}
                     <Filter name="Жанры">
-                        <Select
+                        <Controller
                             name="genres"
-                            options={genres}
                             control={control}
+                            render={({ field: { value, onChange } }) => {
+                                return (
+                                    <Select
+                                        value={value}
+                                        onChange={onChange}
+                                        name="genres"
+                                        options={genres}
+                                    />
+                                );
+                            }}
                         />
                     </Filter>
                     <Filter name="Год выхода">
