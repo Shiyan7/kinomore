@@ -23,7 +23,6 @@ export const Filters = () => {
       setFilterGenre,
       setPage,
       toggleFilters,
-      setSwipedValue,
       resetFilters,
     } = useActions();
     const {genres} = useTypedSelector(state => state.filtersReducer);

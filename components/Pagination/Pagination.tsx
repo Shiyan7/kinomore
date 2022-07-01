@@ -27,6 +27,8 @@ export const Pagination = memo<PaginationProps>(({pages, className}) => {
     scrollTo(0, 0)
   }, [page])
 
+  /* ToDo: переписать на react-paginate */
+
   return (
     <>
       {pages !== 1 &&
