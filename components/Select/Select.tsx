@@ -54,6 +54,7 @@ export const Select: FC<SelectProps> = ({name, options, value, onChange}) => {
     <ReactSelect
       name={name}
       instanceId="select"
+      menuPosition='fixed'
       options={options}
       styles={selectStyle}
       value={value}
