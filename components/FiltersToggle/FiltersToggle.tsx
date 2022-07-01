@@ -8,12 +8,11 @@ import styles from './FiltersToggle.module.scss'
 export const FiltersToggle = () => {
 
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
-    const {toggleFilters, setSwipedValue} = useActions()
+    const {toggleFilters} = useActions()
     
     useLockedBody(openedFilters)
 
     const handleToggle = () => {
-        setSwipedValue(0)
         toggleFilters(!openedFilters)
     }
 

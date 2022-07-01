@@ -34,8 +34,7 @@ const initialState = {
         rating: '1-10',
         sortByRelease: '-1',
         genre: ''
-    },
-    swipedValue: 0
+    }
 }
 
 export const filtersSlice = createSlice({
@@ -54,9 +53,6 @@ export const filtersSlice = createSlice({
         setFilterGenre: (state, action) => {
             state.filters.genre = action.payload
         },
-        setSwipedValue: (state, action) => {
-            state.swipedValue = action.payload
-        },
         resetFilters: state => {
             state.filters = initialState.filters
         }
@@ -68,8 +64,7 @@ export const {
     setFilterRatings,
     setSortByRelease,
     setFilterGenre,
-    resetFilters,
-    setSwipedValue,
+    resetFilters
 } = filtersSlice.actions;
 
 export const filtersReducer = filtersSlice.reducer;

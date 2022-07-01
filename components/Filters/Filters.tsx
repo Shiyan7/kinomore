@@ -1,91 +1,145 @@
-import {FormEvent, useEffect, useState} from 'react';
-import {useSwipeable} from 'react-swipeable';
-import {useTypedSelector} from '@/hooks/useTypedSelector';
-import {useActions} from '@/hooks/useActions';
+import {useEffect} from "react";
+import {useTypedSelector} from "@/hooks/useTypedSelector";
+import {useActions} from "@/hooks/useActions";
 import {Filter} from "./components/Filter/Filter"
 import {Slider} from "@/components/Slider/Slider";
 import {Radio} from "@/components/Radio/Radio";
 import {Button} from "@/components/Button/Button";
-import {Device} from '@/components/Device';
-import {Select} from '@/components/Select/Select';
-import {getCurrentYear} from '@/helpers/getCurrentYear/getCurrentYear';
-import styles from './Filters.module.scss';
+import {Select} from "@/components/Select/Select";
+import {getCurrentYear} from "@/helpers/getCurrentYear/getCurrentYear";
+import {Controller, useForm} from 'react-hook-form';
+import {Title} from "../Title/Title";
+import {ButtonBase} from "../ButtonBase/ButtonBase";
+import {FiX} from "react-icons/fi";
+import styles from "./Filters.module.scss";
 import classNames from "classnames";
 
 export const Filters = () => {
 
-    const {setFilterRatings, setFiterYears, setSortByRelease, setFilterGenre, setPage, toggleFilters, setSwipedValue, resetFilters} = useActions();
-    const {swipedValue, filters, genres} = useTypedSelector(state => state.filtersReducer)
+    const {
+      setFilterRatings,
+      setFiterYears,
+      setSortByRelease,
+      setFilterGenre,
+      setPage,
+      toggleFilters,
+      resetFilters,
+    } = useActions();
+    const {genres} = useTypedSelector(state => state.filtersReducer);
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
-
-    // локальные состояние для передачи в стор
-    const [rating, setRating] = useState<number[]>([1,10]);
-    const [year, setYear] = useState<number[]>([1960, getCurrentYear()]);
-    const [sort, setSort] = useState<string>(filters.sortByRelease);
-    const [genre, setGenre] = useState<string>(filters.genre)
-
-    //условия и строки
-    const ratingString = `${rating[0]}-${rating[1]}`;
-    const yearString = `${year[0]}-${year[1]}`;
-    const ratings = rating[0] !== rating[1] ? ratingString : rating[0];
-    const years = year[0] !== year[1] ? yearString : year[0];
 
     const handleClose = () => {
         toggleFilters(false)
     }
 
-    const handleApplyFilters = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
+    const {handleSubmit, control, register, reset} = useForm({
+        defaultValues: {
+            sort: '-1',
+            genres: genres[0],
+            rating: [1, 10],
+            year: [1960, getCurrentYear()]
+        }
+    })
+
+    const onSubmit = handleSubmit((data) => {
+        const {sort, rating, year, genres} = data
+        
+        const ratingString = `${rating[0]}-${rating[1]}`;
+        const yearString = `${year[0]}-${year[1]}`;
+        const ratings = rating[0] !== rating[1] ? ratingString : rating[0];
+        const years = year[0] !== year[1] ? yearString : year[0];
+        const genre = genres.value
+
         setPage(1)
         setFilterRatings(ratings)
         setFiterYears(years)
         setSortByRelease(sort)
         setFilterGenre(genre)
         handleClose()
-    }
-
-    const handlers = useSwipeable({
-        onSwiping: e => setSwipedValue(e.deltaY),
-        onSwipedUp: () => setSwipedValue(0),
-        onSwipedDown: () => handleClose(),
-        trackMouse: false,
     });
 
-    useEffect(() => {
+    const handleReset = () => {
         resetFilters()
+        reset()
+    }
+
+    useEffect(() => {
+        handleReset()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <form
             action="#"
-            onSubmit={handleApplyFilters}
+            onSubmit={onSubmit}
             noValidate
-            onClick={handleClose}
             className={classNames(styles.filters, openedFilters && styles.opened)}
         >
-            <div style={{transform: `translateY(${swipedValue}px)`}} onClick={e => e.stopPropagation()} className={styles.content}>
-                <div {...handlers} onClick={handleClose} className={styles.top}></div>
-                <div className={styles.container}>
+                <div className={styles.top}>
+                    <Button
+                        type="button"
+                        onClick={handleReset}
+                        variant="sm"
+                    >
+                        Сбросить
+                    </Button>
+                    <Title variant='h3' className={styles.title}>Фильтры</Title>
+                    <ButtonBase
+                        className={styles.close}
+                        onClick={handleClose}
+                    >
+                        <FiX />
+                    </ButtonBase>
+                </div>
+                <div className={styles.content}>
                     <Filter name="Рейтинг">
-                        <Slider
-                            min={1}
-                            max={10}
-                            values={rating}
-                            onChange={setRating}
-                            step={1}
+                        <Controller
+                            name="rating"
+                            control={control}
+                            render={({ field: { value, onChange } }) => {
+                                return (
+                                    <Slider
+                                        min={1}
+                                        max={10}
+                                        values={value}
+                                        onChange={onChange}
+                                        step={1}
+                                    />
+                                );
+                            }}
                         />
                     </Filter>
                     <Filter name="Года производства">
-                        <Slider
-                            min={1887}
-                            max={getCurrentYear()}
-                            values={year}
-                            onChange={setYear}
+                        <Controller
+                            name="year"
+                            control={control}
+                            render={({ field: { value, onChange } }) => {
+                                return (
+                                    <Slider
+                                        min={1887}
+                                        max={getCurrentYear()}
+                                        values={value}
+                                        onChange={onChange}
+                                    />
+                                );
+                            }}
                         />
                     </Filter>
                     <Filter name="Жанры">
-                        <Select options={genres} handleSelect={setGenre} />
+                        <Controller
+                            name="genres"
+                            control={control}
+                            render={({ field: { value, onChange } }) => {
+                                return (
+                                    <Select
+                                        value={value}
+                                        onChange={onChange}
+                                        name="genres"
+                                        options={genres}
+                                    />
+                                );
+                            }}
+                        />
                     </Filter>
                     <Filter name="Год выхода">
                         <div className={styles.radios}>
@@ -93,31 +147,21 @@ export const Filters = () => {
                                 className={styles.radio}
                                 label='Сначала новые'
                                 value='-1'
-                                sort={sort}
-                                changeHandler={setSort}
+                                {...register('sort')}
                             />
                             <Radio
                                 className={styles.radio}
                                 label='Сначала старые'
                                 value='1'
-                                sort={sort}
-                                changeHandler={setSort}
+                                {...register('sort')}
                             />
                         </div>
                     </Filter>
-                    <Device desktop>
-                        <div className={styles.btns}>
-                            <Button className={styles.btn}>Применить</Button>
-                        </div>
-                    </Device>
-                    <Device mobile>
-                        <div className={styles.btns}>
-                            <Button className={styles.btn}>Применить</Button>
-                            <Button type='button' className={styles.btn} onClick={handleClose} variant='stroke'>Закрыть</Button>
-                        </div>
-                    </Device>
                 </div>
-            </div>
+                <div className={styles.btns}>
+                    <Button className={styles.btn}>Применить</Button>
+                    <Button type="button" className={classNames(styles.btn, styles.reset)} onClick={handleReset} variant="stroke">Сбросить</Button>
+                </div>
         </form>
     )
 }

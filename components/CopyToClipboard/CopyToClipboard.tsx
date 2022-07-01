@@ -2,6 +2,7 @@ import {ButtonHTMLAttributes, FC} from 'react';
 import {useCopyToClipboard} from 'usehooks-ts'
 import {useRouter} from 'next/router';
 import {Button} from '../Button/Button';
+
 interface CopyToClipboardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
 }

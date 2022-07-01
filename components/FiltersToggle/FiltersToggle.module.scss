@@ -4,13 +4,13 @@
     align-items: center;
     justify-content: center;
     z-index: 50;
-    bottom: 30px;
-    right: 30px;
-    width: 80px;
-    height: 80px;
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
     background-color: var(--color-primary);
     border-radius: 100%;
-    font-size: 30px;
+    font-size: 27px;
     color: var(--color-white);
     transition: background-color 0.3s;
 
@@ -19,8 +19,6 @@
     }
 
     @media (max-width: 576px) {
-        right: 20px;
-        bottom: 20px;
         width: 60px;
         height: 60px;
         font-size: 22px;
