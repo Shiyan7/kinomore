@@ -1,10 +1,10 @@
-import { FC, Fragment } from "react"
-import {Tab as ReactTab, TabList as ReactTabList, TabPanel as ReactTabPanel, Tabs as ReactTabs} from "react-tabs"
+import {FC, Fragment, ReactNode} from "react"
+import {Tab, TabList, TabPanel, Tabs as ReactTabs} from "react-tabs"
 
 type TabItem = {
     txt: string;
-    condition: any;
-    content: any
+    condition: unknown;
+    content: ReactNode;
 }
 
 interface TabsProps {
@@ -14,17 +14,17 @@ interface TabsProps {
 export const Tabs: FC<TabsProps> = ({tabs}) => {
     return (
         <ReactTabs>
-            <ReactTabList>
+            <TabList>
                 {tabs.map((el) => (
                     <Fragment key={el.txt}>
-                    {el.condition ? <ReactTab>{el.txt}</ReactTab> : null}
+                        {el.condition ? <Tab>{el.txt}</Tab> : null}
                     </Fragment>
                 ))}
-            </ReactTabList>
+            </TabList>
             {tabs.map((el) => (
                 <Fragment key={el.txt}>
                     {el.condition ? (
-                    <ReactTabPanel key={el.txt}>{el.content}</ReactTabPanel>
+                        <TabPanel key={el.txt}>{el.content}</TabPanel>
                     ) : null}
                 </Fragment>
             ))}

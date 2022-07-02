@@ -1,10 +1,10 @@
-import {FC} from "react";
+import {FC, ReactNode} from "react";
 import styles from './Info.module.scss'
 
 type InfoItem = {
     caption: string;
-    value: any;
-    condition: any;
+    condition: unknown;
+    value: ReactNode;
 }
 
 interface InfoProps {
