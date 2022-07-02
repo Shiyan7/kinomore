@@ -22,9 +22,9 @@ export const Filter: FC<PropsWithChildren<FilterProps>> = ({name, children}) => 
                 aria-label={open ? 'Закрыть фильтр' : 'Открыть фильтр'}
                 aria-expanded={open}
                 onClick={handleOpen}
+                endIcon={<FiChevronDown />}
             >
                 {name}
-                <FiChevronDown />
             </ButtonBase>
             <div className={styles.filterContent} aria-hidden={open}>
                 {children}

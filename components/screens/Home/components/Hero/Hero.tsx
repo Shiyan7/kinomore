@@ -33,7 +33,7 @@ export const Hero = () => {
         <div className={styles.content}>
         <Title variant='h2' className={styles.title}>Доктор Стрэндж: В&nbsp;мультивселенной безумия</Title>
         <p className={styles.desc}>Продолжение магических приключений Доктора Стрэнджа в новых мистических мирах и в противостоянии с новыми врагами.</p>
-        <Button onClick={() => push('/film/1219909')} startIcon={<FiArrowRight />}>
+        <Button onClick={() => push('/film/1219909')} endIcon={<FiArrowRight />}>
           Подробнее
         </Button>
         </div>
