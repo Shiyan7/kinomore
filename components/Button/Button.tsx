@@ -1,4 +1,4 @@
-import {ButtonHTMLAttributes, memo, PropsWithChildren} from 'react';
+import {ButtonHTMLAttributes, memo, PropsWithChildren, ReactNode} from 'react';
 import {ButtonBase} from '../ButtonBase/ButtonBase';
 import classNames from 'classnames';
 import styles from './Button.module.scss'
@@ -6,14 +6,18 @@ import styles from './Button.module.scss'
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'stroke' | 'regular' | 'sm';
     className?: string;
+    startIcon?: ReactNode;
+    endIcon?: ReactNode;
     animationDuration?: number;
 }
 
-export const Button = memo<PropsWithChildren<ButtonProps>>(({children, variant, className, animationDuration, ...props}) => {
+export const Button = memo<PropsWithChildren<ButtonProps>>(({children, variant, startIcon = null, endIcon = null, className, animationDuration, ...props}) => {
 
     return (
         <ButtonBase
             ripple
+            startIcon={startIcon}
+            endIcon={endIcon}
             animationDuration={animationDuration}
             className={classNames(
                 styles.btn,

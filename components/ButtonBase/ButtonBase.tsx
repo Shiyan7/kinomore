@@ -1,4 +1,4 @@
-import {ButtonHTMLAttributes, useRef} from 'react'
+import {ButtonHTMLAttributes, ReactNode, useRef} from 'react'
 import {forwardRef} from 'react';
 import {useRipple} from 'react-use-ripple';
 import classNames from 'classnames';
@@ -6,10 +6,12 @@ import styles from './ButtonBase.module.scss'
 
 interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     ripple?: boolean;
+    startIcon?: ReactNode;
+    endIcon?: ReactNode;
     animationDuration?: number;
 }
 
-export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(({className, ripple = false, animationDuration = 500,  children, ...props},  ref) => {
+export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(({className, startIcon = null, endIcon = null, ripple = false, animationDuration = 500,  children, ...props},  ref) => {
 
     const buttonRef = useRef<HTMLButtonElement>(null);
     const commonRef = ref || buttonRef
@@ -22,7 +24,9 @@ export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(({class
             ref={commonRef}
             {...props}
         >
+            {startIcon && <span className={styles.startIcon}>{startIcon}</span>}
             {children}
+            {endIcon && <span className={styles.endIcon}>{endIcon}</span>}
         </button>
     )
 })

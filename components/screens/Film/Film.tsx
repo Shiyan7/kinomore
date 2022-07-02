@@ -21,16 +21,16 @@ import styles from './Film.module.scss'
 import classNames from "classnames"
 
 export const Film = () => {
-    const {push, query: { id }} = useRouter();
+    const {push, query: {id}} = useRouter();
     const {data, isLoading, isError} = useGetFilmByIdQuery(id)
     const {
-		alternativeName,
-		name,
-		type,
-		shortDescription,
-		year,
-		rating,
-		similarMovies,
+        alternativeName,
+        name,
+        type,
+        shortDescription,
+        year,
+        rating,
+        similarMovies,
         ageRating,
         fees,
         genres,
@@ -39,11 +39,11 @@ export const Film = () => {
         movieLength,
         countries,
         premiere,
-		description,
-		facts,
-		persons
-    } = { ...data };
-    
+        description,
+        facts,
+        persons
+    } = {...data};
+
     const worldFees = fees?.world?.value - fees?.usa?.value;
 
     const items = [
@@ -59,54 +59,65 @@ export const Film = () => {
     ]
 
     const roles = persons?.filter(el => {
-      if (el.enProfession === 'actor' && el.name?.length) {
-        return el;
-      }
+        if (el.enProfession === 'actor' && el.name?.length) {
+            return el;
+        }
     });
 
     const tabs = [
-      {txt: 'Описание', content: <p className={styles.desc}>{description}</p>, condition: description?.length},
-      {txt: 'Актёры', content: <MainRoles roles={roles} />, condition: roles?.length},
-      {txt: 'Факты', content: <Facts facts={facts} />, condition: facts?.length},
+        {txt: 'Описание', content: <p className={styles.desc}>{description}</p>, condition: description?.length},
+        {txt: 'Актёры', content: <MainRoles roles={roles}/>, condition: roles?.length},
+        {txt: 'Факты', content: <Facts facts={facts}/>, condition: facts?.length},
     ]
 
-	const { favourites } = useFavourites();
+    const {favourites} = useFavourites();
     const isFavourite = favourites.includes(Number(id))
-	const movieTitle = name ? name : isLoading ? 'Загрузка' : 'Без названия'
-	const movieYear = year && `(${year})`
+    const movieTitle = name ? name : isLoading ? 'Загрузка' : 'Без названия'
+    const movieYear = year && `(${year})`
 
     return (
-      <section className={styles.section}>
-        <div className={classNames('container wrapper', styles.container)}>
-        	<div className={styles.top}>
-				<BackBtn />
-			</div>
-			<div className={styles.content}>
-				<div className={styles.left}>
-					<img className={styles.image} src={data?.poster?.url} alt={shortDescription} />
-					<MovieRating rating={rating} />
-				</div>
-				<div className={styles.right}>
-					<Title className={styles.title} variant="h1">
-						{movieTitle} {movieYear}
-					</Title>
-					<span className={styles.originalTitle}>{alternativeName}</span>
-					<div className={styles.btns}>
-						<Button onClick={() => push(`/room/${data?.id}`)} className={styles.btn} variant="regular" disabled={isError}>
-							<FiPlay />
-							Смотреть
-						</Button>
-						<MovieFavorite isFavourite={isFavourite} className={styles.btn} variant="regular" id={data?.id} disabled={isError} />
-					</div>
-					<Title variant="h2" className={styles.subtitle}>
-						О {convertType(type)}е
-					</Title>
-					<Info items={items} />
-				</div>
-			</div>
-			<Tabs tabs={tabs} />
-			{similarMovies?.length ? <SimilarMovies movies={similarMovies} /> : null}
-        </div>
-      </section>
+        <section className={styles.section}>
+            <div className={classNames('container wrapper', styles.container)}>
+                <div className={styles.top}>
+                    <BackBtn/>
+                </div>
+                <div className={styles.content}>
+                    <div className={styles.left}>
+                        <img className={styles.image} src={data?.poster?.url} alt={shortDescription}/>
+                        <MovieRating rating={rating}/>
+                    </div>
+                    <div className={styles.right}>
+                        <Title className={styles.title} variant="h1">
+                            {movieTitle} {movieYear}
+                        </Title>
+                        <span className={styles.originalTitle}>{alternativeName}</span>
+                        <div className={styles.btns}>
+                            <Button
+                                onClick={() => push(`/room/${data?.id}`)}
+                                className={styles.btn}
+                                variant="regular"
+                                disabled={isError}
+                                startIcon={<FiPlay/>}
+                            >
+                                Смотреть
+                            </Button>
+                            <MovieFavorite
+                                isFavourite={isFavourite}
+                                className={styles.btn}
+                                variant="regular"
+                                id={data?.id}
+                                disabled={isError}
+                            />
+                        </div>
+                        <Title variant="h2" className={styles.subtitle}>
+                            О {convertType(type)}е
+                        </Title>
+                        <Info items={items}/>
+                    </div>
+                </div>
+                <Tabs tabs={tabs}/>
+                {similarMovies?.length ? <SimilarMovies movies={similarMovies}/> : null}
+            </div>
+        </section>
     );
 }

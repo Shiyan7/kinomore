@@ -17,13 +17,13 @@ import classNames from "classnames";
 export const Filters = () => {
 
     const {
-      setFilterRatings,
-      setFiterYears,
-      setSortByRelease,
-      setFilterGenre,
-      setPage,
-      toggleFilters,
-      resetFilters,
+        setFilterRatings,
+        setFiterYears,
+        setSortByRelease,
+        setFilterGenre,
+        setPage,
+        toggleFilters,
+        resetFilters
     } = useActions();
     const {genres} = useTypedSelector(state => state.filtersReducer);
     const {openedFilters} = useTypedSelector(state => state.toggleReducer);
@@ -85,6 +85,7 @@ export const Filters = () => {
                     </Button>
                     <Title variant='h3' className={styles.title}>Фильтры</Title>
                     <ButtonBase
+                        type="button"
                         className={styles.close}
                         onClick={handleClose}
                     >

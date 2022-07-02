@@ -14,27 +14,22 @@
     
     svg {
         display: block;
-        margin-right: 5px;
         width: 20px;
         height: 20px;
         stroke: currentColor;
         transition: transform 0.3s;
     }
+
+    span {
+        margin-right: 5px;
+    }
 }
 
 .icon {
     margin-right: 15px;
-    font-size: 0;
-    line-height: 0;
     width: 25px;
     flex-shrink: 0;
     height: 25px;
-
-    &:hover {
-        svg {
-            transform: none;
-        }
-    }
 
     svg {
         width: 100%;

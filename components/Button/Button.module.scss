@@ -22,12 +22,7 @@
     svg {
         width: 16px;
         height: 16px;
-        margin-left: 10px;
         transition: transform 0.3s;
-
-        @media (max-width: 576px) {
-            margin-left: 6px;
-        }
     }
 
     @media (max-width: 576px) {
@@ -44,7 +39,6 @@
         }
     }
 }
-
 
 
 .stroke {
@@ -87,8 +81,6 @@
     svg {
         width: 14px;
         height: 14px;
-        margin-left: 0;
-        margin-right: 10px;
         stroke: currentColor;
         fill: currentColor;
     }

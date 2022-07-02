@@ -70,6 +70,10 @@
         font-size: 0;
         min-width: auto;
         min-height: auto;
+
+        span {
+            margin-right: 0;
+        }
     }
 
     @media (min-width: 577px) {
@@ -81,13 +85,8 @@
     svg {
         width: 14px;
         height: 14px;
-        margin-right: 7px;
         stroke: currentColor;
         fill: currentColor;
-
-        @media (max-width: 576px) {
-            margin-right: 0;
-        }
     }
 }
 
@@ -133,7 +132,6 @@
     svg {
         width: 14px;
         height: 14px;
-        margin-right: 10px;
         stroke: currentColor;
         fill: currentColor;
     }

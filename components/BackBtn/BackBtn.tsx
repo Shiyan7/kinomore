@@ -23,10 +23,10 @@ export const BackBtn = memo<BackBtnProps>(({className, variant, ...props}) => {
                 className
             )}
             onClick={handleBack}
+            startIcon={variant === 'icon' ? null : <FiChevronLeft />}
             {...props}
         >
-            <FiChevronLeft/>
-            Назад
+            {variant === 'icon' ? <FiChevronLeft /> : 'Назад'}
         </ButtonBase>
     )
 })

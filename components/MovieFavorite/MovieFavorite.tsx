@@ -28,9 +28,9 @@ export const MovieFavorite: FC<MovieFavoriteProps> = ({id, variant = 'text', cla
         variant === "regular" && styles.regular,
         className
       )}
+      startIcon={isFavourite ? <FiCheck /> : <FiBookmark />}
       disabled={disabled}
     >
-      {isFavourite ? <FiCheck /> : <FiBookmark />}
       Буду смотреть
     </ButtonBase>
   );
