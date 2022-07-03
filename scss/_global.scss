@@ -36,22 +36,6 @@ a {
     padding: 0;
 }
 
-.input-reset {
-    -webkit-appearance: none;
-    appearance: none;
-    border: none;
-    border-radius: 0;
-    outline: none;
-    background-color: var(--color-white);
-
-    &::-webkit-search-decoration,
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-results-button,
-    &::-webkit-search-results-decoration {
-        display: none;
-    }
-}
-
 .visually-hidden {
     position: absolute;
     overflow: hidden;

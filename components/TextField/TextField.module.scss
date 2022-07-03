@@ -1,4 +1,8 @@
 .textField {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    background-color: var(--color-white);
     border: 1px solid rgba(#000, .2);
     border-radius: 5px;
     padding: 0 15px;
@@ -6,6 +10,13 @@
     font-size: 14px;
     line-height: 17px;
     color: var(--color-text);
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+        display: none;
+    }
 
     &::placeholder {
         color: #a5a5ad;
@@ -15,7 +26,7 @@
 
 .dark {
     padding: 0 10px;
-    background-color: rgba(#000, 0.4);
+    background-color: var(--color-light-dark);
     height: 40px;
     border: none;
     color: var(--color-white);

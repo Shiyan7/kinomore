@@ -3,7 +3,7 @@ import {Tab, TabList, TabPanel, Tabs as ReactTabs} from "react-tabs"
 
 type TabItem = {
     txt: string;
-    condition: unknown;
+    condition?: unknown;
     content: ReactNode;
 }
 

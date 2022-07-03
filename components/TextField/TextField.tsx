@@ -18,7 +18,6 @@ export const TextField: FC<TextFieldProps> = ({className, value, variant, label,
           <span className={styles.caption}>{label}</span>
           <input
             className={classNames(
-              "input-reset",
               styles.textField,
               variant === "dark" && styles.dark,
             )}
@@ -30,7 +29,6 @@ export const TextField: FC<TextFieldProps> = ({className, value, variant, label,
       ) : (
         <input
           className={classNames(
-            "input-reset",
             styles.textField,
             variant === "dark" && styles.dark,
             className

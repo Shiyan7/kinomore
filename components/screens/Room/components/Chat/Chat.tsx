@@ -14,8 +14,6 @@ export const Chat = () => {
     setMessage(e.target.value)
   }
 
-  
-
   const sendMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 

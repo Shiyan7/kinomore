@@ -11,7 +11,7 @@ type SelectValue = {
 interface SelectProps {
   options: SelectValue[];
   onChange: (e: unknown) => void;
-  value: SelectValue;
+  value: SelectValue | unknown;
   name: string;
 }
 

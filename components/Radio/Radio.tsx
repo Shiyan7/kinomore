@@ -13,7 +13,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(({className, label
         <label className={classNames(styles.radio, className)}>
             <input
                 ref={ref}
-                className={classNames('input-reset', styles.input)}
+                className={styles.input}
                 type="radio"
                 {...props}
             />

@@ -21,6 +21,7 @@
       "@/components/*": ["components/*"],
       "@/services/*": ["services/*"],
       "@/store/*": ["store/*"],
+      "@/scss/*": ["scss/*"],
       "@/constants/*": ["constants/*"],
       "@/hooks/*": ["hooks/*"],
     }
