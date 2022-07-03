@@ -66,7 +66,7 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 					className={styles.input}
 					value={values[1]}
 					onChange={(e: ChangeEvent<HTMLInputElement>) => {
-						const sanitizedValue = sanitizeValues(parseInt(e?.target.value));
+						const sanitizedValue = sanitizeValues(parseInt(e?.target.value || String(max)));
 						onChange([values[0], sanitizedValue]);
 					}}
 				/>
