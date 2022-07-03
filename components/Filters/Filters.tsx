@@ -13,6 +13,9 @@ import {ButtonBase} from "../ButtonBase/ButtonBase";
 import {FiX} from "react-icons/fi";
 import styles from "./Filters.module.scss";
 import classNames from "classnames";
+import { Chip } from "../Chip/Chip";
+import { FiltersChoices } from "./components/FiltersChoices/FiltersChoices";
+import { Device } from "../Device/Device";
 
 export const Filters = () => {
 
@@ -40,6 +43,7 @@ export const Filters = () => {
             year: [1960, getCurrentYear()]
         }
     })
+    
 
     const onSubmit = handleSubmit((data) => {
         const {sort, rating, year, genres} = data
@@ -92,76 +96,84 @@ export const Filters = () => {
                         <FiX />
                     </ButtonBase>
                 </div>
-                <div className={styles.content}>
-                    <Filter name="Рейтинг">
-                        <Controller
-                            name="rating"
-                            control={control}
-                            render={({ field: { value, onChange } }) => {
-                                return (
-                                    <Slider
-                                        min={1}
-                                        max={10}
-                                        values={value}
-                                        onChange={onChange}
-                                        step={1}
-                                    />
-                                );
-                            }}
-                        />
-                    </Filter>
-                    <Filter name="Года производства">
-                        <Controller
-                            name="year"
-                            control={control}
-                            render={({ field: { value, onChange } }) => {
-                                return (
-                                    <Slider
-                                        min={1887}
-                                        max={getCurrentYear()}
-                                        values={value}
-                                        onChange={onChange}
-                                    />
-                                );
-                            }}
-                        />
-                    </Filter>
-                    <Filter name="Жанры">
-                        <Controller
-                            name="genres"
-                            control={control}
-                            render={({ field: { value, onChange } }) => {
-                                return (
-                                    <Select
-                                        value={value}
-                                        onChange={onChange}
-                                        name="genres"
-                                        options={genres}
-                                    />
-                                );
-                            }}
-                        />
-                    </Filter>
-                    <Filter name="Год выхода">
-                        <div className={styles.radios}>
-                            <Radio
-                                className={styles.radio}
-                                label='Сначала новые'
-                                value='-1'
-                                {...register('sort')}
+                <div className={styles.container}>
+                    <FiltersChoices choices={control._formValues} />
+                    <div className={styles.content}>
+                        <Filter name="Рейтинг">
+                            <Controller
+                                name="rating"
+                                control={control}
+                                render={({ field: { value, onChange } }) => {
+                                    return (
+                                        <Slider
+                                            min={1}
+                                            max={10}
+                                            values={value}
+                                            onChange={onChange}
+                                            step={1}
+                                        />
+                                    );
+                                }}
                             />
-                            <Radio
-                                className={styles.radio}
-                                label='Сначала старые'
-                                value='1'
-                                {...register('sort')}
+                        </Filter>
+                        <Filter name="Года производства">
+                            <Controller
+                                name="year"
+                                control={control}
+                                render={({ field: { value, onChange } }) => {
+                                    return (
+                                        <Slider
+                                            min={1887}
+                                            max={getCurrentYear()}
+                                            values={value}
+                                            onChange={onChange}
+                                        />
+                                    );
+                                }}
                             />
-                        </div>
-                    </Filter>
+                        </Filter>
+                        <Filter name="Жанры">
+                            <Controller
+                                name="genres"
+                                control={control}
+                                render={({ field: { value, onChange } }) => {
+                                    return (
+                                        <Select
+                                            value={value}
+                                            onChange={onChange}
+                                            name="genres"
+                                            options={genres}
+                                        />
+                                    );
+                                }}
+                            />
+                        </Filter>
+                        <Filter name="Год выхода">
+                            <div className={styles.radios}>
+                                <Radio
+                                    className={styles.radio}
+                                    label='Сначала новые'
+                                    value='-1'
+                                    {...register('sort')}
+                                />
+                                <Radio
+                                    className={styles.radio}
+                                    label='Сначала старые'
+                                    value='1'
+                                    {...register('sort')}
+                                />
+                            </div>
+                        </Filter>
+                    </div>
                 </div>
                 <div className={styles.btns}>
                     <Button className={styles.btn}>Применить</Button>
-                    <Button type="button" className={classNames(styles.btn, styles.reset)} onClick={handleReset} variant="stroke">Сбросить</Button>
+                    <Device desktop>
+                        <Button type="button" className={styles.btn} onClick={handleReset} variant="stroke">Сбросить</Button>
+                    </Device>
+                    <Device mobile>
+                        <Button type="button" className={styles.btn} onClick={handleClose} variant="stroke">Закрыть</Button>
+                    </Device>
                 </div>
         </form>
     )
