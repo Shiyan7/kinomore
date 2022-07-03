@@ -1,12 +1,17 @@
 .pagination {
   position: relative;
   --border: 1px solid #d3d3d3;
-  height: 50px;
+  --size: 50px;
+  height: var(--size);
   display: inline-flex;
   align-items: center;
   border-radius: 5px;
   overflow: hidden;
   justify-content: space-between;
+
+  @media (max-width: 576px) {
+    --size: 43px;
+  }
 
   &:before {
     content: "";
@@ -26,7 +31,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 50px;
+  width: var(--size);
   height: 100%;
   color: var(--color-dark);
   transition: background-color 0.3s, color 0.3s, border 0.3s;
@@ -36,10 +41,12 @@
     pointer-events: none;
   }
 
-  &:hover {
-    color: var(--color-white);
-    border-color: transparent;
-    background-color: var(--color-primary);
+  &:not([disabled]) {
+    &:hover {
+      color: var(--color-white);
+      border-color: transparent;
+      background-color: var(--color-primary);
+    }
   }
 }
 

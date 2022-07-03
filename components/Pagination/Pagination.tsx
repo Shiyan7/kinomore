@@ -5,16 +5,16 @@ import styles from './Pagination.module.scss';
 import classNames from 'classnames';
 
 interface PaginationProps {
-  pages: number;
-  page: number;
-  setPage: (page: number) => void;
-  className?: string;
+	setPage: (page: number | undefined) => void;
+  	pages: number | undefined;
+  	page: number;
+  	className?: string;
 }
 
 export const Pagination = memo<PaginationProps>(({page, setPage, pages, className}) => {
 
-	const isFirstPage = page === 1
-	const isLastPage = page === pages
+	const isFirstPage = page === 1;
+	const isLastPage = page === pages;
 
 	useEffect(() => {
 		scrollTo(0, 0)

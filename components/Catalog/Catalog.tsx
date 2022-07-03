@@ -73,20 +73,18 @@ namespace Catalog {
     const {page} = useTypedSelector(state => state.paginationReducer)
     const {setPage} = useActions()
 
+    const CatalogContent = (
+      <>
+        <Catalog.Grid data={data} />
+        <Pagination page={page} setPage={setPage} pages={data?.pages} />
+      </>
+    )
+
     return (
       <>
-        {isLoading || isFetching ? (
-          <Loader />
-        ) : (
+        {isLoading || isFetching ? <Loader /> : (
           <div className={styles.content}>
-            {!data?.docs?.length ? (
-              <Subtitle>Ничего не найдено!</Subtitle>
-            ) : (
-              <>
-                <Catalog.Grid data={data} />
-                <Pagination page={page} setPage={setPage} pages={data?.pages} />
-              </>
-            )}
+            {!data?.docs?.length ? <Subtitle>Ничего не найдено!</Subtitle> : CatalogContent}
           </div>
         )}
       </>
