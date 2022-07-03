@@ -5,7 +5,7 @@ import styles from './Pagination.module.scss';
 import classNames from 'classnames';
 
 interface PaginationProps {
-	setPage: (page: number | undefined) => void;
+	setPage: (page: number) => void;
   	pages: number | undefined;
   	page: number;
   	className?: string;
@@ -48,7 +48,7 @@ export const Pagination = memo<PaginationProps>(({page, setPage, pages, classNam
 			</ButtonBase>
 			<ButtonBase
 				disabled={isLastPage}
-				onClick={() => setPage(pages)}
+				onClick={() => setPage(Number(pages))}
 				className={classNames(styles.btn, styles.right)}
 			>
 				<FiChevronsRight />
