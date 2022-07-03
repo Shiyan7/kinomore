@@ -92,7 +92,7 @@
 
         @media (max-width: 1024px) {
             margin-top: 0;
-            margin-left: 15px;
+            margin-left: var(--offset);
         }
     }
 

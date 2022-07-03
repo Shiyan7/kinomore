@@ -21,39 +21,43 @@ export const Pagination = memo<PaginationProps>(({page, setPage, pages, classNam
 	}, [page])
 
 	return (
-		<div className={classNames(styles.pagination, className)}>
-			<ButtonBase
-				onClick={() => setPage(1)}
-				className={classNames(styles.btn, styles.left)}
-				disabled={isFirstPage}
-			>
-				<FiChevronsLeft />
-			</ButtonBase>
-			<ButtonBase
-				onClick={() => setPage(page - 1)}
-				className={styles.btn}
-				disabled={isFirstPage}
-			>
-				<FiChevronLeft />
-			</ButtonBase>
-			<span className={styles.value}>
-				{page} / {pages}
-			</span>
-			<ButtonBase
-				disabled={isLastPage}
-				onClick={() => setPage(page + 1)}
-				className={styles.btn}
-			>
-				<FiChevronRight />
-			</ButtonBase>
-			<ButtonBase
-				disabled={isLastPage}
-				onClick={() => setPage(Number(pages))}
-				className={classNames(styles.btn, styles.right)}
-			>
-				<FiChevronsRight />
-			</ButtonBase>
-		</div>
+		<>
+			{pages !== 1 && (
+				<div className={classNames(styles.pagination, className)}>
+					<ButtonBase
+						onClick={() => setPage(1)}
+						className={classNames(styles.btn, styles.left)}
+						disabled={isFirstPage}
+					>
+						<FiChevronsLeft />
+					</ButtonBase>
+					<ButtonBase
+						onClick={() => setPage(page - 1)}
+						className={styles.btn}
+						disabled={isFirstPage}
+					>
+						<FiChevronLeft />
+					</ButtonBase>
+					<span className={styles.value}>
+						{page} / {pages}
+					</span>
+					<ButtonBase
+						disabled={isLastPage}
+						onClick={() => setPage(page + 1)}
+						className={styles.btn}
+					>
+						<FiChevronRight />
+					</ButtonBase>
+					<ButtonBase
+						disabled={isLastPage}
+						onClick={() => setPage(Number(pages))}
+						className={classNames(styles.btn, styles.right)}
+					>
+						<FiChevronsRight />
+					</ButtonBase>
+				</div>
+			)}
+		</>
 	);
 })
 
