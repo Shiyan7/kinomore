@@ -70,13 +70,14 @@
     margin-top: 35px;
 
     @media (max-width: 1024px) {
-        --offset: 15px;
+        --offset: 20px;
         align-items: flex-end;
         flex-direction: row;
         margin: 0 auto;
         max-width: 500px;
         width: 100%;
         padding: var(--offset);
+        padding-top: 0;
         background-color: #fff;
     }
 }
@@ -91,7 +92,7 @@
 
         @media (max-width: 1024px) {
             margin-top: 0;
-            margin-left: var(--offset);
+            margin-left: 15px;
         }
     }
 
@@ -100,7 +101,7 @@
     }
 
     @media (max-width: 576px) {
-        min-height: 50px;
+        min-height: 45px;
     }
 }
 

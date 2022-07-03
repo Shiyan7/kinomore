@@ -128,10 +128,6 @@
 .grid {
     &:not(:last-child) {
         margin-bottom: 50px;
-
-        @media (max-width: 576px) {
-            margin-bottom: 35px;
-        }
     }
 
     @media (max-width: 1024px) {
