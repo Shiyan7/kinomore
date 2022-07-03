@@ -8,6 +8,8 @@ import {Title} from '@/components/Title/Title';
 import {IData} from '@/types/IData';
 import classNames from 'classnames';
 import styles from './Catalog.module.scss'
+import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { useActions } from '@/hooks/useActions';
 
 interface ContentProps {
   data: IData | undefined;
@@ -67,6 +69,9 @@ namespace Catalog {
   }
 
   export const Content = ({data, isLoading, isFetching}: ContentProps) => {
+    
+    const {page} = useTypedSelector(state => state.paginationReducer)
+    const {setPage} = useActions()
 
     return (
       <>
@@ -79,7 +84,7 @@ namespace Catalog {
             ) : (
               <>
                 <Catalog.Grid data={data} />
-                <Pagination pages={data?.pages} />
+                <Pagination page={page} setPage={setPage} pages={data?.pages} />
               </>
             )}
           </div>

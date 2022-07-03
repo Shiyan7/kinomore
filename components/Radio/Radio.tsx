@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes, memo } from 'react'
+import {forwardRef, InputHTMLAttributes} from 'react'
 import classNames from 'classnames'
 import styles from './Radio.module.scss'
 

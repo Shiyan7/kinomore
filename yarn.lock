@@ -10851,7 +10851,7 @@ prompts@^2.0.1, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.0.0, prop-types@^15.5.0, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.0.0, prop-types@^15.5.0, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -11092,13 +11092,6 @@ react-merge-refs@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
   integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
-
-react-paginate@^8.1.3:
-  version "8.1.3"
-  resolved "https://registry.yarnpkg.com/react-paginate/-/react-paginate-8.1.3.tgz#cd6f3cb8a56b47617a61a6a52e3d7c662ad9b91b"
-  integrity sha512-zBp80DBRcaeBnAeHUfbGKD0XHfbGNUolQ+S60Ymfs8o7rusYaJYZMAt1j93ADDNLlzRmJ0tMF/NeTlcdKf7dlQ==
-  dependencies:
-    prop-types "^15.6.1"
 
 react-range@^1.8.13:
   version "1.8.13"
