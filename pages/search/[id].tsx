@@ -1,6 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { SearchResults } from '@/components/screens/SearchResults/SearchResults';
-import { getFilmByName } from '@/services/KinopoiskService';
+import { getFilmByName } from '@/services/KinomoreService';
 import { initStore } from '@/store/store';
 import { Header } from '@/components/Header/Header';
 import { Footer } from '@/components/Footer/Footer';
@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async (params) => {
     const {filters} = state.filtersReducer
     const {page} = state.paginationReducer
     
-    await store.dispatch(getFilmByName.initiate({search: id, page: page, filters}))
+    await store.dispatch(getFilmByName.initiate({id, page, filters}))
   
     return { props: { initialReduxState: store.getState()}
 }}

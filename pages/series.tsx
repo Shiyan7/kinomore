@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import { getSeries } from "@/services/KinopoiskService";
+import { getSeries } from "@/services/KinomoreService";
 import { initStore } from "@/store/store";
 import { Series } from "@/components/screens/Series/Series";
 import { Header } from "@/components/Header/Header";
@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const { filters } = state.filtersReducer;
   const { page } = state.paginationReducer;
 
-  await store.dispatch(getSeries.initiate({ page: page, filters }));
+  await store.dispatch(getSeries.initiate({ page, filters }));
 
   return { props: { initialReduxState: store.getState() } };
 }

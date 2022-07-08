@@ -5,39 +5,29 @@ import styles from './TextField.module.scss'
 export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     label?: string;
     className?: string;
-    variant?: 'dark';
+    error?: boolean;
+    variant?: 'dark' | 'small';
+    errorMessage?: string;
     value?: string | number;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const TextField: FC<TextFieldProps> = ({className, value, variant, label, onChange, ...props}) => {
+export const TextField: FC<TextFieldProps> = ({className, value, error = false, errorMessage, variant, label, onChange, ...props}) => {
   return (
-    <>
-      {label ? (
-        <label className={classNames(styles.label, className)}>
-          <span className={styles.caption}>{label}</span>
-          <input
-            className={classNames(
-              styles.textField,
-              variant === "dark" && styles.dark,
-            )}
-            value={value}
-            onChange={onChange}
-            {...props}
-          />
-        </label>
-      ) : (
-        <input
-          className={classNames(
-            styles.textField,
-            variant === "dark" && styles.dark,
-            className
-          )}
-          value={value}
-          onChange={onChange}
-          {...props}
-        />
-      )}
-    </>
+    <label className={classNames(styles.label, className)}>
+      {label && <span className={styles.caption}>{label}</span>}
+      <input
+        className={classNames(
+          styles.textField,
+          variant === 'dark' && styles.dark,
+          variant === 'small' && styles.small,
+          error === true && styles.error
+        )}
+        value={value}
+        onChange={onChange}
+        {...props}
+      />
+      {errorMessage && <span className={styles.errorMessage}>{errorMessage}</span>}
+    </label>
   );
 }

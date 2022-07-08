@@ -1,5 +1,5 @@
 import {GetServerSideProps, NextPage } from 'next';
-import {getPersonById} from '@/services/KinopoiskService';
+import {getPersonById} from '@/services/KinomoreService';
 import {initStore} from '@/store/store';
 import {Header} from '@/components/Header/Header';
 import {Footer} from '@/components/Footer/Footer';

@@ -1,5 +1,5 @@
 # Kinomore
- Junior Front-end приложение для поиска и просмотра фильмов. Демо: [https://kinomore.vercel.app/](https://kinomore.vercel.app/)
+ Front-end приложение для поиска и просмотра фильмов. Демо: [https://kinomore.vercel.app/](https://kinomore.vercel.app/)
  
 # Стек технологий:
   * React + React Hooks
@@ -9,5 +9,5 @@
   * Jest
   * NextJS
   * PWA
-  * React-hook-form
+  * React-hook-form, Yup
   * Storybook

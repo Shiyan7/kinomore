@@ -27,6 +27,7 @@ export const Search = () => {
         <form onSubmit={submitForm} action="#" className={styles.form}>
             <TextField
                 className={styles.search}
+                variant='dark'
                 type="search"
                 value={value}
                 onChange={handleChange}

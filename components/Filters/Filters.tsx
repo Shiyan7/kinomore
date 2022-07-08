@@ -11,11 +11,10 @@ import {Controller, useForm} from 'react-hook-form';
 import {Title} from "../Title/Title";
 import {ButtonBase} from "../ButtonBase/ButtonBase";
 import {FiX} from "react-icons/fi";
+import {FiltersChoices} from "./components/FiltersChoices/FiltersChoices";
+import {Device} from "../Device/Device";
 import styles from "./Filters.module.scss";
 import classNames from "classnames";
-import { Chip } from "../Chip/Chip";
-import { FiltersChoices } from "./components/FiltersChoices/FiltersChoices";
-import { Device } from "../Device/Device";
 
 export const Filters = () => {
 
@@ -35,7 +34,7 @@ export const Filters = () => {
         toggleFilters(false)
     }
 
-    const {handleSubmit, control, register, reset} = useForm({
+    const {handleSubmit, control, reset} = useForm({
         defaultValues: {
             sort: '-1',
             genres: genres[0],
@@ -52,7 +51,7 @@ export const Filters = () => {
         const yearString = `${year[0]}-${year[1]}`;
         const ratings = rating[0] !== rating[1] ? ratingString : rating[0];
         const years = year[0] !== year[1] ? yearString : year[0];
-        const genre = genres.value
+        const genre = genres.value !== '' ? `search[]=${genres.value}&field[]=genres.name` : ''
 
         setPage(1)
         setFilterRatings(ratings)
@@ -150,17 +149,30 @@ export const Filters = () => {
                         </Filter>
                         <Filter name="Год выхода">
                             <div className={styles.radios}>
-                                <Radio
-                                    className={styles.radio}
-                                    label='Сначала новые'
-                                    value='-1'
-                                    {...register('sort')}
-                                />
-                                <Radio
-                                    className={styles.radio}
-                                    label='Сначала старые'
-                                    value='1'
-                                    {...register('sort')}
+                                <Controller
+                                    name="sort"
+                                    control={control}
+                                    render={({ field: { onChange } }) => {
+                                        return (
+                                            <>
+                                                <Radio
+                                                    className={styles.radio}
+                                                    label='Сначала новые'
+                                                    value='-1'
+                                                    defaultChecked
+                                                    name="sort"
+                                                    onChange={onChange}
+                                                />
+                                                <Radio
+                                                    className={styles.radio}
+                                                    label='Сначала старые'
+                                                    value='1'
+                                                    name="sort"
+                                                    onChange={onChange}
+                                                />
+                                            </>
+                                        );
+                                    }}
                                 />
                             </div>
                         </Filter>

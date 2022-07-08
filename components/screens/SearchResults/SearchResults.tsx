@@ -1,4 +1,4 @@
-import {useGetFilmByNameQuery} from "@/services/KinopoiskService";
+import {useGetFilmByNameQuery} from "@/services/KinomoreService";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {useRouter} from "next/router";
 import {Catalog} from "@/components/Catalog/Catalog";
@@ -11,11 +11,7 @@ export const SearchResults = () => {
   const {query: {id}} = useRouter()
   const {filters} = useTypedSelector(state => state.filtersReducer);
   const {page} = useTypedSelector(state => state.paginationReducer);
-  const {data, isLoading, isFetching} = useGetFilmByNameQuery({
-    search: id,
-    page: page,
-    filters
-  });
+  const {data, isLoading, isFetching} = useGetFilmByNameQuery({id, page, filters});
   
   const {Container, Heading, Description, Body, Content} = Catalog;
 

@@ -1,5 +1,5 @@
 import {Chat} from "./components/Chat/Chat";
-import {useGetFilmByIdQuery} from "@/services/KinopoiskService";
+import {useGetFilmByIdQuery} from "@/services/KinomoreService";
 import {useRouter} from "next/router";
 import {useEffect} from "react";
 import {RoomHeader} from "./components/RoomHeader/RoomHeader";

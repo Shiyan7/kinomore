@@ -1,4 +1,4 @@
-import {useGetFilmsQuery} from "@/services/KinopoiskService";
+import {useGetFilmsQuery} from "@/services/KinomoreService";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {Catalog} from "@/components/Catalog/Catalog";
 import {Filters} from "@/components/Filters/Filters";
@@ -8,7 +8,7 @@ export const Films = () => {
   const {filters} = useTypedSelector(state => state.filtersReducer);
   const {page} = useTypedSelector(state => state.paginationReducer);
   const {data, isLoading, isFetching} = useGetFilmsQuery({
-    page: page,
+    page,
     filters
   });
 

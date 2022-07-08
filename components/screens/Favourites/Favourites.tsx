@@ -1,4 +1,4 @@
-import {useGetFavouritesQuery} from "@/services/KinopoiskService";
+import {useGetFavouritesQuery} from "@/services/KinomoreService";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {Catalog} from "@/components/Catalog/Catalog";
 import {Filters} from "@/components/Filters/Filters";
@@ -11,7 +11,7 @@ export const Favourites = () => {
     const {filters} = useTypedSelector(state => state.filtersReducer);
     const {page} = useTypedSelector(state => state.paginationReducer);
     const {data, isLoading, isFetching} = useGetFavouritesQuery({
-        page: page,
+        page,
         filters,
         query
     });

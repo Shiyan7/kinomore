@@ -50,7 +50,7 @@ export const Chat = () => {
         <form onSubmit={sendMessage} className={styles.form} action="#">
           <TextField
             type='text'
-            variant='dark'
+            variant='small'
             className={styles.input}
             placeholder='Введите сообщение'
             value={message}

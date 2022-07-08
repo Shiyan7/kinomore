@@ -1,5 +1,5 @@
 import { GetServerSideProps, NextPage } from "next";
-import { getFilmById } from "@/services/KinopoiskService";
+import { getFilmById } from "@/services/KinomoreService";
 import { initStore } from "@/store/store";
 import { Room } from "@/components/screens/Room/Room";
 

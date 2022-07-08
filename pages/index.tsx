@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import { Home } from '@/components/screens/Home/Home';
-import { getNewFilms, getNewSeries } from '@/services/KinopoiskService';
+import { getNewFilms, getNewSeries } from '@/services/KinomoreService';
 import { initStore  } from '@/store/store';
 import { Header } from '@/components/Header/Header';
 import { Footer } from '@/components/Footer/Footer';

@@ -1,4 +1,4 @@
-import {useGetSeriesQuery} from "@/services/KinopoiskService";
+import {useGetSeriesQuery} from "@/services/KinomoreService";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {Catalog} from "@/components/Catalog/Catalog";
 import {Filters} from "@/components/Filters/Filters";
@@ -8,7 +8,7 @@ export const Series = () => {
   const {filters} = useTypedSelector(state => state.filtersReducer);
   const {page} = useTypedSelector(state => state.paginationReducer);
   const {data, isLoading, isFetching} = useGetSeriesQuery({
-    page: page,
+    page,
     filters
   });
 

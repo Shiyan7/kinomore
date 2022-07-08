@@ -11,6 +11,14 @@
     line-height: 17px;
     color: var(--color-text);
 
+    &.error {
+        border: 1px solid var(--color-red);
+        box-shadow: 0 0 0 1px var(--color-red);
+        &::placeholder {
+            color: var(--color-red);
+        }
+    }
+
     &::-webkit-search-decoration,
     &::-webkit-search-cancel-button,
     &::-webkit-search-results-button,
@@ -25,11 +33,31 @@
 }
 
 .dark {
-    padding: 0 10px;
-    background-color: var(--color-light-dark);
-    height: 40px;
-    border: none;
+    padding: 0 15px;
+    background-color: #333;
+    font-weight: 300;
     color: var(--color-white);
+    border-color: transparent;
+
+    &::placeholder {
+        color: rgba(#fff, 0.5);
+    }
+
+    &.error {
+        background-color: rgba(#f000, 0.1);
+    }
+}
+
+.small {
+    background-color: var(--color-light-dark);
+    color: var(--color-white);
+    height: 40px;
+    padding: 0 10px;
+    border-color: transparent;
+
+    &.error {
+        background-color: rgba(#f000, 0.1);
+    }
 
     &::placeholder {
         color: rgba(#fff, 0.5);
@@ -46,4 +74,17 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
+}
+
+.errorMessage {
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    color: var(--color-red);
+    margin-top: 5px;
+}
+
+.error {
+    color: var(--color-dark);
 }

@@ -12,6 +12,7 @@
     "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.4",
     "classnames": "^2.3.1",
     "css-loader": "^6.7.1",
     "moment": "^2.29.3",
@@ -37,7 +38,8 @@
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
     "swiper": "^8.2.4",
-    "usehooks-ts": "^2.5.3"
+    "usehooks-ts": "^2.5.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",

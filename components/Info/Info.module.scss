@@ -25,4 +25,14 @@
     align-items: center;
     font-size: 15px;
     line-height: 18px;
+
+    a {
+        color: var(--color-dark);
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+            color: var(--color-primary);
+        }
+    }
 }

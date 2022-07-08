@@ -1,6 +1,6 @@
 import { configureStore, PreloadedState } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
-import { kinopoiskAPI } from "@/services/KinopoiskService";
+import { kinomoreAPI } from "@/services/KinomoreService";
 import { searchReducer } from "./reducers/search.slice";
 import { loadReducer } from "./reducers/loadMore.slice";
 import { paginationReducer } from "./reducers/pagination.slice";
@@ -18,10 +18,10 @@ export const initStore = (preloadedState = {}) => {
       filtersReducer,
       paginationReducer,
       toggleReducer,
-      [kinopoiskAPI.reducerPath]: kinopoiskAPI.reducer,
+      [kinomoreAPI.reducerPath]: kinomoreAPI.reducer,
     },
     preloadedState,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(kinopoiskAPI.middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(kinomoreAPI.middleware),
   });
 }
 

@@ -2,7 +2,7 @@
 import {Title} from "@/components/Title/Title"
 import {BackBtn} from "@/components/BackBtn/BackBtn"
 import {useRouter} from "next/router"
-import {useGetFilmsByIdQuery, useGetPersonByIdQuery} from "@/services/KinopoiskService"
+import {useGetFilmsByIdQuery, useGetPersonByIdQuery} from "@/services/KinomoreService"
 import {convertTimestampToDate} from "@/helpers/convertTimestampToDate/convertTimestampToDate"
 import {Info} from "@/components/Info/Info"
 import {Fragment} from "react"
@@ -11,6 +11,7 @@ import styles from './Person.module.scss'
 import classNames from "classnames"
 import { Tabs } from "@/components/Tabs/Tabs"
 import { PersonMovies } from "./components/PersonMovies/PersonMovies"
+import Link from "next/link"
 
 export const Person = () => {
     const {query: {id}} = useRouter();
@@ -29,8 +30,10 @@ export const Person = () => {
         facts
     } = {...data};
 
-    /* @ts-ignore */
-    const countFilms = movies?.length - 1
+    const countFilms = Number(movies?.length) - 1
+
+    console.log(data);
+    
 
     const query = movies?.map(el => `search=${el.id}&field=id`).join('&')
     const {data: personMovies} = useGetFilmsByIdQuery({query, limit: countFilms + 1})
@@ -42,8 +45,11 @@ export const Person = () => {
         {caption: 'Дата рождения', value: convertTimestampToDate(birthday, "D MMMM YYYY"), condition: birthday},
         {caption: 'Дата смерти', value: convertTimestampToDate(death, "D MMMM YYYY"), condition: death},
         {caption: 'Всего фильмов', value: countFilms, condition: movies},
-        {caption: 'Супруга', value: spouses?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}&nbsp;{el.divorcedReason}</Fragment>), condition: spouses?.length},
+        {caption: 'Супруга', value: spouses?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}<Link  href={`/name/${el.id}`}><a>{el.name}</a></Link>&nbsp;{el.divorcedReason}</Fragment>), condition: spouses?.length},
     ]
+
+    console.log(data);
+    
 
     const tabs = [
         {txt: 'Факты', content: <Facts facts={facts} />, condition: facts?.length},
