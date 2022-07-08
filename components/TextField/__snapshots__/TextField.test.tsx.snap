@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`инпут разные тесты 1`] = `
+<input
+  class="textField"
+  data-testid="input"
+  placeholder="Какой-то текст"
+  value=""
+/>
+`;

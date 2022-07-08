@@ -10,4 +10,5 @@
   * NextJS
   * PWA
   * React-hook-form, Yup
+  * Testing Library
   * Storybook

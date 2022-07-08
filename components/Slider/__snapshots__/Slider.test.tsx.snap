@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`слайдер разные тесты 1`] = `
+<div
+  class="container"
+  data-testid="slider"
+>
+  <div
+    class="inputs"
+  >
+    <label
+      class="label input"
+    >
+      <input
+        class="textField"
+        data-testid="input"
+        value="0"
+      />
+    </label>
+    <label
+      class="label input"
+    >
+      <input
+        class="textField"
+        data-testid="input"
+        value="50"
+      />
+    </label>
+  </div>
+  <div
+    class="track"
+  >
+    <div
+      aria-valuemax="50"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="thumb"
+      draggable="false"
+      role="slider"
+      style="position: absolute; z-index: 0; cursor: grab; user-select: none; transform: translate(NaNpx, NaNpx);"
+      tabindex="0"
+    />
+    <div
+      aria-valuemax="50"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="thumb"
+      draggable="false"
+      role="slider"
+      style="position: absolute; z-index: 1; cursor: grab; user-select: none; transform: translate(NaNpx, NaNpx);"
+      tabindex="0"
+    />
+  </div>
+</div>
+`;

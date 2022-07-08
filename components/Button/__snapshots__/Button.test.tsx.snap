@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`кнопка клик на кнопку 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn"
+    data-testid="button"
+    style="position: relative; overflow: hidden;"
+  >
+    Ripple
+    <span
+      style="top: 0px; left: 0px; position: absolute; border-radius: 50%; background-color: rgba(0, 0, 0, 0.3); pointer-events: none; width: 0px; height: 0px; animation: use-ripple-animation 500ms ease-in;"
+    />
+  </button>
+</DocumentFragment>
+`;
+
+exports[`кнопка разные тесты 1`] = `
+<button
+  class="btn btn"
+  data-testid="button"
+  style="position: relative; overflow: hidden;"
+>
+  Button text
+</button>
+`;

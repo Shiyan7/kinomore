@@ -52,7 +52,7 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 	}
 
 	return (
-		<div className={styles.container}>
+		<div data-testid="slider" className={styles.container}>
 			<div className={styles.inputs}>
 				<TextField
 					className={styles.input}

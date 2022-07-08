@@ -15,6 +15,7 @@ export const Button = memo<PropsWithChildren<ButtonProps>>(({children, variant, 
 
     return (
         <ButtonBase
+            data-testid='button'
             ripple
             startIcon={startIcon}
             endIcon={endIcon}

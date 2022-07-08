@@ -17,6 +17,7 @@ export const TextField: FC<TextFieldProps> = ({className, value, error = false, 
     <label className={classNames(styles.label, className)}>
       {label && <span className={styles.caption}>{label}</span>}
       <input
+        data-testid="input"
         className={classNames(
           styles.textField,
           variant === 'dark' && styles.dark,
