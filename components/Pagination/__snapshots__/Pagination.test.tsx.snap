@@ -1,0 +1,519 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`пагинация проверка всё ли ок 1`] = `
+<div
+  class="pagination"
+  data-testid="pagination"
+>
+  <button
+    class="btn btn left"
+    data-testid="pagination-first-btn"
+    disabled=""
+  >
+    <svg
+      fill="none"
+      height="1em"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline
+        points="11 17 6 12 11 7"
+      />
+      <polyline
+        points="18 17 13 12 18 7"
+      />
+    </svg>
+  </button>
+  <button
+    class="btn btn"
+    data-testid="pagination-prev-btn"
+    disabled=""
+  >
+    <svg
+      fill="none"
+      height="1em"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline
+        points="15 18 9 12 15 6"
+      />
+    </svg>
+  </button>
+  <span
+    class="value"
+    data-testid="pagination-value"
+  >
+    1
+     / 
+    100
+  </span>
+  <button
+    class="btn btn"
+    data-testid="pagination-next-btn"
+  >
+    <svg
+      fill="none"
+      height="1em"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline
+        points="9 18 15 12 9 6"
+      />
+    </svg>
+  </button>
+  <button
+    class="btn btn right"
+    data-testid="pagination-last-btn"
+  >
+    <svg
+      fill="none"
+      height="1em"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline
+        points="13 17 18 12 13 7"
+      />
+      <polyline
+        points="6 17 11 12 6 7"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`пагинация работает ли клик по кнопке вперёд 1`] = `
+<DocumentFragment>
+  <div
+    class="pagination"
+    data-testid="pagination"
+  >
+    <button
+      class="btn btn left"
+      data-testid="pagination-first-btn"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="11 17 6 12 11 7"
+        />
+        <polyline
+          points="18 17 13 12 18 7"
+        />
+      </svg>
+    </button>
+    <button
+      class="btn btn"
+      data-testid="pagination-prev-btn"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="15 18 9 12 15 6"
+        />
+      </svg>
+    </button>
+    <span
+      class="value"
+      data-testid="pagination-value"
+    >
+      2 / 100
+    </span>
+    <button
+      class="btn btn"
+      data-testid="pagination-next-btn"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="9 18 15 12 9 6"
+        />
+      </svg>
+    </button>
+    <button
+      class="btn btn right"
+      data-testid="pagination-last-btn"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="13 17 18 12 13 7"
+        />
+        <polyline
+          points="6 17 11 12 6 7"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`пагинация работает ли клик по кнопке назад 1`] = `
+<DocumentFragment>
+  <div
+    class="pagination"
+    data-testid="pagination"
+  >
+    <button
+      class="btn btn left"
+      data-testid="pagination-first-btn"
+      disabled=""
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="11 17 6 12 11 7"
+        />
+        <polyline
+          points="18 17 13 12 18 7"
+        />
+      </svg>
+    </button>
+    <button
+      class="btn btn"
+      data-testid="pagination-prev-btn"
+      disabled=""
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="15 18 9 12 15 6"
+        />
+      </svg>
+    </button>
+    <span
+      class="value"
+      data-testid="pagination-value"
+    >
+      1 / 100
+    </span>
+    <button
+      class="btn btn"
+      data-testid="pagination-next-btn"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="9 18 15 12 9 6"
+        />
+      </svg>
+    </button>
+    <button
+      class="btn btn right"
+      data-testid="pagination-last-btn"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="13 17 18 12 13 7"
+        />
+        <polyline
+          points="6 17 11 12 6 7"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`пагинация работает ли клик по кнопке первая страница 1`] = `
+<DocumentFragment>
+  <div
+    class="pagination"
+    data-testid="pagination"
+  >
+    <button
+      class="btn btn left"
+      data-testid="pagination-first-btn"
+      disabled=""
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="11 17 6 12 11 7"
+        />
+        <polyline
+          points="18 17 13 12 18 7"
+        />
+      </svg>
+    </button>
+    <button
+      class="btn btn"
+      data-testid="pagination-prev-btn"
+      disabled=""
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="15 18 9 12 15 6"
+        />
+      </svg>
+    </button>
+    <span
+      class="value"
+      data-testid="pagination-value"
+    >
+      1 / 100
+    </span>
+    <button
+      class="btn btn"
+      data-testid="pagination-next-btn"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="9 18 15 12 9 6"
+        />
+      </svg>
+    </button>
+    <button
+      class="btn btn right"
+      data-testid="pagination-last-btn"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="13 17 18 12 13 7"
+        />
+        <polyline
+          points="6 17 11 12 6 7"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`пагинация работает ли клик по кнопке последняя страница 1`] = `
+<DocumentFragment>
+  <div
+    class="pagination"
+    data-testid="pagination"
+  >
+    <button
+      class="btn btn left"
+      data-testid="pagination-first-btn"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="11 17 6 12 11 7"
+        />
+        <polyline
+          points="18 17 13 12 18 7"
+        />
+      </svg>
+    </button>
+    <button
+      class="btn btn"
+      data-testid="pagination-prev-btn"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="15 18 9 12 15 6"
+        />
+      </svg>
+    </button>
+    <span
+      class="value"
+      data-testid="pagination-value"
+    >
+      100 / 100
+    </span>
+    <button
+      class="btn btn"
+      data-testid="pagination-next-btn"
+      disabled=""
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="9 18 15 12 9 6"
+        />
+      </svg>
+    </button>
+    <button
+      class="btn btn right"
+      data-testid="pagination-last-btn"
+      disabled=""
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="13 17 18 12 13 7"
+        />
+        <polyline
+          points="6 17 11 12 6 7"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;
