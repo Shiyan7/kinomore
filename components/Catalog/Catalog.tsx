@@ -6,10 +6,10 @@ import {Pagination} from '@/components/Pagination/Pagination';
 import {Spinner, SpinnerSizes} from '@/components/Spinner/Spinner';
 import {Title} from '@/components/Title/Title';
 import {IData} from '@/types/IData';
+import {useTypedSelector} from '@/hooks/useTypedSelector';
+import {useActions} from '@/hooks/useActions';
 import classNames from 'classnames';
-import styles from './Catalog.module.scss'
-import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { useActions } from '@/hooks/useActions';
+import styles from './Catalog.module.scss';
 
 interface ContentProps {
   data: IData | undefined;
@@ -20,7 +20,7 @@ interface ContentProps {
 function Catalog ({ children }: PropsWithChildren<{}>) {
   return <div className={styles.catalog}>{children}</div>
 }
-namespace Catalog {
+module Catalog {
   export const Container = ({children}: PropsWithChildren<{}>) => {
     return <div className={classNames('container wrapper', styles.container)}>{children}</div>
   }

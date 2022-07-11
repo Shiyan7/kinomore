@@ -8,7 +8,7 @@ function Auth({children, ...props}: PropsWithChildren<FormHTMLAttributes<HTMLFor
     return <form action="#" className={styles.form} {...props}>{children}</form>
 }
 
-namespace Auth {
+module Auth {
 
     export const Heading = ({children}: PropsWithChildren<{}>) => {
         return <Title className={styles.title}>{children}</Title>
