@@ -44,6 +44,14 @@ export const SearchList: FC<SearchListProps> = ({value}) => {
                     >
                         Сериалы
                     </Button>
+                    <Button
+                        type='button'
+                        variant='sm'
+                        onClick={() => handleChangeType('3')}
+                        className={classNames(styles.btn, type === '3' && styles.active)}
+                    >
+                        Мультфильмы
+                    </Button>
                 </div>
             </div>
             <>
@@ -64,7 +72,7 @@ export const SearchList: FC<SearchListProps> = ({value}) => {
                         )}
                     </>
                 ) : (
-                <p className={styles.desc}>По вашему запросу ничего не найдено</p>
+                    <p className={styles.desc}>По вашему запросу ничего не найдено</p>
                 )}
             </>
             <ButtonBase ripple className={styles.more}>Показать все</ButtonBase>
