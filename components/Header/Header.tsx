@@ -25,11 +25,9 @@ export const Header = () => {
                     <Burger />
                     <Logo className={styles.logo} />
                     <Dropdown />
-                    <Device mobile>
-                        <Link href={RoutesEnum.Login}>
-                            <a className={classNames(styles.link, styles.menuLink)}>Войти</a>
-                        </Link>
-                    </Device>
+                    <Link href={RoutesEnum.Login}>
+                        <a className={classNames(styles.link, styles.menuLink)}>Войти</a>
+                    </Link>
                 </div>
                 <Search />
                 <Link href={RoutesEnum.Login}>

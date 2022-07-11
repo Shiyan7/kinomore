@@ -47,6 +47,10 @@
 .active {
     pointer-events: none;
     background-color: var(--color-black);
+
+    @media (max-width: 768px) {
+        background-color: var(--color-dark);
+    }
 }
 
 .list {
@@ -114,10 +118,10 @@
     padding: var(--offset);
     text-align: left;
     display: block;
-    background-color: var(--color-black);
-    transition: background-color 0.3s;
+    background-color: var(--color-dark);
     font-size: 13px;
     line-height: 16px;
+    transition: background-color 0.3s;
 
     @media (max-width: 768px) {
         background-color: var(--color-dark);
@@ -128,6 +132,6 @@
     }
 
     &:hover {
-        background-color: var(--color-dark);
+        background-color: var(--color-black);
     }
 }
