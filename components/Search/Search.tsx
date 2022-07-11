@@ -1,13 +1,14 @@
 import {ChangeEvent, FormEvent, useEffect, useRef, useState} from 'react';
-import {FiSearch} from 'react-icons/fi';
+import {FiX, FiSearch} from 'react-icons/fi';
 import {useRouter} from 'next/router';
 import {useActions} from '@/hooks/useActions';
 import {TextField} from '@/components/TextField/TextField';
 import {ButtonBase} from '@/components/ButtonBase/ButtonBase';
-import {useGetFilmsBySearchQuery} from '@/services/KinomoreService';
-import {useDebounce, useOnClickOutside} from 'usehooks-ts';
+import {useOnClickOutside} from 'usehooks-ts';
+import {useDebounce} from '@/hooks/useDebounce';
+import {SearchList} from './components/SearchList/SearchList';
 import styles from './Search.module.scss';
-import { SearchList } from './components/SearchList/SearchList';
+import classNames from 'classnames';
 
 export const Search = () => {
     
@@ -16,13 +17,7 @@ export const Search = () => {
     const [visible, setVisible] = useState<boolean>(false)
     const ref = useRef<HTMLFormElement>(null)
     const router = useRouter();
-    const debouncedValue = useDebounce(value, 300);
-    const {data, refetch} = useGetFilmsBySearchQuery({query: debouncedValue, limit: 20})
-    
-    useEffect(() => {
-        refetch()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [debouncedValue])
+    const {debouncedValue, setDebouncedValue} = useDebounce(value, 300);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
@@ -35,10 +30,19 @@ export const Search = () => {
     }
 
     useEffect(() => {
+        setVisible(false)
         setValue('')
-    }, [])
+    }, [router])
+
+    const handleClearInput = () => {
+        setValue('')
+        setVisible(false)
+        setDebouncedValue('')
+    }
 
     useOnClickOutside(ref, () => setVisible(false))
+
+    const isActive = debouncedValue && visible;
 
     return (
         <form onSubmit={submitForm} ref={ref} onClick={() => setVisible(true)} action="#" className={styles.form}>
@@ -52,13 +56,21 @@ export const Search = () => {
             />
             <ButtonBase
                 ripple
+                type='button'
+                className={classNames(styles.closeBtn, value && styles.active)}
+                onClick={handleClearInput}
+            >
+                <FiX />
+            </ButtonBase>
+            <ButtonBase
+                ripple
                 className={styles.searchBtn}
                 disabled={!value.length}
                 onClick={submitForm}
             >
                 <FiSearch />
             </ButtonBase>
-            {debouncedValue && visible && <SearchList items={data?.docs} />}
+            {isActive && <SearchList value={debouncedValue} />}
         </form>
     )
 }

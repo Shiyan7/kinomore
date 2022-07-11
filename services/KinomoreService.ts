@@ -50,8 +50,8 @@ export const kinomoreAPI = createApi({
         `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&${query}&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
     }),
     getFilmsBySearch: build.query<IData, IBaseQuery>({
-      query: ({query, limit}) =>
-        `/movie?search=${query}&field=name&limit=${limit}&sortField=year&sortType=-1&isStrict=false&token=${API_KEY}`
+      query: ({query, type, limit}) =>
+        `/movie?search=${query}&field=name&limit=${limit}&sortField=year&sortType=-1&field=typeNumber&search=${type}&isStrict=false&token=${API_KEY}`
     }),
   }),
 });
