@@ -42,7 +42,7 @@ module Catalog {
   export const Loader = () => {
     return (
       <div className={styles.spinner}>
-        <Spinner variant={SpinnerSizes.medium}  />
+        <Spinner size={SpinnerSizes.medium}  />
       </div>
     )
   }

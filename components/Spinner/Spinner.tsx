@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FC } from 'react'
 import styles from './Spinner.module.scss'
 
@@ -7,15 +8,19 @@ export enum SpinnerSizes {
 }
 
 interface SpinnerProps {
-    variant?: SpinnerSizes;
+    size?: SpinnerSizes;
+    variant?: 'dark'
 }
 
-export const Spinner: FC<SpinnerProps> = ({variant = SpinnerSizes.small}) => {
+export const Spinner: FC<SpinnerProps> = ({size = SpinnerSizes.small, variant}) => {
     return (
         <svg
-            className={styles.spinner}
-            height={variant}
-            width={variant}
+            className={classNames(
+                styles.spinner,
+                variant === 'dark' && styles.dark
+            )}
+            height={size}
+            width={size}
             viewBox="0 0 16 16"
             fill="none"
         >

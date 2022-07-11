@@ -67,7 +67,7 @@ export const SearchList: FC<SearchListProps> = ({value}) => {
                             </>
                         ) : (
                             <div className={styles.loader}>
-                                <Spinner variant={SpinnerSizes.medium} />
+                                <Spinner variant='dark' size={SpinnerSizes.medium} />
                             </div>
                         )}
                     </>

@@ -17,7 +17,7 @@ export const Search = () => {
     const [visible, setVisible] = useState<boolean>(false)
     const ref = useRef<HTMLFormElement>(null)
     const router = useRouter();
-    const {debouncedValue, setDebouncedValue} = useDebounce(value, 300);
+    const {debouncedValue, setDebouncedValue} = useDebounce(value.trim(), 300);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)

@@ -11,10 +11,15 @@ const Template: ComponentStory<typeof Spinner> = (args) => <Spinner {...args} />
 
 export const Small = Template.bind({});
 Small.args = {
-    variant: SpinnerSizes.small
+    size: SpinnerSizes.small
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
-    variant: SpinnerSizes.medium
+    size: SpinnerSizes.medium
+};
+
+export const Dark = Template.bind({});
+Dark.args = {
+  variant: 'dark'
 };
