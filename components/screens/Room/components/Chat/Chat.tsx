@@ -2,8 +2,8 @@ import {ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import {TextField} from '@/components/TextField/TextField';
 import {IMessage} from '@/types/IMessage';
 import {Message} from '@/components/Message/Message';
+import {CopyToClipboard} from './components/CopyToClipboard/CopyToClipboard';
 import styles from './Chat.module.scss';
-import { CopyToClipboard } from '@/components/CopyToClipboard/CopyToClipboard';
 
 export const Chat = () => {
   const [message, setMessage] = useState<string>('')

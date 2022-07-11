@@ -39,14 +39,20 @@ export const kinomoreAPI = createApi({
     }),
     getCartoons: build.query<IData, IQuery>({
       query: ({filters, page}) =>
-      `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=3&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
+        `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=3&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
     }),
     getPersonById: build.query<IPerson, string | string[] | undefined>({
-      query: id => `/person?search=${id}&field=id&token=${API_KEY}`
+      query: id => 
+        `/person?search=${id}&field=id&token=${API_KEY}`
     }),
     getFavourites: build.query<IData, IQuery>({
-      query: ({query, filters, page}) => `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&${query}&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
-    })
+      query: ({query, filters, page}) =>
+        `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&${query}&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
+    }),
+    getFilmsBySearch: build.query<IData, IBaseQuery>({
+      query: ({query, limit}) =>
+        `/movie?search=${query}&field=name&limit=${limit}&sortField=year&sortType=-1&isStrict=false&token=${API_KEY}`
+    }),
   }),
 });
 
@@ -60,7 +66,8 @@ export const {
   useGetCartoonsQuery,
   useGetPersonByIdQuery,
   useGetFavouritesQuery,
-  useGetFilmsByIdQuery
+  useGetFilmsByIdQuery,
+  useGetFilmsBySearchQuery
 } = kinomoreAPI;
 
 export const {
