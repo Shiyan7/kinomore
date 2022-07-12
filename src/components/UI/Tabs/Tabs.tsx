@@ -1,4 +1,4 @@
-import {FC, Fragment, memo, ReactNode} from "react"
+import {FC, Fragment, ReactNode} from "react"
 import {Tab, TabList, TabPanel, Tabs as ReactTabs} from "react-tabs"
 
 type TabItem = {
@@ -11,7 +11,7 @@ interface TabsProps {
     tabs: TabItem[]
 }
 
-export const Tabs = memo<TabsProps>(({tabs}) => {
+export const Tabs: FC<TabsProps> = ({tabs}) => {
     return (
         <ReactTabs>
             <TabList>
@@ -30,6 +30,4 @@ export const Tabs = memo<TabsProps>(({tabs}) => {
             ))}
       </ReactTabs>
     );
-})
-
-Tabs.displayName = 'Tabs'
+}

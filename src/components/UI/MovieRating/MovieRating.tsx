@@ -1,5 +1,5 @@
 import {IMovieRating} from '@/types/IMovie';
-import {FC, memo} from 'react'
+import {FC} from 'react'
 import {FiStar} from 'react-icons/fi';
 import styles from './MovieRating.module.scss'
 
@@ -7,7 +7,7 @@ interface MovieRatingProps {
     rating: IMovieRating | undefined;
 }
 
-export const MovieRating = memo<MovieRatingProps>(({rating}) => {
+export const MovieRating: FC<MovieRatingProps> = ({rating}) => {
     return (
         <>
             {rating &&
@@ -18,6 +18,4 @@ export const MovieRating = memo<MovieRatingProps>(({rating}) => {
             }
         </>
     )
-})
-
-MovieRating.displayName = 'MovieRating'
+}

@@ -1,13 +1,13 @@
+import {FC} from 'react'
 import {convertTimestampToDate} from '@/helpers/convertTimestampToDate/convertTimestampToDate'
 import {IMessage} from '@/types/IMessage'
-import {memo} from 'react'
 import styles from './Message.module.scss'
 
 interface MessageProps {
   item: IMessage;
 }
 
-export const Message = memo<MessageProps>(({item}) => {
+export const Message: FC<MessageProps> = ({item}) => {
 
     const {text, timestamp, name} = item
 
@@ -20,6 +20,4 @@ export const Message = memo<MessageProps>(({item}) => {
         <p className={styles.text}>{text}</p>
       </div>
     )
-})
-
-Message.displayName = 'Message'
+}

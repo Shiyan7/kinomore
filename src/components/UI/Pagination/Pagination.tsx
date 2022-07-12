@@ -1,4 +1,4 @@
-import {memo, useEffect} from 'react'
+import {FC, useEffect} from 'react'
 import {FiChevronsLeft, FiChevronLeft, FiChevronsRight, FiChevronRight} from 'react-icons/fi';
 import {ButtonBase} from '../ButtonBase/ButtonBase';
 import styles from './Pagination.module.scss';
@@ -11,7 +11,7 @@ interface PaginationProps {
   	className?: string;
 }
 
-export const Pagination = memo<PaginationProps>(({page, setPage, pages, className}) => {
+export const Pagination: FC<PaginationProps> = ({page, setPage, pages, className}) => {
 
 	const isFirstPage = page === 1;
 	const isLastPage = page === pages;
@@ -63,6 +63,4 @@ export const Pagination = memo<PaginationProps>(({page, setPage, pages, classNam
 			)}
 		</>
 	);
-})
-
-Pagination.displayName = 'Pagination'
+}

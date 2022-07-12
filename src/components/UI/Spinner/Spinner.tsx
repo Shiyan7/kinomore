@@ -1,4 +1,4 @@
-import {FC, memo} from 'react'
+import {memo} from 'react'
 import classNames from 'classnames';
 import styles from './Spinner.module.scss'
 

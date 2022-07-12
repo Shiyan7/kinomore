@@ -1,4 +1,4 @@
-import {memo, ReactNode} from "react";
+import {FC, ReactNode} from "react";
 import styles from './Info.module.scss'
 
 type InfoItem = {
@@ -11,7 +11,7 @@ interface InfoProps {
     items: InfoItem[]
 }
 
-export const Info = memo<InfoProps>(({items}) => {
+export const Info: FC<InfoProps> = ({items}) => {
     
     return (
         <ul className='list-reset'>
@@ -27,6 +27,4 @@ export const Info = memo<InfoProps>(({items}) => {
             ))}
         </ul>
     )
-})
-
-Info.displayName = 'Info'
+}

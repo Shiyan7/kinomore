@@ -12,7 +12,7 @@ interface SliderProps {
 	values: number[];
 	step?: number;
 	onChange: (values: number[]) => void;
-};
+}
 
 export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 
