@@ -1,5 +1,5 @@
 import {ButtonHTMLAttributes, memo, PropsWithChildren, ReactNode} from 'react';
-import {ButtonBase} from '@/UI/ButtonBase/ButtonBase';
+import {ButtonBase} from '../ButtonBase/ButtonBase';
 import classNames from 'classnames';
 import styles from './Button.module.scss'
 

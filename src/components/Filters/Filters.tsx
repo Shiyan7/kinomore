@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {memo, useEffect} from "react";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {useActions} from "@/hooks/useActions";
 import {Filter} from "./components/Filter/Filter"
@@ -16,7 +16,7 @@ import {Device} from "@/components/Device/Device";
 import styles from "./Filters.module.scss";
 import classNames from "classnames";
 
-export const Filters = () => {
+export const Filters = memo(() => {
 
     const {
         setFilterRatings,
@@ -216,4 +216,7 @@ export const Filters = () => {
                 </div>
         </form>
     )
-}
+})
+
+
+Filters.displayName = 'Filters'

@@ -1,6 +1,6 @@
 import {memo, useEffect} from 'react'
 import {FiChevronsLeft, FiChevronLeft, FiChevronsRight, FiChevronRight} from 'react-icons/fi';
-import {ButtonBase} from '@/UI/ButtonBase/ButtonBase';
+import {ButtonBase} from '../ButtonBase/ButtonBase';
 import styles from './Pagination.module.scss';
 import classNames from 'classnames';
 

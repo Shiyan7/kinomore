@@ -1,7 +1,7 @@
 import React from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {Tabs} from './Tabs';
-import "@/scss/components/tabs.scss"
+import "../../../scss/components/tabs.scss"
 
 export default {
   title: 'Tabs',

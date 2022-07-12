@@ -1,4 +1,4 @@
-import {FC} from 'react'
+import {FC, memo} from 'react'
 import classNames from 'classnames';
 import styles from './Spinner.module.scss'
 
@@ -12,7 +12,7 @@ interface SpinnerProps {
     variant?: 'dark'
 }
 
-export const Spinner: FC<SpinnerProps> = ({size = SpinnerSizes.small, variant}) => {
+export const Spinner = memo<SpinnerProps>(({size = SpinnerSizes.small, variant}) => {
     return (
         <svg
             className={classNames(
@@ -42,4 +42,6 @@ export const Spinner: FC<SpinnerProps> = ({size = SpinnerSizes.small, variant}) 
             />
         </svg>
     )
-}
+})
+
+Spinner.displayName = 'Spinner'

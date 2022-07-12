@@ -5,7 +5,7 @@ import {useRouter} from "next/router";
 import {useGetFilmsByIdQuery, useGetPersonByIdQuery} from "@/services/KinomoreService";
 import {convertTimestampToDate} from "@/helpers/convertTimestampToDate/convertTimestampToDate";
 import {Info} from "@/components/Info/Info";
-import {Fragment} from "react";
+import {Fragment, useMemo} from "react";
 import {Facts} from "@/components/Facts/Facts";
 import {Tabs} from "@/UI/Tabs/Tabs";
 import {PersonMovies} from "./components/PersonMovies/PersonMovies";
@@ -31,14 +31,10 @@ export const Person = () => {
     } = {...data};
 
     const countFilms = Number(movies?.length) - 1
-
-    console.log(data);
-    
-
     const query = movies?.map(el => `search=${el.id}&field=id`).join('&')
     const {data: personMovies} = useGetFilmsByIdQuery({query, limit: countFilms + 1})
 
-    const items = [
+    const items = useMemo(() => [
         {caption: 'Карьера', value: profession?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.value}</Fragment>), condition: profession?.length},
         {caption: 'Пол', value: sex, condition: sex},
         {caption: 'Рост', value: `${growth} см`, condition: growth},
@@ -46,15 +42,12 @@ export const Person = () => {
         {caption: 'Дата смерти', value: convertTimestampToDate(death, "D MMMM YYYY"), condition: death},
         {caption: 'Всего фильмов', value: countFilms, condition: movies},
         {caption: 'Супруга', value: spouses?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}<Link  href={`/name/${el.id}`}><a>{el.name}</a></Link>&nbsp;{el.divorcedReason}</Fragment>), condition: spouses?.length},
-    ]
+    ], [birthday, countFilms, death, growth, movies, profession, sex, spouses])
 
-    console.log(data);
-    
-
-    const tabs = [
+    const tabs = useMemo(() => [
         {txt: 'Факты', content: <Facts facts={facts} />, condition: facts?.length},
         {txt: 'Фильмы и сериалы', content: <PersonMovies movies={personMovies?.docs} />, condition: personMovies},
-    ]
+    ], [facts, personMovies])
 
     return (
         <section className={styles.section}>

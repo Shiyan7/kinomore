@@ -1,4 +1,4 @@
-import {FC} from "react"
+import {memo} from "react"
 import {IMovie} from "@/types/IMovie";
 import {SwiperSlide} from "swiper/react";
 import {Title} from "@/UI/Title/Title";
@@ -10,7 +10,7 @@ interface SimilarMoviesProps {
     movies: IMovie[] | undefined;
 }
 
-export const SimilarMovies: FC<SimilarMoviesProps> = ({movies}) => {
+export const SimilarMovies = memo<SimilarMoviesProps>(({movies}) => {
     
     return (
         <div className={styles.container}>
@@ -26,4 +26,6 @@ export const SimilarMovies: FC<SimilarMoviesProps> = ({movies}) => {
             </Carousel>
         </div>
     )
-}
+})
+
+SimilarMovies.displayName = 'SimilarMovies'

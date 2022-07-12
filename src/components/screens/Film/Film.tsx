@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import {Fragment} from "react";
+import {Fragment, useMemo} from "react";
 import {Title} from "@/UI/Title/Title";
 import {BackBtn} from "@/UI/BackBtn/BackBtn";
 import {MovieFavorite} from "@/UI/MovieFavorite/index";
@@ -46,7 +46,7 @@ export const Film = () => {
 
     const worldFees = fees?.world?.value - fees?.usa?.value;
 
-    const items = [
+    const items = useMemo(() => [
         {caption: 'Страны', value: countries?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>), condition: countries?.length},
         {caption: 'Жанр', value: genres?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>), condition: genres?.length},
         {caption: 'Слоган', value: slogan, condition: slogan},
@@ -56,19 +56,19 @@ export const Film = () => {
         {caption: 'Сборы в США', value: `${fees?.usa?.currency} ${convertNumbers(fees?.usa?.value)}`, condition: fees?.usa},
         {caption: 'Сборы в мире', value: `+ ${fees?.world?.currency} ${convertNumbers(worldFees)} = ${fees?.world?.currency} ${convertNumbers(fees?.world?.value)}`, condition: fees?.usa},
         {caption: 'Премьера в мире' , value: convertTimestampToDate(premiere?.world, "D MMMM YYYY"), condition: premiere?.world},
-    ]
+    ], [ageRating, budget?.currency, budget?.value, countries, fees?.usa, fees?.world?.currency, fees?.world?.value, genres, movieLength, premiere?.world, slogan, worldFees])
 
-    const roles = persons?.filter(el => {
+    const roles = useMemo(() => persons?.filter(el => {
         if (el.enProfession === 'actor' && el.name?.length) {
             return el;
         }
-    });
+    }), [persons])
 
-    const tabs = [
+    const tabs = useMemo(() => [
         {txt: 'Описание', content: <p className={styles.desc}>{description}</p>, condition: description?.length},
         {txt: 'Актёры', content: <MainRoles roles={roles}/>, condition: roles?.length},
         {txt: 'Факты', content: <Facts facts={facts}/>, condition: facts?.length},
-    ]
+    ], [description, facts, roles])
 
     const {favourites} = useFavourites();
     const isFavourite = favourites.includes(Number(id))

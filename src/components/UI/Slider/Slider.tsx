@@ -1,7 +1,7 @@
 import {ChangeEvent, FC, useRef} from 'react';
 import {SliderThumb} from './components/SliderThumb/SliderThumb';
 import {IRenderThumbParams, IRenderTrackParams} from 'react-range/lib/types';
-import {TextField} from '@/UI/TextField/TextField';
+import {TextField} from '../TextField/TextField';
 import {Range } from 'react-range';
 import {SliderTrack} from './components/SliderTrack/SliderTrack';
 import styles from './Slider.module.scss';
