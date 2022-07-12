@@ -1,8 +1,8 @@
 {
     "name": "Kinomore",
     "short_name": "Kinomore",
-    "theme_color": "#000",
-    "background_color": "#000",
+    "theme_color": "#141414",
+    "background_color": "#141414",
     "display": "standalone",
     "orientation": "portrait",
     "scope": "/",
