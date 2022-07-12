@@ -2,7 +2,6 @@
 import {Fragment, useMemo} from "react";
 import {Title} from "@/UI/Title/Title";
 import {BackBtn} from "@/UI/BackBtn/BackBtn";
-import {MovieFavorite} from "@/UI/MovieFavorite/index";
 import {convertType} from "@/helpers/convertType/convertType";
 import {MovieRating} from "@/UI/MovieRating/MovieRating";
 import {useRouter} from "next/router";
@@ -11,7 +10,6 @@ import {Info} from "@/components/Info/Info";
 import {SimilarMovies} from "./components/SimilarMovies/SimilarMovies";
 import {Button} from "@/UI/Button/Button";
 import {FiPlay} from "react-icons/fi";
-import {useFavourites} from "@/hooks/useFavourite";
 import {convertNumbers} from "@/helpers/convertNumbers/convertNumbers";
 import {convertTimestampToDate} from "@/helpers/convertTimestampToDate/convertTimestampToDate";
 import {Tabs} from "@/UI/Tabs/Tabs";
@@ -19,6 +17,7 @@ import {MainRoles} from "./components/MainRoles/MainRoles";
 import {Facts} from "@/components/Facts/Facts";
 import styles from './Film.module.scss';
 import classNames from "classnames";
+import {MovieFavorite} from "./components/MovieFavorite/MovieFavorite";
 
 export const Film = () => {
     const {push, query: {id}} = useRouter();
@@ -70,8 +69,7 @@ export const Film = () => {
         {txt: 'Факты', content: <Facts facts={facts}/>, condition: facts?.length},
     ], [description, facts, roles])
 
-    const {favourites} = useFavourites();
-    const isFavourite = favourites.includes(Number(id))
+ 
     const movieTitle = name ? name : isLoading ? 'Загрузка' : 'Без названия'
     const movieYear = year && `(${year})`
 
@@ -102,7 +100,6 @@ export const Film = () => {
                                 Смотреть
                             </Button>
                             <MovieFavorite
-                                isFavourite={isFavourite}
                                 className={styles.btn}
                                 variant="regular"
                                 id={data?.id}
