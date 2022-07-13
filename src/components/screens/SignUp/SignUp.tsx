@@ -3,18 +3,20 @@ import {Auth} from '@/components/Auth/Auth'
 import {Controller, useForm, } from 'react-hook-form'
 import {yupResolver} from "@hookform/resolvers/yup";
 import NextLink from 'next/link'
-import * as yup from "yup";
+import * as Yup from "yup";
+import { useRouter } from 'next/router';
 
 export const SignUp = () => {
 	
+	const {push} = useRouter()
 	const {Heading, Inputs, TextField, Button, Link} = Auth
 	const messageRequired = 'Поле обязательно для заполнения';
 
-	const schema = yup.object().shape({
-		name: yup.string().required('Введите имя'),
-		surname: yup.string().required('Введите фамилию'),
-		email: yup.string().email('Введите корректный email').required(messageRequired),
-		password: yup.string().min(8, 'Пароль должен содержать не менее 8 символов').required(messageRequired)	
+	const schema = Yup.object().shape({
+		name: Yup.string().required('Введите имя'),
+		surname: Yup.string().required('Введите фамилию'),
+		email: Yup.string().email('Введите корректный email').required(messageRequired),
+		password: Yup.string().min(8, 'Пароль должен содержать не менее 8 символов').required(messageRequired)	
 	});
 
 	const {handleSubmit, control, formState: {errors}, reset} = useForm({
@@ -29,6 +31,7 @@ export const SignUp = () => {
 
 	const handleRegister = handleSubmit(data => {
 		console.log('Успешная регистрация', data);
+		push(RoutesEnum.Home)
 		reset()
 	})
 	

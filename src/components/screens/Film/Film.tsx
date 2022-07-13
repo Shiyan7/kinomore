@@ -68,7 +68,6 @@ export const Film = () => {
         {txt: 'Актёры', content: <MainRoles roles={roles}/>, condition: roles?.length},
         {txt: 'Факты', content: <Facts facts={facts}/>, condition: facts?.length},
     ], [description, facts, roles])
-
  
     const movieTitle = name ? name : isLoading ? 'Загрузка' : 'Без названия'
     const movieYear = year && `(${year})`

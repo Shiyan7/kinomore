@@ -1,75 +1,34 @@
 import {IFact} from './IFact';
 
-interface IMovieExternalId {
-    imdb: string;
-}
-
 export interface IMoviePoster {
-    url: string;
     previewUrl: string;
-}
-
-interface IMovieLogo {
     url: string;
-}
-
-interface IMovieBackdrop {
-    url: string;
-}
-
-interface IMovieVotes {
-    kp: number;
-    imdb: number;
-    filmCritics: number;
-    russianFilmCritics: number;
-    await: number;
 }
 
 interface IMovieTrailer {
-    url: string;
     name: string;
     site: string;
-}
-
-interface IMovieVideos {
-    trailers: IMovieTrailer[];
-    teasers: any[];
+    url: string;
 }
 
 export interface IMovieRating {
-    _id: string;
-    kp: number;
-    imdb: number;
-    filmCritics: number;
-    russianFilmCritics: number;
     await: number;
+    filmCritics: number;
+    imdb: number;
+    kp: number;
+    russianFilmCritics: number;
 }
 
 interface IMovieBudget {
-    value: number;
     currency: string;
-}
-
-interface IMovieFees {
-    usa: any;
-    world: any;
+    value: number;
 }
 
 interface IMoviePremiere {
+    cinema: Date;
     country: string;
-    world: string;
-}
-
-interface IMovieCountry {
-    name: string;
-}
-
-interface IMovieGenre {
-    name: string;
-}
-
-interface IMovieName {
-    name: string;
+    russia: Date;
+    world: Date;
 }
 
 interface IMovieSeasonsInfo {
@@ -78,12 +37,8 @@ interface IMovieSeasonsInfo {
 }
 
 interface IMovieTechnology {
-    hasImax: boolean;
     has3D: boolean;
-}
-
-interface IMovieImagesInfo {
-    framesCount: number;
+    hasImax: boolean;
 }
 
 export interface IMoviePerson {
@@ -95,48 +50,88 @@ export interface IMoviePerson {
     photo: string;
 }
 
-export interface IMovie {
-    externalId: IMovieExternalId;
-    logo: IMovieLogo;
-    poster: IMoviePoster;
-    backdrop: IMovieBackdrop;
-    rating: IMovieRating;
-    votes: IMovieVotes;
-    videos: IMovieVideos;
-    budget: IMovieBudget;
-    fees: IMovieFees;
-    premiere: IMoviePremiere;
-    collections: any[];
-    updateDates: any[];
+interface IMovieDistributors {
+    distributor: string;
+    distributorRelease: null;
+}
+
+interface IMovieProdComp {
+    name: string;
+    previewUrl: string;
+    url: string;
+}
+
+interface IMovieSequels {
+    alternativeName: string;
+    enName: string;
     id: number;
-    alternativeName?: any;
-    countries: IMovieCountry[];
-    createdAt: Date;
+    poster: IMoviePoster;
+    type: string;
+}
+
+export interface ISimilarMovie {
+    alternativeName: string;
+    enName: string;
+    id: number;
+    name: string;
+    poster: IMoviePoster;
+}
+
+interface IMovieLang {
+    name: string;
+    nameEn: string;
+}
+
+type Fees = {
+    value: number;
+    currency: string;
+}
+
+interface IMovieFees {
+    usa: any;
+    world: any;
+}
+
+export interface IMovie {
+    ageRating: number;
+    alternativeName: string;
+    backdrop: {url: string};
+    budget: IMovieBudget;
+    countries: {name: string}[];
+    createDate: Date;
     description: string;
-    enName?: any;
+    distributors: IMovieDistributors;
+    fees: IMovieFees;
     facts: IFact[];
-    genres: IMovieGenre[];
+    genres: {name: string}[];
+    id: number;
+    enName: string;
+    images: {framesCount: number}
+    lists: [];
+    logo: {url: string}
     movieLength: number;
     name: string;
-    names: IMovieName[];
+    names: {name: string}[];
     persons: IMoviePerson[];
-    productionCompanies: any[];
-    ratingMpaa?: any;
-    seasonsInfo: IMovieSeasonsInfo[];
-    sequelsAndPrequels: IMovie[];
+    poster: IMoviePoster;
+    premiere: IMoviePremiere;
+    productionCompanies: IMovieProdComp[];
+    rating: IMovieRating;
+    ratingMpaa: string;
+    seasonsInfo?: IMovieSeasonsInfo[];
+    sequelsAndPrequels: IMovieSequels[];
     shortDescription: string;
-    similarMovies: any[];
-    general: boolean;
-    slogan?: any;
-    spokenLanguages: any[];
+    similarMovies: IMovie[];
+    slogan: string;
+    spokenLanguages: IMovieLang[];
+    status: string;
     technology: IMovieTechnology;
     ticketsOnSale: boolean;
     type: string;
     typeNumber: number;
+    updateDates: Date[];
     updatedAt: Date;
+    videos: {trailers: IMovieTrailer[]};
+    votes: IMovieRating;
     year: number;
-    imagesInfo: IMovieImagesInfo;
-    ageRating: number;
-    lists: any[];
-    createDate: Date;
 }

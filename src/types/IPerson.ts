@@ -1,38 +1,31 @@
 import {IFact} from './IFact';
 import {IMovie} from './IMovie';
 
-export interface Profession {
-    value: string;
-}
-
 interface IPersonSpouse {
-    _id: string;
-    id: number;
-    name: string;
+    children: number;
     divorced: boolean;
     divorcedReason: string;
-    children: number;
+    id: number;
+    name: string;
     relation: string;
 }
 
 export interface IPerson {
-    spouses: IPersonSpouse[];
-    id: number;
-    __v: number;
     age: number;
-    birthPlace: any[];
+    birthPlace: {value: string}[];
     birthday: Date;
     countAwards: number;
-    createdAt: Date;
-    death?: any;
-    deathPlace: any[];
+    death: Date;
+    deathPlace: {value: string}[];
     enName: string;
     facts: IFact[];
     growth: number;
+    id: number;
     movies: IMovie[];
     name: string;
     photo: string;
-    profession: Profession[];
+    profession: {value: string}[];
     sex: string;
+    spouses: IPersonSpouse[];
     updatedAt: Date;
 }

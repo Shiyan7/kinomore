@@ -2,17 +2,18 @@ import {RoutesEnum} from '@/constants/routes'
 import {Auth} from '@/components/Auth/Auth'
 import {Controller, useForm, } from 'react-hook-form'
 import {yupResolver} from "@hookform/resolvers/yup";
+import {useRouter} from 'next/router';
 import NextLink from 'next/link'
-import * as yup from "yup";
+import * as Yup from "yup";
 
 export const SignIn = () => {
 	
+	const {push} = useRouter()
 	const {Heading, TextField, Button, Link} = Auth
-	const messageRequired = 'Поле обязательно для заполнения';
 
-	const schema = yup.object().shape({
-		email: yup.string().required('Введите email'),
-		password: yup.string().required('Введите пароль')	
+	const schema = Yup.object().shape({
+		email: Yup.string().required('Введите email'),
+		password: Yup.string().required('Введите пароль')	
 	});
 
 	const {handleSubmit, control, formState: {errors}, reset} = useForm({
@@ -22,9 +23,11 @@ export const SignIn = () => {
 		},
 		resolver: yupResolver(schema),
     })
+	
 
 	const handleLogin = handleSubmit(data => {
 		console.log('Успешная авторизация', data);
+		push(RoutesEnum.Home)
 		reset()
 	})
 	

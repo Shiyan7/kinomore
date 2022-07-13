@@ -23,14 +23,33 @@
         position: relative;
         transform: translateY(1px);
         padding: 10px;
-        border-bottom: 2px solid transparent;
-        transition: border-color 0.3s, color 0.3s;
+        transition: color 0.3s;
         outline: none;
         cursor: pointer;
 
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            border-radius: 5px 5px 0 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
         &--selected {
+            font-weight: 400;
             color: var(--color-primary);
-            border-color: currentColor;
+
+            &:after {
+                opacity: 1;
+                visibility: visible;
+            }
         }
 
         &:not(:last-child) {

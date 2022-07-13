@@ -9,7 +9,8 @@ const nextConfig = {
         domains: ['st.kp.yandex.net', 'avatars.mds.yandex.net', 'www.themoviedb.org'],
     },
     env: {
-        API_KEY: process.env.API_KEY
+        API_KEY: process.env.API_KEY,
+        API_URL: process.env.API_URL
     }
 };
 
