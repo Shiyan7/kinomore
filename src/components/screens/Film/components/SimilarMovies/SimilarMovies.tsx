@@ -27,5 +27,3 @@ export const SimilarMovies: FC<SimilarMoviesProps> = ({movies}) => {
         </div>
     )
 }
-
-SimilarMovies.displayName = 'SimilarMovies'

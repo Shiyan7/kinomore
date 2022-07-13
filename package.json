@@ -18,6 +18,7 @@
     "babel-jest": "^28.1.2",
     "classnames": "^2.3.1",
     "css-loader": "^6.7.1",
+    "dotenv": "^16.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest-environment-jsdom": "^28.1.2",
     "moment": "^2.29.3",

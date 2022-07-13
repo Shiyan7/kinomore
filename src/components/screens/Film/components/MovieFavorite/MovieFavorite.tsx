@@ -11,5 +11,4 @@ export const MovieFavorite = (props: MovieFavoriteProps) => {
     return (
         <MovieFavoriteButton {...props} isFavourite={isFavourite} />
     );
-};
-
+}
