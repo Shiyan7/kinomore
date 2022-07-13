@@ -6,8 +6,10 @@
     top: 10px;
     left: 10px;
     color: var(--color-white);
-    padding: 5px 10px;
+    padding: 2px 8px;
     font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
     text-align: center;
     background-color: var(--color-primary);
     border-radius: 5px;
@@ -21,4 +23,12 @@
         height: 14px;
         margin-right: 5px;
     }
+}
+
+.green {
+    background-color: var(--color-green);
+}
+
+.red {
+    background-color: var(--color-red);
 }

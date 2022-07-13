@@ -32,6 +32,7 @@ export const NewFilms = () => {
         </Grid>
         {!condition &&
           <Button
+            disabled={isFetching}
             className={styles.btn}
             onClick={() => loadMoreFilms()}
           >

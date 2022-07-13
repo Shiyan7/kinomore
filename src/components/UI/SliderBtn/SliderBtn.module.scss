@@ -1,9 +1,3 @@
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .btn {
     display: flex;
     align-items: center;
@@ -15,10 +9,10 @@
     background-color: var(--color-white);
     color: var(--color-dark);
     transition: color 0.3s, background-color 0.3s, border 0.3s;
-    margin-top: 30px;
 
     @media (max-width: 576px) {
-        margin-top: 15px;
+        width: 35px;
+        height: 35px;
     }
     
     &[disabled] {
@@ -35,6 +29,11 @@
     svg {
         width: 20px;
         height: 20px;
+
+        @media (max-width: 576px) {
+            width: 18px;
+            height: 18px;
+        }
     }
 
     &:not(:last-child) {

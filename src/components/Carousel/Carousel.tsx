@@ -1,7 +1,9 @@
-import {PropsWithChildren, useRef} from "react";
-import SwiperClass, {Navigation} from 'swiper';
+import {FC, PropsWithChildren, useRef} from "react";
 import {Swiper} from 'swiper/react';
-import {SliderBtn, SliderBtnContainer} from '@/UI/SliderBtn/SliderBtn';
+import {SliderBtn} from '@/UI/SliderBtn/SliderBtn';
+import {Title} from "@/UI/Title/Title";
+import SwiperClass, {Navigation} from 'swiper';
+import styles from './Carousel.module.scss'
 import 'swiper/css';
 
 const breakpoints = {
@@ -22,7 +24,11 @@ const breakpoints = {
     },
 }
 
-export const Carousel = ({children}: PropsWithChildren<{}>) => {
+interface CarouselProps {
+    title?: string;
+}
+
+export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({children, title}) => {
 
     const navigationPrevRef = useRef<HTMLButtonElement>(null)
     const navigationNextRef = useRef<HTMLButtonElement>(null)
@@ -47,20 +53,25 @@ export const Carousel = ({children}: PropsWithChildren<{}>) => {
     }
 
     return (
-        <Swiper
-            modules={[Navigation]}
-            slidesPerView={2}
-            slidesPerGroup={2}
-            spaceBetween={15}
-            navigation={navigation}
-            onSwiper={onSwiper}
-            breakpoints={breakpoints}
-        >
-            {children}
-            <SliderBtnContainer>
-                <SliderBtn dir='left' ref={navigationPrevRef}/>
-                <SliderBtn dir='right' ref={navigationNextRef}/>
-            </SliderBtnContainer>
-        </Swiper>
+        <>
+            <div className={styles.top}>
+                <Title variant="h2" className={styles.title}>{title}</Title>
+                <div className={styles.btns}>
+                    <SliderBtn dir='left' ref={navigationPrevRef}/>
+                    <SliderBtn dir='right' ref={navigationNextRef}/>
+                </div>
+            </div>
+            <Swiper
+                modules={[Navigation]}
+                slidesPerView={2}
+                slidesPerGroup={2}
+                spaceBetween={15}
+                navigation={navigation}
+                onSwiper={onSwiper}
+                breakpoints={breakpoints}
+            >
+                {children}
+            </Swiper>
+        </>
     )
 }

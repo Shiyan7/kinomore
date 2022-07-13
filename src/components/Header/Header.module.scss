@@ -12,6 +12,11 @@
     align-items: center;
     justify-content: space-between;
 
+    @media (max-width: 1280px) {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
     @media (max-width: 768px) {
         flex-direction: column-reverse;
         padding: 0;

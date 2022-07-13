@@ -81,7 +81,7 @@ export const Film = () => {
                 <div className={styles.content}>
                     <div className={styles.left}>
                         <img className={styles.image} src={data?.poster?.url} alt={shortDescription}/>
-                        <MovieRating rating={rating}/>
+                        <MovieRating className={styles.rating} rating={rating}/>
                     </div>
                     <div className={styles.right}>
                         <Title className={styles.title} variant="h1">

@@ -32,6 +32,7 @@ export const NewSeries = () => {
         </Grid>
         {!condition &&
           <Button
+            disabled={isFetching}
             className={styles.btn}
             onClick={() => loadMoreSeries()}
           >

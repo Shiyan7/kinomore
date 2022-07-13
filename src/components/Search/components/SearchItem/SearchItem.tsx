@@ -3,6 +3,8 @@ import {FC} from "react";
 import Link from "next/link";
 import styles from './SearchItem.module.scss'
 import Image from "next/image";
+import classNames from "classnames";
+import { Rating } from "@/components/Rating/Rating";
 
 interface SearchItemProps {
     item: IMovie
@@ -27,7 +29,7 @@ export const SearchItem: FC<SearchItemProps> = ({item}) => {
 						<span className={styles.info}>{year}{movieLength && `, ${movieLength} мин.`}</span>
 					</div>
 				</div>
-				<span className={styles.rating}>{rating?.kp ? rating.kp : rating?.imdb}</span>
+				<Rating className={styles.rating} rating={rating} />
 			</a>
 		</Link>
     )

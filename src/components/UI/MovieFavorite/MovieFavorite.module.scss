@@ -1,13 +1,8 @@
 .favorite {
-    border-radius: 100%;
-    width: 40px;
     white-space: nowrap;
-    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-dark);
-    background-color: #f2f2f2;
     transition: background-color 0.3s, color 0.3s;
     border: 1px solid transparent;
 
@@ -39,8 +34,6 @@
 }
 
 .text {
-    width: auto;
-    height: auto;
     border-radius: 5px;
     padding: 8px 12px;
     font-size: 14px;
@@ -93,8 +86,6 @@
 
 
 .regular {
-    width: auto;
-    height: auto;
     border-radius: 30px;
     padding: 13px 24px;
     font-weight: 500;

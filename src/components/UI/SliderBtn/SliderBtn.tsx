@@ -1,18 +1,10 @@
-import {forwardRef, PropsWithChildren} from "react"
+import {forwardRef} from "react"
 import {FiChevronLeft, FiChevronRight} from "react-icons/fi"
 import {ButtonBase} from "@/UI/ButtonBase/ButtonBase"
 import styles from './SliderBtn.module.scss'
 
 interface SliderBtnProps {
     dir: 'left' | 'right'
-}
-
-export const SliderBtnContainer = ({children}: PropsWithChildren<{}>) => {
-    return (
-        <div className={styles.container}>
-            {children}
-        </div>
-    )
 }
 
 export const SliderBtn = forwardRef<HTMLButtonElement, SliderBtnProps>((props, ref) => {

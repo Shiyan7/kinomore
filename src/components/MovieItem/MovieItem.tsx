@@ -2,6 +2,7 @@ import {FC} from 'react';
 import {MovieFavorite} from '@/UI/MovieFavorite/index';
 import {IMovie} from '@/types/IMovie';
 import {useFavourites} from '@/hooks/useFavourite';
+import {Rating} from '../Rating/Rating';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './MovieItem.module.scss';
@@ -41,9 +42,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item }) => {
                 </div>
             </div>
             <div className={styles.right}>
-                <span className={styles.rating}>
-                    {rating.kp}
-                </span>
+                <Rating className={styles.rating} rating={rating} />
                 <MovieFavorite
                     id={id}
                     variant='text'

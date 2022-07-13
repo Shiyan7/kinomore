@@ -1,0 +1,15 @@
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    @media (max-width: 576px) {
+        margin-bottom: 30px;
+    }
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+}
