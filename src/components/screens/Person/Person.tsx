@@ -53,7 +53,7 @@ export const Person = () => {
         <section className={styles.section}>
             <div className={classNames('container wrapper', styles.container)}>
                 <div className={styles.top}>
-                    <BackBtn/>
+                    <BackBtn href="/" />
                 </div>
                 <div className={styles.content}>
                     <div className={styles.left}>
