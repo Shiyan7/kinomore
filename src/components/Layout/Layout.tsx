@@ -1,6 +1,7 @@
 import {FC, PropsWithChildren} from "react"
 import {Footer} from "@/components/Footer/Footer"
 import {Header} from "@/components/Header/Header"
+import { BottomNavigation } from "@/UI/BottomNavigation/BottomNavigation"
 
 export const Layout: FC<PropsWithChildren<{}>> = ({children}) => {
     return (
@@ -9,7 +10,8 @@ export const Layout: FC<PropsWithChildren<{}>> = ({children}) => {
             <main className='main'>
                 {children}
             </main>
-            <Footer />
+            {/* <Footer /> */}
+            <BottomNavigation />
         </>
     )
 }

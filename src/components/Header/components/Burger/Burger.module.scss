@@ -12,8 +12,7 @@
     transition: opacity 0.3s;
 
     @media (max-width: 768px) {
-        order: 3;
-        margin-right: 0;
+        display: none;
     }
 
     &:hover {

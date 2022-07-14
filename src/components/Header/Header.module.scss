@@ -18,8 +18,9 @@
     }
 
     @media (max-width: 768px) {
-        flex-direction: column-reverse;
-        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        padding: 17px var(--container-offset);
     }
 }
 
@@ -38,8 +39,7 @@
 
     @media (max-width: 768px) {
         width: 100%;
-        background-color: #333;
-        padding: 20px var(--container-offset);
+        padding: 0;
     }
 }
 
@@ -87,7 +87,7 @@
     font-size: 15px;
     line-height: 15px;
     display: none;
-    margin-right: 15px;
+    margin-right: 10px;
 
     @media (max-width: 768px) {
         display: inline-block;

@@ -1,4 +1,4 @@
-import {ChangeEvent, FC, InputHTMLAttributes} from 'react'
+import {ChangeEvent, FC, forwardRef, InputHTMLAttributes} from 'react'
 import classNames from 'classnames'
 import styles from './TextField.module.scss'
 
@@ -12,12 +12,13 @@ export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const TextField: FC<TextFieldProps> = ({className, value, error = false, errorMessage, variant, label, onChange, ...props}) => {
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(({className, value, error = false, errorMessage, variant, label, onChange, ...props}, ref) => {
   return (
     <label className={classNames(styles.label, className)}>
       {label && <span className={styles.caption}>{label}</span>}
       <input
         data-testid="input"
+        ref={ref}
         className={classNames(
           styles.textField,
           variant === 'dark' && styles.dark,
@@ -31,4 +32,6 @@ export const TextField: FC<TextFieldProps> = ({className, value, error = false, 
       {errorMessage && <span className={styles.errorMessage}>{errorMessage}</span>}
     </label>
   );
-}
+})
+
+TextField.displayName = 'TextField'

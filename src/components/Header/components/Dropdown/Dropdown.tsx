@@ -15,15 +15,15 @@ export const Dropdown = () => {
         {icon: <FiHome />, href: RoutesEnum.Home, text: 'Главная'},
         {icon: <FiFilm />, href: RoutesEnum.Films, text: 'Фильмы'},
         {icon: <FiTv />, href: RoutesEnum.Series, text: 'Сериалы'},
-        {icon: <BiMovie />, href: RoutesEnum.Cartoons, text: 'Мультфильмы'},
+        {icon: <BiMovie />, href: RoutesEnum.Cartoons, text: 'Мультики'},
         {icon: <FiHeart />, href: RoutesEnum.Favourites, text: 'Избранное'}
     ]
 
-    const router = useRouter()
+    const {pathname, events} = useRouter()
     const {toggleMenu} = useActions()
 
     useEffect(() => {
-        router.events.on("routeChangeComplete", () => toggleMenu(false));
+        events.on("routeChangeComplete", () => toggleMenu(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
@@ -32,16 +32,21 @@ export const Dropdown = () => {
     return (
         <div className={classNames(styles.dropdown, openedMenu && styles.dropdownOpen)}>
             <ul className={classNames('list-reset', styles.list)}>
-                {items.map(el => (
-                    <li key={el.text} className={styles.item}>
-                        <Link href={el.href}>
-                            <a className={classNames(styles.link, router.pathname === el.href && styles.linkActive)}>
-                                {el.icon}
-                                {el.text}
-                            </a>
-                        </Link>
-                    </li>
-                ))}
+                {items.map(el => {
+
+                    const isCurrentPage = pathname === el.href;
+
+                    return (
+                        <li key={el.text} className={styles.item}>
+                            <Link href={el.href}>
+                                <a className={classNames(styles.link, isCurrentPage && styles.linkActive)}>
+                                    {el.icon}
+                                    {el.text}
+                                </a>
+                            </Link>
+                        </li>
+                    )
+                })}
             </ul>
         </div>
     )

@@ -79,6 +79,11 @@
 .rating {
     top: 13px;
     left: 14px;
+
+    @media (max-width: 576px) {
+        top: 11px;
+        left: 12px;
+    }
 }
 
 .title {

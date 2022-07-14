@@ -18,10 +18,15 @@
         display: none;
     }
 
+    @media (max-width: 768px) {
+        bottom: 100px;
+    }
+
     @media (max-width: 576px) {
         width: 60px;
         height: 60px;
         font-size: 22px;
+        bottom: 90px;
     }
 
     &:hover {
