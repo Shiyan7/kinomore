@@ -10,7 +10,7 @@ export const Layout: FC<PropsWithChildren<{}>> = ({children}) => {
             <main className='main'>
                 {children}
             </main>
-            {/* <Footer /> */}
+            <Footer />
             <BottomNavigation />
         </>
     )

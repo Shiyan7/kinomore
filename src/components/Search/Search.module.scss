@@ -39,10 +39,10 @@
             height: inherit;
             border-radius: 0;
             color: var(--color-white);
-            padding-left: 50px;
+            padding-left: 40px;
             font-size: 16px;
             line-height: 16px;
-            background-color: var(--color-dark);
+            background-color: var(--color-light-dark);
         }
     }
 }
@@ -109,8 +109,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
+    margin-left: -8px;
 
     @media (min-width: 769px) {
         display: none;
@@ -130,6 +131,7 @@
     width: 30px;
     height: 30px;
     margin-right: -8px;
+    order: 1;
 
     @media (min-width: 769px) {
         display: none;

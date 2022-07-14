@@ -10,12 +10,11 @@ import {RoutesEnum} from "@/constants/routes";
 import styles from './Header.module.scss';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { ButtonBase } from "../UI/ButtonBase/ButtonBase";
 
 export const Header = () => {
 
     const ref = useRef(null)
-    const {toggleMenu, setVisible} = useActions()
+    const {toggleMenu} = useActions()
 
     useOnClickOutside(ref, () => toggleMenu(false))
 
@@ -26,9 +25,6 @@ export const Header = () => {
                     <Burger />
                     <Logo className={styles.logo} />
                     <Dropdown />
-                    <Link href={RoutesEnum.Login}>
-                        <a className={classNames(styles.link, styles.menuLink)}>Войти</a>
-                    </Link>
                 </div>
                 <Search />
                 <Link href={RoutesEnum.Login}>

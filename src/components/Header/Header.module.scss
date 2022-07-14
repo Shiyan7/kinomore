@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     z-index: 10000;
-    background-color: var(--color-dark);
+    background-color: var(--color-light-dark);
 }
 
 .container {
@@ -53,7 +53,9 @@
     transition: color 0.3s;
 
     @media (max-width: 768px) {
-        display: none;
+        font-size: 15px;
+        line-height: 15px;
+        margin-right: 10px;
     }
 
     &:before {
@@ -80,16 +82,5 @@
 
     &:hover {
         color: var(--color-white);
-    }
-}
-
-.menuLink {
-    font-size: 15px;
-    line-height: 15px;
-    display: none;
-    margin-right: 10px;
-
-    @media (max-width: 768px) {
-        display: inline-block;
     }
 }
