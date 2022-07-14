@@ -17,15 +17,7 @@
     }
 
     @media (max-width: 768px) {
-        box-shadow: none;
-        width: 100%;
-        left: 0;
-        padding-top: 80px;
-        padding-bottom: 25px;
-        padding-left: var(--container-offset);
-        padding-right: var(--container-offset);
-        border-radius: 0;
-        background-color: #333;
+        display: none;
     }
 }
 
