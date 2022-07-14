@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { ButtonHTMLAttributes, memo } from 'react';
 import { FiChevronLeft } from 'react-icons/fi';
 import { ButtonBase } from '@/UI/ButtonBase/ButtonBase';
@@ -8,26 +8,27 @@ import classNames from 'classnames';
 interface BackBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: 'icon';
+  href: string;
 }
 
 export const BackBtn = memo<BackBtnProps>(
-  ({ className, variant, ...props }) => {
-    const router = useRouter();
-    const handleBack = () => router.back();
-
+  ({ className, variant, href, ...props }) => {
     return (
-      <ButtonBase
-        className={classNames(
-          styles.back,
-          variant === 'icon' && styles.icon,
-          className
-        )}
-        onClick={handleBack}
-        startIcon={variant === 'icon' ? null : <FiChevronLeft />}
-        {...props}
-      >
-        {variant === 'icon' ? <FiChevronLeft /> : 'Назад'}
-      </ButtonBase>
+      <Link href={href}>
+        <a>
+          <ButtonBase
+            className={classNames(
+              styles.back,
+              variant === 'icon' && styles.icon,
+              className
+            )}
+            startIcon={variant === 'icon' ? null : <FiChevronLeft />}
+            {...props}
+          >
+            {variant === 'icon' ? <FiChevronLeft /> : 'Назад'}
+          </ButtonBase>
+        </a>
+      </Link>
     );
   }
 );
