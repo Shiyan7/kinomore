@@ -41,6 +41,7 @@
     "react-tabs": "^5.1.0",
     "react-test-renderer": "^18.2.0",
     "react-use-ripple": "^1.5.2",
+    "react-vh": "^1.1.1",
     "sass": "^1.52.1",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",

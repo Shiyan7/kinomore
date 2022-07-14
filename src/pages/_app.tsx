@@ -6,6 +6,7 @@ import {Provider} from 'react-redux'
 import {useEffect} from 'react'
 import {useRouter} from 'next/router'
 import NProgress from 'nprogress'
+import useVH from "react-vh";
 import 'nprogress/nprogress.css';
 import Head from 'next/head'
 
@@ -34,6 +35,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useVH();
   
   return (
     <Provider store={store}>
