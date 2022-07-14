@@ -9,23 +9,26 @@ export const Room = () => {
 
     const {query: {id}} = useRouter();
     const {data} = useGetFilmByIdQuery(id)
-    const {name} = { ...data };
 
     useEffect(() => {
-      const script = document.createElement("script");
-      script.src = "/player.js";
-      document.body.appendChild(script);
+		const script = document.createElement("script");
+		script.src = "/player.js";
+		document.body.appendChild(script);
+
+		return () => {
+			script.remove();
+		};
     }, []);
     
     return (
-      <section className={styles.content}>
-        <div className={styles.left}>
-          <RoomHeader title={name} />
-          <div className={styles.videoContainer}>
-            <div className={styles.video} id="kinobd" data-resize="1" data-bg="#000" data-kinopoisk={id}></div>
-          </div>
-        </div>
-        <Chat />
-      </section>
+		<section className={styles.content}>
+			<div className={styles.left}>
+				<RoomHeader title={data?.name} />
+				<div className={styles.videoContainer}>
+					<div className={styles.video} id="kinobd" data-resize="1" data-bg="#000" data-kinopoisk={id}></div>
+				</div>
+			</div>
+			<Chat />
+		</section>
     )
 }
