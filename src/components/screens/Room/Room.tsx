@@ -10,7 +10,8 @@ export const Room = () => {
     query: { id },
   } = useRouter();
   const { data } = useGetFilmByIdQuery(id);
-  const { name } = { ...data };
+  
+  const { name, id: movieId } = { ...data };
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -25,7 +26,7 @@ export const Room = () => {
   return (
     <section className={styles.content}>
       <div className={styles.left}>
-        <RoomHeader title={name} />
+        <RoomHeader title={name} id={movieId} />
         <div className={styles.videoContainer}>
           <div
             className={styles.video}
