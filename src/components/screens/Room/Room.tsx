@@ -16,6 +16,10 @@ export const Room = () => {
     const script = document.createElement('script');
     script.src = '/player.js';
     document.body.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
   }, []);
 
   return (
