@@ -88,8 +88,8 @@ type Fees = {
 }
 
 interface IMovieFees {
-    usa: any;
-    world: any;
+    usa: Fees;
+    world: Fees;
 }
 
 export interface IMovie {

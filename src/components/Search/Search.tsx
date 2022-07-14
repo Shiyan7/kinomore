@@ -7,9 +7,9 @@ import {ButtonBase} from '@/UI/ButtonBase/ButtonBase';
 import {useOnClickOutside} from 'usehooks-ts';
 import {useDebounce} from '@/hooks/useDebounce';
 import {SearchList} from './components/SearchList/SearchList';
+import {useTypedSelector} from '@/hooks/useTypedSelector';
 import styles from './Search.module.scss';
 import classNames from 'classnames';
-import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 export const Search = () => {
     
@@ -91,7 +91,6 @@ export const Search = () => {
                 </ButtonBase>
                 {isActive && <SearchList value={debouncedValue} />}
             </form>
-            
             <ButtonBase onClick={openSearch} className={styles.openSearch}>
                 <FiSearch />
             </ButtonBase>

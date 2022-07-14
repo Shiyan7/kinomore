@@ -1,10 +1,10 @@
 import {IMovie} from "@/types/IMovie";
 import {FC} from "react";
+import {Rating} from "@/components/Rating/Rating";
 import Link from "next/link";
 import styles from './SearchItem.module.scss'
 import Image from "next/image";
 import classNames from "classnames";
-import { Rating } from "@/components/Rating/Rating";
 
 interface SearchItemProps {
     item: IMovie

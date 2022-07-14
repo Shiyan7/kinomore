@@ -111,15 +111,15 @@
     justify-content: center;
     width: 30px;
     height: 30px;
-    margin-left: -8px;
+    margin-left: -9px;
 
     @media (min-width: 769px) {
         display: none;
     }
 
     svg {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
         stroke: #fff;
     }
 }

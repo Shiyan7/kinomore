@@ -43,7 +43,8 @@ export const Film = () => {
         persons
     } = {...data};
 
-    const worldFees = fees?.world?.value - fees?.usa?.value;
+    /* @ts-ignore */
+    const worldFees = fees?.world.value - fees?.usa?.value;
 
     const items = useMemo(() => [
         {caption: 'Страны', value: countries?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>), condition: countries?.length},

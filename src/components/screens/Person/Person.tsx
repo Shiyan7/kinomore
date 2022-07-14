@@ -45,8 +45,8 @@ export const Person = () => {
     ], [birthday, countFilms, death, growth, movies, profession, sex, spouses])
 
     const tabs = useMemo(() => [
-        {txt: 'Факты', content: <Facts facts={facts} />, condition: facts?.length},
         {txt: 'Фильмы и сериалы', content: <PersonMovies movies={personMovies?.docs} />, condition: personMovies},
+        {txt: 'Факты', content: <Facts facts={facts} />, condition: facts?.length},
     ], [facts, personMovies])
 
     return (

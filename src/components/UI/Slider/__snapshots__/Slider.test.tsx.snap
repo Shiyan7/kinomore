@@ -14,6 +14,7 @@ exports[`слайдер разные тесты 1`] = `
       <input
         class="textField"
         data-testid="input"
+        type="number"
         value="0"
       />
     </label>
@@ -23,6 +24,7 @@ exports[`слайдер разные тесты 1`] = `
       <input
         class="textField"
         data-testid="input"
+        type="number"
         value="50"
       />
     </label>

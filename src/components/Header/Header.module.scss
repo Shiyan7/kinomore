@@ -4,7 +4,11 @@
     left: 0;
     width: 100%;
     z-index: 10000;
-    background-color: var(--color-light-dark);
+    background-color: var(--color-dark);
+
+    @media (max-width: 768px) {
+        background-color: var(--color-light-dark);
+    }
 }
 
 .container {
@@ -55,7 +59,7 @@
     @media (max-width: 768px) {
         font-size: 15px;
         line-height: 15px;
-        margin-right: 10px;
+        margin-right: 8px;
     }
 
     &:before {

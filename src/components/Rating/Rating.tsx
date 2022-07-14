@@ -6,7 +6,6 @@ import styles from './Rating.module.scss'
 interface RatingProps {
     rating: IMovieRating;
     className?: string;
-    children?: any;
 }
 
 export const Rating: FC<RatingProps> = ({rating, className}) => {
