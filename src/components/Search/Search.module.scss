@@ -91,7 +91,7 @@
     }
 
     @media (max-width: 768px) {
-        right: 15px;
+        right: 10px;
     }
 
     svg {
@@ -131,6 +131,7 @@
     width: 30px;
     height: 30px;
     margin-right: -8px;
+    flex-shrink: 0;
     order: 1;
 
     @media (min-width: 769px) {
