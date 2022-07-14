@@ -3,8 +3,13 @@
     align-items: center;
     justify-content: center;
     z-index: 50;
-    transition: background-color 0.3s;
     margin-bottom: 30px;
+
+    &:hover {
+        svg {
+            transform: none;
+        }
+    }
 
     @media (max-width: 1024px) {
         border-radius: 8px;
