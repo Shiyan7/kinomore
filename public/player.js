@@ -580,33 +580,7 @@ function kb_json(jsonString) {
 }
 
 function kb_fullscreen() {
-    var isInFullScreen = (document.fullscreenElement) ||
-        (document.webkitFullscreenElement) ||
-        (document.mozFullScreenElement) ||
-        (document.msFullscreenElement);
-
-    var iframe = document.querySelector('#kinobd-iframe');
-    if (!isInFullScreen) {
-        if (iframe.requestFullscreen) {
-            iframe.requestFullscreen();
-        } else if (iframe.mozRequestFullScreen) {
-            iframe.mozRequestFullScreen();
-        } else if (iframe.webkitRequestFullScreen) {
-            iframe.webkitRequestFullScreen();
-        } else if (iframe.msRequestFullscreen) {
-            iframe.msRequestFullscreen();
-        }
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
-        }
-    }
+    
 }
 
 function kb_resize() {

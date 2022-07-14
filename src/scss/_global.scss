@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    min-height: calc(var(--vh, 1vh) * 100);
     font-family: var(--font-family, sans-serif);
     -webkit-text-size-adjust: 100%;
 }
