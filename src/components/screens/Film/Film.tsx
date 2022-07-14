@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Fragment, useMemo } from 'react';
+import Link from 'next/link';
 import { Title } from '@/UI/Title/Title';
 import { BackBtn } from '@/UI/BackBtn/BackBtn';
 import { convertType } from '@/helpers/convertType/convertType';
@@ -21,9 +22,9 @@ import { MovieFavorite } from './components/MovieFavorite/MovieFavorite';
 
 export const Film = () => {
   const {
-    push,
     query: { id },
   } = useRouter();
+
   const { data, isLoading, isError } = useGetFilmByIdQuery(id);
   const {
     alternativeName,
@@ -154,7 +155,7 @@ export const Film = () => {
     <section className={styles.section}>
       <div className={classNames('container wrapper', styles.container)}>
         <div className={styles.top}>
-          <BackBtn />
+          <BackBtn href="/" />
         </div>
         <div className={styles.content}>
           <div className={styles.left}>
@@ -171,15 +172,18 @@ export const Film = () => {
             </Title>
             <span className={styles.originalTitle}>{alternativeName}</span>
             <div className={styles.btns}>
-              <Button
-                onClick={() => push(`/room/${data?.id}`)}
-                className={styles.btn}
-                variant="regular"
-                disabled={isError}
-                startIcon={<FiPlay />}
-              >
-                Смотреть
-              </Button>
+              <Link href={isError === false ? `/room/${data?.id}` : '#'}>
+                <a>
+                  <Button
+                    className={styles.btn}
+                    variant="regular"
+                    disabled={isError}
+                    startIcon={<FiPlay />}
+                  >
+                    Смотреть
+                  </Button>
+                </a>
+              </Link>
               <MovieFavorite
                 className={styles.btn}
                 variant="regular"
