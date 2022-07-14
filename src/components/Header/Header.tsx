@@ -2,6 +2,7 @@ import {useActions} from "@/hooks/useActions";
 import {Search} from '@/components/Search/Search';
 import {useRef} from 'react';
 import {useOnClickOutside} from 'usehooks-ts';
+import {FiSearch} from 'react-icons/fi';
 import {Logo} from '@/UI/Logo/Logo';
 import {Burger} from './components/Burger/Burger';
 import {Dropdown} from './components/Dropdown/Dropdown';
@@ -24,9 +25,6 @@ export const Header = () => {
                     <Burger />
                     <Logo className={styles.logo} />
                     <Dropdown />
-                    <Link href={RoutesEnum.Login}>
-                        <a className={classNames(styles.link, styles.menuLink)}>Войти</a>
-                    </Link>
                 </div>
                 <Search />
                 <Link href={RoutesEnum.Login}>

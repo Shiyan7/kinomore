@@ -1,7 +1,6 @@
 import {PropsWithChildren} from 'react'
 import {MovieItem} from '@/components/MovieItem/MovieItem';
-import {Device} from '@/components/Device';
-import {FiltersToggle} from '@/UI/FiltersToggle/FiltersToggle';
+import {FiltersToggle} from '@/components/Catalog/components/FiltersToggle/FiltersToggle';
 import {Pagination} from '@/UI/Pagination/Pagination';
 import {Spinner, SpinnerSizes} from '@/UI/Spinner/Spinner';
 import {Title} from '@/UI/Title/Title';
@@ -61,9 +60,6 @@ module Catalog {
     return (
       <div className={styles.body}>
         {children}
-        <Device mobile>
-          <FiltersToggle />
-        </Device>
       </div>
     )
   }
@@ -75,6 +71,7 @@ module Catalog {
 
     const CatalogContent = (
       <>
+        <FiltersToggle />
         <Catalog.Grid data={data} />
         <Pagination page={page} setPage={setPage} pages={data?.pages} />
       </>

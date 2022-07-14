@@ -67,8 +67,12 @@
     line-height: 48px;
     font-weight: 700;
 
-    @media (max-width: 576px) {
+    @media (max-width: 1024px) {
         margin-bottom: 15px;
+    }
+
+    @media (max-width: 576px) {
+        margin-bottom: 12px;
         font-size: 28px;
         line-height: 38px;
     }
@@ -88,6 +92,10 @@
     line-height: 28px;
     max-width: 800px;
 
+    @media (max-width: 1024px) {
+        margin-bottom: 25px;
+    }
+
     a {
         text-decoration: underline;
         color: var(--color-dark);
@@ -98,7 +106,7 @@
     }
 
     @media (max-width: 576px) {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         font-size: 15px;
         line-height: 26px;
     }

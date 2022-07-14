@@ -41,6 +41,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <title>Kinomore</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>
       <Component {...pageProps} />
     </Provider>

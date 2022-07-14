@@ -1,5 +1,5 @@
 import {ChangeEvent, FormEvent, useEffect, useRef, useState} from 'react';
-import {FiX, FiSearch} from 'react-icons/fi';
+import {FiX, FiSearch, FiChevronLeft} from 'react-icons/fi';
 import {useRouter} from 'next/router';
 import {useActions} from '@/hooks/useActions';
 import {TextField} from '@/UI/TextField/TextField';
@@ -9,14 +9,16 @@ import {useDebounce} from '@/hooks/useDebounce';
 import {SearchList} from './components/SearchList/SearchList';
 import styles from './Search.module.scss';
 import classNames from 'classnames';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 export const Search = () => {
     
-    const {setSearch} = useActions()
+    const {visible} = useTypedSelector(state => state.searchReducer)
+    const {setSearch, setVisible} = useActions()
     const [value, setValue] = useState<string>('')
-    const [visible, setVisible] = useState<boolean>(false)
     const {debouncedValue, setDebouncedValue} = useDebounce(value.trim(), 300);
-    const ref = useRef<HTMLFormElement>(null)
+    const formRef = useRef<HTMLFormElement>(null)
+    const inputRef = useRef<HTMLInputElement>(null)
     const router = useRouter();
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -32,6 +34,7 @@ export const Search = () => {
     useEffect(() => {
         setVisible(false)
         setValue('')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router])
 
     const handleClearInput = () => {
@@ -40,37 +43,58 @@ export const Search = () => {
         setDebouncedValue('')
     }
 
-    useOnClickOutside(ref, () => setVisible(false))
+    useOnClickOutside(formRef, () => setVisible(false))
 
     const isActive = debouncedValue && visible;
 
+    const openSearch = () => {
+        setVisible(true)
+        inputRef.current?.focus()
+    }
+
     return (
-        <form onSubmit={submitForm} ref={ref} onClick={() => setVisible(true)} action="#" className={styles.form}>
-            <TextField
-                className={styles.search}
-                variant='dark'
-                type="search"
-                value={value}
-                onChange={handleChange}
-                placeholder='Поиск...'
-            />
-            <ButtonBase
-                ripple
-                type='button'
-                className={classNames(styles.closeBtn, value && styles.active)}
-                onClick={handleClearInput}
-            >
-                <FiX />
-            </ButtonBase>
-            <ButtonBase
-                ripple
-                className={styles.searchBtn}
-                disabled={!value.length}
-                onClick={submitForm}
-            >
+        <>
+            <form onSubmit={submitForm} ref={formRef} action="#" className={classNames(styles.form, visible && styles.visible)}>
+                <TextField
+                    className={styles.search}
+                    ref={inputRef}
+                    variant='dark'
+                    type="search"
+                    value={value}
+                    onChange={handleChange}
+                    placeholder='Поиск...'
+                    onClick={() => setVisible(true)}
+                />
+                <ButtonBase
+                    ripple
+                    type='button'
+                    className={styles.hideSearch}
+                    onClick={() => setVisible(false)}
+                >
+                    <FiChevronLeft />
+                </ButtonBase>
+                <ButtonBase
+                    ripple
+                    type='button'
+                    className={classNames(styles.closeBtn, value && styles.active)}
+                    onClick={handleClearInput}
+                >
+                    <FiX />
+                </ButtonBase>
+                <ButtonBase
+                    ripple
+                    className={styles.searchBtn}
+                    disabled={!value.length}
+                    onClick={submitForm}
+                >
+                    <FiSearch />
+                </ButtonBase>
+                {isActive && <SearchList value={debouncedValue} />}
+            </form>
+            
+            <ButtonBase onClick={openSearch} className={styles.openSearch}>
                 <FiSearch />
             </ButtonBase>
-            {isActive && <SearchList value={debouncedValue} />}
-        </form>
+        </>
     )
 }

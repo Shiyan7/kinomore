@@ -50,7 +50,7 @@ export const SearchList: FC<SearchListProps> = ({value}) => {
                         onClick={() => handleChangeType('3')}
                         className={classNames(styles.btn, type === '3' && styles.active)}
                     >
-                        Мультфильмы
+                        Мультики
                     </Button>
                 </div>
             </div>

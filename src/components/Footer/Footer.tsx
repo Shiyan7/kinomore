@@ -10,7 +10,7 @@ export const Footer = () => {
     const items = [
         {href: RoutesEnum.Films, text: 'Фильмы'},
         {href: RoutesEnum.Series, text: 'Сериалы'},
-        {href: RoutesEnum.Cartoons, text: 'Мультфильмы'},
+        {href: RoutesEnum.Cartoons, text: 'Мультики'},
     ]
 
     return (

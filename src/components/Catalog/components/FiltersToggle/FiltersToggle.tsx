@@ -1,8 +1,8 @@
 import {useActions} from '@/hooks/useActions'
 import {useTypedSelector} from '@/hooks/useTypedSelector'
-import {FiFilter} from 'react-icons/fi'
+import {FiSliders} from 'react-icons/fi'
 import {useLockedBody} from 'usehooks-ts'
-import {ButtonBase} from '@/UI/ButtonBase/ButtonBase'
+import {Button} from '@/UI/Button/Button'
 import styles from './FiltersToggle.module.scss'
 
 export const FiltersToggle = () => {
@@ -17,8 +17,8 @@ export const FiltersToggle = () => {
     }
 
     return (
-        <ButtonBase ripple className={styles.btn} onClick={handleToggle}>
-            <FiFilter />
-        </ButtonBase>
+        <Button variant='stroke' startIcon={<FiSliders />} className={styles.btn} onClick={handleToggle}>
+            Фильтры
+        </Button>
     )
 }
