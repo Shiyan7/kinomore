@@ -1,8 +1,7 @@
 {
   "name": "kinomore",
-  "version": "1.0.0",
-  "private": false,
-  "license": "MIT",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
