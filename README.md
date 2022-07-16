@@ -1,5 +1,5 @@
 # Kinomore
- Front-end приложение для поиска и просмотра фильмов. Демо: [https://kinomore.netlify.app/](https://kinomore.netlify.app/)
+ Front-end приложение для поиска и просмотра фильмов. Демо: [https://kinomore.vercel.app/](https://kinomore.vercel.app/)
  
 # Стек технологий:
   * React + React Hooks
