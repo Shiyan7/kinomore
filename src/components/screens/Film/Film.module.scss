@@ -51,9 +51,8 @@
         margin-bottom: 30px;
     }
 
-    @media (max-width: 576px) {
-        margin-right: 0;
-        margin-bottom: 20px;
+    @media (max-width: 767px) {
+        margin: 0 auto 20px auto;
     }
 }
 
@@ -92,11 +91,13 @@
     line-height: 48px;
     max-width: 650px;
     margin-bottom: 20px;
+    word-break: break-word;
 
-    @media (max-width: 576px) {
+    @media (max-width: 767px) {
         font-size: 26px;
         line-height: 33px;
-        margin-bottom: 15px;
+        margin: 0 auto 15px auto;
+        text-align: center;
     }
 }
 
@@ -107,6 +108,10 @@
     line-height: 28px;
     color: rgba(#000, 0.5);
     margin-bottom: 25px;
+
+    @media (max-width: 767px) {
+        text-align: center;
+    }
 }
 
 .btns {
@@ -114,8 +119,9 @@
     align-items: center;
     margin-bottom: 35px;
 
-    @media (max-width: 576px) {
+    @media (max-width: 767px) {
         margin-bottom: 25px;
+        justify-content: center;
     }
 }
 
