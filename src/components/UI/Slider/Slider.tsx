@@ -56,6 +56,9 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 			<div className={styles.inputs}>
 				<TextField
 					type="number"
+					label='От'
+					min={min}
+					max={max}
 					className={styles.input}
 					value={values[0]}
 					onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -65,6 +68,9 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 				/>
 				<TextField
 					type="number"
+					label='До'
+					min={min}
+					max={max}
 					className={styles.input}
 					value={values[1]}
 					onChange={(e: ChangeEvent<HTMLInputElement>) => {

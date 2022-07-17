@@ -52,6 +52,15 @@ export const Select: FC<SelectProps> = ({name, options, value, onChange}) => {
       '&:hover': { borderColor: 'rgba(0,0,0, 0.4)' },
       border: '1px solid lightgray',
       boxShadow: 'none',
+    }),
+    menu: base => ({
+      ...base,
+      boxShadow: 'none',
+      border: '1px solid rgba(0,0,0, 0.2)'
+    }),
+    noOptionsMessage: base => ({
+      ...base,
+      color: 'var(--color-dark)'
     })
   };
 
@@ -62,6 +71,7 @@ export const Select: FC<SelectProps> = ({name, options, value, onChange}) => {
       instanceId="select"
       options={options}
       styles={selectStyle}
+      noOptionsMessage={() => 'Ничего не найдено!'}
       value={value}
       onChange={e => onChange(e)}
       components={{
