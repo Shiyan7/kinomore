@@ -1,11 +1,5 @@
-.list {
-    width: 100%;
-    max-width: 800px;
-}
-
 .btn {
-    display: block;
-    margin: 30px auto 0;
+    margin: 0 auto;
     min-width: 200px;
 
     &[disabled] {

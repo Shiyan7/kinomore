@@ -12,9 +12,17 @@
             padding-right: 0;
             min-width: auto;
             padding: 0;
+            border-bottom: none;
 
             @media (max-width: 768px) {
+                right: 0;
+                width: auto;
                 top: 63px;
+                margin-left: -15px;
+                margin-right: -15px;
+                min-width: calc(100% + 15px);
+                padding: 0 15px;
+                border-bottom: 1px solid rgba(#000, 0.1);
             }
         }
 
@@ -49,6 +57,7 @@
     }
 
     &__tab {
+        white-space: nowrap;
         position: relative;
         padding: 10px;
         transition: color 0.3s;

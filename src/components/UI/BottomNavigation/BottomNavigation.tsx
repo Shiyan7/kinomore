@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './BottomNavigation.module.scss'
 import Link from 'next/link';
 import {useRouter} from 'next/router';
-import {ButtonBase} from '../ButtonBase/ButtonBase';
+import {ButtonBase} from '@/UI/ButtonBase/ButtonBase';
 
 export const BottomNavigation = () => {
 

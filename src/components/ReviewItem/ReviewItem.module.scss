@@ -14,6 +14,10 @@
 
 .content {
     padding: 40px 30px;
+
+    @media (max-width: 576px) {
+        padding: 25px 15px;
+    }
 }
 
 .title {
@@ -59,4 +63,8 @@
     justify-content: space-between;
     border-top: 1px solid rgba(#000, 0.1);
     padding: 15px 30px;
+
+    @media (max-width: 576px) {
+        padding: 15px;
+    }
 }

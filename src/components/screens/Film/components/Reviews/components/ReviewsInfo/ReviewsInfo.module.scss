@@ -2,21 +2,56 @@
     position: sticky;
     top: 30px;
     right: 0;
+    width: 200px;
     padding-top: 83px;
     margin-left: 40px;
+
+    @media (max-width: 768px) {
+        position: static;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-left: 0;
+        padding-top: 0;
+    }
+
+    @media (max-width: 576px) {
+        display: grid;
+        column-gap: 20px;
+        align-items: flex-start;
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .item {
     display: block;
+
+    @media (max-width: 768px) {
+        margin-right: 50px;
+    }
+
+    @media (max-width: 576px) {
+        text-align: center;
+        margin-right: 0;
+    }
     
     &:not(:last-child) {
-        margin-bottom: 12px;
+        margin-bottom: 17px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 0;
+        }
     }
 }
 
 .top {
     display: flex;
     align-items: flex-end;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .quantity {
@@ -26,6 +61,13 @@
     font-size: 28px;
     line-height: 28px;
     margin-right: 6px;
+
+    @media (max-width: 576px) {
+        font-size: 25px;
+        line-height: 25px;
+        margin-right: 0;
+        margin-bottom: 3px;
+    }
 }
 
 .percent {
@@ -33,6 +75,10 @@
     line-height: 16px;
     color: rgba(#000, 0.3);
     padding-bottom: 2px;
+
+    @media (max-width: 576px) {
+        display: none;
+    }
 }
 
 .caption {
@@ -40,4 +86,10 @@
     line-height: 12px;
     font-weight: 300;
     color: var(--color-dark);
+
+    @media (max-width: 576px) {
+        display: inline;
+        paddding: 0 8px;
+        word-break: break-all;
+    }
 }

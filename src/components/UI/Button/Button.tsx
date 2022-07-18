@@ -5,7 +5,6 @@ import styles from './Button.module.scss'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'stroke' | 'regular' | 'sm';
-    className?: string;
     startIcon?: ReactNode;
     endIcon?: ReactNode;
     animationDuration?: number;

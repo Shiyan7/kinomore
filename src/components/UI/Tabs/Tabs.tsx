@@ -1,6 +1,6 @@
-import classNames from "classnames";
 import {FC, Fragment, ReactNode} from "react"
 import {Tab, TabList, TabPanel, Tabs as ReactTabs} from "react-tabs"
+import classNames from "classnames";
 
 type TabItem = {
     txt: string;
@@ -17,19 +17,29 @@ export const Tabs: FC<TabsProps> = ({tabs, sticky}) => {
     return (
         <ReactTabs className={classNames('react-tabs', sticky ? 'react-tabs--sticky' : null)}>
             <TabList>
-                {tabs.map((el) => (
-                    <Fragment key={el.txt}>
-                        {el.condition ? <Tab>{el.txt}</Tab> : null}
-                    </Fragment>
-                ))}
+                {tabs.map((el) => {
+
+                    const {txt, condition = true} = el
+
+                    return (
+                        <Fragment key={txt}>
+                            {condition ? <Tab>{txt}</Tab> : null}
+                        </Fragment>
+                    )
+                })}
             </TabList>
-            {tabs.map((el) => (
-                <Fragment key={el.txt}>
-                    {el.condition ? (
-                        <TabPanel key={el.txt}>{el.content}</TabPanel>
-                    ) : null}
-                </Fragment>
-            ))}
+            {tabs.map((el) => {
+
+                const {txt, content, condition = true} = el;
+
+                return (
+                    <Fragment key={txt}>
+                        {condition ? (
+                            <TabPanel key={txt}>{content}</TabPanel>
+                        ) : null}
+                    </Fragment>
+                )
+            })}
       </ReactTabs>
     );
 }

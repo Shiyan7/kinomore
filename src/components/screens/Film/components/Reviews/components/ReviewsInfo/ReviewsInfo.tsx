@@ -1,21 +1,18 @@
-import {FC} from 'react'
-import {calcPercent} from '@/helpers/calcPercent/calcPercent'
-import classNames from 'classnames'
-import styles from './ReviewsInfo.module.scss'
+import {calcPercent} from '@/helpers/calcPercent/calcPercent';
+import {useGetAllReviewsByIdQuery} from '@/services/KinomoreService'
+import {useRouter} from 'next/router';
+import classNames from 'classnames';
+import styles from './ReviewsInfo.module.scss';
 
-interface ReviewsInfoProps {
-    total: number | undefined;
-    goodReviews: number | undefined;
-    badReviews: number | undefined;
-    neutralReviews: number | undefined;
-}
-
-export const ReviewsInfo: FC<ReviewsInfoProps> = ({
-    total,
-    goodReviews,
-    badReviews,
-    neutralReviews
-}) => {
+export const ReviewsInfo = () => {
+    
+    const {query: {id}} = useRouter()
+    const {data} = useGetAllReviewsByIdQuery({id, limit: 99999})
+    const {docs, total} = {...data}
+;
+    const goodReviews = docs?.filter(rev => rev?.type === 'Позитивный').length;
+    const badReviews = docs?.filter(rev => rev?.type === 'Негативный').length;
+    const neutralReviews = docs?.filter(rev => rev?.type === 'Нейтральный').length;
 
     const items = [
         {quantity: total, caption: "Всего"},

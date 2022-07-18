@@ -9,6 +9,7 @@ import {Grid} from '@/components/Grid/Grid';
 import {useRouter} from 'next/router';
 import styles from './NewMovies.module.scss';
 import classNames from 'classnames';
+import { LoadMoreButton } from '@/components/LoadMoreButton/LoadMoreButton';
 
 export const NewSeries = () => {
 
@@ -30,15 +31,7 @@ export const NewSeries = () => {
             <FilmItem key={el.id} item={el} />
           ))}
         </Grid>
-        {!condition &&
-          <Button
-            disabled={isFetching}
-            className={styles.btn}
-            onClick={() => loadMoreSeries()}
-          >
-            {isFetching ? 'Загрузка...' : 'Показать ещё'}
-          </Button>
-        }
+        <LoadMoreButton isFetching={isFetching} condition={condition} onClick={() => loadMoreSeries()} />
       </div>
     </section>
   )
