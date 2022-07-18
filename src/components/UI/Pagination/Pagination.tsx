@@ -16,10 +16,6 @@ export const Pagination: FC<PaginationProps> = ({page, setPage, pages, className
 	const isFirstPage = page === 1;
 	const isLastPage = page === pages;
 
-	useEffect(() => {
-		scrollTo(0, 0)
-	}, [page])
-
 	return (
 		<>
 			{pages !== 1 && (

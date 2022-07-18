@@ -1,4 +1,4 @@
-import {ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
+import {ChangeEvent, FormEvent, useEffect, useRef, useState} from 'react';
 import {TextField} from '@/UI/TextField/TextField';
 import {IMessage} from '@/types/IMessage';
 import {Message} from './components/Message/Message';

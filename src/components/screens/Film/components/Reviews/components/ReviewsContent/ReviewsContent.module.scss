@@ -1,0 +1,21 @@
+.list {
+    width: 100%;
+    max-width: 800px;
+}
+
+.btn {
+    display: block;
+    margin: 30px auto 0;
+    min-width: 200px;
+
+    &[disabled] {
+        opacity: 0.9;
+    }
+
+    @media (max-width: 576px) {
+        padding: 10px 0;
+        min-width: 150px;
+        font-size: 14px;
+        line-height: 14px;
+    }
+}

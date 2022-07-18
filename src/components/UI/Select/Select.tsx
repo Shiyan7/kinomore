@@ -1,7 +1,7 @@
 import {FC} from 'react'
 import {isMobile} from 'react-device-detect';
 import {FiChevronDown} from 'react-icons/fi';
-import ReactSelect, { components, StylesConfig, DropdownIndicatorProps  } from 'react-select'
+import ReactSelect, { components, StylesConfig, DropdownIndicatorProps } from 'react-select'
 
 type SelectValue = {
   label: string;

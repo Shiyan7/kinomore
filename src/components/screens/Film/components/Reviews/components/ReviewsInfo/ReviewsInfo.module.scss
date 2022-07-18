@@ -1,0 +1,43 @@
+.list {
+    position: sticky;
+    top: 30px;
+    right: 0;
+    padding-top: 83px;
+    margin-left: 40px;
+}
+
+.item {
+    display: block;
+    
+    &:not(:last-child) {
+        margin-bottom: 12px;
+    }
+}
+
+.top {
+    display: flex;
+    align-items: flex-end;
+}
+
+.quantity {
+    margin: 0;
+    display: block;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 28px;
+    margin-right: 6px;
+}
+
+.percent {
+    font-size: 16px;
+    line-height: 16px;
+    color: rgba(#000, 0.3);
+    padding-bottom: 2px;
+}
+
+.caption {
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 300;
+    color: var(--color-dark);
+}

@@ -1,10 +1,10 @@
 import {RoutesEnum} from '@/constants/routes'
 import {Auth} from '@/components/Auth/Auth'
-import {Controller, useForm, } from 'react-hook-form'
+import {Controller, useForm,} from 'react-hook-form'
 import {yupResolver} from "@hookform/resolvers/yup";
 import NextLink from 'next/link'
 import * as Yup from "yup";
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 
 export const SignUp = () => {
 	

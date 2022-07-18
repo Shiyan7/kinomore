@@ -1,15 +1,44 @@
 .react-tabs {
 
+    &--sticky {
+        .react-tabs__tab-list {
+            position: sticky;
+            top: 67px;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            background-color: #fff;
+            margin-left: 0;
+            padding-right: 0;
+            min-width: auto;
+            padding: 0;
+
+            @media (max-width: 768px) {
+                top: 63px;
+            }
+        }
+
+        .react-tabs__tab {
+            padding: 15px 0;
+
+            &:not(:last-child) {
+                margin-right: 20px;
+            }
+        }
+    }
+
     &__tab-list {
         list-style: none;
         display: flex;
         align-items: center;
-        margin-left: -30px;
-        margin-right: -30px;
-        min-width: calc(100% + 30px);
-        padding: 0 30px;
+        margin-left: -40px;
+        margin-right: -40px;
+        min-width: calc(100% + 40px);
+        padding: 0 40px;
         margin-bottom: 20px;
         border-bottom: 1px solid rgba(#000, 0.1);
+        overflow-y: hidden;
+        overflow-x: auto;
 
         @media (max-width: 768px) {
             margin-left: -15px;
@@ -21,7 +50,6 @@
 
     &__tab {
         position: relative;
-        transform: translateY(1px);
         padding: 10px;
         transition: color 0.3s;
         outline: none;
@@ -38,8 +66,7 @@
             background-color: currentColor;
             border-radius: 5px 5px 0 0;
             opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
+            transition: opacity 0.3s;
         }
 
         &--selected {

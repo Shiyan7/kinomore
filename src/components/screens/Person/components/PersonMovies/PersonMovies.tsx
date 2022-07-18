@@ -13,7 +13,7 @@ export const PersonMovies: FC<PersonMoviesProps> = (({movies}) => {
 
     return (
         <div className={styles.container}>
-            <Carousel title={`Фильмы и сериалы (${movies?.length})`}>
+            <Carousel title='Фильмы и сериалы' quantity={movies?.length}>
                 {movies?.map(item => {
                     return (
                         <SwiperSlide key={item.id}>

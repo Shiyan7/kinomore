@@ -1,0 +1,36 @@
+.btns {
+    display: flex;
+    align-items: center;
+}
+
+.like {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+    border: 1px solid rgba(#000, 0.1);
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+    padding: 5px 11px 5px 8px;
+    transition: transform 0.3s;
+
+    span {
+        margin-right: 5px;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &:not(:last-child) {
+        margin-right: 8px;
+    }
+}
+
+.quantity {
+    display: block;
+    margin-left: 4px;
+    color: rgba(#000, 0.4);
+}

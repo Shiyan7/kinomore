@@ -13,7 +13,7 @@ export const MainRoles: FC<MainRolesProps> = (({roles}) => {
 
     return (
         <div className={styles.container}>
-            <Carousel title={`Актёры (${roles?.length})`}>
+            <Carousel title='Актёры' quantity={roles?.length}>
                 {roles?.map(item => {
                     return (
                         <SwiperSlide key={item.id}>

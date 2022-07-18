@@ -10,9 +10,9 @@ export interface IBaseQuery {
     query?: string;
     limit?: number;
     page?: number;
+    id?: string | string[] | undefined;
 }
 
 export interface IQuery extends IBaseQuery {
     filters: IFilters;
-    id?: string | string[] | undefined;
 }

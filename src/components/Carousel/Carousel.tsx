@@ -7,6 +7,11 @@ import styles from './Carousel.module.scss'
 import 'swiper/css';
 
 const breakpoints = {
+    577: {
+        slidesPerGroup: 3,
+        slidesPerView: 3,
+        spaceBetween: 15
+    },
     769: {
         slidesPerGroup: 3,
         slidesPerView: 3,
@@ -26,9 +31,10 @@ const breakpoints = {
 
 interface CarouselProps {
     title?: string;
+    quantity?: number;
 }
 
-export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({children, title}) => {
+export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({children, quantity, title}) => {
 
     const navigationPrevRef = useRef<HTMLButtonElement>(null)
     const navigationNextRef = useRef<HTMLButtonElement>(null)
@@ -55,7 +61,7 @@ export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({children, title}
     return (
         <>
             <div className={styles.top}>
-                <Title variant="h2" className={styles.title}>{title}</Title>
+                <Title variant="h2" className={styles.title}>{title}{quantity && <span> ({quantity})</span>}</Title>
                 <div className={styles.btns}>
                     <SliderBtn dir='left' ref={navigationPrevRef}/>
                     <SliderBtn dir='right' ref={navigationNextRef}/>
