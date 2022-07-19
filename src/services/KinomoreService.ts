@@ -54,21 +54,9 @@ export const kinomoreAPI = createApi({
       query: ({query, type, limit}) =>
         `/movie?search=${query}&field=name&limit=${limit}&sortField=year&sortType=-1&field=typeNumber&search=${type}&isStrict=false&token=${API_KEY}`
     }),
-    getAllReviewsById: build.query<IReviews, IBaseQuery>({
+    getReviewsById: build.query<IReviews, IBaseQuery>({
       query: ({id, limit}) =>
         `/review?search=${id}&field=movieId&limit=${limit}&token=${API_KEY}`
-    }),
-    getGoodReviewsById: build.query<IReviews, IBaseQuery>({
-      query: ({id, limit}) =>
-        `/review?search=${id}&field=movieId&search=Позитивный&field=type&limit=${limit}&token=${API_KEY}`
-    }),
-    getBadReviewsById: build.query<IReviews, IBaseQuery>({
-      query: ({id, limit}) =>
-        `/review?search=${id}&field=movieId&search=Негативный&field=type&limit=${limit}&token=${API_KEY}`
-    }),
-    getNeutralReviewsById: build.query<IReviews, IBaseQuery>({
-      query: ({id, limit}) =>
-        `/review?search=${id}&field=movieId&search=Нейтральный&field=type&limit=${limit}&token=${API_KEY}`
     }),
   }),
 });
@@ -85,10 +73,7 @@ export const {
   useGetFavouritesQuery,
   useGetFilmsByIdQuery,
   useGetFilmsBySearchQuery,
-  useGetAllReviewsByIdQuery,
-  useGetGoodReviewsByIdQuery,
-  useGetBadReviewsByIdQuery,
-  useGetNeutralReviewsByIdQuery
+  useGetReviewsByIdQuery
 } = kinomoreAPI;
 
 export const {

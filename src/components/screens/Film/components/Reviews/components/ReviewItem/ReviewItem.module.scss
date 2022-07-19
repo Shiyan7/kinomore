@@ -37,7 +37,7 @@
     color: #393939;
 
     &.truncated {
-        max-height: 200px;
+        max-height: 100px;
         overflow: hidden;
     }
 }
@@ -51,6 +51,10 @@
     border-radius: 5px;
     background-color: rgba(#000, 0.1);
     transition: background-color 0.3s;
+
+    @media (max-width: 576px) {
+        margin-top: 20px;
+    }
 
     &:hover {
         background-color: rgba(#000, 0.15);

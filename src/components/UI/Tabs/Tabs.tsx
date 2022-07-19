@@ -35,7 +35,7 @@ export const Tabs: FC<TabsProps> = ({tabs, sticky}) => {
                 return (
                     <Fragment key={txt}>
                         {condition ? (
-                            <TabPanel key={txt}>{content}</TabPanel>
+                            <TabPanel>{content}</TabPanel>
                         ) : null}
                     </Fragment>
                 )

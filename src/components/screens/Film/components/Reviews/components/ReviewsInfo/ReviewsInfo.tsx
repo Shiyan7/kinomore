@@ -1,5 +1,5 @@
 import {calcPercent} from '@/helpers/calcPercent/calcPercent';
-import {useGetAllReviewsByIdQuery} from '@/services/KinomoreService'
+import {useGetReviewsByIdQuery} from '@/services/KinomoreService'
 import {useRouter} from 'next/router';
 import classNames from 'classnames';
 import styles from './ReviewsInfo.module.scss';
@@ -7,7 +7,7 @@ import styles from './ReviewsInfo.module.scss';
 export const ReviewsInfo = () => {
     
     const {query: {id}} = useRouter()
-    const {data} = useGetAllReviewsByIdQuery({id, limit: 99999})
+    const {data, isLoading} = useGetReviewsByIdQuery({id, limit: 99999})
     const {docs, total} = {...data}
 ;
     const goodReviews = docs?.filter(rev => rev?.type === 'Позитивный').length;
@@ -22,21 +22,28 @@ export const ReviewsInfo = () => {
     ]
 
     return (
-        <ul className={classNames('list-reset', styles.list)}>
-            {items.map(item => {
-
-                const {quantity, color, caption, percent} = item
-
-                return (
-                    <div className={styles.item} key={caption}>
-                        <div className={styles.top}>
-                            <h3 className={styles.quantity} style={{color}}>{quantity}</h3>
-                            {percent && <span className={styles.percent}>{percent}%</span>}
-                        </div>
-                        <span className={styles.caption}>{caption}</span>
-                    </div>
-                )
-            })}
-        </ul>
+        <>
+            {!isLoading && docs?.length ? (
+                <ul className={classNames("list-reset", styles.list)}>
+                    {items.map((item) => {
+                        const { quantity, color, caption, percent } = item;
+                        
+                        return (
+                            <div className={styles.item} key={caption}>
+                                <div className={styles.top}>
+                                    <h3 className={styles.quantity} style={{ color }}>
+                                        {quantity}
+                                    </h3>
+                                    {percent && (
+                                        <span className={styles.percent}>{percent}%</span>
+                                    )}
+                                </div>
+                                <span className={styles.caption}>{caption}</span>
+                            </div>
+                        );
+                    })}
+                </ul>
+            ) : null}
+        </>
     )
 }

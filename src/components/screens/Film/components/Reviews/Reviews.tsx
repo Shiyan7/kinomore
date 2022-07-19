@@ -1,30 +1,60 @@
 import {Title} from '@/UI/Title/Title';
-import {Tabs} from '@/UI/Tabs/Tabs';
 import {ReviewsInfo} from './components/ReviewsInfo/ReviewsInfo';
-import {AllReviews} from './components/AllReviews/AllReviews';
-import {GoodReviews} from './components/GoodReviews/GoodReviews';
-import {BadReviews} from './components/BadReviews/BadReviews';
-import {NeutralReviews} from './components/NeutralReviews/NeutralReviews';
+import {useRouter} from 'next/router';
+import {useState} from 'react';
+import {useGetReviewsByIdQuery} from '@/services/KinomoreService';
+import {LoadMoreButton} from '@/components/LoadMoreButton/LoadMoreButton';
+import {Spinner, SpinnerSizes} from '@/components/UI/Spinner/Spinner';
+import {ReviewItem} from './components/ReviewItem/ReviewItem';
 import styles from './Reviews.module.scss';
 
 export const Reviews = () => {
 
-    const tabs = [
-        {txt: 'Все рецензии', content: <AllReviews />},
-        {txt: 'Положительные', content: <GoodReviews />},
-        {txt: 'Отрицательные', content: <BadReviews />},
-        {txt: 'Нейтральные', content: <NeutralReviews  />},
-    ]
+    const {query: {id}} = useRouter()
+    const [limit, setLimit] = useState<number>(3)
+    const {data, isFetching, isLoading} = useGetReviewsByIdQuery({id, limit})
+    const {docs} = {...data}
+    const condition = data?.docs?.length === data?.total
 
-    return (
-        <div className={styles.container}>
-            <Title variant='h2' className={styles.title}>Рецензии кинокритиков</Title>
-            <div className={styles.content}>
-                <div className={styles.left}>
-                    <Tabs sticky tabs={tabs} />
-                </div>
-                <ReviewsInfo />
+    const Content = () => {
+        return (
+            <>
+                {docs?.map(item => {
+                    return (
+                        <ReviewItem key={item.id} item={item} />
+                    )
+                })}
+                <LoadMoreButton
+                    className={styles.loadMore}
+                    isFetching={isFetching}
+                    condition={condition}
+                    onClick={() => setLimit(prev => prev + 3)}
+                />
+            </>
+        )
+    }
+    
+    const Loader = () => {
+        return (
+            <div className={styles.loader}>
+                <Spinner size={SpinnerSizes.medium} />
             </div>
-        </div>
+        )
+    }
+    
+    return (
+        <>
+            {docs?.length ? (
+                <div className={styles.container}>
+                    <Title variant="h2" className={styles.title}>Рецензии кинокритиков</Title>
+                    <div className={styles.content}>
+                        <div className={styles.left}>
+                            {isLoading ? <Loader /> : <Content />}
+                        </div>
+                        <ReviewsInfo />
+                    </div>
+                </div>
+            ) : null}
+      </>
     )
 }

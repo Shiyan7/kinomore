@@ -1,9 +1,10 @@
 .list {
     position: sticky;
-    top: 30px;
+    top: 70px;
     right: 0;
+    padding-bottom: 100px;
     width: 200px;
-    padding-top: 83px;
+    padding-top: 20px;
     margin-left: 40px;
 
     @media (max-width: 768px) {
@@ -11,8 +12,9 @@
         display: flex;
         align-items: center;
         width: 100%;
+        padding: 0;
         margin-left: 0;
-        padding-top: 0;
+        margin-bottom: 30px;
     }
 
     @media (max-width: 576px) {
@@ -85,9 +87,11 @@
     font-size: 12px;
     line-height: 12px;
     font-weight: 300;
+    white-space: nowrap;
     color: var(--color-dark);
 
-    @media (max-width: 576px) {
+    @media (max-width: 375px) {
+        white-space: normal;
         display: inline;
         paddding: 0 8px;
         word-break: break-all;

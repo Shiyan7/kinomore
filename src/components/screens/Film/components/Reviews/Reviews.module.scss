@@ -13,12 +13,8 @@
     font-size: 26px;
     line-height: 30px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     color: var(--color-light-dark);
-    
-    @media (max-width: 768px) {
-        margin-bottom: 40px;
-    }
 
     &:hover {
         svg {
@@ -41,7 +37,6 @@
     position: relative;
     display: flex;
     align-items: flex-start;
-    margin-bottom: 30px;
 
     @media (max-width: 768px) {
         flex-direction: column-reverse;
@@ -53,7 +48,20 @@
     max-width: 800px;
 }
 
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+}
+
 .loadMore {
     display: block;
     margin-top: 35px;
+
+    @media (max-width: 576px) {
+        width: 100%;
+        margin-top: 25px;
+        padding: 12px 0;
+    }
 }
