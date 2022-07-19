@@ -9,8 +9,8 @@ export const ReviewsInfo = () => {
     const {query: {id}} = useRouter()
     const {data, isLoading} = useGetReviewsByIdQuery({id, limit: 99999})
     const {docs, total} = {...data}
-;
-    const goodReviews = docs?.filter(rev => rev?.type === 'Позитивный').length;
+
+    const goodReviews = docs?.filter(rev => rev?.type === 'Позитивный' || !rev.type).length;
     const badReviews = docs?.filter(rev => rev?.type === 'Негативный').length;
     const neutralReviews = docs?.filter(rev => rev?.type === 'Нейтральный').length;
 
