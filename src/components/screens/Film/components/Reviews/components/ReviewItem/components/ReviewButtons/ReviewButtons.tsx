@@ -2,6 +2,7 @@ import {FC, useState} from 'react'
 import {ButtonBase} from '@/components/UI/ButtonBase/ButtonBase'
 import {BiLike, BiDislike} from 'react-icons/bi'
 import styles from './ReviewButtons.module.scss'
+import classNames from 'classnames';
 
 interface ReviewButtonsProps {
     likes: number;
@@ -13,16 +14,16 @@ export const ReviewButtons: FC<ReviewButtonsProps> = ({likes, dislikes}) => {
     const [like, setLike] = useState<number>(likes || 0)
     const [dislike, setDislike] = useState<number>(dislikes || 0)
 
-    const [status, setStatus] = useState<any>(null)
+    const [liked, setLiked] = useState<boolean | null>(null)
   
     const handleClickLike = () => {
-        if (status === 'like') {
-            setStatus(null)
+        if (liked) {
+            setLiked(null)
             setLike(like - 1)
         } else {
-            setStatus('like')
+            setLiked(true)
 
-            if (status==='dislike') {
+            if (liked) {
                 setDislike(dislike - 1)
             }
 
@@ -30,28 +31,28 @@ export const ReviewButtons: FC<ReviewButtonsProps> = ({likes, dislikes}) => {
         }
     }
   
-  const handleClickDislike = () => {
-    if (status === 'dislike') {
-      setStatus(null)
-      setDislike(dislike - 1)
-    } else {
-      setStatus('dislike')
+	const handleClickDislike = () => {
+		if (liked === false) {
+			setLiked(null)
+			setDislike(dislike - 1)
+		} else {
+			setLiked(false)
 
-      if (status==='like') {
-        setLike(like - 1)
-      }
-	  
-      setDislike(dislike + 1)
-    }
-  }
+			if (liked) {
+				setLike(like - 1)
+			}
+			
+			setDislike(dislike + 1)
+		}
+	}
 
     return (
         <div className={styles.btns}>
-            <ButtonBase startIcon={<BiLike />} onClick={handleClickLike} className={styles.like}>
+            <ButtonBase startIcon={<BiLike />} onClick={handleClickLike} className={classNames(styles.btn, styles.like, liked && styles.active)}>
                 Полезно
                 {like ? <span className={styles.quantity}>{like}</span> : null}
             </ButtonBase>
-            <ButtonBase startIcon={<BiDislike />} onClick={handleClickDislike} className={styles.like}>
+            <ButtonBase startIcon={<BiDislike />} onClick={handleClickDislike} className={classNames(styles.btn, styles.dislike, liked === false && styles.active)}>
                 Нет
                 {dislike ? <span className={styles.quantity}>{dislike}</span> : null}
             </ButtonBase>
