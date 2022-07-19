@@ -1,17 +1,17 @@
-import {PropsWithChildren} from 'react'
+import {PropsWithChildren, useEffect} from 'react'
 import {MovieItem} from '@/components/MovieItem/MovieItem';
 import {FiltersToggle} from './components/FiltersToggle/FiltersToggle';
 import {Pagination} from '@/UI/Pagination/Pagination';
 import {Spinner, SpinnerSizes} from '@/UI/Spinner/Spinner';
 import {Title} from '@/UI/Title/Title';
-import {IData} from '@/types/IData';
+import {IMovies} from '@/types/IMovies';
 import {useTypedSelector} from '@/hooks/useTypedSelector';
 import {useActions} from '@/hooks/useActions';
 import classNames from 'classnames';
 import styles from './Catalog.module.scss';
 
 interface ContentProps {
-  data: IData | undefined;
+  data: IMovies | undefined;
   isFetching?: boolean;
   isLoading?: boolean;
 }
@@ -69,6 +69,10 @@ module Catalog {
     
     const {page} = useTypedSelector(state => state.paginationReducer)
     const {setPage} = useActions()
+
+    useEffect(() => {
+      scrollTo(0, 0)
+    }, [page])
 
     const CatalogContent = (
       <>

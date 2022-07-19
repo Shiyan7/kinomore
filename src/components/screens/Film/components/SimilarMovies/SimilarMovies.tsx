@@ -13,7 +13,7 @@ export const SimilarMovies: FC<SimilarMoviesProps> = ({movies}) => {
     
     return (
         <div className={styles.container}>
-            <Carousel title={`Похожее кино (${movies?.length})`}>
+            <Carousel title='Похожее кино' quantity={movies?.length}>
                 {movies?.map(item => {
                     return (
                         <SwiperSlide key={item.id}>

@@ -1,0 +1,15 @@
+.btn {
+    margin: 0 auto;
+    min-width: 200px;
+
+    &[disabled] {
+        opacity: 0.9;
+    }
+
+    @media (max-width: 576px) {
+        padding: 10px 0;
+        min-width: 150px;
+        font-size: 14px;
+        line-height: 14px;
+    }
+}

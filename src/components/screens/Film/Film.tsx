@@ -2,7 +2,7 @@
 import {Fragment, useMemo} from "react";
 import {Title} from "@/UI/Title/Title";
 import {BackBtn} from "@/UI/BackBtn/BackBtn";
-import {convertType} from "@/helpers/convertType/convertType";
+import {convertMovieType} from "@/helpers/convertMovieType/convertMovieType";
 import {MovieRating} from "@/UI/MovieRating/MovieRating";
 import {useRouter} from "next/router";
 import {useGetFilmByIdQuery} from "@/services/KinomoreService";
@@ -18,6 +18,7 @@ import {Facts} from "@/components/Facts/Facts";
 import styles from './Film.module.scss';
 import classNames from "classnames";
 import {MovieFavorite} from "./components/MovieFavorite/MovieFavorite";
+import {Reviews} from "./components/Reviews/Reviews";
 
 export const Film = () => {
     const {push, query: {id}} = useRouter();
@@ -46,7 +47,7 @@ export const Film = () => {
     /* @ts-ignore */
     const worldFees = fees?.world?.value - fees?.usa?.value;
 
-    const items = useMemo(() => [
+    const items = [
         {caption: 'Страны', value: countries?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>), condition: countries?.length},
         {caption: 'Жанр', value: genres?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>), condition: genres?.length},
         {caption: 'Слоган', value: slogan, condition: slogan},
@@ -56,19 +57,19 @@ export const Film = () => {
         {caption: 'Сборы в США', value: `${fees?.usa?.currency} ${convertNumbers(fees?.usa?.value)}`, condition: fees?.usa},
         {caption: 'Сборы в мире', value: `+ ${fees?.world?.currency} ${convertNumbers(worldFees)} = ${fees?.world?.currency} ${convertNumbers(fees?.world?.value)}`, condition: fees?.usa},
         {caption: 'Премьера в мире' , value: convertTimestampToDate(premiere?.world, "D MMMM YYYY"), condition: premiere?.world},
-    ], [ageRating, budget?.currency, budget?.value, countries, fees?.usa, fees?.world?.currency, fees?.world?.value, genres, movieLength, premiere?.world, slogan, worldFees])
+    ]
 
-    const roles = useMemo(() => persons?.filter(el => {
+    const roles = persons?.filter(el => {
         if (el.enProfession === 'actor' && el.name?.length) {
             return el;
         }
-    }), [persons])
+    })
 
-    const tabs = useMemo(() => [
+    const tabs = [
         {txt: 'Описание', content: <p className={styles.desc}>{description}</p>, condition: description?.length},
         {txt: 'Актёры', content: <MainRoles roles={roles}/>, condition: roles?.length},
         {txt: 'Факты', content: <Facts facts={facts}/>, condition: facts?.length},
-    ], [description, facts, roles])
+    ]
  
     const movieTitle = name ? name : isLoading ? 'Загрузка' : 'Без названия'
     const movieYear = year && `(${year})`
@@ -107,13 +108,14 @@ export const Film = () => {
                             />
                         </div>
                         <Title variant="h2" className={styles.subtitle}>
-                            О {convertType(type)}е
+                            О {convertMovieType(type)}е
                         </Title>
                         <Info items={items}/>
                     </div>
                 </div>
                 <Tabs tabs={tabs}/>
                 {similarMovies?.length ? <SimilarMovies movies={similarMovies}/> : null}
+                <Reviews />
             </div>
         </section>
     );

@@ -2,7 +2,7 @@ import {FC} from 'react';
 import {MovieFavorite} from '@/UI/MovieFavorite/index';
 import {IMovie} from '@/types/IMovie';
 import {useFavourites} from '@/hooks/useFavourite';
-import {Rating} from '../Rating/Rating';
+import {Rating} from '@/components/Rating/Rating';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './MovieItem.module.scss';

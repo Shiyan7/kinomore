@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import {IMovie} from '@/types/IMovie';
-import {convertType} from '@/helpers/convertType/convertType';
+import {convertMovieType} from '@/helpers/convertMovieType/convertMovieType';
 import {MovieRating} from '@/UI/MovieRating/MovieRating';
 import Ratio from 'react-ratio';
 import Image from 'next/image'
@@ -39,7 +39,7 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
             </Link>
             {type?.length && (
                 <span className={styles.info}>
-                    {year && `${year}, `} {convertType(type)}
+                    {year && `${year}, `} {convertMovieType(type)}
                 </span>
             )}
         </li>

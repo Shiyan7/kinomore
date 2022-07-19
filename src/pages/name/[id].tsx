@@ -1,4 +1,4 @@
-import {GetServerSideProps, NextPage } from 'next';
+import {GetServerSideProps, NextPage} from 'next';
 import {getPersonById} from '@/services/KinomoreService';
 import {initStore} from '@/store/store';
 import {Person} from '@/components/screens/Person/Person';

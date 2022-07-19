@@ -13,3 +13,14 @@
     display: flex;
     align-items: center;
 }
+
+.title {
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 700;
+
+    span {
+        color: rgba(#000, 0.5);
+        font-weight: 400;
+    }
+}
