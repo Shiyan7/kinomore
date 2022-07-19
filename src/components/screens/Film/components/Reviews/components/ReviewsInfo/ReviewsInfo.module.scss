@@ -14,7 +14,7 @@
         width: 100%;
         padding: 0;
         margin-left: 0;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
     @media (max-width: 576px) {
@@ -22,6 +22,7 @@
         column-gap: 20px;
         align-items: flex-start;
         grid-template-columns: repeat(4, 1fr);
+        margin-bottom: 35px;
     }
 }
 
@@ -64,6 +65,10 @@
     line-height: 28px;
     margin-right: 6px;
 
+    @media (max-width: 768px) {
+        margin-right: 8px;
+    }
+
     @media (max-width: 576px) {
         font-size: 25px;
         line-height: 25px;
@@ -75,7 +80,7 @@
 .percent {
     font-size: 16px;
     line-height: 16px;
-    color: rgba(#000, 0.3);
+    color: rgba(#000, 0.4);
     padding-bottom: 2px;
 
     @media (max-width: 576px) {
