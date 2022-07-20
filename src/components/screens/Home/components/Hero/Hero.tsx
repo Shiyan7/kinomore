@@ -1,43 +1,49 @@
 import {FiArrowRight} from 'react-icons/fi';
-import {useRef} from 'react';
-import {useEffect} from 'react';
 import {Button} from '@/UI/Button/Button';
 import {Title} from '@/UI/Title/Title';
+import {Autoplay, EffectFade} from 'swiper'
+import {Swiper, SwiperSlide} from 'swiper/react';
 import {useRouter} from 'next/router';
 import classNames from 'classnames';
 import styles from './Hero.module.scss';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
 
 export const Hero = () => {
 
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const {push} = useRouter()
+	const {push} = useRouter()
+	const items = [
+		{title: 'Анчартед: На картах не значится', desc: 'Нейтан Дрейк и Виктор «Салли» Салливан, два искателя приключений, отправляются на поиски величайшего сокровища мира.', id: 468373, imageSource: '/bg1.jpg'},
+		{title: 'Тор: Любовь и гром', desc: 'Джейн Фостер берет на себя обязанности Бога-громовержца и становится обладательницей молота Мьёльнира.', id: 1282688, imageSource: '/bg2.jpg'}
+	]
 
-  useEffect(() => {
-    videoRef.current?.play()
-  }, [])
+	return (
+		<section className={styles.section}>
+			<h1 className='visually-hidden'>Kinomore — бесплатные фильмы и сериалы</h1>
+			<Swiper
+				modules={[Autoplay, EffectFade]}
+				autoplay
+				effect='fade'
+			>
+				{items.map(item => {
 
-  return (
-    <section className={styles.section}>
-      <h1 className='visually-hidden'>Kinomore — бесплатные фильмы и сериалы</h1>
-      <video
-        ref={videoRef}
-        className={styles.video}
-        src='/trailer.mp4'
-        playsInline
-        muted
-        autoPlay
-        loop
-      >
-      </video>
-      <div className={classNames('container', styles.container)}>
-        <div className={styles.content}>
-        <Title variant='h2' className={styles.title}>Доктор Стрэндж: В&nbsp;мультивселенной безумия</Title>
-        <p className={styles.desc}>Продолжение магических приключений Доктора Стрэнджа в новых мистических мирах и в противостоянии с новыми врагами.</p>
-        <Button onClick={() => push('/film/1219909')} endIcon={<FiArrowRight />}>
-          Подробнее
-        </Button>
-        </div>
-      </div>
-    </section>
-  )
+					const {title, desc, id, imageSource} = item
+
+					return (
+						<SwiperSlide key={id}>
+							<div className={styles.content} style={{backgroundImage: `url(${imageSource})`}}>
+								<div className={classNames('container', styles.container)}>
+									<Title variant='h2' className={styles.title}>{title}</Title>
+									<p className={styles.desc}>{desc}</p>
+									<Button onClick={() => push(`/film/${id}`)} endIcon={<FiArrowRight />}>
+										Подробнее
+									</Button>
+								</div>
+							</div>
+						</SwiperSlide>
+					)
+					})}
+			</Swiper>
+		</section>
+	)
 }

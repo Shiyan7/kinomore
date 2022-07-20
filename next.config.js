@@ -1,7 +1,6 @@
 const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache')
 const withPlugins = require('next-compose-plugins');
-const withVideos = require('next-videos')
 require('dotenv').config()
 
 const nextConfig = {
@@ -22,5 +21,4 @@ module.exports = withPlugins([
             runtimeCaching,
         }
     }],
-    [withVideos]
 ], nextConfig)

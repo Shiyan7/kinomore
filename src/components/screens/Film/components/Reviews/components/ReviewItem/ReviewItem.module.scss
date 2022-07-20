@@ -26,6 +26,12 @@
     line-height: 22px;
     font-weight: 600;
     margin-bottom: 21px;
+
+    @media (max-width: 576px) {
+        font-size: 17px;
+        line-height: 21px;
+        margin-bottom: 17px;
+    }
 }
 
 .review {

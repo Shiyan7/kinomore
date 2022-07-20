@@ -1,9 +1,9 @@
+import {FC, useState} from 'react'
 import {ButtonBase} from '@/components/UI/ButtonBase/ButtonBase'
 import {getReviewColor} from '@/helpers/getReviewColor/getReviewColor'
 import {IReview} from '@/types/IReview'
-import {FC, useState} from 'react'
-import { convertTimestampToDate } from '@/helpers/convertTimestampToDate/convertTimestampToDate'
-import { ReviewButtons } from './components/ReviewButtons/ReviewButtons'
+import {convertTimestampToDate} from '@/helpers/convertTimestampToDate/convertTimestampToDate'
+import {ReviewButtons} from './components/ReviewButtons/ReviewButtons'
 import classNames from 'classnames'
 import styles from './ReviewItem.module.scss'
 

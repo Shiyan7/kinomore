@@ -1,7 +1,7 @@
-import {FC, ButtonHTMLAttributes} from 'react'
-import {Button} from '@/UI/Button/Button'
-import styles from './LoadMoreButton.module.scss'
+import {FC, ButtonHTMLAttributes} from 'react';
+import {Button} from '@/UI/Button/Button';
 import classNames from 'classnames';
+import styles from './LoadMoreButton.module.scss';
 
 interface LoadMoreButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     condition: boolean;
