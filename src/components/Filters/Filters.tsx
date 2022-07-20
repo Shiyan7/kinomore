@@ -61,7 +61,7 @@ export const Filters = () => {
         toggleFilters(false)
     }
 
-    const {handleSubmit, control, reset} = useForm({
+    const {handleSubmit, control, getValues, reset} = useForm({
         defaultValues: {
             sort: '-1',
             genres: genres[0],
@@ -123,7 +123,7 @@ export const Filters = () => {
                     </ButtonBase>
                 </div>
                 <div className={styles.container}>
-                    <FiltersChoices choices={control._formValues} />
+                    <FiltersChoices choices={getValues()} />
                     <div className={styles.content}>
                         <Filter name="Рейтинг">
                             <Controller
