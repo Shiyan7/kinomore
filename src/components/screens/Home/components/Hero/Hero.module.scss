@@ -1,6 +1,10 @@
 .section {
-    background-color: var(--color-light-dark);
     margin-bottom: 80px;
+    background-color: var(--color-light-dark);
+
+    @media (max-width: 768px) {
+        background-color: var(--color-dark);
+    }
 
     @media (max-width: 576px) {
         margin-bottom: 40px;
@@ -65,7 +69,7 @@
 
     @media (max-width: 576px) {
         font-size: 16px;
-        line-height: 23px;
+        line-height: 21.5px;
         margin-bottom: 25px;
         padding-right: 30px;
     }
