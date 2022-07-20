@@ -4,7 +4,6 @@ import styles from './TextField.module.scss'
 
 export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     label?: string;
-    className?: string;
     error?: boolean;
     variant?: 'dark' | 'small';
     errorMessage?: string;

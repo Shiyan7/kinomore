@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import {BackBtn} from '@/UI/BackBtn/BackBtn';
+import {BackButton} from '@/UI/BackButton/BackButton';
 import styles from './RoomHeader.module.scss'
 
 interface RoomHeaderProps {
@@ -10,7 +10,7 @@ export const RoomHeader: FC<RoomHeaderProps> = ({title}) => {
     return (
         <header className={styles.header}>
             <div className={styles.container}>
-                <BackBtn className={styles.btn} variant='icon' />
+                <BackButton className={styles.btn} variant='icon' />
                 <h1 className={styles.title}>{title}</h1>
             </div>
         </header>

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import {Title} from "@/UI/Title/Title";
-import {BackBtn} from "@/UI/BackBtn/BackBtn";
+import {BackButton} from "@/UI/BackButton/BackButton";
 import {useRouter} from "next/router";
 import {useGetFilmsByIdQuery, useGetPersonByIdQuery} from "@/services/KinomoreService";
 import {convertTimestampToDate} from "@/helpers/convertTimestampToDate/convertTimestampToDate";
@@ -53,7 +53,7 @@ export const Person = () => {
         <section className={styles.section}>
             <div className={classNames('container wrapper', styles.container)}>
                 <div className={styles.top}>
-                    <BackBtn/>
+                    <BackButton/>
                 </div>
                 <div className={styles.content}>
                     <div className={styles.left}>

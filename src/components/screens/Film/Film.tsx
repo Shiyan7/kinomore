@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import {Fragment, useMemo} from "react";
 import {Title} from "@/UI/Title/Title";
-import {BackBtn} from "@/UI/BackBtn/BackBtn";
+import {BackButton} from "@/UI/BackButton/BackButton";
 import {convertMovieType} from "@/helpers/convertMovieType/convertMovieType";
 import {MovieRating} from "@/UI/MovieRating/MovieRating";
 import {useRouter} from "next/router";
@@ -78,7 +78,7 @@ export const Film = () => {
         <section className={styles.section}>
             <div className={classNames('container wrapper', styles.container)}>
                 <div className={styles.top}>
-                    <BackBtn/>
+                    <BackButton/>
                 </div>
                 <div className={styles.content}>
                     <div className={styles.left}>

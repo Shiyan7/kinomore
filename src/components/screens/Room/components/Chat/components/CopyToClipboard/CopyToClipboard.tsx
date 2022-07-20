@@ -3,11 +3,7 @@ import {useCopyToClipboard} from 'usehooks-ts';
 import {Button} from '@/UI/Button/Button';
 import {useRouter} from 'next/router';
 
-interface CopyToClipboardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	className?: string;
-}
-
-export const CopyToClipboard: FC<CopyToClipboardProps> = ({className, ...props}) => {
+export const CopyToClipboard: FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({className, ...props}) => {
 	
 	const {asPath} = useRouter();
 	const [_, copy] = useCopyToClipboard()
