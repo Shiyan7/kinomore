@@ -7,13 +7,13 @@
     }
 }
 
-.content {
-    background-position: center 10%;
-    background-repeat: no-repeat;
-    background-size: cover;
+.image {
+    z-index: -1;
+    pointer-events: none;
+    object-position: center 10%;
 
     @media (max-width: 768px) {
-        background-position: 68% 10%;
+        object-position: 68% 10%;
     }
 }
 
@@ -49,8 +49,8 @@
 
     @media (max-width: 576px) {
         max-width: 85%;
-        font-size: 30px;
-        line-height: 38px;
+        font-size: 28px;
+        line-height: 34px;
         margin-bottom: 20px;
     }
 }

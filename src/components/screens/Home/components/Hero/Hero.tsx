@@ -4,6 +4,7 @@ import {Title} from '@/UI/Title/Title';
 import {Autoplay, EffectFade} from 'swiper'
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {useRouter} from 'next/router';
+import Image from 'next/image';
 import classNames from 'classnames';
 import styles from './Hero.module.scss';
 import 'swiper/css';
@@ -31,7 +32,8 @@ export const Hero = () => {
 
 					return (
 						<SwiperSlide key={id}>
-							<div className={styles.content} style={{backgroundImage: `url(${imageSource})`}}>
+							<div className={styles.content}>
+								<Image className={styles.image} quality='100%' src={imageSource} alt={title} layout='fill'  />
 								<div className={classNames('container', styles.container)}>
 									<Title variant='h2' className={styles.title}>{title}</Title>
 									<p className={styles.desc}>{desc}</p>
