@@ -3,11 +3,16 @@ import {useGetReviewsByIdQuery} from '@/services/KinomoreService'
 import {useRouter} from 'next/router';
 import classNames from 'classnames';
 import styles from './ReviewsInfo.module.scss';
+import { FC } from 'react';
 
-export const ReviewsInfo = () => {
+interface ReviewsInfoProps {
+    limit: number | undefined;
+}
+
+export const ReviewsInfo: FC<ReviewsInfoProps> = ({limit}) => {
     
     const {query: {id}} = useRouter()
-    const {data, isLoading} = useGetReviewsByIdQuery({id, limit: 99999})
+    const {data, isLoading} = useGetReviewsByIdQuery({id, limit})
     const {docs, total} = {...data}
 
     const goodReviews = docs?.filter(rev => rev?.type === 'Позитивный' || !rev.type).length;

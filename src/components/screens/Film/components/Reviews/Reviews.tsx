@@ -13,7 +13,7 @@ export const Reviews = () => {
     const {query: {id}} = useRouter()
     const [limit, setLimit] = useState<number>(3)
     const {data, isFetching, isLoading} = useGetReviewsByIdQuery({id, limit})
-    const {docs} = {...data}
+    const {docs, total} = {...data}
     const condition = data?.docs?.length === data?.total
 
     const Content = () => {
@@ -51,7 +51,7 @@ export const Reviews = () => {
                         <div className={styles.left}>
                             {isLoading ? <Loader /> : <Content />}
                         </div>
-                        <ReviewsInfo />
+                        <ReviewsInfo limit={total} />
                     </div>
                 </div>
             ) : null}

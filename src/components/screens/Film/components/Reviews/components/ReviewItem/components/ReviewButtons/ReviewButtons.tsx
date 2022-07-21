@@ -26,11 +26,11 @@ export const ReviewButtons: FC<ReviewButtonsProps> = ({likes, dislikes}) => {
         <div className={styles.btns}>
             <ButtonBase startIcon={<BiLike />} onClick={handleClick} className={classNames(styles.btn, styles.like, liked && styles.active)}>
                 Полезно
-                <span className={styles.quantity}>{likes}</span>
+                {likes && <span className={styles.quantity}>{likes}</span>}
             </ButtonBase>
             <ButtonBase startIcon={<BiDislike />} onClick={handleClick} className={classNames(styles.btn, styles.dislike, liked === false && styles.active)}>
                 Нет
-                <span className={styles.quantity}>{dislikes}</span>
+                {dislikes && <span className={styles.quantity}>{dislikes}</span>}
             </ButtonBase>
         </div>
     )

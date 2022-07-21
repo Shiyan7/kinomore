@@ -11,9 +11,16 @@ exports[`слайдер разные тесты 1`] = `
     <label
       class="label input"
     >
+      <span
+        class="caption"
+      >
+        От
+      </span>
       <input
         class="textField"
         data-testid="input"
+        max="50"
+        min="0"
         type="number"
         value="0"
       />
@@ -21,9 +28,16 @@ exports[`слайдер разные тесты 1`] = `
     <label
       class="label input"
     >
+      <span
+        class="caption"
+      >
+        До
+      </span>
       <input
         class="textField"
         data-testid="input"
+        max="50"
+        min="0"
         type="number"
         value="50"
       />

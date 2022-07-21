@@ -76,9 +76,12 @@
         margin: 0 auto;
         max-width: 500px;
         width: 100%;
-        padding: var(--offset);
-        padding-top: 0;
+        padding: 0 var(--offset) 45px;
         background-color: #fff;
+    }
+
+    @media (max-width: 576px) {
+        padding-bottom: 25px;
     }
 }
 
