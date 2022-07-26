@@ -2,7 +2,7 @@
 import {Title} from "@/UI/Title/Title";
 import {BackButton} from "@/UI/BackButton/BackButton";
 import {useRouter} from "next/router";
-import {useGetFilmsByIdQuery, useGetPersonByIdQuery} from "@/services/KinomoreService";
+import {useGetPersonByIdQuery} from "@/services/KinomoreService";
 import {convertTimestampToDate} from "@/helpers/convertTimestampToDate/convertTimestampToDate";
 import {Info} from "@/components/Info/Info";
 import {Fragment, useMemo} from "react";
@@ -31,8 +31,6 @@ export const Person = () => {
     } = {...data};
 
     const countFilms = Number(movies?.length) - 1
-    const query = movies?.map(el => `search=${el.id}&field=id`).join('&')
-    const {data: personMovies} = useGetFilmsByIdQuery({query, limit: countFilms + 1})
 
     const items = useMemo(() => [
         {caption: 'Карьера', value: profession?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.value}</Fragment>), condition: profession?.length},
@@ -45,9 +43,10 @@ export const Person = () => {
     ], [birthday, countFilms, death, growth, movies, profession, sex, spouses])
 
     const tabs = useMemo(() => [
-        {txt: 'Фильмы и сериалы', content: <PersonMovies movies={personMovies?.docs} />, condition: personMovies},
+        {txt: 'Фильмы и сериалы', content: <PersonMovies movies={movies} countFilms={countFilms} />, condition: movies},
         {txt: 'Факты', content: <Facts facts={facts} />, condition: facts?.length},
-    ], [facts, personMovies])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    ], [facts, movies])
 
     return (
         <section className={styles.section}>

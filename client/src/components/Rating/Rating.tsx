@@ -1,7 +1,7 @@
-import {IMovieRating} from "@/types/IMovie"
-import classNames from "classnames";
-import {FC, PropsWithChildren} from "react"
-import styles from './Rating.module.scss'
+import {IMovieRating} from '@/types/IMovie';
+import {FC} from 'react';
+import classNames from 'classnames';
+import styles from './Rating.module.scss';
 
 interface RatingProps {
     rating: IMovieRating;

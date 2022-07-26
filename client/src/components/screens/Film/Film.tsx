@@ -3,7 +3,7 @@ import {Fragment, useMemo} from "react";
 import {Title} from "@/UI/Title/Title";
 import {BackButton} from "@/UI/BackButton/BackButton";
 import {convertMovieType} from "@/helpers/convertMovieType/convertMovieType";
-import {MovieRating} from "@/UI/MovieRating/MovieRating";
+import {MovieRating} from "@/components/MovieRating/MovieRating";
 import {useRouter} from "next/router";
 import {useGetFilmByIdQuery} from "@/services/KinomoreService";
 import {Info} from "@/components/Info/Info";

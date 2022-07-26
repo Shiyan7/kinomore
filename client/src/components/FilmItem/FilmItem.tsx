@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import {IMovie} from '@/types/IMovie';
 import {convertMovieType} from '@/helpers/convertMovieType/convertMovieType';
-import {MovieRating} from '@/UI/MovieRating/MovieRating';
+import {MovieRating} from '@/components/MovieRating/MovieRating';
 import Ratio from 'react-ratio';
 import Image from 'next/image'
 import Link from 'next/link'
@@ -21,14 +21,12 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
                 <Link href={`/film/${id}`}>
                     <Ratio ratio={2 / 3}>
                         <a className={styles.imageContainer}>
-                            {poster && (
-                                <Image
-                                    className={styles.image}
-                                    layout="fill"
-                                    src={poster?.previewUrl}
-                                    alt={description}
-                                />
-                            )}
+                            <Image
+                                className={styles.image}
+                                layout="fill"
+                                src={`https://st.kp.yandex.net/images/film_iphone/iphone360_${id}.jpg`}
+                                alt={description}
+                            />
                         </a>
                     </Ratio>
                 </Link>

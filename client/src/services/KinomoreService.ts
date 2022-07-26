@@ -14,10 +14,6 @@ export const kinomoreAPI = createApi({
     getFilmById: build.query<IMovie, string | string[] | undefined>({
       query: id => `/movie?search=${id}&field=id&token=${API_KEY}`
     }),
-    getFilmsById: build.query<IMovies, IBaseQuery>({
-      query: ({query, limit}) =>
-        `/movie?${query}&limit=${limit}&token=${API_KEY}`
-    }),
     getNewFilms: build.query<IMovies, number>({
       query: limit =>
         `/movie?field=rating.kp&search=1-10&field=year&search=${getCurrentYear()}&field=typeNumber&search=1&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_KEY}`
@@ -71,7 +67,6 @@ export const {
   useGetCartoonsQuery,
   useGetPersonByIdQuery,
   useGetFavouritesQuery,
-  useGetFilmsByIdQuery,
   useGetFilmsBySearchQuery,
   useGetReviewsByIdQuery
 } = kinomoreAPI;

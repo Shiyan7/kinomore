@@ -9,7 +9,8 @@ const nextConfig = {
     },
     env: {
         API_KEY: process.env.API_KEY,
-        API_URL: process.env.API_URL
+        API_URL: process.env.API_URL,
+        AUTH_API_URL: process.env.AUTH_API_URL
     }
 };
 

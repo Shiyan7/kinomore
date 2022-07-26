@@ -54,10 +54,12 @@
 }
 
 .error {
-    transform: translateY(-5px);
-    font-weight: 400;
+    transform: translateY(-8px);
     color: var(--color-red);
-    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    margin-bottom: 7px;
 }
 
 .btn {

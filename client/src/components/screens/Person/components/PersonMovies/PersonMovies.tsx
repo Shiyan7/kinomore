@@ -7,16 +7,17 @@ import styles from './PersonMovies.module.scss'
 
 interface PersonMoviesProps {
     movies: IMovie[] | undefined;
+    countFilms: number
 }
 
-export const PersonMovies: FC<PersonMoviesProps> = (({movies}) => {
+export const PersonMovies: FC<PersonMoviesProps> = (({movies, countFilms}) => {
 
     return (
         <div className={styles.container}>
-            <Carousel title='Фильмы и сериалы' quantity={movies?.length}>
-                {movies?.map(item => {
+            <Carousel title='Фильмы и сериалы' quantity={countFilms}>
+                {movies?.map((item, idx) => {
                     return (
-                        <SwiperSlide key={item.id}>
+                        <SwiperSlide key={idx}>
                             <FilmItem item={item} />
                         </SwiperSlide>
                     )

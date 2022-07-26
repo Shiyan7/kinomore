@@ -3,11 +3,11 @@ import {Auth} from '@/components/Auth/Auth'
 import {Controller, useForm,} from 'react-hook-form'
 import {yupResolver} from "@hookform/resolvers/yup";
 import {useRouter} from 'next/router';
+import {useActions} from '@/hooks/useActions';
+import {useLoginMutation} from '@/services/AuthService';
+import {useState} from 'react';
 import NextLink from 'next/link'
 import * as Yup from "yup";
-import { useActions } from '@/hooks/useActions';
-import { useLoginMutation } from '@/services/AuthService';
-import { useEffect, useState } from 'react';
 
 export const SignIn = () => {
 	
@@ -15,7 +15,7 @@ export const SignIn = () => {
 	const {setUser} = useActions()
 	const {Heading, TextField, Button, Error, Link} = Auth
 	const [formError, setFormError] = useState('')
-	const [login, {data, isLoading, isSuccess, isError, error}] = useLoginMutation()
+	const [login] = useLoginMutation()
 
 	const schema = Yup.object().shape({
 		email: Yup.string().required('Введите email'),
@@ -30,7 +30,7 @@ export const SignIn = () => {
 		resolver: yupResolver(schema),
     })
 	
-	const isFormError = formError.length > 0
+	const isFormError = formError?.length > 0
 
 	const handleLogin = handleSubmit(async data => {
 		try {
