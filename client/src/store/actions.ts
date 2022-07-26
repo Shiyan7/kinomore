@@ -1,8 +1,9 @@
-import {loadMoreFilms, loadMoreSeries} from "@/store/reducers/loadMore.slice";
-import {setFilterRatings, setFiterYears, setSortByRelease, setFilterGenre, resetFilters} from "@/store/reducers/filters.slice";
-import {toggleFilters, toggleMenu} from "@/store/reducers/toggle.slice";
-import {setPage} from "@/store/reducers/pagination.slice";
-import {setSearch, setVisible} from "@/store/reducers/search.slice";
+import {loadMoreFilms, loadMoreSeries} from "@/store/reducers/loadMoreSlice";
+import {setFilterRatings, setFiterYears, setSortByRelease, setFilterGenre, resetFilters} from "@/store/reducers/filtersSlice";
+import {toggleFilters, toggleMenu} from "@/store/reducers/toggleSlice";
+import {setPage} from "@/store/reducers/paginationSlice";
+import {setSearch, setVisible} from "@/store/reducers/searchSlice";
+import {setUser} from "@/store/reducers/authSlice";
 
 export {
     toggleMenu,
@@ -16,5 +17,6 @@ export {
     setPage,
     resetFilters,
     toggleFilters,
-    setVisible
+    setVisible,
+    setUser
 }

@@ -5,11 +5,17 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import {useRouter} from 'next/router';
 import NextLink from 'next/link'
 import * as Yup from "yup";
+import { useActions } from '@/hooks/useActions';
+import { useLoginMutation } from '@/services/AuthService';
+import { useEffect, useState } from 'react';
 
 export const SignIn = () => {
 	
 	const {push} = useRouter()
-	const {Heading, TextField, Button, Link} = Auth
+	const {setUser} = useActions()
+	const {Heading, TextField, Button, Error, Link} = Auth
+	const [formError, setFormError] = useState('')
+	const [login, {data, isLoading, isSuccess, isError, error}] = useLoginMutation()
 
 	const schema = Yup.object().shape({
 		email: Yup.string().required('Введите email'),
@@ -24,13 +30,20 @@ export const SignIn = () => {
 		resolver: yupResolver(schema),
     })
 	
+	const isFormError = formError.length > 0
 
-	const handleLogin = handleSubmit(data => {
-		console.log('Успешная авторизация', data);
-		push(RoutesEnum.Home)
-		reset()
+	const handleLogin = handleSubmit(async data => {
+		try {
+			const user = await login(data).unwrap()
+			setUser(user)
+			push(RoutesEnum.Home)
+		} catch (err: any) {
+			const {message} = err.data;
+
+			setFormError(message)
+			
+		}
 	})
-	
 
     return (
 		<Auth onSubmit={handleLogin}>
@@ -47,7 +60,7 @@ export const SignIn = () => {
 							value={value}
 							onChange={onChange}
 							errorMessage={errors.email?.message}
-							error={errors.hasOwnProperty('email')}
+							error={errors.hasOwnProperty('email') || isFormError}
 						/>
 					);
 				}}
@@ -65,11 +78,12 @@ export const SignIn = () => {
 							value={value}
 							onChange={onChange}
 							errorMessage={errors.password?.message}
-							error={errors.hasOwnProperty('password')}
+							error={errors.hasOwnProperty('password') || isFormError}
 						/>
 					);
 				}}
 			/>
+			{isFormError && <Error>{formError}</Error>}
 			<Button onClick={handleLogin}>Войти</Button>
 			<Link>Нет аккаунта?&nbsp;<NextLink href={RoutesEnum.Register}><a>Зарегистрироваться</a></NextLink></Link>
 		</Auth>

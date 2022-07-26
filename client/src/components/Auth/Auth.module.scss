@@ -53,6 +53,13 @@
     line-height: 19.5px;
 }
 
+.error {
+    transform: translateY(-5px);
+    font-weight: 400;
+    color: var(--color-red);
+    margin-bottom: 10px;
+}
+
 .btn {
     margin-top: 5px;
     margin-bottom: 25px;

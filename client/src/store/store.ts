@@ -1,11 +1,13 @@
 import {configureStore, PreloadedState} from "@reduxjs/toolkit";
 import {createWrapper} from "next-redux-wrapper";
 import {kinomoreAPI} from "@/services/KinomoreService";
-import {searchReducer} from "./reducers/search.slice";
-import {loadReducer} from "./reducers/loadMore.slice";
-import {paginationReducer} from "./reducers/pagination.slice";
-import {filtersReducer} from "./reducers/filters.slice";
-import {toggleReducer} from "./reducers/toggle.slice";
+import {authAPI} from "@/services/AuthService";
+import {searchReducer} from "./reducers/searchSlice";
+import {loadReducer} from "./reducers/loadMoreSlice";
+import {paginationReducer} from "./reducers/paginationSlice";
+import {filtersReducer} from "./reducers/filtersSlice";
+import {toggleReducer} from "./reducers/toggleSlice";
+import {authReducer} from "./reducers/authSlice";
 import {useMemo} from 'react'
 
 let store: AppStore
@@ -18,10 +20,12 @@ export const initStore = (preloadedState = {}) => {
       filtersReducer,
       paginationReducer,
       toggleReducer,
+      authReducer,
+      [authAPI.reducerPath]: authAPI.reducer,
       [kinomoreAPI.reducerPath]: kinomoreAPI.reducer,
     },
     preloadedState,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(kinomoreAPI.middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(kinomoreAPI.middleware, authAPI.middleware),
   });
 }
 

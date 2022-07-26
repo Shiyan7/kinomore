@@ -29,6 +29,10 @@ module Auth {
     export const Link = ({children}: PropsWithChildren<{}>) => {
         return <span className={styles.link}>{children}</span>
     }
+
+    export const Error = ({children}: PropsWithChildren<{}>) => {
+        return <span className={styles.error}>{children}</span>
+    }
 }
 
 export {Auth}
