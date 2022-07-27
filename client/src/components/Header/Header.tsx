@@ -2,7 +2,6 @@ import {useActions} from "@/hooks/useActions";
 import {Search} from '@/components/Search/Search';
 import {useRef} from 'react';
 import {useOnClickOutside} from 'usehooks-ts';
-import {FiSearch} from 'react-icons/fi';
 import {Logo} from '@/UI/Logo/Logo';
 import {Burger} from './components/Burger/Burger';
 import {Dropdown} from './components/Dropdown/Dropdown';
@@ -13,7 +12,7 @@ import Link from 'next/link';
 
 export const Header = () => {
 
-    const ref = useRef(null)
+    const ref = useRef<HTMLDivElement>(null)
     const {toggleMenu} = useActions()
 
     useOnClickOutside(ref, () => toggleMenu(false))

@@ -1,9 +1,9 @@
-import {FC} from "react"
-import {IMovie} from "@/types/IMovie";
-import {SwiperSlide} from "swiper/react";
-import {Carousel} from "@/components/Carousel/Carousel";
-import {FilmItem} from "@/components/FilmItem/FilmItem";
-import styles from './SimilarMovies.module.scss'
+import {FC} from 'react';
+import {IMovie} from '@/types/IMovie';
+import {SwiperSlide} from 'swiper/react';
+import {Carousel} from '@/components/Carousel/Carousel';
+import {FilmItem} from '@/components/FilmItem/FilmItem';
+import styles from './SimilarMovies.module.scss';
 
 interface SimilarMoviesProps {
     movies: IMovie[] | undefined;

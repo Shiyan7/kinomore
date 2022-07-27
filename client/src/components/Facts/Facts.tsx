@@ -1,5 +1,5 @@
+import {FC} from 'react';
 import {Title} from '@/UI/Title/Title';
-import {FC} from "react";
 import {IFact} from '@/types/IFact';
 import classNames from 'classnames';
 import styles from './Facts.module.scss';

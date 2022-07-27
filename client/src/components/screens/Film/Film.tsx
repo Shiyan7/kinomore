@@ -17,7 +17,7 @@ import {MainRoles} from "./components/MainRoles/MainRoles";
 import {Facts} from "@/components/Facts/Facts";
 import styles from './Film.module.scss';
 import classNames from "classnames";
-import {MovieFavorite} from "./components/MovieFavorite/MovieFavorite";
+import {MovieFavorite} from "@/UI/MovieFavorite/index";
 import {Reviews} from "./components/Reviews/Reviews";
 
 export const Film = () => {
@@ -78,7 +78,7 @@ export const Film = () => {
         <section className={styles.section}>
             <div className={classNames('container wrapper', styles.container)}>
                 <div className={styles.top}>
-                    <BackButton/>
+                    <BackButton />
                 </div>
                 <div className={styles.content}>
                     <div className={styles.left}>

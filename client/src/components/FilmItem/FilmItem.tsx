@@ -13,7 +13,7 @@ interface FilmItemProps {
 
 export const FilmItem: FC<FilmItemProps> = ({item}) => {
 
-    const {id, poster, description, year, name, enName, type, rating} = {...item}
+    const {id, description, year, name, enName, type, rating} = {...item}
 
     return (
         <li className={styles.item}>

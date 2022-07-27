@@ -4,4 +4,4 @@ export type {MovieFavoriteProps };
     
 export const MovieFavorite = dynamic<MovieFavoriteProps>(() => import('./MovieFavorite').then((mod) => mod.MovieFavorite), {
     ssr: false
-});
+})

@@ -1,13 +1,13 @@
-import {RoutesEnum} from '@/constants/routes'
-import {Auth} from '@/components/Auth/Auth'
-import {Controller, useForm,} from 'react-hook-form'
+import {RoutesEnum} from '@/constants/routes';
+import {Auth} from '@/components/Auth/Auth';
+import {Controller, useForm,} from 'react-hook-form';
 import {yupResolver} from "@hookform/resolvers/yup";
-import NextLink from 'next/link'
-import * as Yup from "yup";
 import {useRouter} from 'next/router';
-import { useState } from 'react';
-import { useRegisterMutation } from '@/services/AuthService';
-import { useActions } from '@/hooks/useActions';
+import {useState} from 'react';
+import {useRegisterMutation} from '@/services/AuthService';
+import {useActions} from '@/hooks/useActions';
+import NextLink from 'next/link';
+import * as Yup from "yup";
 
 export const SignUp = () => {
 	
@@ -35,8 +35,6 @@ export const SignUp = () => {
 		resolver: yupResolver(schema),
     })
 
-	const isFormError = formError?.length > 0
-
 	const handleRegister = handleSubmit(async data => {
 		try {
 			const user = await register(data).unwrap()
@@ -44,9 +42,7 @@ export const SignUp = () => {
 			push(RoutesEnum.Home)
 		} catch (err: any) {
 			const {message} = err.data;
-
 			setFormError(message)
-			
 		}
 	})
 	
@@ -123,7 +119,7 @@ export const SignUp = () => {
 					);
 				}}
 			/>
-			{isFormError && <Error>{formError}</Error>}
+			{formError?.length > 0 && <Error>{formError}</Error>}
 			<Button onClick={handleRegister}>Зарегистрироваться</Button>
 			<Link>Есть аккаунт?&nbsp;<NextLink href={RoutesEnum.Login}><a>Войти</a></NextLink></Link>
 		</Auth>

@@ -11,7 +11,6 @@ export const Favourites = () => {
     const {filters} = useTypedSelector(state => state.filtersReducer);
     const {page} = useTypedSelector(state => state.paginationReducer);
     const {data, isLoading, isFetching} = useGetFavouritesQuery({page, filters, query});
-
     const {Container, Heading, Description, Body, Content, Subtitle} = Catalog;
 
     return (

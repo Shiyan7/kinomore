@@ -1,23 +1,18 @@
 import {FC} from 'react';
 import {MovieFavorite} from '@/UI/MovieFavorite/index';
 import {IMovie} from '@/types/IMovie';
-import {useFavourites} from '@/hooks/useFavourite';
 import {Rating} from '@/components/Rating/Rating';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './MovieItem.module.scss';
+import styles from './CatalogItem.module.scss';
 
-interface MovieItemProps {
+interface CatalogItemProps {
     item: IMovie
 }
 
-export const MovieItem: FC<MovieItemProps> = ({ item }) => {
+export const CatalogItem: FC<CatalogItemProps> = ({ item }) => {
 
     const {poster, description, name, enName, year, movieLength, rating, shortDescription, id} = item;
-
-    const { favourites } = useFavourites();
-
-    const isFavourite = favourites.includes(id)
 
     return (
         <div className={styles.container}>
@@ -46,7 +41,6 @@ export const MovieItem: FC<MovieItemProps> = ({ item }) => {
                 <MovieFavorite
                     id={id}
                     variant='text'
-                    isFavourite={isFavourite}
                 />
             </div>
         </div>

@@ -5,6 +5,6 @@ describe('процент от ста', () => {
         expect(calcPercent(70, 300)).toBe("23.33");
     })
     test('некорректное значение', () => {
-        expect(calcPercent(70, 300)).not.toBe('24');
+        expect(calcPercent(70, 300)).not.toBe('25');
     })
 })

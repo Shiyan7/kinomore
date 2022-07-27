@@ -29,8 +29,6 @@ export const SignIn = () => {
 		},
 		resolver: yupResolver(schema),
     })
-	
-	const isFormError = formError?.length > 0
 
 	const handleLogin = handleSubmit(async data => {
 		try {
@@ -39,9 +37,7 @@ export const SignIn = () => {
 			push(RoutesEnum.Home)
 		} catch (err: any) {
 			const {message} = err.data;
-
 			setFormError(message)
-			
 		}
 	})
 
@@ -60,7 +56,7 @@ export const SignIn = () => {
 							value={value}
 							onChange={onChange}
 							errorMessage={errors.email?.message}
-							error={errors.hasOwnProperty('email') || isFormError}
+							error={errors.hasOwnProperty('email')}
 						/>
 					);
 				}}
@@ -78,12 +74,12 @@ export const SignIn = () => {
 							value={value}
 							onChange={onChange}
 							errorMessage={errors.password?.message}
-							error={errors.hasOwnProperty('password') || isFormError}
+							error={errors.hasOwnProperty('password')}
 						/>
 					);
 				}}
 			/>
-			{isFormError && <Error>{formError}</Error>}
+			{formError?.length > 0 && <Error>{formError}</Error>}
 			<Button onClick={handleLogin}>Войти</Button>
 			<Link>Нет аккаунта?&nbsp;<NextLink href={RoutesEnum.Register}><a>Зарегистрироваться</a></NextLink></Link>
 		</Auth>

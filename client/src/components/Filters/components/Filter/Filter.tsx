@@ -10,9 +10,9 @@ interface FilterProps {
 
 export const Filter: FC<PropsWithChildren<FilterProps>> = ({name, children}) => {
   
-    const [open, setOpen] = useState<boolean>(true);
+    const [open, setOpen] = useState<boolean>(true)
 
-    const handleOpen = () => setOpen(!open);
+    const handleOpen = () => setOpen(!open)
 
     return (
         <div className={classNames(styles.filter, open && styles.filterActive)}>

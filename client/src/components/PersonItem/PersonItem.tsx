@@ -1,9 +1,9 @@
-import {IMoviePerson} from "@/types/IMovie"
-import {FC} from "react"
-import Image from "next/image"
+import {FC} from 'react';
+import {IMoviePerson} from '@/types/IMovie';
+import Image from 'next/image';
 import Ratio from 'react-ratio';
 import styles from './PersonItem.module.scss'
-import Link from "next/link";
+import Link from 'next/link';
 
 interface PersonItemProps {
     item: IMoviePerson;
