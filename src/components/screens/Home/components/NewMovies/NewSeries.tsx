@@ -28,7 +28,7 @@ export const NewSeries = () => {
         </div>
         <Grid>
           {data?.docs?.map(el => (
-            <FilmItem hover key={el.id} item={el} />
+            <FilmItem key={el.id} item={el} />
           ))}
         </Grid>
         <LoadMoreButton isFetching={isFetching} condition={condition} onClick={() => loadMoreSeries()} />
