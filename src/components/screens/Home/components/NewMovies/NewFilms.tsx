@@ -29,7 +29,6 @@ export const NewFilms = () => {
         <Grid>
           {data?.docs?.map(el => (
             <FilmItem
-              hover
               key={el.id}
               item={el}
             />
