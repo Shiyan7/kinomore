@@ -34,3 +34,9 @@
         font-weight: 400;
     }
 }
+
+.slider {
+    @media (min-width: 1025px) {
+        padding: 5px 0;
+    }
+}

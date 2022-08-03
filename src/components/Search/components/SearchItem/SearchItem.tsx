@@ -19,6 +19,7 @@ export const SearchItem: FC<SearchItemProps> = ({item}) => {
 				<div className={styles.left}>
 						<div className={styles.imageContainer}>
 							<Image
+								unoptimized
 								layout='fill'
 								src={poster.previewUrl}
 								alt={description}

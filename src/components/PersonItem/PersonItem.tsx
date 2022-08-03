@@ -19,6 +19,7 @@ export const PersonItem: FC<PersonItemProps> = ({item}) => {
                 <Ratio ratio={2/3}>
                     <a className={styles.image}>
                         <Image
+                            unoptimized
                             layout='fill'
                             alt={name}
                             src={photo}

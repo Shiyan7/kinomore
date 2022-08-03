@@ -7,9 +7,9 @@ import {Title} from '@/UI/Title/Title'
 import {Grid} from '@/components/Grid/Grid'
 import {useRouter} from 'next/router'
 import {useActions} from '@/hooks/useActions'
+import {LoadMoreButton} from '@/components/LoadMoreButton/LoadMoreButton'
 import styles from './NewMovies.module.scss'
 import classNames from 'classnames'
-import { LoadMoreButton } from '@/components/LoadMoreButton/LoadMoreButton'
 
 export const NewFilms = () => {
   
@@ -28,7 +28,11 @@ export const NewFilms = () => {
         </div>
         <Grid>
           {data?.docs?.map(el => (
-            <FilmItem key={el.id} item={el} />
+            <FilmItem
+              hover
+              key={el.id}
+              item={el}
+            />
           ))}
         </Grid>
         <LoadMoreButton isFetching={isFetching} condition={condition} onClick={() => loadMoreFilms()} />

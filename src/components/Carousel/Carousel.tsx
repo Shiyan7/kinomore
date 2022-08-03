@@ -32,9 +32,10 @@ const breakpoints = {
 interface CarouselProps {
     title?: string;
     quantity?: number;
+    className?: string;
 }
 
-export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({children, quantity, title}) => {
+export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({className, children, quantity, title}) => {
 
     const navigationPrevRef = useRef<HTMLButtonElement>(null)
     const navigationNextRef = useRef<HTMLButtonElement>(null)
@@ -75,6 +76,7 @@ export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({children, quanti
                 navigation={navigation}
                 onSwiper={onSwiper}
                 breakpoints={breakpoints}
+                className={styles.slider}
             >
                 {children}
             </Swiper>

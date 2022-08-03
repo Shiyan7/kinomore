@@ -1,5 +1,13 @@
 .item {
     max-width: 100%;
+
+    @media (min-width: 1025px) {
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+    }
 }
 
 .top {

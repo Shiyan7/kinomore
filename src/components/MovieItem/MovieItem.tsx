@@ -25,6 +25,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item }) => {
                 <Link href={`/film/${id}`}>
                     <a className={styles.imageContainer}>
                         <Image
+                            unoptimized
                             layout='fill'
                             src={poster.previewUrl}
                             alt={description}

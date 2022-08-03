@@ -23,6 +23,7 @@ export const FilmItem: FC<FilmItemProps> = ({item}) => {
                         <a className={styles.imageContainer}>
                             {poster && (
                                 <Image
+                                    unoptimized
                                     className={styles.image}
                                     layout="fill"
                                     src={poster?.previewUrl}
