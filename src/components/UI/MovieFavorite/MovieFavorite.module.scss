@@ -1,0 +1,129 @@
+.favorite {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid transparent;
+
+    &[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    &.active {
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+        
+        svg {
+            fill: none;
+        }
+    }
+
+    svg {
+        flex-shrink: 0;
+        fill: currentColor;
+        stroke: currentColor;
+    }
+
+    @media (min-width: 577px) {
+        &:hover {
+            background-color: rgba(#999, 0.25);
+        }
+    }
+}
+
+.text {
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 16px;
+    background-color: transparent;
+    color: #999;
+    border: 1px solid rgba(#000, .2);
+
+    &.active {
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+
+        @media (min-width: 577px) {
+            &:hover {
+                color: var(--color-white);
+                background-color: var(--color-primary);
+            }
+        }
+        
+        svg {
+            fill: none;
+        }
+    }
+
+    @media (max-width: 576px) {
+        padding: 6px;
+        font-size: 0;
+        min-width: auto;
+        min-height: auto;
+
+        span {
+            margin-right: 0;
+        }
+    }
+
+    @media (min-width: 577px) {
+        &:hover {
+            background-color: rgba(#999, 0.1);
+        }
+    }
+
+    svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        fill: currentColor;
+    }
+}
+
+
+
+.regular {
+    border-radius: 30px;
+    padding: 13px 24px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    background-color: #f2f2f2;
+    color: var(--color-dark);
+
+    &.active {
+        background-color: var(--color-white);
+        
+        @media (min-width: 577px) {
+            &:hover {
+                color: var(--color-white);
+                background-color: var(--color-primary);
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 11px 20px;
+        min-width: 153px;
+        min-height: 41px;
+    }
+
+
+    @media (min-width: 577px) {
+        &:hover {
+            background-color: #e6e6e6;
+        }
+    }
+
+    svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        fill: currentColor;
+    }
+}

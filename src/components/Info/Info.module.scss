@@ -1,0 +1,36 @@
+.item {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+.caption {
+    display: block;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(#000, 0.5);
+    flex: 0 0 170px;
+
+    @media (max-width: 576px) {
+        flex: 0 0 150px;
+    }
+}
+
+.value {
+    position: relative;
+    font-size: 15px;
+    line-height: 18px;
+
+    a {
+        color: var(--color-dark);
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+            color: var(--color-primary);
+        }
+    }
+}

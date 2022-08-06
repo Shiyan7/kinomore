@@ -1,12 +1,12 @@
 {
     "name": "Kinomore",
     "short_name": "Kinomore",
-    "theme_color": "#000",
-    "background_color": "#000",
-    "display": "standalone",
-    "orientation": "portrait",
+    "theme_color": "#141414",
+    "background_color": "#141414",
     "scope": "/",
     "start_url": "/?source=pwa",
+    "display": "standalone",
+    "orientation": "portrait",
     "icons": [
       {
         "src": "icons/icon-72x72.png",

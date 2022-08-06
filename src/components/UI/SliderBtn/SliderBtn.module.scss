@@ -1,0 +1,42 @@
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 1px solid rgba(#000, 0.1);
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    transition: color 0.3s, background-color 0.3s, border 0.3s;
+
+    @media (max-width: 576px) {
+        width: 35px;
+        height: 35px;
+    }
+    
+    &[disabled] {
+        color: rgba(#000, 0.3);
+        pointer-events: none;
+    }
+
+    &:hover {
+        color: var(--color-white);
+        background-color: var(--color-primary);
+        border: 1px solid transparent;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+
+        @media (max-width: 576px) {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &:not(:last-child) {
+        margin-right: 15px;
+    }
+}

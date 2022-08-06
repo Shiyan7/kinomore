@@ -1,0 +1,60 @@
+.btns {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+    border: 1px solid rgba(#000, 0.1);
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 5px 8px;
+    transition: transform 0.3s, border-color 0.3s, background-color 0.3s, color 0.3s;
+    
+    @media (max-width: 375px) {
+        font-size: 12px;
+        line-height: 15px;
+        padding: 4px 7px;
+    }
+
+    span {
+        margin-right: 5px;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &:not(:last-child) {
+        margin-right: 8px;
+    }
+}
+
+.like {
+    --active-color: var(--color-green)
+}
+
+.dislike {
+    --active-color: var(--color-red)
+}
+
+.quantity {
+    display: block;
+    margin-left: 4px;
+    color: rgba(#000, 0.4);
+    transition: color 0.3s;
+}
+
+.active {
+    color: var(--color-white);
+    background-color: var(--active-color);
+    border-color: transparent;
+
+    .quantity {
+        color: rgba(#fff, 0.8);
+    }
+}

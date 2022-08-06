@@ -1,0 +1,90 @@
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    background-color: var(--color-dark);
+
+    @media (max-width: 768px) {
+        background-color: var(--color-light-dark);
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 1280px) {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: flex-start;
+        padding: 17px var(--container-offset);
+    }
+}
+
+.logo {
+    @media (max-width: 768px) {
+        margin-right: auto;
+    }
+}
+
+.left {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 22px;
+    padding-bottom: 22px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+.link {
+    position: relative;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 500;
+    color: var(--color-white);
+    outline: none;
+    transition: color 0.3s;
+
+    @media (max-width: 768px) {
+        font-size: 15px;
+        line-height: 15px;
+        margin-right: 8px;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 2.5px;
+        border-radius: 5px;
+        background-color: var(--color-primary);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    &:hover,
+    &:focus-visible {
+        &:before {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &:hover {
+        color: var(--color-white);
+    }
+}

@@ -1,0 +1,23 @@
+.spinner {
+  animation: rotate-keyframes 1s linear infinite;
+}
+
+@keyframes rotate-keyframes {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.dark {
+
+  circle {
+    stroke-width: 1.5;
+    stroke-opacity: 1;
+    stroke: var(--color-light-dark);
+  }
+
+  path {
+    stroke-width: 1.5;
+    stroke: rgba(#fff, 1);
+  }
+}

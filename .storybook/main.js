@@ -1,5 +1,5 @@
 module.exports = {
-  stories: ["../components/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ["../src/components/**/*.stories.@(js|jsx|ts|tsx)"],
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -8,7 +8,7 @@ module.exports = {
       name: "@storybook/preset-scss",
       options: {
         sassLoaderOptions: {
-          additionalData: '@import "./scss/vars.scss"; @import "./scss/mixins.scss"; @import "./scss/global.scss";',
+          additionalData: '@import "./src/scss/vars.scss"; @import "./src/scss/mixins.scss"; @import "./src/scss/global.scss";',
         },
       },
     },

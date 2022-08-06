@@ -1,0 +1,26 @@
+.btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    margin-bottom: 30px;
+
+    &:hover {
+        svg {
+            transform: none;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        border-radius: 8px;
+        display: flex;
+    }
+
+    @media (max-width: 576px) {
+        margin-bottom: 30px;
+    }
+
+    &:hover {
+        background-color: var(--color-dark-primary);
+    }
+}

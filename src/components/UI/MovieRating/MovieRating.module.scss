@@ -1,0 +1,34 @@
+.rating {
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    top: 10px;
+    left: 10px;
+    color: var(--color-white);
+    padding: 2px 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+
+    @media (max-width: 1024px) {
+        left: 10px;
+    }
+
+    svg {
+        width: 14px;
+        height: 14px;
+        margin-right: 5px;
+    }
+}
+
+.green {
+    background-color: var(--color-green);
+}
+
+.red {
+    background-color: var(--color-red);
+}

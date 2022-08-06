@@ -1,0 +1,126 @@
+.wrapper {
+    --offset: 15px;
+    position: absolute;
+    z-index: 2;
+    top: calc(100% + 7px);
+    left: 0;
+    width: 100%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @media (max-width: 768px) {
+        top: 100%;
+        border-radius: 0;
+        background-color: #2f2f2f;
+    }
+}
+
+.top {
+    padding: var(--offset);
+    border-bottom: 1px solid rgba(#fff, 0.1);
+}
+
+.btns {
+    display: flex;
+    background-color: var(--color-light-dark);
+    overflow: hidden;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.btn {
+    width: 100%;
+    min-height: inherit;
+    background-color: var(--color-light-dark);
+    border-radius: 0;
+
+    &:hover {
+        background-color: rgba(#000, 0.2);
+    }
+}
+
+.active {
+    pointer-events: none;
+    background-color: var(--color-black);
+
+    @media (max-width: 768px) {
+        background-color: var(--color-dark);
+    }
+}
+
+.list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 65vh;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+      
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(#fff, 0.4);
+
+        @media (max-width: 576px) {
+            background-color: rgba(#fff, 0.3);
+        }
+
+        &:hover {
+            background-color: rgba(#fff, 0.5);
+        }
+    }
+
+    @media (max-height: 600px) {
+        max-height: 45vh;
+    }
+
+    @media (max-width: 576px) and (max-height: 700px) {
+        max-height: 45vh;
+    }
+}
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+.desc {
+    margin: 0;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    height: 200px;
+    text-align: center;
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.more {
+    color: #fff;
+    padding: var(--offset);
+    text-align: left;
+    display: block;
+    background-color: var(--color-dark);
+    font-size: 13px;
+    line-height: 16px;
+    transition: background-color 0.3s;
+
+    @media (max-width: 768px) {
+        background-color: var(--color-dark);
+
+        &:hover {
+            background-color: var(--color-light-dark);
+        }
+    }
+
+    &:hover {
+        background-color: var(--color-black);
+    }
+}
