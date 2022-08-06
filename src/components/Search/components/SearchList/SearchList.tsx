@@ -109,7 +109,7 @@ export const SearchList: FC<SearchListProps> = ({value}) => {
                         )
                     )
             }
-            <ButtonBase ripple className={styles.more}>Показать все</ButtonBase>
+            {type !== '4' && <ButtonBase ripple className={styles.more}>Показать все</ButtonBase>}
         </div>
     );
 }

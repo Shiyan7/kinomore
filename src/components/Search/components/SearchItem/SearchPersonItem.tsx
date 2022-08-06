@@ -1,6 +1,6 @@
 import {FC} from "react";
 import Link from "next/link";
-import styles from 'src/components/Search/components/SearchPersonItem/SearchItem.module.scss'
+import styles from './SearchItem.module.scss'
 import Image from "next/image";
 import {IPerson} from "@/types/IPerson";
 
