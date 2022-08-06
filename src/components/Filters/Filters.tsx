@@ -20,7 +20,7 @@ export const Filters = () => {
 
     const {
         setFilterRatings,
-        setFiterYears,
+        setFilterYears,
         setSortByRelease,
         setFilterGenre,
         setPage,
@@ -82,7 +82,7 @@ export const Filters = () => {
 
         setPage(1)
         setFilterRatings(ratings)
-        setFiterYears(years)
+        setFilterYears(years)
         setSortByRelease(sort)
         setFilterGenre(genre)
         handleClose()

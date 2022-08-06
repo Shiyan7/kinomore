@@ -4,13 +4,12 @@ import {Rating} from "@/components/Rating/Rating";
 import Link from "next/link";
 import styles from './SearchItem.module.scss'
 import Image from "next/image";
-import classNames from "classnames";
 
 interface SearchItemProps {
     item: IMovie
 }
 
-export const SearchItem: FC<SearchItemProps> = ({item}) => {
+export const SearchMovieItem: FC<SearchItemProps> = ({item}) => {
   	const {name, id, poster, description, year, enName, movieLength, rating} = item;
 
     return (

@@ -6,6 +6,7 @@ import {IBaseQuery, IQuery} from '@/types/IQuery';
 import {getCurrentYear} from '@/helpers/getCurrentYear/getCurrentYear';
 import {IPerson} from '@/types/IPerson';
 import {IReviews} from '@/types/IReviews';
+import {IPersons} from "@/types/IPersons";
 
 export const kinomoreAPI = createApi({
   reducerPath: 'kinomoreAPI',
@@ -42,6 +43,10 @@ export const kinomoreAPI = createApi({
       query: ({filters, page}) =>
         `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=3&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_KEY}`
     }),
+    getPersonsBySearch: build.query<IPersons, IBaseQuery>({
+      query: ({query, limit}) =>
+          `/person?search=${query}&field=name&limit=${limit}&sortField=name&sortType=-1&isStrict=false&token=${API_KEY}`
+    }),
     getPersonById: build.query<IPerson, string | string[] | undefined>({
       query: id => 
         `/person?search=${id}&field=id&token=${API_KEY}`
@@ -72,6 +77,7 @@ export const {
   useGetPersonByIdQuery,
   useGetFavouritesQuery,
   useGetFilmsByIdQuery,
+  useGetPersonsBySearchQuery,
   useGetFilmsBySearchQuery,
   useGetReviewsByIdQuery
 } = kinomoreAPI;

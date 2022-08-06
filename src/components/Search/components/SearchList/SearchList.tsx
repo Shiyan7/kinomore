@@ -1,11 +1,12 @@
 import {FC, useEffect, useState} from "react";
 import {ButtonBase} from "@/UI/ButtonBase/ButtonBase";
-import {SearchItem} from "../SearchItem/SearchItem";
-import {useGetFilmsBySearchQuery} from '@/services/KinomoreService';
+import {SearchMovieItem} from "src/components/Search/components/SearchItem/SearchMovieItem";
+import {useGetFilmsBySearchQuery, useGetPersonsBySearchQuery} from '@/services/KinomoreService';
 import {Spinner, SpinnerSizes} from "@/UI/Spinner/Spinner";
 import {Button} from "@/UI/Button/Button";
 import classNames from "classnames";
 import styles from './SearchList.module.scss';
+import {SearchPersonItem} from "@/components/Search/components/SearchItem/SearchPersonItem";
 
 interface SearchListProps {
     value: string;
@@ -14,12 +15,18 @@ interface SearchListProps {
 export const SearchList: FC<SearchListProps> = ({value}) => {
 
     const [type, setType] = useState<string>('1')
-    const {data, isFetching, refetch} = useGetFilmsBySearchQuery({query: value, type, limit: 100})
-    const {docs} = {...data}
-    
+    const {data: movieData, isFetching: isFetchingMovies, refetch: refetchMovies} =
+        useGetFilmsBySearchQuery({query: value, type, limit: 100})
+    const {data: personData, isFetching: isFetchingPersons, refetch: refetchPersons} =
+        useGetPersonsBySearchQuery({query: value, limit: 100})
+
+    const {docs: movieDocs} = {...movieData}
+    const {docs: personDocs} = {...personData}
+
     useEffect(() => {
-        refetch()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        refetchMovies()
+        refetchPersons()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     const handleChangeType = (type: string) => setType(type)
@@ -52,30 +59,57 @@ export const SearchList: FC<SearchListProps> = ({value}) => {
                     >
                         Мультики
                     </Button>
+                    <Button
+                        type='button'
+                        variant='sm'
+                        onClick={() => handleChangeType('4')}
+                        className={classNames(styles.btn, type === '4' && styles.active)}
+                    >
+                        Актеры
+                    </Button>
                 </div>
             </div>
-            <>
-                {docs?.length ? (
-                    <>
-                        {!isFetching ? (
+            {
+                type === '4' ?
+                    (
+                        personDocs?.length ? (
                             <>
-                                <ul className={classNames("list-reset", styles.list)}>
-                                    {docs.map((item) => (
-                                        <SearchItem key={item.id} item={item} />
-                                    ))}
-                                </ul>
+                                {!isFetchingPersons ? (
+                                    <ul className={classNames("list-reset", styles.list)}>
+                                        {personDocs.map((item) => (
+                                            <SearchPersonItem key={item.id} item={item}/>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <div className={styles.loader}>
+                                        <Spinner variant='dark' size={SpinnerSizes.medium}/>
+                                    </div>
+                                )}
                             </>
                         ) : (
-                            <div className={styles.loader}>
-                                <Spinner variant='dark' size={SpinnerSizes.medium} />
-                            </div>
-                        )}
-                    </>
-                ) : (
-                    <p className={styles.desc}>По вашему запросу ничего не найдено</p>
-                )}
-            </>
+                            <p className={styles.desc}>По вашему запросу ничего не найдено</p>
+                        )
+                    ) : (
+                        movieDocs?.length ? (
+                            <>
+                                {!isFetchingMovies ? (
+                                    <ul className={classNames("list-reset", styles.list)}>
+                                        {movieDocs.map((item) => (
+                                            <SearchMovieItem key={item.id} item={item}/>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <div className={styles.loader}>
+                                        <Spinner variant='dark' size={SpinnerSizes.medium}/>
+                                    </div>
+                                )}
+                            </>
+                        ) : (
+                            <p className={styles.desc}>По вашему запросу ничего не найдено</p>
+                        )
+                    )
+            }
             <ButtonBase ripple className={styles.more}>Показать все</ButtonBase>
-      </div>
+        </div>
     );
 }
