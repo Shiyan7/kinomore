@@ -44,18 +44,6 @@ function kbp(self) {
     var h, a, w, i, l, y, s, t = false,
         p = '';
 
-    // y - div в котором будет подгружаться плеер
-    // h - высота окна
-    // a -
-    // w -
-    // i -
-    // l -
-    // s -
-    // t -
-    //var date1 = new Date();
-    //var date2 = new Date('2021-10-21');
-    //var tld = date1 > date2 ? 'cc' : 'online';
-
     var sel = self && self.getAttribute('data-kbd') ?
         self.getAttribute('data-kbd') :
         'kinobd';
@@ -101,7 +89,7 @@ function kbp(self) {
         'trailer' :
         options.player ?
         options.player :
-        'kodik,collaps,bazon,alloha,lookbase,hdvb,videocdn,iframe,pleer,ustore,cdnmovies,kholobok,kinotochka,trailer,vk,ext,nf';
+        'collaps,voidboost,videocdn,alloha,kodik,bazon,lookbase,hdvb,iframe,pleer,ustore,cdnmovies,kholobok,kinotochka,ext,trailer,vk,nf';
 
     var bg = (options.bg && options.bg.replace(/[^0-9a-z]/ig, '')) ?
         options.bg.replace(/[^0-9a-z]/ig, '') :
@@ -117,26 +105,19 @@ function kbp(self) {
         'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjAiIHdpZHRoPSIxMDBweCIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGQ9Ik0uNiA1Ny41NGM1LjczLTYuMjMgMTcuMzMtMTUuNSAzMy42Ni0xMi4zNUM1NS40IDQ4LjUgNjQgNjMuOTUgNjQgNjMuOTVTNDIuNDIgNjUgMzAuMjggODMuNjNhMzguNjMgMzguNjMgMCAwIDAtMy40IDMyLjE1IDY0LjQ3IDY0LjQ3IDAgMCAxLTUuNTItNC40NEE2My42NCA2My42NCAwIDAgMSAuNiA1Ny41NHoiIGZpbGw9IiNmZmNiMDIiLz48cGF0aCBkPSJNNjUuMzIgMjkuMDVjNy42NSAxOS45OC0xLjQ0IDM1LjE4LTEuNDQgMzUuMThTNTIuMiA0Ni4wNSAzMC4wMyA0NC44NUEzOC42IDM4LjYgMCAwIDAgLjU2IDU3LjkzIDYzLjggNjMuOCAwIDAgMSAzNy41NiA2YzguMiAxLjggMjIuMjYgNy4xNiAyNy43NiAyMy4wNXoiIGZpbGw9IiNmZjllMDIiLz48cGF0aCBkPSJNOTQuOTIgNDcuN2MtMTMuNDggMTYuNjMtMzEuMiAxNi4zNi0zMS4yIDE2LjM2czkuOTItMTkuMi0uMTMtMzlhMzguNiAzOC42IDAgMCAwLTI2LjE4LTE5IDYzLjc4IDYzLjc4IDAgMCAxIDYzLjUyIDYuMDNjMi41NiA4IDQuOTggMjIuODUtNi4wNSAzNS42eiIgZmlsbD0iI2ZmNGI0MiIvPjxwYXRoIGQ9Ik05My41MiA4Mi41M0M3Mi4zOCA3OS4xNyA2My43NSA2My43IDYzLjc1IDYzLjdzMjEuNi0xLjAyIDMzLjctMTkuNjNhMzguNiAzOC42IDAgMCAwIDMuNDMtMzIuMDQgNjQuMzMgNjQuMzMgMCAwIDEgNS43NCA0LjYgNjMuNjMgNjMuNjMgMCAwIDEgMjAuODIgNTMuMjZjLTUuNjIgNi4yLTE3LjM0IDE1LjgtMzMuOTQgMTIuNnoiIGZpbGw9IiNjMDYzZDYiLz48cGF0aCBkPSJNNjIuNSA5OWMtNy42NS0xOS45OCAxLjQ0LTM1LjE3IDEuNDQtMzUuMTdTNzUuNTYgODEuNiA5Ny43NCA4Mi44YTM5LjEgMzkuMSAwIDAgMCAyOS43My0xMy4wMyA2My44IDYzLjggMCAwIDEtMzcuMTYgNTIuM2MtOC4yLTEuOC0yMi4yNS03LjE1LTI3LjgtMjMuMDZ6IiBmaWxsPSIjMTdhNGY2Ii8+PHBhdGggZD0iTTI2LjY0IDExNS42M0MyNCAxMDcuNiAyMS42IDkzLjA2IDMyLjUgODAuNWMxMy40OC0xNi42MiAzMS41OC0xNi41NSAzMS41OC0xNi41NXMtOS42IDE5LjA2LjQ0IDM4Ljg2YTM4LjgyIDM4LjgyIDAgMCAwIDI2LjA1IDE5LjE3IDYzLjc4IDYzLjc4IDAgMCAxLTYzLjkzLTYuM3oiIGZpbGw9IiM0ZmNhMjQiLz48YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIHR5cGU9InJvdGF0ZSIgZnJvbT0iMCA2NCA2NCIgdG89IjM2MCA2NCA2NCIgZHVyPSIxNTAwbXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIj48L2FuaW1hdGVUcmFuc2Zvcm0+PC9nPjwvc3ZnPg==';
     options.loading = null;
 
-    var language = (options.language && !/ru/i.test(options.language)) ? {
-        "trailer": "TRAILER",
-        "torrent": "DOWNLOAD",
-        "lookbase": "Ukrainian translation",
-        "nf" : "NOT FOUND",
-        "next": "NEXT",
-        "prev": "PREV"
-    } : {
+    const language = {
         "trailer": "ТРЕЙЛЕР",
         "torrent": "СКАЧАТЬ",
         "lookbase": "Украинский перевод",
         "nf" : "НЕ НАЙДЕНО",
         "next": "ВПЕРЕД",
         "prev": "НАЗАД"
-    };
+    }
 
     var btns = {};
     options.button = (options.button) ?
         options.button :
-        'videocdn: {Q} {T}, hdvb: {Q} {T}, bazon: {Q} {T}, ustore: {Q} {T}, alloha: {Q} {T}, kodik: {Q} {T}, iframe: {Q} {T}, collaps: {Q} {T}, kinotochka: {Q} {T}, cdnmovies: {Q} {T}';
+        'collaps: {Q} {T}, voidboost: {Q} {T}, videocdn: {Q} {T}, hdvb: {Q} {T}, bazon: {Q} {T}, ustore: {Q} {T}, kodik: {Q} {T}, iframe: {Q} {T}, alloha: {Q} {T}, kinotochka: {Q} {T}, cdnmovies: {Q} {T}';
     if (options.button) {
         options.button.split(',').forEach(function(button) {
             var btn = button.split(':');
@@ -168,12 +149,6 @@ function kbp(self) {
     if (!options.kinopoisk && !options.title && !options.imdb && !options.tmdb && !options.inid) {
         return false;
     }
-
-    //const kinopoisk = options.kinopoisk;
-    //const title = options.title;
-    //const inid = options.inid;
-    //const tmdb = options.tmdb;
-    //const imdb = options.imdb;
 
     if (options.tv) {
         document.addEventListener('keydown', kinobd_key);
@@ -228,7 +203,6 @@ function kbp(self) {
     i.setAttribute('allowfullscreen', 'allowfullscreen');
     kinobd.appendChild(i);
 
-
     if (parseInt(kinobd.offsetWidth)) {
         w = parseInt(kinobd.offsetWidth);
     } else if (kinobd.parentNode && parseInt(kinobd.parentNode.offsetWidth)) {
@@ -236,7 +210,6 @@ function kbp(self) {
     } else {
         w = 610;
     }
-
 
     if (kinobd.parentNode && kinobd.parentNode.tagName && kinobd.parentNode.tagName.toLowerCase() === 'body') {
         h = Math.max( document.body.scrollHeight,
@@ -259,8 +232,6 @@ function kbp(self) {
     }
 
     var style = 'width:100%;height:' + h + 'px;border:0;margin:0;padding:0;overflow:hidden;position:relative;';
-    //var style = 'width:100%;height:100%;border:0;margin:0;padding:0;overflow:hidden;position:relative;';
-    //var style = 'width:100%;height:100%;border:0;margin:0;padding:0;overflow:hidden;position:relative;';
     i.setAttribute('style', style);
     i.setAttribute('width', w);
     i.setAttribute('height', h);
@@ -361,25 +332,25 @@ function kbp(self) {
                             .replace(/\s+/g, ' ')
                             .replace(/(^\s*)|(\s*)$/g, '');
                         btns[key] = (btns[key]) ? btns[key] : key.toUpperCase();
-                        option.innerText = j + '✨ ' + btns[key];
+                        option.innerText = j + '. ' + btns[key];
                     } else if (key === 'trailer') {
                         j++;
-                        option.innerText = j + '✨ ' + language.trailer.toUpperCase();
+                        option.innerText = j + '. ' + language.trailer.toUpperCase();
                     } else if (key === 'torrent') {
                         j++;
-                        option.innerText = j + '✨ ' + language.torrent.toUpperCase();
+                        option.innerText = j + '. ' + language.torrent.toUpperCase();
                     } else if (key === 'vk') {
                         j++;
-                        option.innerText = j + '✨ ' + language.vk.toUpperCase();
+                        option.innerText = j + '. ' + language.vk.toUpperCase();
                     } else if (key === 'nf') {
                         j++;
-                        option.innerText = j + '✨ ' + language.nf.toUpperCase();
+                        option.innerText = j + '. ' + language.nf.toUpperCase();
                     } else if (key === 'lookbase') {
                         j++;
-                        option.innerText = j + '✨ ' + language.lookbase.toUpperCase();
+                        option.innerText = j + '. ' + language.lookbase.toUpperCase();
                     } else {
                         j++;
-                        option.innerText = j + '✨ ' + key.toUpperCase();
+                        option.innerText = j + '. ' + key.toUpperCase();
                     }
                     if (first) {
                         kb_player(players[key].iframe, players[key].quality, players[key].translate, option, buttons, options.button_size, key);
@@ -405,7 +376,7 @@ function kbp(self) {
 
                         next.dataset.event = 'next';
                         next.dataset.page = Math.ceil(j / options.button_limit) + '';
-                        next.innerText = '-✨ ' + language.next;
+                        next.innerText = '- ' + language.next;
                         buttons.appendChild(next);
 
                         var prev = document.createElement('div');
@@ -451,9 +422,8 @@ function kb_player(iframe, quality, translate, element, buttons, size, provider)
         }, 1000);
     }
     var kinobdIframe = document.querySelector('#kinobd-iframe');
-
-    var loadtime = null;
     var load_start = Date.now();
+    
     if(kinobdIframe) {
         kinobdIframe.onload = function(){ 
             var load_end = Date.now();
@@ -461,6 +431,7 @@ function kb_player(iframe, quality, translate, element, buttons, size, provider)
             kb_ping(provider, loadtime);
         }
         kinobdIframe.style.display = 'block';
+        
         if (iframe.indexOf('nf') + 1) {
             kb_get(decodeURIComponent(iframe), '', function(json, html) {
                 kinobdIframe.setAttribute('src', 'data:text/html;charset=utf-8,' + encodeURIComponent(html));
@@ -533,6 +504,7 @@ function kb_page(page, size) {
 
 function kb_get(url, body, callback) {
     var KbXmlHttp = new XMLHttpRequest();
+
     KbXmlHttp.onreadystatechange = function() {
         if (KbXmlHttp.readyState === 4) {
             if (KbXmlHttp.status === 200) {
@@ -618,12 +590,13 @@ function kb_resize() {
     yi.parentNode.style.width = w + 'px';
 }
 
-window.onresize = function(event) {
+window.onresize = function() {
     kb_resize()
 };
 
 (function() {
-    var a = document.querySelectorAll('[data-kbd]');//
+    var a = document.querySelectorAll('[data-kbd]');
+
     if (a && a.length) {
         for (var i in a) {
             if (a.hasOwnProperty(i) && a[i]) {
