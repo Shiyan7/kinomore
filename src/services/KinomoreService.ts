@@ -52,7 +52,7 @@ export const kinomoreAPI = createApi({
     }),
     getFilmsBySearch: build.query<IMovies, IBaseQuery>({
       query: ({query, type, limit}) =>
-        `/movie?search=${query}&field=name&limit=${limit}&sortField=year&sortType=-1&field=typeNumber&search=${type}&isStrict=false&token=${API_KEY}`
+        `/movie?search=${query}&field=name&limit=${limit}&sortField=year&sortType=-1&field=typeNumber&search=${type}&isStrict=true&token=${API_KEY}`
     }),
     getReviewsById: build.query<IReviews, IBaseQuery>({
       query: ({id, limit}) =>

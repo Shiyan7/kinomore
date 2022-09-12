@@ -11,8 +11,8 @@ interface SearchItemProps {
 }
 
 export const SearchItem: FC<SearchItemProps> = ({item}) => {
-  	const {name, id, poster, description, year, enName, movieLength, rating} = item;
-
+  	const {name, id, description, year, enName, movieLength, rating} = item;
+	
     return (
 		<Link href={`/film/${id}`}>
 			<a className={styles.container}>
@@ -21,7 +21,7 @@ export const SearchItem: FC<SearchItemProps> = ({item}) => {
 							<Image
 								unoptimized
 								layout='fill'
-								src={poster.previewUrl}
+								src={`https://st.kp.yandex.net/images/film_iphone/iphone360_${id}.jpg`}
 								alt={description}
 							/>
 						</div>

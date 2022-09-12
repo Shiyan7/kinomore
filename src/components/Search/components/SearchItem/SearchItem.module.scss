@@ -25,6 +25,11 @@
     overflow: hidden;
     margin-right: var(--offset);
     background-color: var(--color-dark);
+
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 60px;
+    }
 }
 
 .title {
@@ -36,6 +41,12 @@
     margin-bottom: 8px;
     color: var(--color-white);
     transition: color 0.3s;
+
+    @media (max-width: 768px) {
+        font-size: 17px;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
 }
 
 .text {
@@ -76,5 +87,5 @@
     line-height: 18px;
     font-weight: 600;
     padding-top: 2px;
-    margin-left: 5px;
+    margin-left: 15px;
 }

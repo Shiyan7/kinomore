@@ -14,7 +14,7 @@ interface SearchListProps {
 export const SearchList: FC<SearchListProps> = ({value}) => {
 
     const [type, setType] = useState<string>('1')
-    const {data, isFetching, refetch} = useGetFilmsBySearchQuery({query: value, type, limit: 100})
+    const {data, isFetching, isLoading, refetch} = useGetFilmsBySearchQuery({query: value, type, limit: 100}, {skip: value.length === 1})
     const {docs} = {...data}
     
     useEffect(() => {
@@ -57,7 +57,7 @@ export const SearchList: FC<SearchListProps> = ({value}) => {
             <>
                 {docs?.length ? (
                     <>
-                        {!isFetching ? (
+                        {!isFetching && !isLoading ? (
                             <>
                                 <ul className={classNames("list-reset", styles.list)}>
                                     {docs.map((item) => (

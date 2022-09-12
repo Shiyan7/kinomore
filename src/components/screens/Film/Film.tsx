@@ -45,7 +45,7 @@ export const Film = () => {
     } = {...data};
 
     /* @ts-ignore */
-    const worldFees = fees?.world?.value - fees?.usa?.value;
+    // const worldFees = fees?.world?.value - fees?.usa?.value;
 
     const items = [
         {caption: 'Страны', value: countries?.map((el, idx) => <Fragment key={idx}>{idx ? ', ' : ''}{el.name}</Fragment>), condition: countries?.length},
@@ -54,10 +54,11 @@ export const Film = () => {
         {caption: 'Возраст', value: <span className={styles.age}>{ageRating}+</span>, condition: ageRating},
         {caption: 'Бюджет', value: `${budget?.currency} ${convertNumbers(budget?.value)}`, condition: budget?.value},
         {caption: 'Время', value: `${movieLength} мин`, condition: movieLength},
-        {caption: 'Сборы в США', value: `${fees?.usa?.currency} ${convertNumbers(fees?.usa?.value)}`, condition: fees?.usa},
-        {caption: 'Сборы в мире', value: `+ ${fees?.world?.currency} ${convertNumbers(worldFees)} = ${fees?.world?.currency} ${convertNumbers(fees?.world?.value)}`, condition: fees?.usa},
+        // {caption: 'Сборы в США', value: `${fees?.usa?.currency} ${convertNumbers(fees?.usa?.value)}`, condition: fees?.usa},
+        // {caption: 'Сборы в мире', value: `+ ${fees?.world?.currency} ${convertNumbers(worldFees)} = ${fees?.world?.currency} ${convertNumbers(fees?.world?.value)}`, condition: fees?.usa},
         {caption: 'Премьера в мире' , value: convertTimestampToDate(premiere?.world, "D MMMM YYYY"), condition: premiere?.world},
     ]
+    
 
     const roles = persons?.filter(el => {
         if (el.enProfession === 'actor' && el.name?.length) {
