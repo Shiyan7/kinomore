@@ -1,76 +1,76 @@
 .container {
-    position: relative;
-    z-index: 10001;
-    width: 20%;
-    height: 100%;
-    background-color: #333;
-    padding: 15px 10px;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
+	position: relative;
+	z-index: 10001;
+	width: 20%;
+	height: 100%;
+	background-color: #333;
+	padding: 15px 10px;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
 
-    @media (max-width: 1024px) {
-        width: 100%;
-        min-height: 400px;
-    }
+	@media (max-width: 1024px) {
+		width: 100%;
+		min-height: 400px;
+	}
 
-    @media (max-width: 576px) {
-        min-height: 320px;
-    }
+	@media (max-width: 576px) {
+		min-height: 320px;
+	}
 }
 
 .top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 -10px 15px;
-    padding: 0 10px 15px;
-    border-bottom: 1px solid rgba(#fff, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 -10px 15px;
+	padding: 0 10px 15px;
+	border-bottom: 1px solid rgba(#fff, 0.1);
 }
 
 .form {
-    display: flex;
-    align-items: center;
-    border-top: 1px solid rgba(#fff, 0.1);
-    margin: 15px -10px 0;
-    padding: 15px 10px 0;
+	display: flex;
+	align-items: center;
+	border-top: 1px solid rgba(#fff, 0.1);
+	margin: 15px -10px 0;
+	padding: 15px 10px 0;
 }
 
 .input {
-    width: 100%;
+	width: 100%;
 }
 
 .content {
-    position: relative;
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin-right: -5px;
-    padding-right: 5px;
+	position: relative;
+	overflow-y: auto;
+	overflow-x: hidden;
+	margin-right: -5px;
+	padding-right: 5px;
 
-    &::-webkit-scrollbar {
-        width: 5px;
-    }
-      
-    &::-webkit-scrollbar-thumb {
-        background-color: rgba(#fff, 0.2);
-        border-radius: 10px;
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
 
-        &:hover {
-            background-color: rgba(#fff, 0.3);
-        }
-    }
+	&::-webkit-scrollbar-thumb {
+		background-color: rgba(#fff, 0.2);
+		border-radius: 10px;
+
+		&:hover {
+			background-color: rgba(#fff, 0.3);
+		}
+	}
 }
 
 .noMessages {
-    font-size: 16px;
-    line-height: 19px;
-    font-weight: 400;
-    color: var(--color-white);
-    text-align: center;
+	font-size: 16px;
+	line-height: 19px;
+	font-weight: 400;
+	color: var(--color-white);
+	text-align: center;
 
-    @media (max-width: 576px) {
-        font-size: 14px;
-        line-height: 17px;
-    }
+	@media (max-width: 576px) {
+		font-size: 14px;
+		line-height: 17px;
+	}
 }

@@ -1,21 +1,21 @@
 .container {
-    width: 100%;
+	width: 100%;
 }
 
 .inputs {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 25px;
+	display: flex;
+	align-items: flex-end;
+	margin-bottom: 25px;
 }
 
 .input {
-    width: 100%;
-    
-    input {
-        width: 100%;
-    }
+	width: 100%;
 
-    &:not(:last-child) {
-        margin-right: 10px;
-    }
+	input {
+		width: 100%;
+	}
+
+	&:not(:last-child) {
+		margin-right: 10px;
+	}
 }

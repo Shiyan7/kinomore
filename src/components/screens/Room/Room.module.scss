@@ -1,43 +1,43 @@
 .content {
-    display: flex;
-    height: calc(var(--vh, 1vh) * 100);
+	display: flex;
+	height: calc(var(--vh, 1vh) * 100);
 
-    @media (max-width: 1024px) {
-        flex-direction: column;
-    }
+	@media (max-width: 1024px) {
+		flex-direction: column;
+	}
 }
 
 .left {
-    width: 100%;
-    max-width: 80%;
-    height: calc(100% - 63px);
+	width: 100%;
+	max-width: 80%;
+	height: calc(100% - 63px);
 
-    @media (max-width: 1024px) {
-        max-width: 100%;
-        height: auto;
-    }
+	@media (max-width: 1024px) {
+		max-width: 100%;
+		height: auto;
+	}
 }
 
 .videoContainer {
-    width: 100%;
-    height: 100%;
-    background-color: #000;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
 
-    @media (max-width: 1024px) {
-        height: 400px;
-    }
+	@media (max-width: 1024px) {
+		height: 400px;
+	}
 
-    @media (max-width: 576px) {
-        height: 340px;
-    }
+	@media (max-width: 576px) {
+		height: 340px;
+	}
 }
 
 .video {
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
+	display: block;
+	width: 100% !important;
+	height: 100% !important;
 
-    iframe {
-        height: 100% !important;
-    }
+	iframe {
+		height: 100% !important;
+	}
 }

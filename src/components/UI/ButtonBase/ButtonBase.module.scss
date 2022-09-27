@@ -1,29 +1,29 @@
 .btn {
-    border: none;
-    padding: 0;
-    background: transparent;
-    cursor: pointer;
-    font-family: inherit;
+	border: none;
+	padding: 0;
+	background: transparent;
+	cursor: pointer;
+	font-family: inherit;
 }
 
 .endIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 10px;
 
-    @media (max-width: 576px) {
-        margin-left: 7px;
-    }
+	@media (max-width: 576px) {
+		margin-left: 7px;
+	}
 }
 
 .startIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 10px;
 
-    @media (max-width: 576px) {
-        margin-right: 7px;
-    }
+	@media (max-width: 576px) {
+		margin-right: 7px;
+	}
 }

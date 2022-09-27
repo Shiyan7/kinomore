@@ -1,71 +1,70 @@
 .radio {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
 }
 
 .input {
-    -webkit-appearance: none;
-    appearance: none;
-    border: none;
-    border-radius: 0;
-    outline: none;
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    cursor: pointer;
+	-webkit-appearance: none;
+	appearance: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	cursor: pointer;
 
-    &:checked~.switch::before {
-        border-color: var(--color-primary);
-        background-color: var(--color-primary);
-    }
+	&:checked ~ .switch::before {
+		border-color: var(--color-primary);
+		background-color: var(--color-primary);
+	}
 
-    &:checked~.switch::after {
-        opacity: 1;
-        visibility: visible;
-    }
+	&:checked ~ .switch::after {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
-
 .switch {
-    display: block;
-    position: relative;
-    margin-right: 9px;
-    width: 20px;
-    height: 20px;
+	display: block;
+	position: relative;
+	margin-right: 9px;
+	width: 20px;
+	height: 20px;
 
-    &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        border: 2px solid #e4e6ef;
-        border-radius: 100%;
-        width: 100%;
-        height: 100%;
-        transition: border 0.3s, background-color 0.3s;
-    }
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		border: 2px solid #e4e6ef;
+		border-radius: 100%;
+		width: 100%;
+		height: 100%;
+		transition: border 0.3s, background-color 0.3s;
+	}
 
-    &::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        border-radius: 100%;
-        width: 11px;
-        height: 11px;
-        background-color: var(--color-white);
-        opacity: 0;
-        visibility: hidden;
-        transform: translate(-50%, -50%);
-        transition: opacity 0.3s, visibility 0.3s;
-    }
+	&::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		border-radius: 100%;
+		width: 11px;
+		height: 11px;
+		background-color: var(--color-white);
+		opacity: 0;
+		visibility: hidden;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.3s, visibility 0.3s;
+	}
 }
 
 .caption {
-    position: relative;
-    font-size: 13px;
-    color: var(--color-text);
+	position: relative;
+	font-size: 13px;
+	color: var(--color-text);
 }

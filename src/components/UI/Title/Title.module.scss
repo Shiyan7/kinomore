@@ -1,12 +1,12 @@
 .title {
-    margin: 0;
-    font-size: 30px;
-    line-height: 30px;
-    font-weight: 500;
-    color: var(--color-light-dark);
+	margin: 0;
+	font-size: 30px;
+	line-height: 30px;
+	font-weight: 500;
+	color: var(--color-light-dark);
 
-    @media (max-width: 576px) {
-        font-size: 20px;
-        line-height: 30px;
-    }
+	@media (max-width: 576px) {
+		font-size: 20px;
+		line-height: 30px;
+	}
 }

@@ -1,1 +1,1 @@
-declare module 'react-ratio'
+declare module 'react-ratio';

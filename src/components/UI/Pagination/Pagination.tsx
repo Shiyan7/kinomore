@@ -1,18 +1,17 @@
-import {FC, useEffect} from 'react'
-import {FiChevronsLeft, FiChevronLeft, FiChevronsRight, FiChevronRight} from 'react-icons/fi';
-import {ButtonBase} from '../ButtonBase/ButtonBase';
+import { FC, useEffect } from 'react';
+import { FiChevronsLeft, FiChevronLeft, FiChevronsRight, FiChevronRight } from 'react-icons/fi';
+import { ButtonBase } from '../ButtonBase/ButtonBase';
 import styles from './Pagination.module.scss';
 import classNames from 'classnames';
 
 interface PaginationProps {
 	setPage: (page: number) => void;
-  	pages: number | undefined;
-  	page: number;
-  	className?: string;
+	pages: number | undefined;
+	page: number;
+	className?: string;
 }
 
-export const Pagination: FC<PaginationProps> = ({page, setPage, pages, className}) => {
-
+export const Pagination: FC<PaginationProps> = ({ page, setPage, pages, className }) => {
 	const isFirstPage = page === 1;
 	const isLastPage = page === pages;
 
@@ -59,4 +58,4 @@ export const Pagination: FC<PaginationProps> = ({page, setPage, pages, className
 			)}
 		</>
 	);
-}
+};

@@ -1,5 +1,5 @@
 export interface IFact {
-    value: string;
-    type: string;
-    spoiler: boolean;
+	value: string;
+	type: string;
+	spoiler: boolean;
 }

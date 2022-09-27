@@ -1,14 +1,14 @@
-import {ReactElement} from 'react';
-import {useDevice} from '@/hooks/useDevice';
+import { ReactElement } from 'react';
+import { useDevice } from '@/hooks/useDevice';
 
 export interface DeviceProps {
-  desktop?: boolean;
-  mobile?: boolean;
-  children: ReactElement;
+	desktop?: boolean;
+	mobile?: boolean;
+	children: ReactElement;
 }
 
 export const Device = ({ desktop, mobile, children }: DeviceProps): ReactElement | null => {
-  const { isMobile } = useDevice();
+	const { isMobile } = useDevice();
 
-  return (isMobile && mobile) || (!isMobile && desktop) ? children : null;
+	return (isMobile && mobile) || (!isMobile && desktop) ? children : null;
 };

@@ -1,73 +1,73 @@
 .pagination {
-  position: relative;
-  --border: 1px solid #d3d3d3;
-  --size: 50px;
-  height: var(--size);
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  overflow: hidden;
-  width: fit-content;
+	position: relative;
+	--border: 1px solid #d3d3d3;
+	--size: 50px;
+	height: var(--size);
+	display: flex;
+	align-items: center;
+	border-radius: 5px;
+	overflow: hidden;
+	width: fit-content;
 
-  @media (max-width: 1024px) {
-    margin: 0 auto;
-  }
+	@media (max-width: 1024px) {
+		margin: 0 auto;
+	}
 
-  @media (max-width: 576px) {
-    --size: 43px;
-  }
+	@media (max-width: 576px) {
+		--size: 43px;
+	}
 
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    overflow: hidden;
-    border: var(--border);
-  }
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 5px;
+		overflow: hidden;
+		border: var(--border);
+	}
 }
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: var(--size);
-  height: 100%;
-  color: var(--color-dark);
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: var(--size);
+	height: 100%;
+	color: var(--color-dark);
+	transition: background-color 0.3s, color 0.3s, border 0.3s;
 
-  &[disabled] {
-    opacity: 0.5;
-    pointer-events: none;
-  }
+	&[disabled] {
+		opacity: 0.5;
+		pointer-events: none;
+	}
 
-  &:not([disabled]) {
-    &:hover {
-      color: var(--color-white);
-      border-color: transparent;
-      background-color: var(--color-primary);
-    }
-  }
+	&:not([disabled]) {
+		&:hover {
+			color: var(--color-white);
+			border-color: transparent;
+			background-color: var(--color-primary);
+		}
+	}
 }
 
 .left {
-  border-right: var(--border);
+	border-right: var(--border);
 }
 
 .right {
-  border-left: var(--border);
+	border-left: var(--border);
 }
 
 .value {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  height: 100%;
-  border-right: var(--border);
-  border-left: var(--border);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 20px;
+	height: 100%;
+	border-right: var(--border);
+	border-left: var(--border);
 }

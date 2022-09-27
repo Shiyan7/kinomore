@@ -1,41 +1,41 @@
 .header {
-    background-color: var(--color-dark);
+	background-color: var(--color-dark);
 
-    @media (max-width: 1024px) {
-        background-color: var(--color-light-dark);
-    }
+	@media (max-width: 1024px) {
+		background-color: var(--color-light-dark);
+	}
 
-    @media (max-width: 1024px) {
-        position: sticky;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 10000;
-    }
+	@media (max-width: 1024px) {
+		position: sticky;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 10000;
+	}
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    padding: 19px 10px;
-    overflow: hidden;
+	display: flex;
+	align-items: center;
+	padding: 19px 10px;
+	overflow: hidden;
 }
 
 .logo {
-    margin-right: 20px;
+	margin-right: 20px;
 }
 
 .btn {
-    color: var(--color-white);
+	color: var(--color-white);
 }
 
 .title {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 500;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 16px;
-    color: var(--color-white);
+	margin: 0;
+	font-size: 16px;
+	font-weight: 500;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 16px;
+	color: var(--color-white);
 }

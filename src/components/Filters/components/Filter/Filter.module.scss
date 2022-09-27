@@ -1,57 +1,56 @@
 .filter {
-    width: 100%;
-    outline: none;
+	width: 100%;
+	outline: none;
 
-    &:not(:first-child) {
-      margin-top: 35px;
-    }
-  
-    &Active {
-  
-      .filterControl svg {
-        transform: rotate(180deg);
-      }
-  
-      .filterContent {
-        display: flex;
-      }
-    }
-  
-    &Control {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      font-weight: 600;
-      font-size: 15px;
-      line-height: 20px;
+	&:not(:first-child) {
+		margin-top: 35px;
+	}
 
-      span {
-        margin-left: 0;
-      }
+	&Active {
+		.filterControl svg {
+			transform: rotate(180deg);
+		}
 
-      svg {
-        display: block;
-        width: 20px;
-        height: 20px;
-        transition: transform 0.3s;
-      }
-    }
-  
-    &Content {
-      display: none;
-      margin-top: 20px;
-      flex-direction: column;
+		.filterContent {
+			display: flex;
+		}
+	}
 
-      @media (max-width: 1024px) {
-        flex-direction: column;
-        justify-content: space-between;
-      }
-  
-      &__item {
-        &:not(:last-child) {
-          margin-bottom: 12px;
-        }
-      }
-    }
+	&Control {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		font-weight: 600;
+		font-size: 15px;
+		line-height: 20px;
+
+		span {
+			margin-left: 0;
+		}
+
+		svg {
+			display: block;
+			width: 20px;
+			height: 20px;
+			transition: transform 0.3s;
+		}
+	}
+
+	&Content {
+		display: none;
+		margin-top: 20px;
+		flex-direction: column;
+
+		@media (max-width: 1024px) {
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		&__item {
+			&:not(:last-child) {
+				margin-bottom: 12px;
+			}
+		}
+	}
 }

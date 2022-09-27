@@ -1,32 +1,32 @@
 .facts {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .title {
-    font-size: 25px;
-    margin-bottom: 25px;
+	font-size: 25px;
+	margin-bottom: 25px;
 }
 
 .item {
-    position: relative;
-    font-size: 14px;
-    line-height: 21px;
-    color: rgba(#000, 0.5);
+	position: relative;
+	font-size: 14px;
+	line-height: 21px;
+	color: rgba(#000, 0.5);
 
-    a {
-        color: var(--color-dark);
-        text-decoration: underline;
+	a {
+		color: var(--color-dark);
+		text-decoration: underline;
 
-        &:hover {
-            text-decoration: none;
-            color: var(--color-primary);
-        }
-    }
+		&:hover {
+			text-decoration: none;
+			color: var(--color-primary);
+		}
+	}
 
-    &:not(:last-child) {
-        padding-bottom: 12px;
-        margin-bottom: 12px;
-        border-bottom: 1px solid rgba(#000, 0.1);
-    }
+	&:not(:last-child) {
+		padding-bottom: 12px;
+		margin-bottom: 12px;
+		border-bottom: 1px solid rgba(#000, 0.1);
+	}
 }

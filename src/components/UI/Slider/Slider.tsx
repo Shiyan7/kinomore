@@ -1,9 +1,9 @@
-import {ChangeEvent, FC, useRef} from 'react';
-import {SliderThumb} from './components/SliderThumb/SliderThumb';
-import {IRenderThumbParams, IRenderTrackParams} from 'react-range/lib/types';
-import {TextField} from '../TextField/TextField';
-import {Range} from 'react-range';
-import {SliderTrack} from './components/SliderTrack/SliderTrack';
+import { ChangeEvent, FC, useRef } from 'react';
+import { SliderThumb } from './components/SliderThumb/SliderThumb';
+import { IRenderThumbParams, IRenderTrackParams } from 'react-range/lib/types';
+import { TextField } from '../TextField/TextField';
+import { Range } from 'react-range';
+import { SliderTrack } from './components/SliderTrack/SliderTrack';
 import styles from './Slider.module.scss';
 
 interface SliderProps {
@@ -14,33 +14,26 @@ interface SliderProps {
 	onChange: (values: number[]) => void;
 }
 
-export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
-
+export const Slider: FC<SliderProps> = ({ values, onChange, step, min, max }) => {
 	const initialValueRef = useRef<number[]>(values);
 
 	const sanitizeValues = (value: number) => {
-
 		if (value > max) {
 			return max;
 		}
 
 		return value;
-	}
+	};
 
-	const handleRenderTrack: FC<IRenderTrackParams> = ({props, children}) => {
+	const handleRenderTrack: FC<IRenderTrackParams> = ({ props, children }) => {
 		return (
-			<SliderTrack
-				min={min}
-				max={max}
-				values={values}
-				props={props}
-			>
+			<SliderTrack min={min} max={max} values={values} props={props}>
 				{children}
 			</SliderTrack>
 		);
-	}
+	};
 
-	const handleRenderThumb: FC<IRenderThumbParams> = ({props, value, index}) => {
+	const handleRenderThumb: FC<IRenderThumbParams> = ({ props, value, index }) => {
 		return (
 			<SliderThumb
 				key={index}
@@ -49,14 +42,14 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 				initialValue={initialValueRef.current?.[index]}
 			/>
 		);
-	}
+	};
 
 	return (
 		<div data-testid="slider" className={styles.container}>
 			<div className={styles.inputs}>
 				<TextField
 					type="number"
-					label='От'
+					label="От"
 					min={min}
 					max={max}
 					className={styles.input}
@@ -68,7 +61,7 @@ export const Slider: FC<SliderProps> = ({values, onChange, step, min, max}) => {
 				/>
 				<TextField
 					type="number"
-					label='До'
+					label="До"
 					min={min}
 					max={max}
 					className={styles.input}

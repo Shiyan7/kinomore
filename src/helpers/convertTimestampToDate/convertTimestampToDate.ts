@@ -3,8 +3,8 @@ import 'dayjs/locale/ru';
 dayjs.locale('ru');
 
 export function convertTimestampToDate(
-  string: string | number | Date | undefined,
-  format: string = 'DD/MM/YYYY'
+	string: string | number | Date | undefined,
+	format: string = 'DD/MM/YYYY'
 ) {
-  return dayjs(string).format(format);
+	return dayjs(string).format(format);
 }
