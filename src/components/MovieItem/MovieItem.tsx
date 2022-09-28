@@ -23,7 +23,12 @@ export const MovieItem: FC<MovieItemProps> = ({ item }) => {
 			<div className={styles.left}>
 				<Link href={`/film/${id}`}>
 					<a className={styles.imageContainer}>
-						<Image unoptimized layout="fill" src={poster.previewUrl} alt={description} />
+						<Image
+							unoptimized
+							layout="fill"
+							src={`https://st.kp.yandex.net/images/film_iphone/iphone360_${id}.jpg`}
+							alt={description}
+						/>
 					</a>
 				</Link>
 				<div className={styles.text}>

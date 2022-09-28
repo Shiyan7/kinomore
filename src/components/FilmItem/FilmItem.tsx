@@ -25,7 +25,7 @@ export const FilmItem: FC<FilmItemProps> = ({ item }) => {
 									unoptimized
 									className={styles.image}
 									layout="fill"
-									src={poster?.previewUrl}
+									src={`https://st.kp.yandex.net/images/film_iphone/iphone360_${id}.jpg`}
 									alt={description}
 								/>
 							)}
