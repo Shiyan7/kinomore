@@ -5,3 +5,12 @@
 		padding-top: 5px;
 	}
 }
+
+
+.item {
+	padding-top: 6px;
+
+	@media (max-width: 1024px) {
+		padding-top: 0;
+	}
+}
