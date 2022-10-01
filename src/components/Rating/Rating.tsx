@@ -4,7 +4,7 @@ import { FC, PropsWithChildren } from 'react';
 import styles from './Rating.module.scss';
 
 interface RatingProps {
-	rating: IMovieRating;
+	rating: IMovieRating | undefined;
 	className?: string;
 }
 
