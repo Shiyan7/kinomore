@@ -116,7 +116,7 @@ export interface IMovie {
 	poster: IMoviePoster;
 	premiere: IMoviePremiere;
 	productionCompanies: IMovieProdComp[];
-	rating: IMovieRating;
+	rating?: IMovieRating;
 	ratingMpaa: string;
 	seasonsInfo?: IMovieSeasonsInfo[];
 	sequelsAndPrequels: IMovieSequels[];

@@ -15,7 +15,7 @@ export const MainRoles: FC<MainRolesProps> = ({ roles }) => {
 			<Carousel title="Актёры" quantity={roles?.length}>
 				{roles?.map((item) => {
 					return (
-						<SwiperSlide key={item.id}>
+						<SwiperSlide className={styles.item} key={item.id}>
 							<PersonItem item={item} />
 						</SwiperSlide>
 					);

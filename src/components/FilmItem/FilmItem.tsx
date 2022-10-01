@@ -12,7 +12,7 @@ interface FilmItemProps {
 }
 
 export const FilmItem: FC<FilmItemProps> = ({ item }) => {
-	const { id, poster, description, year, name, enName, type, rating } = { ...item };
+	const { id, description, year, name, enName, type, rating } = { ...item };
 
 	return (
 		<li className={styles.item}>
@@ -20,15 +20,13 @@ export const FilmItem: FC<FilmItemProps> = ({ item }) => {
 				<Link href={`/film/${id}`}>
 					<Ratio ratio={2 / 3}>
 						<a className={styles.imageContainer}>
-							{poster && (
-								<Image
-									unoptimized
-									className={styles.image}
-									layout="fill"
-									src={`https://st.kp.yandex.net/images/film_iphone/iphone360_${id}.jpg`}
-									alt={description}
-								/>
-							)}
+							<Image
+								unoptimized
+								className={styles.image}
+								layout="fill"
+								src={`https://st.kp.yandex.net/images/film_iphone/iphone360_${id}.jpg`}
+								alt={description}
+							/>
 						</a>
 					</Ratio>
 				</Link>

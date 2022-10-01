@@ -10,12 +10,16 @@ interface PersonMoviesProps {
 }
 
 export const PersonMovies: FC<PersonMoviesProps> = ({ movies }) => {
+	console.log(movies);
+
 	return (
 		<div className={styles.container}>
 			<Carousel title="Фильмы и сериалы" quantity={movies?.length}>
-				{movies?.map((item) => {
+				{movies?.map((el, idx) => {
+					const { rating, ...item } = el;
+
 					return (
-						<SwiperSlide key={item.id}>
+						<SwiperSlide className={styles.item} key={idx}>
 							<FilmItem item={item} />
 						</SwiperSlide>
 					);

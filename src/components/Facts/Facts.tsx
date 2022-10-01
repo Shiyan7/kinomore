@@ -10,7 +10,7 @@ interface FilmFactsProps {
 
 export const Facts: FC<FilmFactsProps> = ({ facts }) => {
 	return (
-		<>
+		<div className={styles.container}>
 			<Title variant="h2" className={styles.title}>
 				Знаете ли вы, что…
 			</Title>
@@ -23,6 +23,6 @@ export const Facts: FC<FilmFactsProps> = ({ facts }) => {
 					/>
 				))}
 			</ul>
-		</>
+		</div>
 	);
 };
