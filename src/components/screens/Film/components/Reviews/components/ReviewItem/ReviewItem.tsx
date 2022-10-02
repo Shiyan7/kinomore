@@ -20,7 +20,10 @@ export const ReviewItem: FC<ReviewItemProps> = ({ item }) => {
 		<div className={classNames(styles.item)} style={{ backgroundColor: color }}>
 			<div className={styles.content}>
 				{title && <h3 className={styles.title}>{title}</h3>}
-				<p className={classNames(styles.review, isTruncated && styles.truncated)}>{review}</p>
+				<p
+					className={classNames(styles.review, isTruncated && styles.truncated)}
+					dangerouslySetInnerHTML={{ __html: review }}
+				></p>
 				<ButtonBase
 					ripple
 					animationDuration={400}
