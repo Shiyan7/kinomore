@@ -7,7 +7,6 @@
 	background-color: var(--color-dark);
 
 	@media (max-width: 768px) {
-		background-color: var(--color-light-dark);
 	}
 }
 
@@ -24,6 +23,10 @@
 	@media (max-width: 768px) {
 		display: flex;
 		justify-content: flex-start;
+		padding: 22px var(--container-offset);
+	}
+
+	@media (max-width: 576px) {
 		padding: 17px var(--container-offset);
 	}
 }
