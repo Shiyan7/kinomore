@@ -1,5 +1,9 @@
 .footer {
 	background-color: var(--color-dark);
+
+	@media (max-width: 1024px) {
+		background-color: var(--color-light-dark);
+	}
 }
 
 .container {
