@@ -79,7 +79,7 @@ a {
 
 #nprogress {
 	position: absolute;
-	z-index: 10000;
+	z-index: 1000;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -102,4 +102,8 @@ a {
 
 .swiper-button-disabled.swiper-button-lock {
 	display: none;
+}
+
+.lg-on {
+	overflow: hidden;
 }

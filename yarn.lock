@@ -8659,6 +8659,11 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
+lightgallery@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/lightgallery/-/lightgallery-2.6.1.tgz#b6ace61cc7b5f0567c1d0b002beeb69b2df01ae9"
+  integrity sha512-Lwcr4uEqzTBP3u7FurJo+kBT2BuNMXgFpP1iCwbS+5uSXHyzApolUwAm9TmQ7lLpTMVPIti5a5wwQNplw769ZQ==
+
 lines-and-columns@^1.1.6:
   version "1.2.4"
   resolved "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz"

@@ -6,7 +6,7 @@
     }
 }
 
-.grid {
+.wrapper {
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(3, 1fr);
@@ -26,6 +26,7 @@
 }
 
 .item {
+    display: block;
     position: relative;
     width: 100%;
     overflow: hidden;
