@@ -10,6 +10,7 @@ import { FiPlay } from 'react-icons/fi';
 import { Reviews, MovieFavorite, SimilarMovies, FilmTabs, FilmInfo } from './components';
 import classNames from 'classnames';
 import styles from './Film.module.scss';
+import Head from 'next/head';
 
 export const Film = () => {
 	const {
@@ -17,12 +18,36 @@ export const Film = () => {
 		query: { id },
 	} = useRouter();
 	const { data, isLoading, isError } = useGetFilmByIdQuery(id);
-	const { alternativeName, name, type, shortDescription, year, rating, similarMovies } = { ...data };
-	const movieTitle = name ? name : isLoading ? 'Загрузка' : 'Без названия';
-	const movieYear = year && `(${year})`;
+	const {
+		alternativeName,
+		name,
+		type,
+		poster,
+		description,
+		shortDescription,
+		year,
+		rating,
+		similarMovies,
+	} = {
+		...data,
+	};
+	const filmTitle = name ? name : isLoading ? 'Загрузка' : 'Без названия';
+	const filmYear = year ? `(${year})` : '';
+
+	const titlePath = convertMovieType(type);
+	const title = titlePath[0].toUpperCase() + titlePath.substring(1);
 
 	return (
 		<section className={styles.section}>
+			<Head>
+				<meta name="description" content={description} />
+				<title>
+					{title} {name} ({year}) смотреть онлайн бесплатно в хорошем HD 1080 / 720 качестве
+				</title>
+				<meta property="og:title" content={`${name} (${year})`} />
+				<meta property="og:description" content={description} />
+				<meta property="og:image" content={poster?.url} />
+			</Head>
 			<div className={classNames('container wrapper', styles.container)}>
 				<div className={styles.top}>
 					<BackButton />
@@ -34,7 +59,7 @@ export const Film = () => {
 					</div>
 					<div className={styles.right}>
 						<Title className={styles.title} variant="h1">
-							{movieTitle} {movieYear}
+							{filmTitle} {filmYear}
 						</Title>
 						<span className={styles.originalTitle}>{alternativeName}</span>
 						<div className={styles.btns}>

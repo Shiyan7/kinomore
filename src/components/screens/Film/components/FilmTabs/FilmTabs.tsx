@@ -36,7 +36,7 @@ export const FilmTabs: FC<FilmTabsProps> = ({ data }) => {
 		{
 			txt: 'Описание',
 			content: <p className={styles.desc}>{description}</p>,
-			condition: description?.length,
+			condition: description,
 		},
 		{ txt: 'Актёры', content: <MainRoles roles={roles} />, condition: roles?.length },
 		{ txt: 'Факты', content: <Facts facts={facts} />, condition: facts?.length },
