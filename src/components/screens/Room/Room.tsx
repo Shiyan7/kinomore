@@ -4,12 +4,15 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { RoomHeader } from './components/RoomHeader/RoomHeader';
 import styles from './Room.module.scss';
+import Head from 'next/head';
 
 export const Room = () => {
 	const {
 		query: { id },
 	} = useRouter();
 	const { data } = useGetFilmByIdQuery(id);
+
+	const { description, year, name, poster } = { ...data };
 
 	useEffect(() => {
 		const script = document.createElement('script');
@@ -23,8 +26,17 @@ export const Room = () => {
 
 	return (
 		<section className={styles.content}>
+			<Head>
+				<meta name="description" content={description} />
+				<title>
+					{name} ({year}) смотреть онлайн бесплатно в хорошем HD 1080 / 720 качестве
+				</title>
+				<meta property="og:title" content={`${name} (${year})`} />
+				<meta property="og:description" content={description} />
+				<meta property="og:image" content={poster?.url} />
+			</Head>
 			<div className={styles.left}>
-				<RoomHeader title={data?.name} />
+				<RoomHeader title={name} />
 				<div className={styles.videoContainer}>
 					<div
 						className={styles.video}
