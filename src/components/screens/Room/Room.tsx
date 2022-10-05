@@ -3,8 +3,8 @@ import { useGetFilmByIdQuery } from '@/services/KinomoreService';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { RoomHeader } from './components/RoomHeader/RoomHeader';
-import styles from './Room.module.scss';
 import Head from 'next/head';
+import styles from './Room.module.scss';
 
 export const Room = () => {
 	const {
@@ -44,7 +44,7 @@ export const Room = () => {
 						data-resize="1"
 						data-bg="#000"
 						data-kinopoisk={id}
-					></div>
+					/>
 				</div>
 			</div>
 			<Chat />

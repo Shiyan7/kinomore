@@ -5,6 +5,7 @@ import { Catalog } from '@/components/Catalog/Catalog';
 import { Filters } from '@/components/Filters/Filters';
 import { RoutesEnum } from '@/constants/routes';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export const SearchResults = () => {
 	const {
@@ -18,6 +19,9 @@ export const SearchResults = () => {
 
 	return (
 		<Catalog>
+			<Head>
+				<title>Результаты поиска по запросу: {id}</title>
+			</Head>
 			<Container>
 				<Heading>Результаты поиска по запросу: {id}</Heading>
 				<Description>

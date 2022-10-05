@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import NextLink from 'next/link';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 export const SignUp = () => {
 	const { push } = useRouter();
@@ -43,6 +44,9 @@ export const SignUp = () => {
 
 	return (
 		<Auth onSubmit={handleRegister}>
+			<Head>
+				<title>Зарегистрироватся</title>
+			</Head>
 			<Heading>Регистрация</Heading>
 			<Inputs>
 				<Controller

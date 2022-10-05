@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/router';
 import NextLink from 'next/link';
 import * as Yup from 'yup';
+import Head from 'next/head';
 
 export const SignIn = () => {
 	const { push } = useRouter();
@@ -36,6 +37,9 @@ export const SignIn = () => {
 
 	return (
 		<Auth onSubmit={handleLogin}>
+			<Head>
+				<title>Войти</title>
+			</Head>
 			<Heading>Вход</Heading>
 			<Controller
 				name="email"

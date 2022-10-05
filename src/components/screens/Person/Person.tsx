@@ -6,6 +6,7 @@ import { useGetPersonByIdQuery } from '@/services/KinomoreService';
 import { PersonInfo, PersonTabs } from './components';
 import styles from './Person.module.scss';
 import classNames from 'classnames';
+import Head from 'next/head';
 
 export const Person = () => {
 	const {
@@ -16,6 +17,13 @@ export const Person = () => {
 
 	return (
 		<section className={styles.section}>
+			<Head>
+				<meta name="description" content={enName} />
+				<title>{name}</title>
+				<meta property="og:title" content={name} />
+				<meta property="og:description" content={enName} />
+				<meta property="og:image" content={photo} />
+			</Head>
 			<div className={classNames('container wrapper', styles.container)}>
 				<div className={styles.top}>
 					<BackButton />

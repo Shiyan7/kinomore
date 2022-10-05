@@ -3,6 +3,7 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { Catalog } from '@/components/Catalog/Catalog';
 import { Filters } from '@/components/Filters/Filters';
 import { useFavourites } from '@/hooks/useFavourite';
+import Head from 'next/head';
 
 export const Favourites = () => {
 	const { favourites } = useFavourites();
@@ -15,6 +16,9 @@ export const Favourites = () => {
 
 	return (
 		<Catalog>
+			<Head>
+				<title>Избранное</title>
+			</Head>
 			<Container>
 				<Heading>Избранное</Heading>
 				<Description>Список избранного кино</Description>
