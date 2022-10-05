@@ -1,51 +1,51 @@
 .container {
-    padding-top: 15px;
+	padding-top: 15px;
 
-    @media (max-width: 576px) {
-        padding-top: 10px;
-    }
+	@media (max-width: 576px) {
+		padding-top: 10px;
+	}
 }
 
 .wrapper {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(3, 1fr);
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(3, 1fr);
 
-    @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
+	@media (max-width: 1024px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
 
-    @media (max-width: 576px) {
-        gap: 8px;
-    }
+	@media (max-width: 576px) {
+		gap: 8px;
+	}
 
-    @media (max-width: 420px) {
-        gap: 15px;
-        grid-template-columns: repeat(1, 1fr);
-    }
+	@media (max-width: 420px) {
+		gap: 15px;
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 .item {
-    display: block;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    background-color: #f1f1f1;
+	display: block;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	background-color: #f1f1f1;
 
-    @media (max-width: 576px) {
-        padding-bottom: 70%;
-    }
+	@media (max-width: 576px) {
+		padding-bottom: 70%;
+	}
 
-    @media (max-width: 420px) {
-        padding-bottom: 60%;
-    }
+	@media (max-width: 420px) {
+		padding-bottom: 60%;
+	}
 }
 .title {
 	font-size: 26px;
 	line-height: 30px;
 	font-weight: 700;
-    margin-bottom: 40px;
+	margin-bottom: 40px;
 
 	@media (max-width: 576px) {
 		margin-bottom: 25px;
@@ -68,6 +68,6 @@
 }
 
 .btn {
-    display: block;
-    margin: 40px auto 0;
+	display: block;
+	margin: 40px auto 0;
 }

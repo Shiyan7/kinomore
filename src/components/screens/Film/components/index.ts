@@ -6,4 +6,4 @@ import { MainRoles } from './MainRoles/MainRoles';
 import { FilmTabs } from './FilmTabs/FilmTabs';
 import { FilmInfo } from './FilmInfo/FilmInfo';
 
-export {Reviews, Images, MovieFavorite, SimilarMovies, MainRoles, FilmTabs, FilmInfo}
+export { Reviews, Images, MovieFavorite, SimilarMovies, MainRoles, FilmTabs, FilmInfo };

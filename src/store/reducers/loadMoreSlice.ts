@@ -17,8 +17,8 @@ export const loadSlice = createSlice({
 			state.seriesLimit += 10;
 		},
 		loadMoreImages: (state) => {
-			state.imagesLimit += 9
-		}
+			state.imagesLimit += 9;
+		},
 	},
 });
 

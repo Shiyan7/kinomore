@@ -55,8 +55,9 @@ export const kinomoreAPI = createApi({
 				`/review?search=${id}&field=movieId&limit=${limit}&token=${API_KEY}`,
 		}),
 		getMovieImages: build.query<IImages, IBaseQuery>({
-			query: ({id, limit}) => `/image?search=${id}&field=movieId&limit=${limit}&token=${API_KEY}`
-		})
+			query: ({ id, limit }) =>
+				`/image?search=${id}&field=movieId&limit=${limit}&token=${API_KEY}`,
+		}),
 	}),
 });
 
@@ -72,7 +73,7 @@ export const {
 	useGetFavouritesQuery,
 	useGetFilmsBySearchQuery,
 	useGetReviewsByIdQuery,
-	useGetMovieImagesQuery
+	useGetMovieImagesQuery,
 } = kinomoreAPI;
 
 export const {
