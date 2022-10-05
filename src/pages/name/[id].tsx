@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { getPersonById } from '@/services/KinomoreService';
 import { initStore } from '@/store/store';
-import { Person } from '@/components/screens/Person/Person';
+import { Person } from '@/screens/Person/Person';
 import { Layout } from '@/components/Layout/Layout';
 
 const PersonPage: NextPage = () => {

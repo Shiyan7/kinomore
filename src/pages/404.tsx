@@ -1,4 +1,4 @@
-import { NotFound } from '@/components/screens/NotFound/NotFound';
+import { NotFound } from '@/screens/NotFound/NotFound';
 import { Layout } from '@/components/Layout/Layout';
 
 const page404 = () => {

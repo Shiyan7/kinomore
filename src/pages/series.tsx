@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import { getSeries } from '@/services/KinomoreService';
 import { initStore } from '@/store/store';
-import { Series } from '@/components/screens/Series/Series';
+import { Series } from '@/screens/Series/Series';
 import { Layout } from '@/components/Layout/Layout';
 
 const SeriesPage: NextPage = () => {

@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
-import { Home } from '@/components/screens/Home/Home';
+import { Hero, NewFilms, NewSeries } from '@/screens/Home/index';
 import { Layout } from '@/components/Layout/Layout';
 import { initStore } from '@/store/store';
 import { getNewFilms, getNewSeries } from '@/services/KinomoreService';
@@ -7,7 +7,9 @@ import { getNewFilms, getNewSeries } from '@/services/KinomoreService';
 const Index: NextPage = () => {
 	return (
 		<Layout>
-			<Home />
+			<Hero />
+			<NewFilms />
+			<NewSeries />
 		</Layout>
 	);
 };

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { IImages } from '@/types/IImages';
-import { Title } from '@/components/UI/Title/Title';
+import { Title } from '@/UI/Title/Title';
 import { LoadMoreButton } from '@/components/LoadMoreButton/LoadMoreButton';
 import { useActions } from '@/hooks/useActions';
 import LightGallery from 'lightgallery/react';

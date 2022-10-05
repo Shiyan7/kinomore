@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useGetReviewsByIdQuery } from '@/services/KinomoreService';
 import { LoadMoreButton } from '@/components/LoadMoreButton/LoadMoreButton';
-import { Spinner, SpinnerSizes } from '@/components/UI/Spinner/Spinner';
+import { Spinner, SpinnerSizes } from '@/UI/Spinner/Spinner';
 import { ReviewItem } from './components/ReviewItem/ReviewItem';
 import styles from './Reviews.module.scss';
 

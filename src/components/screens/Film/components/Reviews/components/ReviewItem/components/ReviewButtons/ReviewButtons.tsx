@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ButtonBase } from '@/components/UI/ButtonBase/ButtonBase';
+import { ButtonBase } from '@/UI/ButtonBase/ButtonBase';
 import { BiLike, BiDislike } from 'react-icons/bi';
 import styles from './ReviewButtons.module.scss';
 import classNames from 'classnames';

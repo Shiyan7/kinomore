@@ -18,6 +18,7 @@
 		"paths": {
 			"@/helpers/*": ["src/helpers/*"],
 			"@/types/*": ["src/types/*"],
+			"@/screens/*": ["src/components/screens/*"],
 			"@/components/*": ["src/components/*"],
 			"@/UI/*": ["src/components/UI/*"],
 			"@/services/*": ["src/services/*"],

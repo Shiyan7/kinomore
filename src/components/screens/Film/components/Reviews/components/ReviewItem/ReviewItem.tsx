@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { ButtonBase } from '@/components/UI/ButtonBase/ButtonBase';
+import { ButtonBase } from '@/UI/ButtonBase/ButtonBase';
 import { getReviewColor } from '@/helpers/getReviewColor/getReviewColor';
 import { IReview } from '@/types/IReview';
 import { convertTimestampToDate } from '@/helpers/convertTimestampToDate/convertTimestampToDate';
