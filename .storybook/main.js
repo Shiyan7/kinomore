@@ -9,7 +9,7 @@ module.exports = {
 			options: {
 				sassLoaderOptions: {
 					additionalData:
-						'@import "./src/scss/vars.scss"; @import "./src/scss/mixins.scss"; @import "./src/scss/global.scss";',
+						'@import "./src/styles/vars.scss"; @import "./src/styles/mixins.scss"; @import "./src/styles/global.scss";',
 				},
 			},
 		},

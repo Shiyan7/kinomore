@@ -22,7 +22,7 @@
 			"@/UI/*": ["src/components/UI/*"],
 			"@/services/*": ["src/services/*"],
 			"@/store/*": ["src/store/*"],
-			"@/scss/*": ["src/scss/*"],
+			"@/styles/*": ["src/styles/*"],
 			"@/constants/*": ["src/constants/*"],
 			"@/hooks/*": ["src/hooks/*"]
 		}

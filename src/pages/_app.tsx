@@ -1,5 +1,5 @@
 import 'normalize.css';
-import '@/scss/main.scss';
+import '@/styles/main.scss';
 import type { AppProps } from 'next/app';
 import { useStore } from '@/store/store';
 import { Provider } from 'react-redux';
