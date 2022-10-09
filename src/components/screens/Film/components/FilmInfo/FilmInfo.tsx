@@ -12,8 +12,7 @@ interface FilmInfoProps {
 export const FilmInfo: FC<FilmInfoProps> = ({ data }) => {
 	const { countries, genres, slogan, budget, ageRating, movieLength, fees, premiere } = { ...data };
 
-	/* @ts-ignore */
-	const worldFees = fees?.world?.value - fees?.usa?.value;
+	const worldFees = Number(fees?.world?.value) - Number(fees?.usa?.value);
 
 	const items = [
 		{
@@ -51,14 +50,14 @@ export const FilmInfo: FC<FilmInfoProps> = ({ data }) => {
 		{
 			caption: 'Сборы в США',
 			value: `${fees?.usa?.currency} ${convertNumbers(fees?.usa?.value)}`,
-			condition: fees?.usa.currency,
+			condition: fees?.usa?.currency,
 		},
 		{
 			caption: 'Сборы в мире',
 			value: `+ ${fees?.world?.currency} ${convertNumbers(worldFees)} = ${
 				fees?.world?.currency
 			} ${convertNumbers(fees?.world?.value)}`,
-			condition: fees?.usa.currency,
+			condition: fees?.usa?.currency,
 		},
 		{
 			caption: 'Премьера в мире',
