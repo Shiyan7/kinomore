@@ -26,7 +26,7 @@ export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(
 	) => {
 		const buttonRef = useRef<HTMLButtonElement>(null);
 		const commonRef = ref || buttonRef;
-		
+
 		/* @ts-ignore */
 		useRipple(commonRef, { disabled: !ripple, animationLength: animationDuration });
 
