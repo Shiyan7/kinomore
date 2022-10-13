@@ -17,7 +17,7 @@ export const PersonItem: FC<PersonItemProps> = ({ item }) => {
 			<Link href={`/name/${id}`}>
 				<Ratio ratio={2 / 3}>
 					<a className={styles.image}>
-						<Image unoptimized layout="fill" alt={name} src={photo} />
+						<Image layout="fill" alt={name} src={photo} />
 					</a>
 				</Ratio>
 			</Link>

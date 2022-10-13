@@ -12,7 +12,7 @@ export const Logo: FC<LogoProps> = ({ className }) => {
 	return (
 		<Link href="/">
 			<a className={classNames(styles.logo, className)}>
-				<Image unoptimized layout="fill" src="/logo.svg" alt="Kinomore" />
+				<Image layout="fill" src="/logo.svg" alt="Kinomore" />
 			</a>
 		</Link>
 	);

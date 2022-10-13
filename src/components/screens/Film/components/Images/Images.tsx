@@ -36,7 +36,7 @@ export const Images: FC<ImagesProps> = ({ data, isFetching }) => {
 				{docs?.map((image, idx) => {
 					return (
 						<a className={styles.item} key={idx} href={image.url}>
-							<Image unoptimized layout="fill" className={styles.image} src={image.url} alt="" />
+							<Image layout="fill" className={styles.image} src={image.url} alt="" />
 						</a>
 					);
 				})}

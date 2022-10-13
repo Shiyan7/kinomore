@@ -19,7 +19,6 @@ export const SearchItem: FC<SearchItemProps> = ({ item }) => {
 				<div className={styles.left}>
 					<div className={styles.imageContainer}>
 						<Image
-							unoptimized
 							layout="fill"
 							src={`https://st.kp.yandex.net/images/film_iphone/iphone360_${id}.jpg`}
 							alt={description}

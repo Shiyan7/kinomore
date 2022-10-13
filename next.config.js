@@ -4,6 +4,11 @@ const withPlugins = require('next-compose-plugins');
 require('dotenv').config();
 
 const nextConfig = {
+	experimental: {
+		images: {
+			unoptimized: true,
+		},
+	},
 	images: {
 		domains: ['st.kp.yandex.net', 'avatars.mds.yandex.net', 'www.themoviedb.org'],
 	},

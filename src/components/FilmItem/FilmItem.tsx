@@ -21,7 +21,6 @@ export const FilmItem: FC<FilmItemProps> = ({ item }) => {
 					<Ratio ratio={2 / 3}>
 						<a className={styles.imageContainer}>
 							<Image
-								unoptimized
 								className={styles.image}
 								layout="fill"
 								src={`https://st.kp.yandex.net/images/film_iphone/iphone360_${id}.jpg`}
