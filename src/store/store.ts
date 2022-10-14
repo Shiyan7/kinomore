@@ -8,6 +8,8 @@ import { filtersReducer } from './reducers/filtersSlice';
 import { toggleReducer } from './reducers/toggleSlice';
 import { useMemo } from 'react';
 
+/* ToDo: Переписать на effector */
+
 let store: AppStore;
 
 export const initStore = (preloadedState = {}) => {
