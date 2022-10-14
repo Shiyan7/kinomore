@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
-		"start": "next start -p $PORT",
+		"start": "next start",
 		"test": "jest --watch",
 		"lint": "next lint",
 		"format": "prettier ./.prettierrc --write .",
