@@ -6,7 +6,6 @@
     "scope": "/",
     "start_url": "/?source=pwa",
     "display": "standalone",
-    "orientation": "portrait",
     "icons": [
       {
         "src": "icons/icon-72x72.png",
