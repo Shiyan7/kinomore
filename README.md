@@ -15,6 +15,6 @@ Front-end приложение для поиска и просмотра фил�
 -   Testing Library
 -   Storybook
 
-# API
+# Kinopoisk API
 
 Подробная документация [https://kinopoisk.dev/documentation.html](https://kinopoisk.dev/documentation.html)
