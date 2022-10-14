@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { ButtonHTMLAttributes, memo } from 'react';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
 import { FiChevronLeft } from 'react-icons/fi';
 import { ButtonBase } from '@/UI/ButtonBase/ButtonBase';
 import styles from './BackButton.module.scss';
@@ -9,7 +9,7 @@ interface BackButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: 'icon';
 }
 
-export const BackButton = memo<BackButtonProps>(({ className, variant, ...props }) => {
+export const BackButton: FC<BackButtonProps> = ({ className, variant, ...props }) => {
 	const router = useRouter();
 	const handleBack = () => router.back();
 
@@ -23,6 +23,4 @@ export const BackButton = memo<BackButtonProps>(({ className, variant, ...props 
 			{variant === 'icon' ? <FiChevronLeft /> : 'Назад'}
 		</ButtonBase>
 	);
-});
-
-BackButton.displayName = 'BackButton';
+};

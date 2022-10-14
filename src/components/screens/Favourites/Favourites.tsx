@@ -7,9 +7,9 @@ import Head from 'next/head';
 
 export const Favourites = () => {
 	const { favourites } = useFavourites();
-	const query = favourites.map((el) => `search=${el}&field=id`).join('&');
 	const { filters } = useTypedSelector((state) => state.filtersReducer);
 	const { page } = useTypedSelector((state) => state.paginationReducer);
+	const query = favourites.map((el) => `search=${el}&field=id`).join('&');
 	const { data, isLoading, isFetching } = useGetFavouritesQuery({ page, filters, query });
 
 	const { Container, Heading, Description, Body, Content, Subtitle } = Catalog;
