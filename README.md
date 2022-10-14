@@ -1,6 +1,6 @@
 # Kinomore
 
-Front-end приложение для поиска и просмотра фильмов. Демо: [https://kinomore.vercel.app/](https://kinomore.vercel.app/)
+Front-end приложение для поиска и просмотра фильмов. Демо: [https://kinomore.netlify.app/](https://kinomore.netlify.app/)
 
 # Стек технологий:
 
