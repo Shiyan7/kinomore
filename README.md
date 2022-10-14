@@ -1,6 +1,6 @@
 # Kinomore
 
-Front-end приложение для поиска и просмотра фильмов. Демо: [https://kino-more.vercel.app/](https://kino-more.vercel.app/)
+Front-end приложение для поиска и просмотра фильмов. Демо: [https://kinomore.herokuapp.com/](https://kinomore.herokuapp.com/)
 
 # Стек технологий:
 
@@ -15,6 +15,6 @@ Front-end приложение для поиска и просмотра фил�
 -   Testing Library
 -   Storybook
 
-# Kinopoisk API
+# API
 
 Подробная документация [https://kinopoisk.dev/documentation.html](https://kinopoisk.dev/documentation.html)
