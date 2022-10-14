@@ -1,6 +1,6 @@
 # Kinomore
 
-Front-end приложение для поиска и просмотра фильмов. Демо: [https://kinomore.herokuapp.com/](https://kinomore.herokuapp.com/)
+Front-end приложение для поиска и просмотра фильмов. Демо: [https://kinomore.netlify.com/](https://kinomore.netlify.com/)
 
 # Стек технологий:
 
