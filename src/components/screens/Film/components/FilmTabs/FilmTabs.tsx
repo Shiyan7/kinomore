@@ -38,12 +38,12 @@ export const FilmTabs: FC<FilmTabsProps> = ({ data }) => {
 			content: <p className={styles.desc}>{description}</p>,
 			condition: description,
 		},
-		{ txt: 'Актёры', content: <MainRoles roles={roles} />, condition: roles?.length },
-		{ txt: 'Факты', content: <Facts facts={facts} />, condition: facts?.length },
+		{ txt: 'Актёры', content: <MainRoles roles={roles} />, condition: roles?.length! > 0 },
+		{ txt: 'Факты', content: <Facts facts={facts} />, condition: facts?.length! > 0 },
 		{
 			txt: 'Изображения',
 			content: <Images isFetching={imagesFetching} data={images} />,
-			condition: images?.docs?.length,
+			condition: images?.docs.length! > 0,
 		},
 	];
 
